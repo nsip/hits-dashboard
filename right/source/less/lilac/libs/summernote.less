@@ -1,0 +1,27 @@
+.note-editor {
+  overflow: visible;
+  margin-bottom: 0;
+
+  .note-toolbar {
+    padding: 5px 10px 10px;
+    background-color: @gray-dark;
+    border: 0;
+  }
+
+  .note-editing-area .note-editable {
+    background-color: @gray-dark;
+    color: @gray-text;
+  }
+
+  .note-statusbar {
+    background-color: @gray-dark;
+
+    .note-resizebar  .note-icon-bar {
+      border-top: 1px solid @gray-ui;
+    }
+  }
+
+  .note-toolbar.panel-heading {
+    background-color: fade(@back, 50%);
+  }
+}

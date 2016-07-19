@@ -1,0 +1,31 @@
+
+.no-padding {
+  padding: 0;
+}
+
+.half-padding {
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+
+  [class^="col-"] {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+  }
+}
+
+.padding {
+  padding-right: 15px;
+  padding-left: 15px;
+
+  [class^="col-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.float-right {
+
+  &>.row>[class^="col-"] {
+    float: right;
+  }
+}

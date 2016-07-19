@@ -1,0 +1,72 @@
+.CodeMirror {
+
+  .CodeMirror-lines {
+    padding: 4px;
+  }
+}
+
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+  position: absolute;
+  border-radius: 0;
+  background-color: @red;
+  box-sizing: border-box;
+  border: 0;
+}
+
+.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+  position: absolute;
+  z-index: 6;
+  background: #322931;
+}
+
+.CodeMirror-simplescroll-horizontal {
+  bottom: 0; left: 0;
+  height: 7px;
+}
+.CodeMirror-simplescroll-horizontal div {
+  bottom: 0;
+  height: 3px;
+}
+
+.CodeMirror-simplescroll-vertical {
+  right: 0; top: 0;
+  width: 7px;
+}
+.CodeMirror-simplescroll-vertical div {
+  right: 0;
+  width: 3px;
+}
+
+
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+  display: none !important;
+}
+
+.CodeMirror-overlayscroll-horizontal div, .CodeMirror-overlayscroll-vertical div {
+  position: absolute;
+  background: @red;
+  border-radius: 0px;
+}
+
+.CodeMirror-overlayscroll-horizontal, .CodeMirror-overlayscroll-vertical {
+  position: absolute;
+  z-index: 6;
+}
+
+.CodeMirror-overlayscroll-horizontal {
+  bottom: 0; left: 0;
+  height: 3px;
+}
+.CodeMirror-overlayscroll-horizontal div {
+  bottom: 0;
+  height: 100%;
+}
+
+.CodeMirror-overlayscroll-vertical {
+  right: 0; top: 0;
+  width: 3px;
+}
+.CodeMirror-overlayscroll-vertical div {
+  right: 0;
+  width: 100%;
+}

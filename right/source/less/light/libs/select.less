@@ -1,0 +1,41 @@
+select {
+  option {
+    background-color: #fff;
+    border-color: @smoke-dark;
+  }
+}
+
+.bootstrap-select {
+  width: 100%;
+  color: @gray-text;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+
+  .dropdown-toggle.btn-default, .dropdown-toggle.btn-default:hover {
+    border: 1px solid @smoke-dark;
+    background-color: #fff;
+    box-shadow: none;
+    outline: none !important;
+  }
+
+  &.open>.dropdown-toggle.btn-default,
+  &.open>.dropdown-toggle.btn-default:hover,
+  .dropdown-toggle.btn-default.active,
+  .dropdown-toggle.btn-default:active,
+  .dropdown-toggle.btn-default:focus {
+    background-color: #fff;
+    border: 1px solid @smoke-dark;
+    box-shadow: 0 0 3px @smoke-dark;
+    outline: none !important;
+  }
+
+
+  .dropdown-menu li a {
+    outline: none !important;
+  }
+
+  &.input-group-btn {
+    float: left;
+  }
+}

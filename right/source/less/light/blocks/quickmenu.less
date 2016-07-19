@@ -1,0 +1,51 @@
+.quickmenu {
+  background-color: transparent;
+  min-width: 200px;
+
+  &__cont {}
+
+  &__list {
+    overflow: hidden;
+  }
+
+  &__item {
+    float: left;
+    width: 20%;
+    color: @gray-text;
+    height: 36px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    max-height: 100%;
+    position: relative;
+
+    &:hover {
+      background-color: transparent;
+      color: darken(@gray-text, 20%);
+    }
+
+    &.active {
+      background-color: transparent;
+      color: darken(@gray-text, 20%);
+      border-bottom: 2px solid @red;
+    }
+
+    &.new {
+      &:after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: @red;
+        position: absolute;
+        top: 7px;
+        right: 7px;
+      }
+    }
+
+    .fa {
+      line-height: 36px;
+    }
+  }
+}

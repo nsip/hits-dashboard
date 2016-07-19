@@ -1,0 +1,114 @@
+.header-navbar {
+  margin-bottom: 0;
+  border: 0;
+  position: absolute;
+  top:0;
+  width: 100%;
+  background-color: transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .navbar-header, .topnavbar {
+
+    .screen-sm({
+      display: none !important;
+    });
+  }
+
+  .navbar-header {
+    position: relative;
+    background-color: transparent;
+  }
+
+  .navbar-brand {
+    padding: 0;
+    height: auto;
+    width: 200px;
+    border-right: 1px solid @smoke-light;
+  }
+
+  .topnavbar {
+    float: left;
+    width: 100%;
+    padding-left: 200px;
+    margin-left: -200px;
+  }
+  .userbar {
+    float: right;
+  }
+
+  .nav>li>a {
+    background-color: transparent;
+    display: block;
+    height: 75px;
+    padding: 10px 5px;
+    .valign;
+
+    &>span {
+      color: @gray-ui;
+      padding: 0 10px;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+  }
+
+  .nav>li.active,
+  .nav>li:hover,
+  .nav>li:focus,
+  .nav>li.open {
+    background-color: transparent;
+
+    a>span {
+      color: #333;
+      font-weight: 500;
+    }
+  }
+
+  .nav .open>a,
+  .nav .open>a:focus,
+  .nav .open>a:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.header-navbar-mobile {
+  display: none;
+  padding: 15px;
+
+  .screen-sm({
+    display: block;
+  });
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  &__menu {
+    float: left;
+    position: relative;
+  }
+
+  &__title {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+    margin: 0 -40px;
+    color: @gray-text;
+    text-align: center;
+    line-height: 34px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__settings {
+    float: left;
+    position: relative;
+  }
+}

@@ -1,0 +1,123 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Compose';
+block main
+    .mailbox
+        .container-fluid.half-padding
+            .row
+                .col-md-9
+                    .mailbox-compose
+                        .mailbox-compose__head
+                            .mailbox-compose__title Compose mail
+                            .mailbox-compose__actions
+                                .mailbox-compose__action
+                                    i.fa.fa-fw.fa-file-text-o(title='Save as Draft')
+                                .mailbox-compose__action
+                                    i.fa.fa-fw.fa-undo(title='Discard')
+                        form.mailbox-compose__form
+                            .form-group
+                                label.control-label Subject:
+                                input.form-control(type="text", placeholder="Say Hello")
+                            .form-group
+                                label.control-label To:
+                                input.form-control.selectize_to(type='text', value='payne@indie.com,watsonq@webs.com')
+                            .mailbox-compose__text
+                                .summernote
+                            .mailbox-compose__submit
+                                button.btn.btn-info.btn-sm(type='submit') Send
+                                button.btn.btn-danger.btn-sm(type='submit') Discard
+                                button.btn.btn-default.btn-sm(type='submit') Draft
+
+                .col-md-3
+                    .mailbox-contacts
+                        .mailbox__head
+                            .mailbox__title
+                                span Contacts
+                        .mailbox__search
+                            input.form-control(type='text', placeholder='Search contact')
+                        .mailbox-contacts__list.scrollable.scrollbar-macosx
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Julie Payne
+                                    .mailbox-contacts__email payne@indie.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Support
+                                    .mailbox-contacts__email support@adminbootstrap.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Stephen Olson
+                                    .mailbox-contacts__email watsonq@webs.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Stewart Banch
+                                    .mailbox-contacts__email stewart@wufoo.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Jean Romero
+                                    .mailbox-contacts__email jromero@gmail.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Richy Bordello
+                                    .mailbox-contacts__email admin@drupal.org
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Ronald Fisher
+                                    .mailbox-contacts__email rfish@gmail.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Marie Pierce
+                                    .mailbox-contacts__email encer1p@paypal.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Tammy Ross
+                                    .mailbox-contacts__email trossl@admin.ch
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Jesse Shaw
+                                    .mailbox-contacts__email jshaw0@discuz.net
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Chris Morales
+                                    .mailbox-contacts__email cmorales1@squidoo.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Paula Bell
+                                    .mailbox-contacts__email pbell2@php.net
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Denise Jenkins
+                                    .mailbox-contacts__email djenkins3@gravatar.com
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Betty Ray
+                                    .mailbox-contacts__email brayg@last.fm
+                            .mailbox-contacts__item
+                                .mailbox-contacts__photo
+                                .mailbox-contacts__info
+                                    .mailbox-contacts__name Fred Hayes
+                                    .mailbox-contacts__email fhayes13@cdc.gov
+block css
+    link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.default.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.bootstrap3.css', rel='stylesheet')
+    link(href='libs/summernote/dist/summernote.css', rel='stylesheet')
+block js
+    script(src='libs/selectize/dist/js/standalone/selectize.min.js')
+    script(src ='libs/summernote/dist/summernote.min.js')
+    if !release
+        script(src='js/template/mails.js')

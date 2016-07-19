@@ -1,0 +1,129 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'General';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active General
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__general
+            .row
+                .col-md-6
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title App Icons
+                        .panel-body
+                            include ./include/icons.jade
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Breadcrumbs
+                        .panel-body
+                            ol.breadcrumb
+                                li.active Dashboard
+                            ol.breadcrumb
+                                li
+                                    a(href="#") Dashboard
+                                li.active UI Elements
+                            ol.breadcrumb
+                                li
+                                    a(href="#") Dashboard
+                                li
+                                    a(href="#") UI Elements
+                                li.active General
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Progress
+                        .panel-body
+                            .progress
+                                .progress-bar.progress-bar-info.progress-bar-striped.active(role="progressbar", aria-valuenow="35", aria-valuemin="0", aria-valuemax="100", style="width: 35%")
+                            .progress
+                                .progress-bar.progress-bar-danger.progress-bar-striped.active(role="progressbar", aria-valuenow="55", aria-valuemin="0", aria-valuemax="100", style="width: 55%")
+                            .progress
+                                .progress-bar.progress-bar-success.progress-bar-striped.active(role="progressbar", aria-valuenow="75", aria-valuemin="0", aria-valuemax="100", style="width: 75%")
+                .col-md-6
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Alerts
+                        .panel-body
+                            .alert.alert-info.alert-dismissible(role="alert")
+                                button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                    span(aria-hidden="true") &times;
+                                i.alert-ico.fa.fa-fw.fa-info
+                                strong Heads up!&thinsp;
+                                | This alert needs your attention, but it's not important.
+                            .alert.alert-success.alert-dismissible(role="alert")
+                                button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                    span(aria-hidden="true") &times;
+                                i.alert-ico.fa.fa-fw.fa-check
+                                strong Well done!&thinsp;
+                                | You successfully read this important alert message.
+                            .alert.alert-warning.alert-dismissible(role="alert")
+                                button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                    span(aria-hidden="true") &times;
+                                i.alert-ico.fa.fa-fw.fa-exclamation
+                                strong Warning!&thinsp;
+                                | Better check yourself, you're not looking too good.
+                            .alert.alert-danger.alert-dismissible(role="alert")
+                                button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                    span(aria-hidden="true") &times;
+                                i.alert-ico.fa.fa-fw.fa-ban
+                                strong Oh snap!&thinsp;
+                                | Change a few things up and try submitting again.
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Labels and Badges
+                        .panel-body
+                            table.table
+                                thead
+                                    tr
+                                        th Type
+                                        th Label
+                                        th Badge
+                                tbody
+                                    tr
+                                        td Danger
+                                        td
+                                            span.label.label-danger Danger
+                                        td
+                                            span.badge.badge-danger 5
+                                    tr
+                                        td Primary
+                                        td
+                                            span.label.label-primary Primary
+                                        td
+                                            span.badge.badge-primary 5
+                                    tr
+                                        td Success
+                                        td
+                                            span.label.label-success Success
+                                        td
+                                            span.badge.badge-success 5
+                                    tr
+                                        td Info
+                                        td
+                                            span.label.label-info Info
+                                        td
+                                            span.badge.badge-info 5
+                                    tr
+                                        td Warning
+                                        td
+                                            span.label.label-warning Warning
+                                        td
+                                            span.badge.badge-warning 5
+                                    tr
+                                        td Default
+                                        td
+                                            span.label.label-default Default
+                                        td
+                                            span.badge.badge-default 5

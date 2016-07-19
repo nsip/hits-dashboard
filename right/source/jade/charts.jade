@@ -1,0 +1,81 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Charts';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active Charts
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__charts
+            .row
+                .col-md-10
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Morris.js
+                        .panel-body
+                            .template__morris
+                                .container-fluid.half-padding
+                                    .row
+                                        .col-md-8
+                                            .chart
+                                                .chart__tabs
+                                                    ul.nav.nav-tabs(role="tablist")
+                                                        li.active(role="presentation")
+                                                            a(href="#line",aria-controls="line", role="tab", data-toggle="tab") Line
+                                                        li(role="presentation")
+                                                            a(href="#area",aria-controls="area", role="tab", data-toggle="tab") Area
+                                                .chart__cont
+                                                    .tab-pane.active#line
+                                                        .chart__title Line Chart
+                                                        .chart__chart(data-chart='morris-line')
+                                                    .tab-pane#area
+                                                        .chart__title Area Chart
+                                                        .chart__chart(data-chart='morris-area')
+                                        .col-md-4
+                                            .chart
+                                                .chart__tabs
+                                                    ul.nav.nav-tabs(role="tablist")
+                                                        li.active(role="presentation")
+                                                            a(href="#bar", aria-controls="bar", role="tab", data-toggle="tab") Bar
+                                                        li(role="presentation")
+                                                            a(href="#donut", aria-controls="donut", role="tab", data-toggle="tab") Donut
+                                                .chart__cont
+                                                    .tab-pane.active#bar
+                                                        .chart__title Bar Chart
+                                                        .chart__chart(data-chart='morris-bar')
+                                                    .tab-pane#donut
+                                                        .chart__title Donut Chart
+                                                        .chart__chart(data-chart='morris-donut')
+                .col-md-2
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Sparkline
+                        .panel-body
+                            .template__sparkline
+                                .template__sparkline-title Area chart
+                                .template__sparkline-area.sparkline
+                            .template__sparkline
+                                .template__sparkline-title Bar chart
+                                .template__sparkline-bar.sparkline
+                            .template__sparkline
+                                .template__sparkline-title Composite chart
+                                .template__sparkline-composite.sparkline
+                            .template__sparkline
+                                .template__sparkline-title Mouse speed
+                                .template__sparkline-ms.sparkline
+block css
+    link(href='libs/morris.js/morris.css', rel='stylesheet')
+block js
+    script(src='libs/raphael/raphael-min.js')
+    script(src='libs/morris.js/morris.min.js')
+    if !release
+        script(src='js/template/charts.js')

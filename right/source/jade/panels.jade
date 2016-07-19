@@ -1,0 +1,76 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Panels';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active Panels
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template
+            .row
+                .col-md-8
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-6
+                                .panel.panel-danger
+                                    .panel-heading
+                                        h3.panel-title Panel danger
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                            .col-md-6
+                                .panel.panel-primary
+                                    .panel-heading
+                                        h3.panel-title Panel primary
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .row
+                            .col-md-6
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Panel info
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                            .col-md-6
+                                .panel.panel-success
+                                    .panel-heading
+                                        h3.panel-title Panel success
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .row
+                            .col-md-6
+                                .panel.panel-warning
+                                    .panel-heading
+                                        h3.panel-title Panel warning
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                            .col-md-6
+                                .panel.panel-default
+                                    .panel-heading
+                                        h3.panel-title Panel default
+                                    .panel-body
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Multiple bodies panel
+                        .panel-body
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .panel-body
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .panel-body
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .panel-body
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                        .panel-footer
+                            | Panel footer

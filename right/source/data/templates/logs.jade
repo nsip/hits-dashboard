@@ -1,0 +1,22 @@
+            table.table.table-condensed
+                thead
+                    tr
+                        th Level
+                        th Message
+                        th Timestamp
+                        th
+                tbody
+                each log, i in logs
+                    tr
+                        td= log.level
+                        td= log.message
+                        td= log.timestamp
+                        td
+                            a(onclick="toggleDetails("+i+")")= "details"
+                    tr.hide.details(id="details-" + i)
+                        td(colspan=4)
+                            each value, key in log
+                                if key != 'level' && key != 'message' && key != 'timestamp'
+                                    div
+                                        strong= key
+                                        div(style="word-wrap: break-word;")= JSON.stringify(value)

@@ -1,0 +1,63 @@
+block blah
+    h1 GPIO
+    // Some variable needed for all the available GPIO we want to support
+    -
+     sets = [
+      [ 
+        "J17-1",
+        "J17-5",
+        "J17-7",
+        "J17-8",
+        "J17-9",
+        "J17-10",
+        "J17-11",
+        "J17-12",
+        "J17-14",
+      ],
+      [ 
+        "J18-1",
+        "J18-2",
+        "J18-6",
+        "J18-7",
+        "J18-8",
+        "J18-10",
+        "J18-11",
+        "J18-12",
+        "J18-13",
+      ],
+      [ 
+        "J19-4",
+        "J19-5",
+        "J19-6",
+        "J19-8",
+        "J19-9",
+        "J19-10",
+        "J19-11",
+        "J19-12",
+        "J19-13",
+        "J19-14",
+      ],
+      [ 
+        "J20-4",
+        "J20-5",
+        "J20-6",
+        "J20-7",
+        "J20-8",
+        "J20-9",
+        "J20-10",
+        "J20-11",
+        "J20-12",
+        "J20-13",
+        "J20-14"
+      ]
+     ]
+    .container-fluid.half-padding
+      .row
+        each list in sets
+         .col-md-3
+          each val in list
+            span.checkbox.checkbox-primary
+              input(id= 'gpio'+val, type='checkbox', class='gpiocheckbox', datafield= val)
+              label(for= 'gpio'+val)
+              span.badge.badge-danger(id= 'gpio_badge'+val)= val
+

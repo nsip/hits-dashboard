@@ -1,0 +1,53 @@
+.main-heading {
+  overflow: hidden;
+  background: @smoke-light;
+  margin: -15px -15px 15px -15px;
+  padding: 0 15px;
+
+  .screen-sm({
+    display: none;
+  });
+
+  .main-title {
+    width: 100%;
+    padding-right: 230px;
+    margin-right: -215px;
+    float: left;
+  }
+
+  .main-filter {
+    float: right;
+    width: 215px;
+
+    .main-filter__search {
+
+      .form-control {
+        height: 36px;
+        padding: 5px 15px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        text-align: right;
+        color: @gray-ui;
+        outline: none;
+        box-shadow: none;
+
+        &::-moz-placeholder           { color: @gray-ui; }
+        &:-ms-input-placeholder       { color: @gray-ui; }
+        &::-webkit-input-placeholder  { color: @gray-ui; }
+      }
+
+      .btn {
+        padding: 7px 12px;
+        background-color: transparent;
+        border: 1px solid transparent;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: #333;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

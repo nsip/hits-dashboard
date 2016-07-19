@@ -1,0 +1,36 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Table Static';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Tables
+                li.active Static
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__table_static
+            .row
+                .col-md-8
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Simple
+                        .panel-body
+                            .scrollable.scrollbar-macosx
+                                include ./include/table.html
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Responsive
+                        .panel-body
+                            .template__table_static.template__table_responsive
+                                .scrollable.scrollbar-macosx
+                                    include ./include/table.html

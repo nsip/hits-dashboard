@@ -1,0 +1,151 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Dashboard';
+block main
+         
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active HITS Dashboard
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+        .pages.pages_dashboard
+            .row
+                .col-md-9
+                    include:md test.md
+                    p Real time data capture page. 
+                    button.btn.btn-success#capture-start(type="button") Start
+                    button.btn.btn-danger#capture-stop(type="button") STOP
+                    p Websocket connection starts on this page
+                    ul
+                      li Show Start/Stop button
+                      li Show current status - Running, Stopped, Set to start on...
+                      li If running (even if fresh load) show progress with progress bar 
+                    p#capture-status
+                .col-md-3
+                    span Current Run
+                    .progress
+                      .progress-bar.progress-bar-info.progress-bar-striped.active#capture-bar(role="progressbar", aria-valuenow="35", aria-valuemin="0", aria-valuemax="100", style="width: 35%")
+            .row
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Temperature
+                        .panel-body
+                            #dashboard-temperature
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Battery
+                        .panel-body
+                            #dashboard-battery
+                .col-md-4
+                    .panel.panel-success
+                        .panel-heading
+                            h3.panel-title Overview
+                        .panel-body
+                            .ov-widget
+                                .ov-widget__list
+                                    .ov-widget__item.ov-widget__item_inc
+                                        .ov-widget__value 13 days
+                                        .ov-widget__info
+                                            .ov-widget__title Uptime
+                                    .ov-widget__item.ov-widget__item_dec
+                                        .ov-widget__value 8.37V
+                                        .ov-widget__info
+                                            .ov-widget__title Battery
+                                            .ov-widget__change
+                                                span 83%
+                                                span.fa.fa-level-up
+                                                span.fa.fa-level-down
+                                                span.fa.fa-bolt
+                                                span.fa.fa-thumb-tack
+                                    .ov-widget__item.ov-widget__item_warn
+                                        .ov-widget__value 473
+                                        .ov-widget__info
+                                            .ov-widget__title Capture ID
+            .row
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Device
+                        .panel-body
+                            #dashboard-device
+                .col-md-4
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Unknown
+                        .panel-body
+                            p TODO
+                .col-md-4
+                    .panel.panel-success
+                        .panel-heading
+                            h3.panel-title Unknown
+                        .panel-body
+                            p TODO
+            .row
+                .col-md-4
+                    .panel.panel-info
+                        .panel-heading
+                            h3.panel-title Last Image
+                        .panel-body
+                            ul.nav.nav-tabs(role="tablist")
+                                li.active(role="presentation")
+                                    a(href="#camera1",aria-controls="camera1", role="tab", data-toggle="tab") 1
+                                li(role="presentation")
+                                    a(href="#camera2",aria-controls="camera2", role="tab", data-toggle="tab") 2
+                                li(role="presentation")
+                                    a(href="#camera3",aria-controls="camera3", role="tab", data-toggle="tab") 3
+                            .tab-content
+                                .tab-pane.active#camera1(role="tabpanel")
+                                    img(src="img/test1.jpg",style="max-width: 100%;}")
+                                .tab-pane#camera2(role="tabpanel")
+                                    img(src="img/test2.jpg",style="max-width: 100%;}")
+                                .tab-pane#camera3(role="tabpanel")
+                                    img(src="img/test3.jpg",style="max-width: 100%;}")
+                .col-md-4
+                    .panel.panel-info
+                        .panel-heading
+                            h3.panel-title Age
+                        .panel-body
+                            span TODO
+                .col-md-4
+                    .panel.panel-warning
+                        .panel-heading
+                            h3.panel-title Settings
+                        .st-widget
+                            .st-widget__wrap
+                                .st-widget__cont
+                                    .st-widget__item.st-widget__item_switch
+                                        .st-widget__label Full capture mode
+                                        .st-widget__switch
+                                            input.bs-switch(type='checkbox', checked='checked', data-size="mini", data-on-color="success", data-off-color="danger")
+                                    .st-widget__item.st-widget__item_switch
+                                        .st-widget__label Debugging
+                                        .st-widget__switch
+                                            input.bs-switch(type='checkbox', data-size="mini", data-on-color="success", data-off-color="danger")
+                                    .st-widget__item.st-widget__item_slider
+                                        .st-widget__label Minutes per Hour
+                                        .st-widget__slider
+                                            input.settings-slider(type="text", name="", value="", data-grid="true", data-min='10', data-max='60', data-from='34', data-step='1')
+                                    .st-widget__item.st-widget__item_number
+                                        .st-widget__label Timeout value
+                                        .st-widget__number
+                                            input.form-control(type='number', min="5", max='50', step="5", value='15')
+                                    .st-widget__item.st-widget__item_select
+                                        .st-widget__label Mode
+                                        .st-widget__select
+                                            select.selectpicker.form-control(placeholder='Variable')
+                                                option Standard
+                                                option Low power
+                                                option Three
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

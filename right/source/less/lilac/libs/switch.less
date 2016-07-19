@@ -1,0 +1,54 @@
+.bootstrap-switch {
+  border-color: @gray-dark;
+
+  &.bootstrap-switch-focused {
+    box-shadow: none;
+    border-color: @gray-dark;
+  }
+
+  .bootstrap-switch-label {
+    background-color: @gray-dark;
+    color: @gray-ui;
+  }
+
+  .bootstrap-switch-handle-on,
+  .bootstrap-switch-handle-off {
+
+    &.bootstrap-switch-primary {
+      background-color: @blue;
+    }
+
+    &.bootstrap-switch-info {
+      background-color: @blue-light;
+    }
+
+    &.bootstrap-switch-success {
+      background-color: @green;
+    }
+
+    &.bootstrap-switch-danger {
+      background-color: @red;
+    }
+
+    &.bootstrap-switch-warning {
+      background-color: @yellow;
+    }
+
+    &.bootstrap-switch-default {
+      background-color: @gray-dark;
+      color: #fff;
+    }
+  }
+
+  &.bootstrap-switch-animate .bootstrap-switch-container {
+    transition: margin-left .2s
+  }
+}
+
+.bootstrap-switch.bootstrap-switch-micro .bootstrap-switch-handle-on,
+.bootstrap-switch.bootstrap-switch-micro .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-micro .bootstrap-switch-label {
+  padding: 1px 2px;
+  font-size: 10px;
+  line-height: 1.5;
+}

@@ -1,0 +1,53 @@
+.login {
+  height: 100%;
+  background-color: @gray-dark;
+  white-space: nowrap;
+  font-size: 0;
+  text-align: center;
+  position: relative;
+
+
+  &:after{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &__form {
+    display: inline-block;
+    max-width: 300px;
+    width: 90%;
+    vertical-align: middle;
+    font-size: 14px;
+    white-space: normal;
+    border-radius: 4px;
+    text-align: left;
+    color: @gray-ui;
+    position: relative;
+
+    .screen-sm({
+      vertical-align: top;
+      margin-top: 60px;
+    });
+  }
+
+  &__action {
+    overflow: hidden;
+  }
+
+  &__remember {
+    float: left;
+  }
+
+  &__submit {
+    float: right;
+  }
+
+  &__logo {
+    height: 125px;
+    margin-bottom: 20px;
+    background: url('../img/rightlogo.png') 50% top no-repeat;
+    background-size: contain;
+  }
+}

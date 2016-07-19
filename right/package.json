@@ -1,0 +1,30 @@
+{
+  "name": "right",
+  "version": "0.3.0",
+  "description": "Bootstrap Admin Template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adminbootstrap.com",
+  "license": "right",
+  "repository": {},
+  "homepage": "http://adminbootstrap.com/wb/right/0.2.0/index.html",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.2.4",
+    "imagemin-pngquant": "^4.1.0",
+    "main-bower-files": "^2.8.2",
+    "rimraf": "^2.4.1"
+  }
+}

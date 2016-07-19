@@ -1,0 +1,29 @@
+.chart {
+  position: relative;
+
+  &__tabs {
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    .nav>li>a {
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
+  }
+
+  &__title {
+    padding: 5px 15px;
+  }
+
+  .tab-pane {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__chart {
+  }
+}

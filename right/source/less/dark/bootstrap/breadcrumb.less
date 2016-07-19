@@ -1,0 +1,20 @@
+.breadcrumb {
+  background-color: @gray-dark;
+  border-radius: 2px;
+
+  li {
+
+    &.active {
+      color: @title;
+    }
+
+    &:before,
+    &:after {
+      color: @gray-ui;
+    }
+  }
+
+  .main-heading & {
+    margin-bottom: 0;
+  }
+}

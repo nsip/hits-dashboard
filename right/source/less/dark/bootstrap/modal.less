@@ -1,0 +1,33 @@
+.modal {
+
+  .modal-content {
+    background-color: @gray-back;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid @gray-pad;
+
+    .close {
+      outline: none;
+      text-shadow: none;
+      color: @gray-ui;
+      opacity: .8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid @gray-pad;
+  }
+}
+
+.modal-backdrop {
+  background-color: @garnet-muddy;
+
+  &.in {
+    opacity: 0.4;
+  }
+}

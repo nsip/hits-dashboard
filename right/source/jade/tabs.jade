@@ -1,0 +1,153 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Tabs';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active Tabs
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template
+            .row
+                .col-md-9
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Tabs
+                        .panel-body
+                            ul.nav.nav-tabs(role="tablist")
+                                li.active(role="presentation")
+                                    a(href="#customers",aria-controls="customers", role="tab", data-toggle="tab") Customers
+                                li(role="presentation")
+                                    a(href="#managers",aria-controls="managers", role="tab", data-toggle="tab") Managers
+                                li(role="presentation")
+                                    a(href="#admins",aria-controls="admins", role="tab", data-toggle="tab") Admins
+                            .tab-content
+                                .tab-pane.active#customers(role="tabpanel")
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros enim. Suspendisse sed metus non dolor convallis varius. Donec neque leo, imperdiet at pharetra quis, sodales in risus. Proin leo nulla, tempor sit amet sodales in, posuere sit amet lacus. Praesent leo ante, pellentesque vel pulvinar eu, pretium scelerisque urna.
+                                .tab-pane#managers(role="tabpanel")
+                                    p Morbi vulputate, lectus sit amet fermentum blandit, risus est fringilla tortor, sit amet dictum mi magna eu est. Fusce mollis iaculis purus rutrum suscipit. Donec adipiscing tortor a velit luctus sit amet interdum dolor fermentum. Aliquam consectetur nulla sit amet dui viverra at pretium turpis rhoncus.
+                                .tab-pane#admins(role="tabpanel")
+                                    p Suspendisse malesuada neque vitae justo auctor imperdiet. Quisque eleifend luctus neque a blandit. Nulla id nunc a est varius molestie sit amet ac mi. Proin tortor est, hendrerit sit amet auctor non, venenatis a metus. Curabitur sit amet lobortis nisl. Sed eget felis sed mi consequat vehicula sit amet sed urna.
+                    .panel.panel-warning
+                        .panel-heading
+                            h3.panel-title Pills
+                        .panel-body
+                            ul.nav.nav-pills(role="tablist")
+                                li.active(role="presentation")
+                                    a(href="#products",aria-controls="customers", role="tab", data-toggle="tab") Products
+                                li(role="presentation")
+                                    a(href="#digital",aria-controls="managers", role="tab", data-toggle="tab") Digital
+                                li(role="presentation")
+                                    a(href="#services",aria-controls="admins", role="tab", data-toggle="tab") Services
+                            .tab-content
+                                .tab-pane.active#products(role="tabpanel")
+                                    p Nullam rhoncus placerat erat, non tincidunt metus pulvinar et. Duis dictum mi non ligula interdum dictum. Aliquam sodales purus ac metus facilisis non laoreet dui euismod.
+                                .tab-pane#digital(role="tabpanel")
+                                    p Donec quis orci ac elit cursus lobortis. Duis elementum pulvinar libero, consequat placerat magna pulvinar non.ng tortor a velit luctus sit amet interdum dolor fermentum. Aliquam consectetur nulla sit amet dui viverra at pretium turpis rhoncus.
+                                .tab-pane#services(role="tabpanel")
+                                    p Nulla neque nulla, dapibus eget euismod sed, facilisis ut leo. Vestibulum lobortis odio sit amet tellus iaculis in tincidunt diam fringilla. Phasellus elit velit, mollis eget vestibulum ut, ultricies quis nulla.
+                .col-md-3
+                    .panel.panel-primary
+                        .panel-heading
+                            h3.panel-title Unlimited tabs
+                        .panel-body
+                            ul.nav.nav-tabs(role="tablist")
+                                li.active(role="presentation")
+                                    a(href="#facebook",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-facebook &nbsp;
+                                        | facebook
+                                li(role="presentation")
+                                    a(href="#github",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-github &nbsp;
+                                        | github
+                                li(role="presentation")
+                                    a(href="#flickr",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-flickr &nbsp;
+                                        | flickr
+                                li(role="presentation")
+                                    a(href="#google",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-google &nbsp;
+                                        | google
+                                li(role="presentation")
+                                    a(href="#instagram",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-instagram &nbsp;
+                                        | instagram
+                                li(role="presentation")
+                                    a(href="#linkedin",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-linkedin &nbsp;
+                                        | linkedin
+                                li(role="presentation")
+                                    a(href="#pinterest",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-pinterest &nbsp;
+                                        | pinterest
+                                li(role="presentation")
+                                    a(href="#reddit",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-reddit &nbsp;
+                                        | reddit
+                                li(role="presentation")
+                                    a(href="#tumblr",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-tumblr &nbsp;
+                                        | tumblr
+                                li(role="presentation")
+                                    a(href="#youtube",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-youtube &nbsp;
+                                        | youtube
+                                li(role="presentation")
+                                    a(href="#bitbucket",aria-controls="customers", role="tab", data-toggle="tab")
+                                        i.fa.fa-fw.fa-bitbucket &nbsp;
+                                        | bitbucket
+                            .tab-content
+                                .tab-pane.active#facebook(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-facebook.fa-stack-1x
+                                .tab-pane#github(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-github.fa-stack-1x
+                                .tab-pane#flickr(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-flickr.fa-stack-1x
+                                .tab-pane#google(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-google.fa-stack-1x
+                                .tab-pane#instagram(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-instagram.fa-stack-1x
+                                .tab-pane#linkedin(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-linkedin.fa-stack-1x
+                                .tab-pane#pinterest(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-pinterest.fa-stack-1x
+                                .tab-pane#reddit(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-reddit.fa-stack-1x
+                                .tab-pane#tumblr(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-tumblr.fa-stack-1x
+                                .tab-pane#youtube(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-youtube.fa-stack-1x
+                                .tab-pane#bitbucket(role="tabpanel")
+                                    span.fa-stack.fa-5x
+                                        i.fa.fa-square-o.fa-stack-2x
+                                        i.fa.fa-bitbucket.fa-stack-1x

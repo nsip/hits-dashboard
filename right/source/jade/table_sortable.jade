@@ -1,0 +1,33 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Table Sortable';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Tables
+                li.active Sortable
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__table_sortable
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Sortable table
+                        .panel-body
+                            .scrollable.scrollbar-macosx
+                                include ./include/table.html
+block js
+    script(src='libs/tablesorter/jquery.metadata.js')
+    script(src='libs/tablesorter/jquery.tablesorter.min.js')
+    if !release
+        script(src='js/template/table_sortable.js')

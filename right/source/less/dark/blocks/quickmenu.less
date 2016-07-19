@@ -1,0 +1,50 @@
+.quickmenu {
+  background-color: @gray-dark;
+  min-width: 200px;
+
+  &__cont {}
+
+  &__list {
+    overflow: hidden;
+  }
+
+  &__item {
+    float: left;
+    width: 20%;
+    height: 30px;
+    text-align: center;
+    color: @gray-ui;
+    cursor: pointer;
+    box-sizing: border-box;
+    max-height: 100%;
+    position: relative;
+
+    &:hover {
+      background-color: @gray-dark;
+    }
+
+    &.active {
+      color: @title;
+      border-bottom: 2px solid @red;
+      background-color: @gray-dark;
+    }
+
+    &.new {
+      &:after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: @red;
+        position: absolute;
+        top: 7px;
+        right: 7px;
+      }
+    }
+
+    .fa {
+      line-height: 30px;
+    }
+  }
+}

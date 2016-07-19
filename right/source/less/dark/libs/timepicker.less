@@ -1,0 +1,38 @@
+.bootstrap-timepicker-widget {
+  min-width: 140px;
+
+  table td a {
+    padding: 5px 0;
+    color: @gray-ui;
+
+    &:hover {
+      background-color: @gray-dark;
+      border-color: @gray-dark;
+    }
+  }
+
+  table td input {
+    border: 1px solid @gray-dark;
+    background-color: @gray-dark;
+    outline: none;
+    color: lighten(@gray-ui, 20%);
+    padding: 2px 3px;
+    width: 30px;
+  }
+
+  &.dropdown-menu:after {
+    border-bottom-color: @gray-pad;
+  }
+
+  &.dropdown-menu:before {
+    border-bottom-color: @gray-head;
+  }
+
+  &.timepicker-orient-bottom:after {
+    border-top-color: @gray-pad;
+  }
+
+  &.timepicker-orient-bottom:before {
+    border-top-color: @gray-head;
+  }
+}

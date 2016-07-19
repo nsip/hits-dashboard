@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Right - Bootstrap Admin Template
+        link(rel="icon", type="image/png", href="img/favicon.png")
+        link(rel="apple-touch-icon-precomposed", href="img/apple-touch-favicon.png")
+        link(href='libs/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        link(href='libs/fonts/roboto.css', rel='stylesheet')
+        link(href='libs/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+        link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+        block css
+        link.demo__css(href='css/right.dark.css', rel='stylesheet')
+        link(href='css/demo.css', rel='stylesheet')
+        <!--[if lt IE 9]>
+        script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+        script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+        <![endif]-->
+    body.framed
+        .wrapper
+            .login
+                form.login__form(action='/login/',method='post')
+                    .login__logo
+                    .form-group
+                        input.form-control(name="username", type='text', placeholder='Login')
+                    .form-group
+                        input.form-control(name="password", type='password', placeholder='Password')
+                    .form-group.login__action
+                        .login__submit
+                            button.btn.btn-default(type='submit') Sign in
+        include ./include/demo.jade
+        script(src='libs/jquery/jquery.min.js')
+        script(src='libs/bootstrap/js/bootstrap.min.js')
+        script(src='js/login.js')
+        if metrika
+            include ./include/metrika.html

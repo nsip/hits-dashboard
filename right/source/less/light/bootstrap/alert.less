@@ -1,0 +1,39 @@
+.alert {
+  background-color: #fff;
+
+  .close {
+    outline: none;
+    text-shadow: none;
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+      color: inherit;
+    }
+  }
+
+  .alert-ico {
+    margin-right: 15px;
+  }
+
+  .modal & {
+    margin-bottom: 0;
+  }
+}
+
+.alert-danger {
+  border-color: @red;
+  color: @red;
+}
+.alert-success {
+  border-color: @green;
+  color: @green;
+}
+.alert-info {
+  border-color: @blue-light;
+  color: @blue-light;
+}
+.alert-warning {
+  border-color: @yellow;
+  color: @yellow;
+}

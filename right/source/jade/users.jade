@@ -1,0 +1,195 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Users';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Dashboard
+                li.active Users
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .datalist.page.page_users.users.float-right
+            .row
+                .col-lg-3.col-md-3.col-sm-12.col-xs-12
+                    .users-preview.datalist-preview
+                        .users-preview__cont
+                            .users-preview__name(title='Name') Name
+                            .users-preview__data
+                                .users-preview__photo
+                                    div(style='')
+                                .users-preview__info
+                                    .users-preview__position Position
+                                    .users-preview__stat.sparkline
+                                    .users-preview__edit
+                                        .btn-group.btn-group-sm
+                                            button.btn.btn-danger(type="button") Edit
+                                            button.btn.btn-danger.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                                span.caret
+                                            ul.dropdown-menu
+                                                li
+                                                    a(href="#") Details
+                                                li
+                                                    a(href="#") Disable
+                                                li
+                                                    a(href="#") Delete
+                            .users-preview__props
+                                .users-preview__prop(title='Location')
+                                    i.fa.fa-map-marker
+                                    span.users-preview__location Location
+                                .users-preview__prop(title='Contact')
+                                    i.fa.fa-envelope
+                                    span.users-preview__contact Contact
+                                .users-preview__prop
+                                    i.fa.fa-calendar
+                                    span.users-preview__date Date
+                                .users-preview__prop
+                                    i.fa.fa-heartbeat
+                                    span.users-preview__status Status
+                .col-lg-9.col-md-9.col-sm-12.col-xs-12
+                    .panel.panel-info
+                        .panel-heading
+                            h3.panel-title Users
+                        .panel-body
+                            p You have 80 users.
+                            form.datalist-filter
+                                .input-group.datalist-filter__search
+                                    input.form-control(type="text", placeholder="Find user")
+                                    span.input-group-btn
+                                        button.btn.btn-default(type="button", role="button", data-toggle="collapse", data-target="#datalist-filter__detail", aria-controls="users__filter-detail", aria-expanded="false")
+                                            .fa.fa-filter
+                                .collapse#datalist-filter__detail
+                                    .container-fluid.datalist-filter__detail
+                                        .row
+                                            .col-lg-4.col-md-4.col-sm-12.col-xs-12
+                                                .form-group
+                                                    .input-group
+                                                        .input-group-addon
+                                                            i.fa.fa-map-marker
+                                                        input.form-control.datalist-filter__location(type="text", placeholder="Location")
+                                                .form-group
+                                                    .input-group.selectize__group
+                                                        .input-group-addon
+                                                            i.fa.fa-envelope-o
+                                                        select.datalist-filter__email(placeholder="Email")
+                                            .col-lg-4.col-md-4.col-sm-12.col-xs-12.input-daterange
+                                                .form-group
+                                                    .input-group
+                                                        .input-group-addon
+                                                            i.fa.fa-calendar-minus-o
+                                                        input.form-control.datalist-filter__from(type="text", value="")
+                                                .form-group
+                                                    .input-group
+                                                        .input-group-addon
+                                                            i.fa.fa-calendar-plus-o
+                                                        input.form-control.datalist-filter__to(type="text", value="")
+                                            .col-lg-4.col-md-4.col-sm-12.col-xs-12
+                                                .form-group
+                                                    input.slider#datalist-filter__salary(type="text", name="", value="")
+                                                .form-group
+                                                    .checkbox.checkbox-danger
+                                                        input#datalist-filter__actives(type='checkbox')
+                                                        label(for='datalist-filter__actives') Actives only
+
+                            .datalist__result
+                                ul.nav.nav-tabs(role="tablist")
+                                    li.active(role="presentation")
+                                        a(href="#customers",aria-controls="customers", role="tab", data-toggle="tab") Customers&nbsp;
+                                    li(role="presentation")
+                                        a(href="#managers",aria-controls="managers", role="tab", data-toggle="tab") Managers&nbsp;
+                                    li(role="presentation")
+                                        a(href="#admins",aria-controls="admins", role="tab", data-toggle="tab") Admins&nbsp;
+                                    li(role="presentation")
+                                        a(href="#new",aria-controls="new", role="tab", data-toggle="tab")
+                                            i.fa.fa-plus
+                                            | &nbsp;New
+                                .tab-content
+                                    .tab-pane#new(role="tabpanel")
+                                        form.form.users-new
+                                            .container-fluid.float-left
+                                                .row
+                                                    .col-md-8
+                                                        .row
+                                                            .col-md-6
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-user
+                                                                        input.form-control(type="text", placeholder="Name")
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-envelope
+                                                                        input.form-control(type="text", placeholder="Contact")
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-briefcase
+                                                                        select.selectpicker(placeholder="Role")
+                                                                            option(value="customer") Customer
+                                                                            option(value="manager") Manager
+                                                                            option(value="admin") Admin
+                                                            .col-md-6
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-key
+                                                                        input.form-control(type="password", placeholder="Password")
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-map-marker
+                                                                        input.form-control(type="text", placeholder="Location")
+                                                                .form-group
+                                                                    .input-group
+                                                                        .input-group-addon
+                                                                            i.fa.fa-heartbeat
+                                                                        select.selectpicker(placeholder="Status")
+                                                                            option(value="customer") Active
+                                                                            option(value="manager") Confirmed
+                                                                            option(value="admin") Blocked
+                                                        .row
+                                                            .col-md-12
+                                                                .form-group
+                                                                    textarea.form-control(rows='3', placeholder='Notes')
+                                                    .col-md-4
+                                                        .fileupload
+                                                            label
+                                                                .fa.fa-image
+                                                                input(type='file')
+                                            button.btn.btn-success Save
+                                    .tab-pane.active#customers(role="tabpanel")
+                                        .scrollable.scrollbar-macosx
+                                            .container-fluid
+                                                include ./include/users_customers.jade
+                                    .tab-pane#managers(role="tabpanel")
+                                        .scrollable.scrollbar-macosx
+                                            .container-fluid
+                                                include ./include/users_managers.jade
+                                    .tab-pane#admins(role="tabpanel")
+                                        .scrollable.scrollbar-macosx
+                                            .container-fluid
+                                                include ./include/users_admins.jade
+block css
+    link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.default.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.bootstrap3.css', rel='stylesheet')
+    link(href='libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', rel='stylesheet')
+    link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='libs/bootstrap-select/dist/css/bootstrap-select.min.css', rel='stylesheet')
+block js
+    script(src='libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='libs/datatables/media/js/dataTables.select.js')
+    script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='libs/selectize/dist/js/standalone/selectize.min.js')
+    script(src='libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    script(src='libs/bootstrap-select/dist/js/bootstrap-select.min.js')
+    if !release
+        script(src='js/template/users.js')

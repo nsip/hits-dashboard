@@ -1,0 +1,154 @@
+.sidebar {
+  width: 200px;
+  z-index: 100;
+  overflow: hidden;
+  background-color: @gray-back;
+  border-bottom-left-radius: 5px;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+
+  font-size: 14px;
+  white-space: normal;
+
+  transition: width .2s;
+
+  .screen-sm({
+    width: 0;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+
+    .dashboard_menu & {
+      width: 200px;
+
+    }
+  });
+
+  &>.scrollable {
+    max-height: 100%;
+
+    .scroll-element.scroll-x {
+      display: none !important;
+    }
+
+    .scroll-content {
+      overflow-x: hidden !important;
+    }
+  }
+
+  &__cont {
+    margin-top:-30px;
+    padding: 35px 0 40px;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+  }
+
+  &__menu {
+    display: inline-block;
+    white-space: normal;
+    width: 100%;
+    min-width: 200px;
+    vertical-align: top;
+    font-size: 14px;
+    overflow: hidden;
+    transition: margin .2s;
+  }
+
+  &__title {
+    display: inline-block;
+    padding: 10px 20px 5px;
+    font-weight: bold;
+    color: @title;
+  }
+
+  &__btn {
+    padding: 10px 20px 2px;
+  }
+
+  .nav {
+    padding: 0;
+  }
+
+  .nav>li {
+    border-left: 3px solid transparent;
+
+    &.active {
+      border-left: 3px solid @red;
+    }
+  }
+
+  .nav>li>a {
+    padding: 6px 20px 6px 29px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    color: @gray-ui;
+    overflow: hidden;
+    vertical-align: top;
+
+    .fa {
+      font-size: 14px;
+    }
+
+    .fa.arrow {
+      font-size: 14px;
+      line-height: 18px;
+      transition: transform 0.2s;
+    }
+  }
+
+  .nav>li.active>a,
+  .nav>li>a:hover,
+  .nav>li>a:focus {
+    color: @title;
+  }
+
+  .nav>li.opened>a .arrow {
+    transform: rotate(90deg);
+  }
+
+  .badge {
+    font-weight: normal;
+    background-color: @gray-dark;
+    color: @gray-ui;
+
+    b, strong {
+      font-weight: 900;
+    }
+  }
+}
+
+.nav-menu {
+  &>li>a {
+    display: table-row;
+  }
+
+  &__ico {
+    display: table-cell;
+  }
+
+  &__text {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  &__right {
+    display: table-cell;
+  }
+
+  &__second.nav {
+    padding-left: 25px;
+
+    li, li.active {
+      border-left: 0;
+    }
+
+    li > a {
+      padding: 0px 20px 6px 32px;
+    }
+  }
+}

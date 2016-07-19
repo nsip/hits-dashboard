@@ -1,0 +1,42 @@
+.pagination {
+  margin: 0;
+  vertical-align: top;
+}
+
+.pagination-sm>li>a, .pagination-sm>li>span {
+  padding: 2px 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pagination>li>a, .pagination>li>span {
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid @gray-ui;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover{
+  color: inherit;
+  background-color: lighten(@gray-head, 10%);
+  border: 1px solid @gray-ui;
+}
+
+.pagination>.disabled>a,
+.pagination>.disabled>a:focus,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>span,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>span:hover {
+  background-color: transparent;
+  opacity: 0.4;
+  border: 1px solid @gray-ui;
+}

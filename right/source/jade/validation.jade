@@ -1,0 +1,49 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Validation';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Forms
+                li.active Validation
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__validation
+            .row
+                .col-md-5
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Validation form
+                        .panel-body
+                            include ./include/validation.html
+                .col-md-7
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Source code
+                        .panel-body
+                            textarea.codemirror
+                                include ./include/validation.html
+block css
+    link(href='libs/codemirror/lib/codemirror.css', rel='stylesheet')
+    link(href='libs/codemirror/addon/scroll/simplescrollbars.css', rel='stylesheet')
+    link(href='libs/codemirror/theme/hopscotch.css', rel='stylesheet')
+    link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+block js
+    script(src='libs/codemirror/lib/codemirror.js')
+    script(src='libs/codemirror/addon/scroll/simplescrollbars.js')
+    script(src='libs/codemirror/mode/javascript/javascript.js')
+    script(src='libs/codemirror/mode/htmlmixed/htmlmixed.js')
+    script(src='libs/codemirror/mode/xml/xml.js')
+    script(src='libs/codemirror/mode/css/css.js')
+    script(src='libs/bootstrap-validator/dist/validator.min.js')
+    if !release
+        script(src='js/template/validation.js')

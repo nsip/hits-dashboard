@@ -1,0 +1,35 @@
+{
+  "name": "right",
+  "version": "0.3.0",
+  "authors": [
+    "adminbootstrap.com"
+  ],
+  "description": "Bootstrap Admin Template",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "right",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "Chart.js": "~1.0.2",
+    "tablesorter": "*",
+    "jquery.scrollbar": "~0.2.9",
+    "selectize": "~0.12.1",
+    "ionrangeslider": "~2.1.2",
+    "bootstrap-tabdrop": "~1.0.0",
+    "awesome-bootstrap-checkbox": "~0.3.5",
+    "bootstrap-select": "~1.7.5",
+    "bootstrap-datepicker": "~1.5.0",
+    "bootstrap-timepicker": "~0.5.1",
+    "summernote": "~0.6.16",
+    "codemirror": "~5.9.0",
+    "bootstrap-validator": "~0.9.0",
+    "datatables": "~1.10.10",
+    "datatables-buttons": "git://github.com/DataTables/Buttons.git#~1.1.0",
+    "morris.js": "~0.5.1",
+    "bootstrap-switch": "~3.3.2"
+  }
+}

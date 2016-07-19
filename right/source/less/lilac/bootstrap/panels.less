@@ -1,0 +1,97 @@
+.panel {
+  border: 0;
+  margin-bottom: 15px;
+  background-color: fade(@back, 30%);
+  color: @gray-text;
+}
+
+.panel>.panel-heading {
+  border: 0;
+  padding: 11px 20px 9px;
+  background-color: transparent;
+  border-bottom: 2px solid @gray-ui;
+}
+
+.panel-heading_label {
+  overflow: hidden;
+
+  .panel-title {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 95px;
+    margin-right: -80px;
+  }
+
+  .label {
+    display: block;
+    float: right;
+    padding: 0 5px;
+    line-height: 16px;
+  }
+}
+
+.panel-title {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: @title;
+}
+
+.panel-body {
+  padding: 7px 20px;
+  border-bottom: 1px solid @gray-pad;
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 15px;
+  }
+
+  &:nth-of-type(2) {
+    padding-top: 15px;
+  }
+}
+
+.panel-footer {
+  background-color: transparent;
+  padding: 7px 20px;
+  border-top: 0;
+  color: @gray-text;
+}
+
+.panel-primary {
+  &>.panel-heading {
+    border-bottom-color: @blue;
+  }
+}
+
+.panel-danger {
+  &>.panel-heading {
+    border-bottom-color: @red;
+  }
+}
+
+.panel-orange {
+  &>.panel-heading {
+    border-bottom-color: @orange;
+  }
+}
+
+.panel-warning {
+  &>.panel-heading {
+    border-bottom-color: @yellow;
+  }
+}
+
+.panel-info {
+  &>.panel-heading {
+    border-bottom-color: @blue-light;
+  }
+}
+
+.panel-success {
+  &>.panel-heading {
+    border-bottom-color: @green;
+  }
+}

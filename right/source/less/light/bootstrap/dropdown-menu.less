@@ -1,0 +1,30 @@
+.dropdown-menu {
+  background-color: @smoke-dark;
+  border-color: rgba(0, 0, 0, 0.05);
+
+  li>a {
+    color: @gray-text;
+  }
+
+  li>a:focus, li>a:hover, li.active>a, li.active>a:hover {
+    color: @gray-text;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .divider {
+    height: 1px;
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-header {
+    color: @gray-text;
+  }
+
+  table & {
+    right: 0;
+    left: auto;
+  }
+}

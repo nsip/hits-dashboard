@@ -1,0 +1,33 @@
+.scrollbar-macosx > .scroll-element {
+  z-index: 100;
+}
+
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar {
+  height: 150px !important;
+  width: 3px;
+  left: -3px;
+  border-radius: 0;
+  background-color: @red;
+}
+
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-bar {
+  width: 150px !important;
+  height: 3px;
+  top: -3px;
+  border-radius: 0;
+  background-color: @red;
+}
+
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_outer {
+  top: 0;
+}
+
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer {
+  left: 0;
+  right: -2px;
+}
+
+.scrollbar-macosx:hover > .scroll-element .scroll-bar,
+.scrollbar-macosx > .scroll-element.scroll-draggable .scroll-bar {
+  opacity: 1;
+}

@@ -1,0 +1,43 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Texteditor';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Forms
+                li.active Text Editor
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template_texteditor
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Text Editor
+                        .panel-body
+                            .summernote
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros enim. Suspendisse sed metus non dolor convallis varius. Donec neque leo, imperdiet at pharetra quis, sodales in risus. Proin leo nulla, tempor sit amet sodales in, posuere sit amet lacus. Praesent leo ante, pellentesque vel pulvinar eu, pretium scelerisque urna. Morbi vulputate, lectus sit amet fermentum blandit, risus est fringilla tortor, sit amet dictum mi magna eu est. Fusce mollis iaculis purus rutrum suscipit. Donec adipiscing tortor a velit luctus sit amet interdum dolor fermentum. Aliquam consectetur nulla sit amet dui viverra at pretium turpis rhoncus. Suspendisse malesuada neque vitae justo auctor imperdiet. Quisque eleifend luctus neque a blandit. Nulla id nunc a est varius molestie sit amet ac mi. Proin tortor est, hendrerit sit amet auctor non, venenatis a metus. Curabitur sit amet lobortis nisl. Sed eget felis sed mi consequat vehicula sit amet sed urna. Nullam rhoncus placerat erat, non tincidunt metus pulvinar et. Duis dictum mi non ligula interdum dictum. Aliquam sodales purus ac metus facilisis non laoreet dui euismod. Donec quis orci ac elit cursus lobortis. Duis elementum pulvinar libero, consequat placerat magna pulvinar non. Nulla neque nulla, dapibus eget euismod sed, facilisis ut leo. Vestibulum lobortis odio sit amet tellus iaculis in tincidunt diam fringilla. Phasellus elit velit, mollis eget vestibulum ut, ultricies quis nulla.
+block css
+    link(href='libs/codemirror/lib/codemirror.css', rel='stylesheet')
+    link(href='libs/codemirror/addon/scroll/simplescrollbars.css', rel='stylesheet')
+    link(href='libs/codemirror/theme/hopscotch.css', rel='stylesheet')
+    link(href='libs/summernote/dist/summernote.css', rel='stylesheet')
+block js
+    script(src='libs/codemirror/lib/codemirror.js')
+    script(src='libs/codemirror/addon/scroll/simplescrollbars.js')
+    script(src='libs/codemirror/mode/javascript/javascript.js')
+    script(src='libs/codemirror/mode/htmlmixed/htmlmixed.js')
+    script(src='libs/codemirror/mode/xml/xml.js')
+    script(src='libs/codemirror/mode/css/css.js')
+    script(src ='libs/summernote/dist/summernote.min.js')
+    if !release
+        script(src='js/template/texteditor.js')

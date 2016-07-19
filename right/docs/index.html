@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.png">
+    <title>Right Docs</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/desert.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+    <body onload="prettyPrint()" data-spy="scroll" data-target="#side-nav" data-offset="300">
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-9">
+                        <h1>Right - Responsive Admin Template</h1>
+                        <p>Right is pretty simple and light Bootstrap template that will help you to build the admin panel for your project.</p>
+                        <p>
+                            <strong>Version:</strong> 0.3.0
+                        </p>
+                        <hr/>
+                        <h1>Documentation</h1>
+                        <p>Next is a brief description of the key points that can be useful to you in the process of working with the template.</p>
+                        <h2 id="overview">Overview</h2>
+                        <p>Right is developed on the principles of combining beautiful and functional design, but also includes advanced tools to build frontend. An important role is assigned to the speed of development and ease future code maintenance. Therefore, Right uses such tools as Jade and Less for html templating and css-preprocessing. All source code is building automatically via Gulp. Together, they greatly simplify and speed up the development process. But don't worry if you have never worked with these tools. Together with the sources in the folder is fully assembled and ready to go html template that you can immediately implement in your project.</p>
+                        <h3 id="ov-files">Folder structure</h3>
+<pre class="prettyprint linenums lang-html">Right/
+    ├── dist/                                 built template
+    ├──── css/                                css-styles
+    ├──── data/                               json-data
+    ├──── img/                                compressed images
+    ├──── js/                                 template scripts
+    ├──── libs/                               third-party libraries
+    ├──── blank.html                          html pages
+              .
+              all *.html functional pages
+              .
+    ├── source/                               source files
+    ├──── data/                               json-data
+    ├──── img/                                raw images
+    ├──── jade/                               Jade templates
+    ├──── js/                                 template scripts
+    ├──── less/                               Less-styles
+    ├──── libs/                               third-party libraries
+    ├── docs/                                 Documentation
+     bower.json                                Bower config
+     gulpfile.json                             Gulp config
+     package.json                              NPM config
+</pre>
+                        <h3 id="ov-layout">Layout structure</h3>
+                        <p>All pages of the template (except login.html) consist of the following parts:</p>
+                        <ol>
+                            <li><code>.wrapper</code> - main container for all elements</li>
+                            <li><code>.header-navbar</code> - top navigation panel</li>
+                            <li><code>.dashboard</code> - sidebar and content container</li>
+                            <li><code>.sidebar</code> - side navigation panel</li>
+                            <li><code>.main</code> - common content container</li>
+                        </ol>
+<pre class="prettyprint linenums lang-html">&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;nav class=&quot;header-navbar&quot;&gt;&lt;/nav&gt;
+    &lt;div class=&quot;dashboard&quot;&gt;
+        &lt;div class=&quot;sidebar&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                        <h3 id="ov-responsivity">Responsivity</h3>
+                        <p>When the screen width <= 768px, the template adapts. <code>.sidebar</code> is displaced off the screen and appears when you click the menu button. <code>.topnavbar</code> is replaced with <code>.header-navbar-mobile</code> element which contains the mobile menu button and the page title.</p>
+                        <img src="img/screens.png" class="img-responsive" alt="Responsivity">
+                        <h3 id="ov-pages">Pages</h3>
+                        <p>The template includes 8 functional pages:</p>
+                        <ol>
+                            <li><code>index.html</code> - page with brief statistics and some informational widgets.</li>
+                            <li><code>products.html</code> - the page can be used to manage the list of products or goods.</li>
+                            <li><code>orders.html</code> - orders page.</li>
+                            <li><code>users.html</code> - users or customers manage page.</li>
+                            <li><code>login.html</code> - login page.</li>
+                            <li><code>blank.html</code> - blank page, is used to create new functional pages.</li>
+                            <li><code>inbox.html</code> - mails list page.</li>
+                            <li><code>compose.html</code> - new mail form.</li>
+                        </ol>
+                        <p>Also in the template included demo pages that show the individual components of the interface.</p>
+                        <h2 id="build">Building the project</h2>
+                        <p>All the following instructions assume you are using the Windows operating system. For other OS the accuracy of the above commands is not guaranteed, but you can find similar solutions for your system on the official websites of the described tools.</p>
+                        <h3 id="b-start">Getting started</h3>
+                        <p>To start to build the project from source, you need to install Node.js. All you need for this is on <a href="https://nodejs.org">nodejs.org</a>.</p>
+                        <p>After Node.js will be installed, navigate to the project folder, which contains your <code>package.json</code> file. Now we need to get the development dependencies. Type the following command in OS command line:</p>
+<pre class="prettyprint">npm install</pre>
+                        <p>This command will load the Gulp and all of its modules needed for further work.</p>
+                        <p>If you get any error messages, make sure that you have the Node.js and npm installed. And check the <code>package.json</code> file in the startup directory. Also, you can try to run the command as administrator.</p>
+                        <h3 id="b-gulp">Gulp</h3>
+                        <p><a href="http://gulpjs.com/">Gulp.js</a> is the automated build system that we will use for generating html from jade and css from less. It also allows you to automate operations such as resource minification, files concatenation and more. There all of necessary tasks are in the <code>gulpfile.js</code>.</p>
+                        <p>To begin building your project just write in the command line:</p>
+<pre class="prettyprint">gulp build</pre>
+                        <p>This will start the builder that will process all the files in the <code>./source</code> folder and will store the result in <code>./dist</code>.</p>
+                        <p>The command <code>gulp watch</code> will track all the changes in the folder <code>./source</code> real-time and automatically update the result in <code>./dist</code>.</p>
+                        <p>To consistently run the task <code>build</code> and <code>watch</code> you can run <code>gulp</code> or <code>gulp default</code>.</p>
+                        <p><code>gulp clean</code> deletes the directory <code>./dist</code>.</p>
+                        <h3 id="b-jade">Jade</h3>
+                        <p><a href="http://jade-lang.com/">Jade</a> is a powerful template engine, which allows to considerably speed up and simplify the elaboration of html projects. Read more about its capabilities and syntax on the official website.</p>
+                        <p>The structure of jade templates:</p>
+<pre class="prettyprint linenums lang-html">Right/
+  ├ source/                              source files
+  ├───jade/                              jade folder
+  ├──── include/                         static content files
+  ├──── parts/                           common parts of template
+  ├────── layout.jade                    common layout
+  ├────── main.jade                      main block
+  ├────── navbar.jade                    top navigation
+  ├────── sidebar.jade                   side navigation
+  ├──── blank.jade                        all end pages
+         .
+         .
+         all *.jade pages
+</pre>
+                        <p>Any final page begins with the inheritance common template <code> layout.jade </code>, which in its general form looks like this:</p>
+<pre class="prettyprint linenums lang-html">doctype html
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Right - Bootstrap Admin Template
+        block css
+        link(href='css/right.css', rel='stylesheet')
+    block vars
+    body
+        .wrapper
+            include ./navbar.jade
+            .dashboard
+                include ./sidebar.jade
+                include ./main.jade
+        script(src='libs/jquery/jquery.min.js')
+        script(src='libs/bootstrap/js/bootstrap.min.js')
+        block js
+        script(src='js/main.js')
+</pre>
+                        <p>Each page is constructed on the basis of this template, including the individual parts using the operator <code>include</code>, replacing the special tags <code>block</code> with they own content.</p>
+                        <p>Any final page template looks like (for example, <code> blank.jade </code>):</p>
+<pre class="prettyprint linenums lang-html">extends ./parts/layout.jade
+block vars
+    - page = 'Blank';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active Blank
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__blank
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Blank Page
+                        .panel-body
+                            p This is a blank page.
+</pre>
+                        <h3 id="b-less">Less</h3>
+                        <p><a href="http://lesscss.org/">Less</a> is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themable and extendable.</p>
+                        <p>The structure of less directory:</p>
+<pre class="prettyprint linenums lang-html">Right/
+  ├ source/                              source files
+  ├───less/                              less folder
+  ├──── dark/                            color theme container folder
+  ├────── blocks/                        layout structure elements
+  ├────── bootstrap/                     customized bootstrap styles
+  ├────── libs/                          customized third-party libs
+  ├────── colors.less                    colors
+  ├────── mixins.less                    less mixins
+  ├──── right.dark.less                  color theme container file
+</pre>
+                        <h2 id="themes">Color Themes</h2>
+                        <p>Version 0.3.0 includes 3 color schemes: <code>dark</code>, <code>lilac</code> and <code>light</code>. The styles for each of them are located in separate files. Thus, to use a specific color scheme, you need to connect to the page a certain stylesheet.</p>
+<pre class="prettyprint  lang-html">Right/
+  ├ dist/
+  ├─── css/
+  ├───── right.dark.css             Dark theme
+  ├───── right.light.css            Light theme
+  ├───── right.lilac.css            Lilac theme
+</pre>
+                        <h2 id="log">Change log</h2>
+                        <h3>Version 0.1.0 -> 0.2.0</h3>
+                        <p>In version 0.2.0 we've added a new section for email, reworked the structure of the left menu and expanded it with four additional panels for quick access. Also minor changes were made to the structure of top menu. The connection of certain libraries have been made in the common layout.</p>
+                        <p><a data-toggle="collapse" href="#new_0_2_0">New files list</a></p>
+                        <div class="collapse" id="new_0_2_0">
+<pre class="prettyprint linenums lang-html">Right/
+  ├ source/
+  ├─── js/
+  ├───── mails.js
+  ├─── less/
+  ├───── layout/
+  ├─────── blocks/
+  ├───────── mailbox.less
+  ├───────── quickmenu.less
+  ├───────── sidestat.less
+  ├─── jade
+  ├───── compose.jade
+  ├───── inbox.jade
+  ├───── sent.jade
+  ├ dist/
+  ├─── js/
+  ├───── template/
+  ├─────── mails.js
+  ├─── compose.html
+  ├─── inbox.html
+  ├─── sent.html
+</pre>
+                        </div>
+                        <p><a data-toggle="collapse" href="#changed_0_2_0">Changed files list</a></p>
+                        <div class="collapse" id="changed_0_2_0">
+<pre class="prettyprint linenums lang-html">Right/
+  ├ source/
+  ├── img
+  ├──── paint.svg
+  ├── js
+  ├──── template
+  ├────── controls.js
+  ├────── index.js
+  ├────── mails.js
+  ├──── main.js
+  ├── less
+  ├──── layout
+  ├────── blocks
+  ├──────── body.less
+  ├──────── header-navbar.less
+  ├──────── mailbox.less
+  ├──────── quickmenu.less
+  ├──────── sidebar.less
+  ├──────── sidestat.less
+  ├──────── template.less
+  ├──────── widgets.less
+  ├────── bootstrap
+  ├──────── dropdown-menu.less
+  ├────── libs
+  ├──────── inputNumber.less
+  ├──────── jquery.scrollbar.less
+  ├──────── summernote.less
+  ├──────── switch.less
+  ├────── themes
+  ├──────── solid.less
+  ├──────── transparent.less
+  ├────── demo.less
+  ├────── right.less
+  ├── jade
+  ├──── parts
+  ├────── layout.jade
+  ├────── navbar.jade
+  ├────── sidebar.jade
+  ├──── charts.jade
+  ├──── compose.jade
+  ├──── controls.jade
+  ├──── inbox.jade
+  ├──── index.jade
+  ├──── login.jade
+  ├──── orders.jade
+  ├──── products.jade
+  ├──── sent.jade
+  ├──── users.jade
+  ├ dist
+  ├── css
+  ├──── demo.css
+  ├──── demo.min.css
+  ├──── right.css
+  ├──── right.min.css
+  ├── img
+  ├──── paint.svg
+  ├── js
+  ├──── template
+  ├────── controls.js
+  ├────── index.js
+  ├────── mails.js
+  ├──── main.js
+  ├──── right.min.js
+  ├── blank.html
+  ├── buttons.html
+  ├── charts.html
+  ├── compose.html
+  ├── controls.html
+  ├── general.html
+  ├── inbox.html
+  ├── index.html
+  ├── login.html
+  ├── modals.html
+  ├── orders.html
+  ├── panels.html
+  ├── products.html
+  ├── sent.html
+  ├── table_data.html
+  ├── table_sortable.html
+  ├── table_static.html
+  ├── tabs.html
+  ├── texteditor.html
+  ├── users.html
+  ├── validation.html
+  ├ bower.json
+  ├ gulpfile.js
+  ├ package.json
+</pre>
+                        </div>
+                        <h3>Version 0.2.0 -> 0.3.0</h3>
+                        <p>In the version 0.3.0 we have added a light color scheme and divided all schemes with separate files. There were also minor changes and fixes.</p>
+                        <p><a data-toggle="collapse" href="#new_0_3_0">New files list</a></p>
+                        <div class="collapse" id="new_0_3_0">
+<pre class="prettyprint linenums lang-html">Right/
+  ├ dist
+  ├── css
+  ├──── min
+  ├────── right.dark.min.css
+  ├────── right.light.min.css
+  ├────── right.lilac.min.css
+  ├──── right.dark.css
+  ├──── right.light.css
+  ├──── right.lilac.css
+  ├── img
+  ├──── rightlogo_dark.png
+  ├── data
+  ├──── orders
+  ├────── finished.json
+  ├────── new.json
+  ├────── processing.json
+  ├──── products
+  ├────── affilate.json
+  ├────── brand.json
+  ├────── digital.json
+  ├──── users
+  ├────── admins.json
+  ├────── customers.json
+  ├────── managers.json
+  ├ source
+  ├── less
+  ├──── dark
+  ├────── blocks
+  ├──────── body.less
+  ├──────── chart.less
+  ├──────── dashboard.less
+  ├──────── fileupload.less
+  ├──────── layout.less
+  ├──────── logo.less
+  ├──────── main-heading.less
+  ├──────── sidestat.less
+  ├──────── template.less
+  ├──────── userbar.less
+  ├──────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── btn.less
+  ├──────── form.less
+  ├──────── grid.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── pagination.less
+  ├──────── progress.less
+  ├──────── tooltip.less
+  ├────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── breadcrumb.less
+  ├──────── btn.less
+  ├──────── dropdown-menu.less
+  ├──────── form.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── paddings.less
+  ├──────── pagination.less
+  ├──────── panels.less
+  ├──────── progress.less
+  ├──────── table.less
+  ├──────── tabs.less
+  ├──────── tooltip.less
+  ├────── libs
+  ├──────── checkbox.less
+  ├──────── codemirror.less
+  ├──────── datatable.less
+  ├──────── datepicker.less
+  ├──────── inputNumber.less
+  ├──────── ionRangeSlider.less
+  ├──────── jquery.scrollbar.less
+  ├──────── morris.less
+  ├──────── select.less
+  ├──────── selectize.less
+  ├──────── sparkline.less
+  ├──────── summernote.less
+  ├──────── switch.less
+  ├──────── timepicker.less
+  ├────── colors.less
+  ├────── mixins.less
+  ├──── light
+  ├────── blocks
+  ├──────── body.less
+  ├──────── chart.less
+  ├──────── dashboard.less
+  ├──────── fileupload.less
+  ├──────── layout.less
+  ├──────── logo.less
+  ├──────── main-heading.less
+  ├──────── sidestat.less
+  ├──────── template.less
+  ├──────── userbar.less
+  ├──────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── btn.less
+  ├──────── form.less
+  ├──────── grid.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── pagination.less
+  ├──────── progress.less
+  ├──────── tooltip.less
+  ├────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── breadcrumb.less
+  ├──────── btn.less
+  ├──────── dropdown-menu.less
+  ├──────── form.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── paddings.less
+  ├──────── pagination.less
+  ├──────── panels.less
+  ├──────── progress.less
+  ├──────── table.less
+  ├──────── tabs.less
+  ├──────── tooltip.less
+  ├────── libs
+  ├──────── checkbox.less
+  ├──────── codemirror.less
+  ├──────── datatable.less
+  ├──────── datepicker.less
+  ├──────── inputNumber.less
+  ├──────── ionRangeSlider.less
+  ├──────── jquery.scrollbar.less
+  ├──────── morris.less
+  ├──────── select.less
+  ├──────── selectize.less
+  ├──────── sparkline.less
+  ├──────── summernote.less
+  ├──────── switch.less
+  ├──────── timepicker.less
+  ├────── colors.less
+  ├────── mixins.less
+  ├──── lilac
+  ├────── blocks
+  ├──────── body.less
+  ├──────── chart.less
+  ├──────── dashboard.less
+  ├──────── fileupload.less
+  ├──────── layout.less
+  ├──────── logo.less
+  ├──────── main-heading.less
+  ├──────── sidestat.less
+  ├──────── template.less
+  ├──────── userbar.less
+  ├──────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── btn.less
+  ├──────── form.less
+  ├──────── grid.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── pagination.less
+  ├──────── progress.less
+  ├──────── tooltip.less
+  ├────── bootstrap
+  ├──────── alert.less
+  ├──────── badge.less
+  ├──────── breadcrumb.less
+  ├──────── btn.less
+  ├──────── dropdown-menu.less
+  ├──────── form.less
+  ├──────── label.less
+  ├──────── modal.less
+  ├──────── paddings.less
+  ├──────── pagination.less
+  ├──────── panels.less
+  ├──────── progress.less
+  ├──────── table.less
+  ├──────── tabs.less
+  ├──────── tooltip.less
+  ├────── libs
+  ├──────── checkbox.less
+  ├──────── codemirror.less
+  ├──────── datatable.less
+  ├──────── datepicker.less
+  ├──────── inputNumber.less
+  ├──────── ionRangeSlider.less
+  ├──────── jquery.scrollbar.less
+  ├──────── morris.less
+  ├──────── select.less
+  ├──────── selectize.less
+  ├──────── sparkline.less
+  ├──────── summernote.less
+  ├──────── switch.less
+  ├──────── timepicker.less
+  ├────── colors.less
+  ├────── mixins.less
+  ├──── right.dark.less
+  ├──── right.light.less
+  ├──── right.lilac.less
+  ├── data
+  ├──── orders
+  ├────── finished.json
+  ├────── new.json
+  ├────── processing.json
+  ├──── products
+  ├────── affilate.json
+  ├────── brand.json
+  ├────── digital.json
+  ├──── users
+  ├────── admins.json
+  ├────── customers.json
+  ├────── managers.json
+  ├── img
+  ├──── rightlogo_dark.png
+</pre>
+                        </div>
+                        <p><a data-toggle="collapse" href="#changed_0_3_0">Changed files list</a></p>
+                        <div class="collapse" id="changed_0_3_0">
+<pre class="prettyprint linenums lang-html">Right/
+  ├ dist
+  ├── js
+  ├──── template
+  ├────── orders.js
+  ├────── products.js
+  ├────── users.js
+  ├──── demo.js
+  ├──── main.js
+  ├── libs
+  ├──── jquery.scrollbar
+  ├────── jquery.scrollbar.js
+  ├────── jquery.scrollbar.min.js
+  ├── blank.html
+  ├── buttons.html
+  ├── charts.html
+  ├── compose.html
+  ├── controls.html
+  ├── general.html
+  ├── inbox.html
+  ├── index.html
+  ├── login.html
+  ├── modals.html
+  ├── orders.html
+  ├── panels.html
+  ├── products.html
+  ├── sent.html
+  ├── table_data.html
+  ├── table_sortable.html
+  ├── table_static.html
+  ├── tabs.html
+  ├── texteditor.html
+  ├── users.html
+  ├── validation.html
+  ├ source
+  ├── jade
+  ├──── include
+  ├────── orders_finished.jade
+  ├────── orders_new.jade
+  ├────── orders_processing.jade
+  ├────── products_affilate.jade
+  ├────── products_brand.jade
+  ├────── products_digital.jade
+  ├────── users_admins.jade
+  ├────── users_customers.jade
+  ├────── users_managers.jade
+  ├──── parts
+  ├────── layout.jade
+  ├────── main.jade
+  ├────── navbar.jade
+  ├────── sidebar.jade
+  ├──── buttons.jade
+  ├──── login.jade
+  ├──── orders.jade
+  ├──── panels.jade
+  ├──── products.jade
+  ├──── users.jade
+  ├── js
+  ├──── template
+  ├────── orders.js
+  ├────── products.js
+  ├────── users.js
+  ├──── main.js
+  ├── libs
+  ├──── jquery.scrollbar
+  ├────── jquery.scrollbar.js
+  ├────── jquery.scrollbar.min.js
+  ├ bower.json
+  ├ gulpfile.js
+  ├ package.json
+</pre>
+                        </div>
+                        <h2 id="support">Support</h2>
+                        <p>That's it. Hope you will enjoy our template. If you will have any issues you can contact us to <a href="mailto:support@adminbootstrap.com">support@adminbootstrap.com</a></p>
+                    </div>
+
+                    <div class="hidden-xs hidden-sm col-md-3" id="sidebar">
+                        <img class="logo" src="img/rightlogo.png" alt="Right"/>
+                        <nav class="docs-nav" id="side-nav">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#overview">Overview</a>
+                                    <ul class="nav">
+                                        <li><a href="#ov-files">Folder structure</a></li>
+                                        <li><a href="#ov-layout">Layout structure</a></li>
+                                        <li><a href="#ov-responsivity">Responsivity</a></li>
+                                        <li><a href="#ov-pages">Pages</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#build">Building the project</a>
+                                    <ul class="nav">
+                                        <li><a href="#b-start">Getting started</a></li>
+                                        <li><a href="#b-gulp">Gulp</a></li>
+                                        <li><a href="#b-jade">Jade</a></li>
+                                        <li><a href="#b-less">Less</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#themes">Color Themes</a>
+                                </li>
+                                <li>
+                                    <a href="#log">Change log</a>
+                                </li>
+                                <li>
+                                    <a href="#support">Support</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <hr>
+
+                <footer>
+                    <p>&copy; 2016 Right</p>
+                </footer>
+
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/prettify.js"></script>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+.selectize-input,
+.selectize-control.single .selectize-input {
+  background: @gray-dark;
+  border-color: @gray-dark;
+  box-shadow: none;
+  color: @gray-ui;
+
+  & > input {
+    color: @gray-ui;
+
+    &::-moz-placeholder           { color: @gray-ui; }
+    &:-ms-input-placeholder       { color: @gray-ui; }
+    &::-webkit-input-placeholder  { color: @gray-ui; }
+  }
+}
+
+.selectize-input.input-active, .selectize-control.single .selectize-input.input-active, .selectize-input.focus {
+  background: @gray-dark;
+  border-color: @gray-dark;
+  box-shadow: inset 0 0 3px @gray-ui;
+}
+
+.selectize-control.single .selectize-input:after {
+  border-top-color: @gray-ui;
+}
+
+.selectize-control.single .selectize-input.dropdown-active:after {
+  border-bottom-color: @gray-ui;
+}
+
+.selectize-dropdown, .selectize-dropdown.single, .selectize-dropdown.form-control {
+  background: @gray-pad;
+  border: 1px solid @gray-head;
+
+  .active {
+    background-color: @gray-back;
+
+    &.create {
+      color: @gray-text;
+    }
+  }
+
+  .optgroup {
+    border-top-color: @gray-back;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+  .optgroup-header {
+    color: @gray-text;
+    background: transparent;
+    font-weight: bold;
+    cursor: default;
+    padding: 5px 12px 3px;
+    font-size: 13px;
+  }
+
+  .option {
+    color: @gray-ui;
+
+    &.active {
+      color: @gray-text;
+      background-color: @gray-back;
+    }
+  }
+}
+
+.input-group .selectize-input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.selectize-control .selectize-input {
+  padding: 6px 40px 6px 15px;
+}
+
+.selectize-control.multi .selectize-input [data-value] {
+  text-shadow: none;
+  border-radius: 3px;
+  background-color: @blue-light;
+  background-image: none;
+  padding: 1px 5px;
+  color: @gray-head;
+}
+
+.selectize-control.multi .selectize-input [data-value].active {
+  background-color: @blue;
+  background-image: none
+}
+.selectize-control.multi .selectize-input > div.active {
+  background: @blue;
+  color: @gray-head;
+}
+
+.selectize-control.plugin-remove_button [data-value] {
+  padding-right: 22px !important;
+
+  .remove {
+    width: 20px;
+
+    &:hover {
+      border-left: 1px solid rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.selectize-control {
+  height: 34px;
+}
+
+.selectize__group {
+  display: block;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .input-group-addon {
+    display: block;
+    width: 35px;
+    height: 34px;
+    float: left;
+    white-space: nowrap;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .fa {
+      vertical-align: middle;
+    }
+  }
+
+  .selectize-control {
+    display: block;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 35px;
+    margin-left: -35px;
+    white-space: nowrap;
+
+    .selectize-input {
+      height: 100%;
+
+      .item {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+      }
+    }
+  }
+}

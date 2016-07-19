@@ -1,0 +1,30 @@
+.dropdown-menu {
+  background-color: rgb(56,40,53);
+  border-color: @gray-head;
+
+  li>a {
+    color: @gray-ui;
+  }
+
+  li>a:focus, li>a:hover, li.active>a, li.active>a:hover {
+    color: @gray-text;
+    text-decoration: none;
+    background-color: @gray-dark;
+  }
+
+  .divider {
+    height: 1px;
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: @gray-ui;
+  }
+
+  .dropdown-header {
+    color: @gray-ui;
+  }
+
+  table & {
+    right: 0;
+    left: auto;
+  }
+}

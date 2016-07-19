@@ -1,0 +1,91 @@
+.template {
+
+  &__btns {
+    font-size: 0;
+
+    .btn {
+      margin-bottom: 4px;
+      margin-right: 4px;
+    }
+
+    .btn-group {
+      margin-bottom: 4px;
+      margin-right: 4px;
+
+      .btn {
+        margin-bottom: 0px;
+        margin-right: 0px;
+      }
+
+      .btn-group {
+        margin-bottom: 0px;
+        margin-right: 0px;
+      }
+    }
+
+    .btn-toolbar>.btn-group {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__icons {
+    overflow: hidden;
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    float: left;
+
+    &:before {
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .fa {
+      vertical-align: middle;
+    }
+  }
+
+  &__modals {
+
+    .template__modal {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__validation {
+
+    .CodeMirror {
+      height: 600px;
+    }
+  }
+
+  &__table {
+
+    &_responsive {
+      td {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__sparkline {
+    margin-bottom: 10px;
+    height: 84.5px;
+    text-align: center;
+
+    .sparkline {
+      display: inline-block;
+      max-width: 150px;
+    }
+  }
+
+  &__sparkline-title {
+    margin-bottom: 10px;
+  }
+}

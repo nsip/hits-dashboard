@@ -1,0 +1,128 @@
+.products {
+
+  &__title {
+    width: 100%;
+  }
+
+  &__cover {
+    font-size: 18px;
+  }
+
+  &__stat {
+    display: inline-block;
+  }
+}
+
+.products-new {
+  padding: 10px 5px;
+}
+
+.products-preview {
+  margin-bottom: 15px;
+
+  &__cont {
+    padding: 10px 15px;
+    background-color: @smoke-light;
+    border-radius: 4px;
+  }
+
+  &__name {
+    font-size: 24px;
+    line-height: 1.1;
+    color: @gray-text;
+    margin-bottom: 10px;
+  }
+
+  &__data {
+    margin-bottom: 15px;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  &__photo {
+    float: left;
+    width: 100%;
+    max-width: 190px;
+    padding-right: 90px;
+    margin-right: -75px;
+    height: 100px;
+    position: relative;
+
+    div {
+      height: 100%;
+      background-position: 50% 50%;
+      background-size: cover;
+      background-color: @smoke-dark;
+      background-image: url('../img/nocover.png');
+      border-radius: 4px;
+    }
+  }
+
+  &__info {
+    float: left;
+    width: 75px;
+    box-sizing: border-box;
+  }
+
+  &__type {
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: @gray-text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__stat {
+    margin-bottom: 10px;
+  }
+
+  &__edit {
+    white-space: nowrap;
+  }
+
+  &__props {
+    color: @gray-text;
+  }
+
+  &__prop {
+    white-space: nowrap;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: @smoke-dark;
+    padding: 4px 6px 2px;
+    border-radius: 2px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .fa {
+      width: 20px;
+      text-align: center;
+      margin-right: 6px;
+    }
+  }
+
+  &__note {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+    padding: 10px;
+    color: @gray-text;
+    background-color: @smoke-dark;
+    border-radius: 2px;
+  }
+
+  &__actions {
+    text-align: right;
+  }
+}
+
+

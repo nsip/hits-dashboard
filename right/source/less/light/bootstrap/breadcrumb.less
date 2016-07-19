@@ -1,0 +1,22 @@
+.breadcrumb {
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 8px 0;
+  border-radius: 2px;
+
+  li {
+
+    &.active {
+      color: #333;
+    }
+
+    &:before,
+    &:after {
+      color: @gray-ui;
+    }
+  }
+
+  .main-heading & {
+    margin-bottom: 0;
+  }
+}

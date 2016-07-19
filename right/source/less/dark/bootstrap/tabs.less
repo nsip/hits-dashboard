@@ -1,0 +1,57 @@
+.nav-tabs {
+  border-bottom: 0px solid transparent;
+  position: relative;
+
+  &>li.active>a, &>li.active>a:focus, &>li.active>a:hover, &>li>a:hover, &>li>a:focus {
+    color: @title;
+    background-color: @gray-head;
+    border: 1px solid @gray-head;
+    border-bottom-color: transparent;
+  }
+
+  &>li.active>a {
+    cursor: default;
+  }
+
+  .open>a, .open>a:focus, .open>a:hover {
+    border-color: transparent;
+    background-color: inherit;
+  }
+}
+
+.nav-pills {
+  margin-bottom: 10px;
+  border-bottom: 0px solid transparent;
+  position: relative;
+
+  &>li>a {
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  &>li.active>a, &>li.active>a:focus, &>li.active>a:hover, &>li>a:hover, &>li>a:focus {
+    color: @title;
+    background-color: @gray-head;
+  }
+
+  &>li.active>a {
+    cursor: default;
+  }
+
+  .open>a, .open>a:focus, .open>a:hover {
+    border-color: transparent;
+    background-color: inherit;
+  }
+}
+
+.tab-content {
+  padding: 15px 15px 5px;
+  background-color: @gray-head;
+  border-radius: 4px;
+  border-top-left-radius: 0px;
+}
+
+.tabdrop * {
+  outline: none;
+  cursor: pointer !important;
+}

@@ -1,0 +1,36 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'DataTable';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Tables
+                li.active Data Table
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__table_data
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Data Table
+                        .panel-body
+                            .container-fluid.half-padding
+                                #buttons
+                                include ./include/dataTable.html
+block css
+    link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+block js
+    script(src='libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    if !release
+        script(src='js/template/table_data.js')

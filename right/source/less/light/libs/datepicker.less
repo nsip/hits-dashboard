@@ -1,0 +1,150 @@
+.datepicker {
+
+  .datepicker-switch, .prev, .next, tfoot tr th  {
+    color: @gray-text;
+  }
+
+  .datepicker-switch:hover, .prev:hover, .next:hover, tfoot tr th:hover  {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .day {
+    color: @gray-text;
+
+    &.new, &.old {
+      color: @gray-ui;
+    }
+
+    &.range {
+      background-color: darken(@smoke-dark, 5%);
+    }
+  }
+
+  .month {
+    color: @gray-text;
+  }
+
+  .year {
+    color: @gray-text;
+  }
+
+  table tr td.selected,
+  table tr td.selected:hover,
+  table tr td.selected.disabled,
+  table tr td.selected.disabled:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  table tr td {
+    &.active {
+      &:hover,
+      &:hover:hover,
+      &.disabled:hover,
+      &.disabled:hover:hover,
+      &:active,
+      &:hover:active,
+      &.disabled:active,
+      &.disabled:hover:active,
+      &.active,
+      &:hover.active,
+      &.disabled.active,
+      &.disabled:hover.active,
+      &.disabled,
+      &:hover.disabled,
+      &.disabled.disabled,
+      &.disabled:hover.disabled,
+      &[disabled],
+      &:hover[disabled],
+      &.disabled[disabled],
+      &.disabled:hover[disabled] {
+        background: darken(@smoke-dark, 5%);
+        color: @gray-text;
+      }
+    }
+
+    span.active {
+      &:hover,
+      &:hover:hover,
+      &.disabled:hover,
+      &.disabled:hover:hover,
+      &:active,
+      &:hover:active,
+      &.disabled:active,
+      &.disabled:hover:active,
+      &.active,
+      &:hover.active,
+      &.disabled.active,
+      &.disabled:hover.active,
+      &.disabled,
+      &:hover.disabled,
+      &.disabled.disabled,
+      &.disabled:hover.disabled,
+      &[disabled],
+      &:hover[disabled],
+      &.disabled[disabled],
+      &.disabled:hover[disabled] {
+        background: darken(@smoke-dark, 5%);
+        color: @gray-text;
+      }
+    }
+  }
+
+
+
+  .dow {
+    color: @gray-text;
+  }
+
+  table tr td.day:hover, table tr td.day.focused,
+  table tr td span:hover {
+    background-color: darken(@smoke-dark, 5%);
+  }
+
+  &.datepicker-dropdown {
+    z-index: 1000 !important;
+
+    &:after {
+      border-bottom-color: @smoke-dark;
+    }
+
+    &:before {
+      border-bottom-color: @smoke-dark;
+    }
+
+    &.datepicker-orient-top:after {
+      border-bottom: 0;
+      border-top-color: @smoke-dark;
+      border-right: 0;
+      border-left: 0;
+    }
+
+    &.datepicker-orient-top:before {
+      border-top-color: @smoke-dark;
+    }
+  }
+}
+
+.date {
+
+  .input-group-addon {
+    cursor: pointer;
+  }
+}
+
+.input-daterange input {
+  text-align: left;
+}
+
+.datepicker-embed {
+  border-radius: 4px;
+  background-color: @smoke-light;
+  border: 1px solid @smoke-dark;
+
+  .datepicker {
+    width: 100%;
+
+    table {
+      width: 100%;
+    }
+  }
+}

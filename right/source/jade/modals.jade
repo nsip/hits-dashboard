@@ -1,0 +1,83 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Modals';
+    - development = true;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active Modals
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__modals
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Modals
+                        .panel-body
+                            .row
+                                .col-md-4
+                                    .template__modal
+                                        p Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
+                                        button.btn.btn-primary(type="button", data-toggle="modal", data-target="#modal1")
+                                            | Demo
+                                .col-md-4
+                                    .template__modal
+                                        p Modals have two optional sizes, available via modifier classes to be placed on a&thinsp;
+                                            code .modal-dialog
+                                        button.btn.btn-primary(type="button", data-toggle="modal", data-target="#modal2")
+                                            | Large modal
+                                .col-md-4
+                                    .template__modal
+                                        p Modal with alert message.
+                                        br
+                                        button.btn.btn-danger(type="button", data-toggle="modal", data-target="#modal3")
+                                            | Alert
+                        .modal.fade#modal1
+                            .modal-dialog
+                                .modal-content
+                                    .modal-header
+                                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                            span(aria-hidden="true") &times;
+                                        h4.modal-title Modal title
+                                    .modal-body
+                                        p One fine body&hellip;
+                                    .modal-footer
+                                        button.btn.btn-default(type="button", data-dismiss="modal") Close
+                                        button.btn.btn-primary(type="button") Save changes
+                        .modal.fade#modal2
+                            .modal-dialog.modal-lg
+                                .modal-content
+                                    .modal-header
+                                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                            span(aria-hidden="true") &times;
+                                        h4.modal-title Large modal title
+                                    .modal-body
+                                        p One fine body&hellip;
+                                    .modal-footer
+                                        button.btn.btn-default(type="button", data-dismiss="modal") Close
+                                        button.btn.btn-primary(type="button") Save changes
+                        .modal.fade#modal3
+                            .modal-dialog
+                                .modal-content
+                                    .modal-header
+                                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                            span(aria-hidden="true") &times;
+                                        h4.modal-title Alert!
+                                    .modal-body
+                                        .alert.alert-danger(role="alert")
+                                            h4
+                                                i.alert-ico.fa.fa-fw.fa-ban
+                                                strong Oh snap!&thinsp;
+                                            | Change a few things up and try submitting again.
+                                    .modal-footer
+                                        button.btn.btn-default(type="button", data-dismiss="modal") Close

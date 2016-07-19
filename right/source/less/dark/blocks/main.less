@@ -1,0 +1,25 @@
+.main {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  font-size: 14px;
+  white-space: normal;
+  padding-left: 200px;
+  margin-left: -200px;
+  overflow-y: auto;
+
+  .screen-sm({
+    padding-left: 0;
+    margin-left: 0;
+  });
+
+  &>.main__scroll {
+    max-height: 100%;
+  }
+
+  &__cont {
+    padding: 15px;
+  }
+
+}

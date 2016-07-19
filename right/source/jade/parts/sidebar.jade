@@ -1,0 +1,84 @@
+.sidebar
+    .quickmenu
+        if development
+            .quickmenu__cont
+                .quickmenu__list
+                    .quickmenu__item(class=page!='Sent' && page!='Inbox' && page!='Compose' ? 'active' : '')
+                        .fa.fa-fw.fa-home
+                    .quickmenu__item(class=page=='Sent' || page=='Inbox' || page=='Compose' ? 'active' : '')
+                        .fa.fa-fw.fa-envelope-o
+                    .quickmenu__item.new
+                        .fa.fa-fw.fa-comments-o
+                    .quickmenu__item
+                        .fa.fa-fw.fa-feed
+                    .quickmenu__item
+                        .fa.fa-fw.fa-cog
+    .scrollable.scrollbar-macosx
+        .sidebar__cont
+            .sidebar__menu
+                .sidebar__title HITS Pages
+                ul.nav.nav-menu
+                    li(class=page=='Dashboard' ? 'active' : '')
+                        a(href="./")
+                            .nav-menu__ico
+                                i.fa.fa-fw.fa-star
+                            .nav-menu__text
+                                span Dashboard
+                if development
+                    .sidebar__title Template
+                    ul.nav.nav-menu
+                        li(class=page=='General' || page == 'Panels' || page == 'Tabs' || page == 'Modals' || page == 'Buttons' ? 'active opened' : '')
+                            a(href="#")
+                                .nav-menu__ico
+                                    i.fa.fa-fw.fa-th-large
+                                .nav-menu__text
+                                    span UI Elements
+                                .nav-menu__right
+                                    i.fa.fa-fw.fa-angle-right.arrow
+                            ul.nav.nav-menu__second.collapse(class=page=='General' || page == 'Panels' || page == 'Tabs' || page == 'Modals' || page == 'Buttons' ? 'in' : '')
+                                li(class=page=='General' ? 'active' : '')
+                                    a(href='general.html') General
+                                li(class=page=='Panels' ? 'active' : '')
+                                    a(href='panels.html') Panels
+                                li(class=page=='Tabs' ? 'active' : '')
+                                    a(href='tabs.html') Tabs
+                                li(class=page=='Modals' ? 'active' : '')
+                                    a(href='modals.html') Modals
+                                li(class=page=='Buttons' ? 'active' : '')
+                                    a(href='buttons.html') Buttons
+                        li(class=page=='Controls' || page == 'Validation' || page == 'Texteditor' ? 'active opened' : '')
+                            a(href="#")
+                                .nav-menu__ico
+                                    i.fa.fa-fw.fa-clone
+                                .nav-menu__text
+                                    span Forms
+                                .nav-menu__right
+                                    i.fa.fa-fw.fa-angle-right.arrow
+                            ul.nav.nav-menu__second.collapse(class=page=='Controls' || page == 'Validation' || page == 'Texteditor' ? 'in' : '')
+                                li(class=page=='Controls' ? 'active' : '')
+                                    a(href='controls.html') Controls
+                                li(class=page=='Validation' ? 'active' : '')
+                                    a(href='validation.html') Validation
+                                li(class=page=='Texteditor' ? 'active' : '')
+                                    a(href='texteditor.html') Text Editor
+                        li(class=page=='Table Static' || page == 'Table Sortable' || page == 'DataTable' ? 'active opened' : '')
+                            a(href="#")
+                                .nav-menu__ico
+                                    i.fa.fa-fw.fa-table
+                                .nav-menu__text
+                                    span Tables
+                                .nav-menu__right
+                                    i.fa.fa-fw.fa-angle-right.arrow
+                            ul.nav.nav-menu__second.collapse(class=page=='Table Static' || page == 'Table Sortable' || page == 'DataTable' ? 'in' : '')
+                                li(class=page=='Table Static' ? 'active' : '')
+                                    a(href='table_static.html') Static
+                                li(class=page=='Table Sortable' ? 'active' : '')
+                                    a(href='table_sortable.html') Sortable
+                                li(class=page=='DataTable' ? 'active' : '')
+                                    a(href='table_data.html') DataTable
+                        li(class=page=='Charts' ? 'active' : '')
+                            a(href="charts.html")
+                                .nav-menu__ico
+                                    i.fa.fa-fw.fa-pie-chart
+                                .nav-menu__text
+                                    span Charts

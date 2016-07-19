@@ -1,0 +1,45 @@
+.datalist {
+  
+  &__table {
+
+    th {
+      white-space: nowrap;
+    }
+  }
+
+  .tab-content {
+    padding: 5px 10px;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter {
+    display: none;
+  }
+}
+
+.datalist-filter {
+  margin-bottom: 10px;
+
+  .form-control {
+
+    &.bootstrap-select {
+      padding: 0;
+
+    }
+
+    &::-moz-placeholder           { color: @gray-ui; }
+    &:-ms-input-placeholder       { color: @gray-ui; }
+    &::-webkit-input-placeholder  { color: @gray-ui; }
+  }
+
+  .form-group {
+    margin-bottom: 7.5px;
+  }
+
+  &__detail {
+    margin-top: 10px;
+    padding: 12px 20px 4px;
+    border-radius: 4px;
+    background-color: @gray-dark;
+  }
+}
+

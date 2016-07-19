@@ -1,0 +1,33 @@
+.modal {
+
+  .modal-content {
+    background-color: @smoke-light;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid darken(@smoke-dark, 10%);
+
+    .close {
+      outline: none;
+      text-shadow: none;
+      color: @gray-text;
+      opacity: .8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid darken(@smoke-dark, 10%);
+  }
+}
+
+.modal-backdrop {
+  background-color: @smoke-dark;
+
+  &.in {
+    opacity: 0.6;
+  }
+}

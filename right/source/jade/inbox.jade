@@ -1,0 +1,259 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Inbox';
+block main
+    .mailbox
+        .container-fluid.half-padding
+            .row
+                .col-md-4
+                    .mailbox__head
+                        .mailbox__title
+                            span Inbox
+                        .mailbox__actions
+                            .mailbox__action
+                                i.fa.fa-fw.fa-refresh(title='Reload')
+                            .mailbox__action.dropdown
+                                i.fa.fa-fw.fa-cog.dropdown-toggle(data-toggle="dropdown")
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li.dropdown-header Do with selected
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-check
+                                            span Mark as read
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-trash
+                                            span Delete
+                    .mailbox__search
+                        input.form-control(type='text', placeholder='Search mail')
+                    .mailbox__list.scrollable.scrollbar-macosx
+                        .mailbox-item.new
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m1(type='checkbox')
+                                        label(for='m1')
+                                .mailbox-item__name
+                                    span Julie Payne
+                                    span &lt;payne@indie.com&gt;
+                                .mailbox-item__date
+                                    span Jan 30
+                            .mailbox-item__body
+                                .mailbox-item__tag.tag_clients
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.
+                        .mailbox-item.new
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m2(type='checkbox')
+                                        label(for='m2')
+                                .mailbox-item__name
+                                    span support@adminbootstrap.com
+                                .mailbox-item__date
+                                    span Jan 29
+                            .mailbox-item__body
+                                .mailbox-item__tag.tag_support
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Vestibulum ac est lacinia nisi venenatis tristique.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m4(type='checkbox')
+                                        label(for='m4')
+                                .mailbox-item__name
+                                    span Stephen Olson
+                                    span &lt;watsonq@webs.com&gt;
+                                .mailbox-item__date
+                                    span Jan 29
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Donec semper sapien a libero.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m3(type='checkbox')
+                                        label(for='m3')
+                                .mailbox-item__name
+                                    span support@adminbootstrap.com
+                                .mailbox-item__date
+                                    span Jan 29
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m5(type='checkbox')
+                                        label(for='m5')
+                                .mailbox-item__name
+                                    span stewart@wufoo.com
+                                .mailbox-item__date
+                                    span Jan 28
+                            .mailbox-item__body
+                                .mailbox-item__tag.tag_social
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Phasellus id sapien in sapien iaculis congue.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m6(type='checkbox')
+                                        label(for='m6')
+                                .mailbox-item__name
+                                    span Jean Romero
+                                .mailbox-item__date
+                                    span Jan 27
+                            .mailbox-item__body
+                                .mailbox-item__tag.tag_clients
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m7(type='checkbox')
+                                        label(for='m7')
+                                .mailbox-item__name
+                                    span admin@drupal.org
+                                .mailbox-item__date
+                                    span Jan 27
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m8(type='checkbox')
+                                        label(for='m8')
+                                .mailbox-item__name
+                                    span admin@drupal.org
+                                .mailbox-item__date
+                                    span Jan 27
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m9(type='checkbox')
+                                        label(for='m9')
+                                .mailbox-item__name
+                                    span Ronald Fisher
+                                    span &lt;rfish@gmail.com&gt;
+                                .mailbox-item__date
+                                    span Jan 27
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m10(type='checkbox')
+                                        label(for='m10')
+                                .mailbox-item__name
+                                    span Marie Pierce
+                                    span &lt;encer1p@paypal.com&gt;
+                                .mailbox-item__date
+                                    span Jan 26
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Vivamus tortor. Duis mattis egestas metus.
+                        .mailbox-item
+                            .mailbox-item__head
+                                .mailbox-item__check
+                                    .checkbox
+                                        input#m11(type='checkbox')
+                                        label(for='m11')
+                                .mailbox-item__name
+                                    span Tammy Ross
+                                    span &lt;trossl@admin.ch&gt;
+                                .mailbox-item__date
+                                    span Jan 26
+                            .mailbox-item__body
+                                .mailbox-item__tag
+                                    i.fa.fa-fw.fa-tag
+                                .mailbox-item__text
+                                    | Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.
+                .col-md-8
+                    .mailbox-mail
+                        .mailbox-mail__head
+                            .mailbox-mail__tag
+                                i.fa.fa-fw.fa-tag
+                            .mailbox-mail__title Super important subject of the incoming mail.
+                            .mailbox-mail__settings.dropdown
+                                i.fa.fa-fw.fa-cog.dropdown-toggle(data-toggle="dropdown")
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li
+                                        a(href="compose.html")
+                                            i.fa.fa-fw.fa-reply
+                                            span Reply
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-trash
+                                            span Delete
+                                    li.divider(role="separator")
+                                    li.dropdown-header Mark as
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-tag.tag_clients
+                                            span Clients
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-tag.tag_social
+                                            span Social
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-tag.tag_support
+                                            span Support
+                                    li
+                                        a(href="")
+                                            i.fa.fa-fw.fa-tag
+                                            span Default
+                        .mailbox-mail__info
+                            .mailbox-mail__photo
+                            .mailbox-mail__name
+                                span David Filch
+                                span support@adminbootstrap.com
+                            .mailbox-mail__date Jsn 30, 11:30 PM
+                        .mailbox-mail__body
+                            .mailbox-mail__text
+                                | Hello, Tim <br><br> Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Etiam vel augue. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Integer non velit. Vestibulum ac est lacinia nisi venenatis tristique. Maecenas tincidunt lacus at velit. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. Nam nulla. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.<br><br> Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Etiam faucibus cursus urna. Diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Donec semper sapien a libero. Nam dui. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Praesent blandit. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Phasellus id sapien in sapien iaculis congue. <br><br> Regards, David.
+                    .mailbox-reply
+                        form.mailbox-reply__form
+                            .mailbox-reply__body
+                                .mailbox-reply__photo
+                                .mailbox-reply__text
+                                    .summernote
+                            .mailbox-reply__submit
+                                button.btn.btn-default.btn-sm(type='submit') Send
+block css
+    link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='libs/summernote/dist/summernote.css', rel='stylesheet')
+block js
+    script(src ='libs/summernote/dist/summernote.min.js')
+    if !release
+        script(src='js/template/mails.js')
+
