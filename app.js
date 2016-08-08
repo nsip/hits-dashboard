@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// XXX Add Winston logging including express winston
+// XXX Add basic login function 
 
 var app = express();
 
@@ -22,8 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/admin', require('./routes/admin'));
+app.use('/account', require('./routes/account'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
