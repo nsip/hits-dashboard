@@ -19,7 +19,26 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Blank Page
+                            h3.panel-title Databases
                         .panel-body
-                            p This is a blank page.
+                            table.datalist__table.table.datatable.display.table-hover(id='account-databases', width='100%')
+    .container-fluid.half-padding
+        .template.template__blank
+            .row
+                .col-md-12
+                    form
+                        .form-group
+                            input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
+                        .form-group
+                            input.form-control#create-type(name="type", type='text', placeholder='Type')
+                        .form-group.login__action
+                            .login__submit
+                                button.btn.btn-default#create-create(type='submit') Create
+                    
+block css
+    link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+block js
+    script(src='libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='js/account.js')
 

@@ -3,6 +3,7 @@ var router = express.Router();
 var uuid = require('node-uuid');
 var db = require('../database');
 var requestify = require('requestify'); 
+var logger = require('../logger');
 
 // AUTHENTICATION - All entries start with base URL
 router.use(function (req, res, next) {
@@ -19,7 +20,19 @@ router.get('/:accountId/', function(req, res, next) {
 
 // GET /database = Return a list of databases
 router.get('/:accountId/database', function(req, res, next) {
-	res.send('ROOT respond with a resource = ' + req.params.accountId);
+	var connection = db.connect();
+	connection.query(
+		'SELECT * FROM `database` WHERE account_id = ?', 
+		[ req.params.accountId ],
+		function(err, rows, fields) {
+			if (err) 
+				return res.error(err);
+			return res.json({
+				success: 1,
+				data: rows
+			});
+		}
+	);
 });
 
 // POST /database = Create a database !
@@ -27,33 +40,41 @@ router.post('/:accountId/database', function(req, res, next) {
 	// * Create UUID
 	var id = uuid.v4();
 	id = id.replace(/-/g,"");
-	var name = req.query.name || "no name";
+	var name = req.body.name || "no name";
+	var type = req.body.type || "empty";
 	
 	// * Insert record into database with "status" = "building"
 	
 	var connection = db.connect();
 	connection.query(
-		"INSERT INTO database (id,name,status) VALUES (?,?,'building')", 
-		[ id, name ],
+		"INSERT INTO `database` (account_id, id,name,status, options, `when`) VALUES (?,?,?,'building', ?, NOW())", 
+		[ req.params.accountId, id, name, type ],
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
+
+			// TODO - Build Time for Database
+			// TODO - Allow very long times for huge builds
 
 			// * Do GET above in background
 			requestify.get(
 				'http://hits.dev.nsip.edu.au/dbcreate'
 				+ '?name=' + id 
 				+ '&encode=json'
-				+ '&type=empty'	// XXX need to define type
+				+ '&type=' + type
 			)
 			.then(function(response) {
 				logger.debug("REMOTE: Response.", response.getBody());
 				// XXX Decode response body and check success
 				// Else error
 				// * On complete build, update status
+				var stat = "unknown";
+				var responseData = JSON.parse(response.getBody());
+				if (responseData.success)
+					stat = "complete";
 				connection.query(
-					"UPDATE database SET status = ? WHERE id = ?", 
-					[ 'XXX', id ],
+					"UPDATE `database` SET status = ? WHERE id = ?", 
+					[ stat, id ],
 					function(err, rows, fields) {
 						if (err)
 							return logger.error("ERROR: " + err, err);
@@ -64,7 +85,7 @@ router.post('/:accountId/database', function(req, res, next) {
 			.fail(function(response) {
 				// XXX logger
 				connection.query(
-					"UPDATE database SET status = ? WHERE id = ?", 
+					"UPDATE `database` SET status = ? WHERE id = ?", 
 					[ 'error', id ],
 					function(err, rows, fields) {
 						if (err)

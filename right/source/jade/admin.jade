@@ -26,7 +26,21 @@ block main
                         .panel-body
                             .container-fluid.half-padding
                                 #buttons
-                                include ./include/dataTable.html
+                                table.datalist__table.table.datatable.display.table-hover(id='admin-accounts', width='100%')
+
+    .container-fluid.half-padding
+        .template.template__blank
+            .row
+                .col-md-12
+                    form
+                        .form-group
+                            input.form-control#create-name(name="name", type='text', placeholder='Name of Account')
+                        .form-group
+                            input.form-control#create-email(name="type", type='text', placeholder='Email')
+                        .form-group.login__action
+                            .login__submit
+                                button.btn.btn-default#create-create(type='submit') Create
+                                    
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
 block js
