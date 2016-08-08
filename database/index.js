@@ -21,6 +21,7 @@ module.exports = {
 	create: function(name, cb) {
 		// XXX Don't we need a callback ?
 		// XXX Check DB is ok. Create and return
+		return "Fred was here";
 	}
 };
 
