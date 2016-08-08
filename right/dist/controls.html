@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HITS - Dashboard</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/fonts/roboto.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="libs/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <link href="libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="libs/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/morris.js/morris.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/right.light.css" rel="stylesheet" class="demo__css">
+    <link href="css/demo.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="framed main-scrollable">
+    <div class="wrapper">
+      <nav class="navbar navbar-static-top header-navbar">
+        <div class="header-navbar-mobile">
+          <div class="header-navbar-mobile__menu">
+            <button type="button" class="btn"><i class="fa fa-bars"></i></button>
+          </div>
+          <div class="header-navbar-mobile__title"><span>Controls</span></div>
+          <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-header"><a href="index.html" class="navbar-brand">
+            <div class="logo text-nowrap">
+              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS</span>
+            </div></a></div>
+        <div class="topnavbar">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="index.html"><span>Dashboard</span></a></li>
+          </ul>
+          <ul class="userbar nav navbar-nav">
+            <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="/logout/">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="dashboard">
+        <div class="sidebar">
+          <div class="quickmenu">
+            <div class="quickmenu__cont">
+              <div class="quickmenu__list">
+                <div class="quickmenu__item active">
+                  <div class="fa fa-fw fa-home"></div>
+                </div>
+                <div class="quickmenu__item">
+                  <div class="fa fa-fw fa-envelope-o"></div>
+                </div>
+                <div class="quickmenu__item new">
+                  <div class="fa fa-fw fa-comments-o"></div>
+                </div>
+                <div class="quickmenu__item">
+                  <div class="fa fa-fw fa-feed"></div>
+                </div>
+                <div class="quickmenu__item">
+                  <div class="fa fa-fw fa-cog"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scrollable scrollbar-macosx">
+            <div class="sidebar__cont">
+              <div class="sidebar__menu">
+                <div class="sidebar__title">HITS Pages</div>
+                <ul class="nav nav-menu">
+                  <li><a href="./">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
+                      <div class="nav-menu__text"><span>Dashboard</span></div></a></li>
+                </ul>
+                <div class="sidebar__title">Template</div>
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>UI Elements</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="general.html">General</a></li>
+                      <li><a href="panels.html">Panels</a></li>
+                      <li><a href="tabs.html">Tabs</a></li>
+                      <li><a href="modals.html">Modals</a></li>
+                      <li><a href="buttons.html">Buttons</a></li>
+                    </ul>
+                  </li>
+                  <li class="active opened"><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-clone"></i></div>
+                      <div class="nav-menu__text"><span>Forms</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse in">
+                      <li class="active"><a href="controls.html">Controls</a></li>
+                      <li><a href="validation.html">Validation</a></li>
+                      <li><a href="texteditor.html">Text Editor</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-table"></i></div>
+                      <div class="nav-menu__text"><span>Tables</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="table_static.html">Static</a></li>
+                      <li><a href="table_sortable.html">Sortable</a></li>
+                      <li><a href="table_data.html">DataTable</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="charts.html">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-pie-chart"></i></div>
+                      <div class="nav-menu__text"><span>Charts</span></div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main__scroll scrollbar-macosx">
+            <div class="main__cont">
+              <div class="main-heading">
+                <div class="main-title">
+                  <ol class="breadcrumb">
+                    <li><a href="./">Forms</a></li>
+                    <li class="active">Controls</li>
+                  </ol>
+                </div>
+                <div class="main-filter">
+                  <form class="main-filter__search">
+                    <div class="input-group">
+                      <input type="text" placeholder="Search..." class="form-control"><span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                          <div class="fa fa-search"></div>
+                        </button></span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="container-fluid half-padding">
+                <div class="template template__controls">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Inputs</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form-horizontal">
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Text</label>
+                              <div class="col-sm-10">
+                                <input type="email" placeholder="Text" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Select</label>
+                              <div class="col-sm-10">
+                                <select placeholder="Select" class="selectpicker form-control">
+                                  <option>One</option>
+                                  <option>Two</option>
+                                  <option>Three</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Multiple</label>
+                              <div class="col-sm-10">
+                                <select placeholder="Select" multiple="multiple" class="selectpicker form-control">
+                                  <option>One</option>
+                                  <option>Two</option>
+                                  <option>Three</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Textarea</label>
+                              <div class="col-sm-10">
+                                <textarea placeholder="Textarea" rows="7" class="form-control"></textarea>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Checkbox</label>
+                              <div class="col-sm-10">
+                                <div class="checkbox">
+                                  <input id="chb1" type="checkbox" checked="checked">
+                                  <label for="chb1">Label</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Radio</label>
+                              <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                  <input id="r1" type="radio" name="controls_radio" checked="checked">
+                                  <label for="r1">Radio 1</label>
+                                </div>
+                                <div class="radio radio-inline">
+                                  <input id="r2" type="radio" name="controls_radio">
+                                  <label for="r2">Radio 2</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">Submit</label>
+                              <div class="col-sm-10">
+                                <button type="submit" class="btn btn-default">Submit Button</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Date & time</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Date</label>
+                                  <div class="input-group date">
+                                    <input type="text" value="12/01/2015" class="form-control">
+                                    <div class="input-group-addon">
+                                      <div class="fa fa-calendar"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Time</label>
+                                  <div class="input-group timepicker bootstrap-timepicker">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">
+                                      <div class="fa fa-clock-o"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="input-daterange">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Date range from</label>
+                                    <div class="input-group date">
+                                      <input type="text" value="01/01/2016" class="form-control">
+                                      <div class="input-group-addon">
+                                        <div class="fa fa-calendar-minus-o"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>to</label>
+                                    <div class="input-group date">
+                                      <input type="text" value="01/15/2016" class="form-control">
+                                      <div class="input-group-addon">
+                                        <div class="fa fa-calendar-plus-o"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <label>Calendar</label>
+                                <div class="datepicker-embed"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Check and radio</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="checkbox checkbox-primary">
+                            <input id="ch1" type="checkbox" checked="checked">
+                            <label for="ch1">Primary</label>
+                          </div>
+                          <div class="checkbox checkbox-success">
+                            <input id="ch2" type="checkbox" checked="checked">
+                            <label for="ch2">Success</label>
+                          </div>
+                          <div class="checkbox checkbox-info">
+                            <input id="ch3" type="checkbox" checked="checked">
+                            <label for="ch3">Info</label>
+                          </div>
+                          <div class="checkbox checkbox-warning">
+                            <input id="ch4" type="checkbox" checked="checked">
+                            <label for="ch4">Warning</label>
+                          </div>
+                          <div class="checkbox checkbox-danger">
+                            <input id="ch5" type="checkbox" checked="checked">
+                            <label for="ch5">Danger</label>
+                          </div>
+                          <div class="checkbox">
+                            <input id="ch6" type="checkbox" checked="checked">
+                            <label for="ch6">Default</label>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <input type="checkbox" checked="checked" data-size="mini" data-on-color="success" data-off-color="danger" class="bs-switch">
+                        </div>
+                        <div class="panel-body">
+                          <div class="radio radio-primary">
+                            <input id="rad1" type="radio" name="radio" checked="checked">
+                            <label for="rad1">Primary</label>
+                          </div>
+                          <div class="radio radio-success">
+                            <input id="rad2" type="radio" name="radio">
+                            <label for="rad2">Success</label>
+                          </div>
+                          <div class="radio radio-info">
+                            <input id="rad3" type="radio" name="radio">
+                            <label for="rad3">Info</label>
+                          </div>
+                          <div class="radio radio-warning">
+                            <input id="rad4" type="radio" name="radio">
+                            <label for="rad4">Warning</label>
+                          </div>
+                          <div class="radio radio-danger">
+                            <input id="rad5" type="radio" name="radio">
+                            <label for="rad5">Danger</label>
+                          </div>
+                          <div class="radio">
+                            <input id="rad6" type="radio" name="radio">
+                            <label for="rad6">Default</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Input states</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form">
+                            <div class="form-group">
+                              <label class="control-label">Disabled</label>
+                              <input type="text" placeholder="Disabled" disabled="disabled" class="form-control">
+                            </div>
+                            <div class="form-group has-error has-feedback">
+                              <label class="control-label">Has error</label>
+                              <input type="text" value="Error" class="form-control"><span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-success has-feedback">
+                              <label class="control-label">Has success</label>
+                              <input type="text" value="Success" class="form-control"><span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-warning has-feedback">
+                              <label class="control-label">Has warning</label>
+                              <input type="text" value="Warning" class="form-control"><span class="glyphicon glyphicon-exclamation-sign form-control-feedback"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Autocomplete</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form">
+                            <div class="form-group">
+                              <label class="control-label">Country select</label>
+                              <select id="select-country" class="selectize">
+                                <option value="">Start typing</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AX">Åland Islands</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antarctica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia, Plurinational State of</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CD">Congo, the Democratic Republic of the</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="CI">Côte d'Ivoire</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GP">Guadeloupe</option>
+                                <option value="GU">Guam</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GG">Guernsey</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard Island and McDonald Islands</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran, Islamic Republic of</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IM">Isle of Man</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JE">Jersey</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                <option value="KR">Korea, Republic of</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Lao People's Democratic Republic</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libyan Arab Jamahiriya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macao</option>
+                                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia, Federated States of</option>
+                                <option value="MD">Moldova, Republic of</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="AN">Netherlands Antilles</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PS">Palestinian Territory, Occupied</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Réunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russian Federation</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="BL">Saint Barthélemy</option>
+                                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="MF">Saint Martin (French part)</option>
+                                <option value="PM">Saint Pierre and Miquelon</option>
+                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syrian Arab Republic</option>
+                                <option value="TW">Taiwan, Province of China</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania, United Republic of</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TL">Timor-Leste</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="US">United States</option>
+                                <option value="UM">United States Minor Outlying Islands</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                <option value="VN">Viet Nam</option>
+                                <option value="VG">Virgin Islands, British</option>
+                                <option value="VI">Virgin Islands, U.S.</option>
+                                <option value="WF">Wallis and Futuna</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">Option groups</label>
+                              <select placeholder="Select gear" class="selectize">
+                                <option value="">Select gear</option>
+                                <optgroup label="Climbing">
+                                  <option value="pitons">Pitons</option>
+                                  <option value="cams">Cams</option>
+                                  <option value="nuts">Nuts</option>
+                                  <option value="bolts">Bolts</option>
+                                  <option value="stoppers">Stoppers</option>
+                                  <option value="sling">Sling</option>
+                                </optgroup>
+                                <optgroup label="Skiing">
+                                  <option value="skis">Skis</option>
+                                  <option value="skins">Skins</option>
+                                  <option value="poles">Poles</option>
+                                </optgroup>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">Tags</label>
+                              <input type="text" value="right,bootstrap" class="form-control selectize_tags">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Sliders</h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form">
+                            <div class="form-group">
+                              <label class="control-label">Money range</label>
+                              <input type="text" name="" value="" data-grid="true" class="slider">
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">Single slider</label>
+                              <input type="text" name="" value="" data-type="single" data-from="500" class="slider">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo__ico"></div>
+      <div class="demo__cont">
+        <div class="demo__settings">
+          <div class="demo__group">
+            <div class="demo__label">Color theme:</div>
+            <div class="demo__themes">
+              <div data-css="css/right.dark.css" title="Dark" class="demo__theme demo__theme_active demo__theme_dark"></div>
+              <div data-css="css/right.lilac.css" title="Lilac" class="demo__theme demo__theme_lilac"></div>
+              <div data-css="css/right.light.css" title="Light" class="demo__theme demo__theme_light"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
+    <script src="libs/sparkline/jquery.sparkline.min.js"></script>
+    <script src="libs/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="libs/inputNumber/js/inputNumber.js"></script>
+    <script src="libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="libs/jquery.rest.js"></script>
+    <script src="libs/sockets.io.js"></script>
+    <script src="libs/raphael/raphael-min.js"></script>
+    <script src="libs/morris.js/morris.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="js/template/controls.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wii.js"></script>
+    <script src="libs/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="libs/datatables/media/js/dataTables.select.js"></script>
+    <script src="libs/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+  </body>
+</html>

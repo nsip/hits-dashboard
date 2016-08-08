@@ -27,6 +27,12 @@ router.post('/:accountId/database', function(req, res, next) {
 //router.post('/:accountId/database', function(req, res, next) {
 //});
 
+// Create DB DAta
+router.get('/:accountId/database/:dbId/create', function(req, res, next) {
+	// http://hits.dev.nsip.edu.au/dbcreate?name=45fb462e-fd78-4e78-9bd3-c7cfeda9e7df&encode=json&type=empty
+	res.send('TEST last respond with a resource = ' + req.params.accountId);
+});
+
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {
 	res.send('TEST last respond with a resource = ' + req.params.accountId);
