@@ -10,5 +10,11 @@ module.exports = {
 		database: 'hits',
 		user: 'sifau',
 		password: '03_SIS_was_not'
+	},
+
+	"log": {
+		"output": "logs",
+		"exitOnError": true,
+		"level": "info"
 	}
 };
