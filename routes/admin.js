@@ -27,17 +27,17 @@ router.get('/', function(req, res) {
 // POST - Create an account
 router.post('/', function(req, res) {
 	var id = uuid.v4();
-	console.log(id);
+	var name = req.query.name;
+	var email = req.query.email;
 
-	// XXX Get entries, name etc
-	// XXX Create Database
-	
 	var connection = db.connect();
 	connection.query(
-		'INSERT INTO account (id,title) VALUES (?,?)', 
+		'INSERT INTO account (id,name,email) VALUES (?,?,?)', 
+		[ id, name, email ],
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
+
 			return res.json({
 				success: 1,
 				id: id
