@@ -26,7 +26,7 @@ var path = {
 		other: 'dist/'
 	},
 	source: {
-		jade: 'source/jade/*.jade',
+		jade: 'source/jade/**/*.jade',
 		js: 'source/js/**/*.js',
 		js_concat: 'source/js/template/*.js',
 		less: 'source/less/',

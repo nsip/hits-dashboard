@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HITS - Dashboard</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/fonts/roboto.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="libs/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <link href="libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="libs/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/morris.js/morris.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/right.light.css" rel="stylesheet" class="demo__css">
+    <link href="css/demo.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="framed main-scrollable">
+    <div class="wrapper">
+      <nav class="navbar navbar-static-top header-navbar">
+        <div class="header-navbar-mobile">
+          <div class="header-navbar-mobile__menu">
+            <button type="button" class="btn"><i class="fa fa-bars"></i></button>
+          </div>
+          <div class="header-navbar-mobile__title"><span>Blank</span></div>
+          <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-header"><a href="index.html" class="navbar-brand">
+            <div class="logo text-nowrap">
+              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS</span>
+            </div></a></div>
+        <div class="topnavbar">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="index.html"><span>Dashboard</span></a></li>
+          </ul>
+          <ul class="userbar nav navbar-nav">
+            <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="/logout/">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="dashboard">
+        <div class="sidebar">
+          <div class="quickmenu">
+          </div>
+          <div class="scrollable scrollbar-macosx">
+            <div class="sidebar__cont">
+              <div class="sidebar__menu">
+                <div class="sidebar__title">HITS Pages</div>
+                <ul class="nav nav-menu">
+                  <li><a href="./">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
+                      <div class="nav-menu__text"><span>Dashboard</span></div></a></li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>{NAME}</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <!-- ul.nav.nav-menu__second.collapse(class=page=='General' || page == 'Panels' || page == 'Tabs' || page == 'Modals' || page == 'Buttons' ? 'in' : '')-->
+                    <div class="toc"><ul>
+<li><a href="#what-you-need-before-you-start">What you need before you start:</a><ul>
+<li><a href="#whats-the-business-problem">1. What's the business problem?</a></li>
+<li><a href="#usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</a></li>
+<li><a href="#more..."><span><a href="#usecasepreconditions">More...</a></span></a></li>
+<li><a href="#join-school-zone.">3. Join school zone.</a></li>
+</ul></li>
+</ul>
+                      <!--
+                      li(class=page=='General' ? 'active' : '')
+                          a(href='#x1') General
+                      li(class=page=='Panels' ? 'active' : '')
+                          a(href='#x2') Panels
+                      li(class=page=='Tabs' ? 'active' : '')
+                          a(href='tabs.html') Tabs
+                      li(class=page=='Modals' ? 'active' : '')
+                          a(href='modals.html') Modals
+                      li(class=page=='Buttons' ? 'active' : '')
+                          a(href='buttons.html') Buttons
+                      -->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main__scroll scrollbar-macosx">
+            <div class="main__cont">
+              <div class="container-fluid half-padding">
+                <div class="template template__blank">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-danger">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">  </h3>
+                        </div>
+                        <div class="panel-body">
+                          <div class="body"><h1 id="what-you-need-before-you-start">What you need before you start:</h1>
+<ul>
+<li>Apply for a HITS testing account at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
+<li>This will give you access to your own testing environment </li>
+<li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
+</ul>
+<p>A basic knowledge of SIF REST.</p>
+<ul>
+<li>Here is <a href="https://www.sifassociation.org/Resources/Developer-Resources/SIF-3-0/Pages/SIF-3.0-Infrastructure.aspx">some information from the SIF Association</a>.</li>
+<li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online" class="confluence-link">a short (1-day) course in developing with SIF 3 REST</a>.</li>
+</ul>
+<p>You need to know<span class="confluence-link"> <a href="http://hits.dev.nsip.edu.au/site/working-use-case-hits">how to work with a usecase in HITS</a></span></p>
+<p>You need to know<span class="confluence-link"> <a href="http://hits.dev.nsip.edu.au/site/working-use-case-hits">how to access the HITS API</a></span></p>
+<p> </p>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h4 id="gradebook">Gradebook</h4>
+<h2 id="whats-the-business-problem">1. What's the business problem?</h2>
+<p>Allow schools to securely provide account information to the classroom assessment product of their choice, and also to allow assessment results records to be published to a jurisdictional data hub. <strong><a href="#businessdriver">More...</a></strong></p>
+<p> </p>
+<p> </p>
+<h2 id="usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</h2>
+<p>A 3rd Party classroom assessment application connects to HITS as a jurisdiction hub, collecting the relevant information and publishing back <span>assessment results</span> records to the centralised system.</p>
+<h4 id="assumptions">Assumptions:</h4>
+<p>3<sup>rd</sup> Party Vendor is a current supplier of a <span>classroom assessment</span> product in schools or has knowledge of <span>classroom assessment</span> processes in K-12 Schools.   </p>
+<h4 id="pre-conditions"><span data-mce-style="color: #333333;" style="color: rgb(51,51,51);">Pre-Conditions:</span></h4>
+<ul>
+<li>Vendor has access to HITs</li>
+<li>HITs has been provisioned with School Data</li>
+<li>Vendor has mapped the relevant SIF Objects to their systems:<br />
+SchoolInfo<br />
+StudentPersonal<br />
+StudentSchoolEnrolment<br />
+StaffPersonal<br />
+StaffAssignment<br />
+TeachingGroup<br />
+GradingAssignment<br />
+GradingAssignmentScore </li>
+</ul>
+<p>((Note that some of these objects are proposed for SIF 1.4 and are therefore not in the SIF 1.3 schema.<br />
+Here is <a href="http://kb.nsip.edu.au/download/attachments/13960456/SIF_Message1.4_3.x_current.zip"><strong>a draft XSD schema for SIF 1.4</strong></a>, and here are <strong><a href="http://kb.nsip.edu.au/download/attachments/13960406/DSWG_V1.4_ChangeProposal_GradingAssignment_0.4.pdf">draft specifications for the proposed grading objects</a></strong> listed above.)</p>
+<h4 id="usecase-workflow-summary"><span data-mce-style="color: #333333;" style="color: rgb(51,51,51);">Usecase workflow summary:</span></h4>
+<ol style="list-style-type: decimal">
+<li><p>Join</p></li>
+<li><p>Consume</p></li>
+<li><p>Process</p></li>
+<li><p>Provide</p></li>
+<li><p>Assurance</p></li>
+</ol>
+<h4 id="assurance"><span data-mce-style="color: #333333;" style="color: rgb(51,51,51);">Assurance:</span></h4>
+<p>The SIF/XML data sent by the 3<sup>rd</sup> Party app to the Jurisdiction Zone for the app must satisfy the following conditions:</p>
+<ul>
+<li><p>Must be able to provide all <span>GradingAssignment</span> records within a School</p></li>
+<li><p>Must be able provide all <span>GradingAssignmentScore</span> records within a School</p></li>
+</ul>
+<h2 id="more..."><span><a href="#usecasepreconditions">More...</a></span></h2>
+<p> </p>
+<h2 id="join-school-zone.">3. Join school zone.</h2>
+<p>Join:</p>
+<ul>
+<li>Third party app connects to Jurisdiction-established Zone for the School (&quot;HITS Zone 1&quot;)</li>
+<li>Third party app authenticates to Jurisdiction-established Zone for the School (&quot;HITS Zone 1 Authz&quot;)</li>
+<li>Jurisdiction Zone authorises read access to objects in the Jurisdiction Zone for the School (&quot;HITS Zone 1 Authn&quot;)</li>
+</ul>
+<p> </p>
+<p><strong>4. Consume base data from HITS</strong>.</p>
+<p>Vendor-facing (pull); HITS represents the Jurisdiction and is the data source for seed information.</p>
+<ul>
+<li>Consume:</li>
+<li>on the Jurisdiction-established Zone for the App, Third party app accesses all StudentPersonal records which are in a StudentSchoolEnrollment relationship with the given School RefId</li>
+<li>on the Jurisdiction-established Zone for the App, Third party app accesses all StaffPersonal records which are in a StaffAssignment relationship with the given School RefId</li>
+<li>on the Jurisdiction-established Zone for the App, Third party app accesses all TeachingGroup objects linked to the given School RefId.</li>
+<li><span data-mce-style="line-height: 13.0pt; font-size: 10.0pt;" style="line-height: 13.0pt;font-size: 10.0pt;">Third party app ingests the relevant SIF Objects.</span></li>
+</ul>
+<p>There are two possible ways to obtain the Base information through REST service path calls.</p>
+<p>A. The first assumes that all available students, staff, and classes, in all known schools, will be exposed to the third party application, as a single dump of data. This is the path recommended for HITS assurance, as it is simpler to fetch the data and start generating objects for validation.  (This is useful to prove that the objects can be consumed and processed, as HITS end points contain customised test data.)</p>
+<ol style="list-style-type: decimal">
+<li>Get SchoolInfos: <span data-mce-style="color: #0000ff;" style="color: rgb(0,0,255);"><a href="">http://.../SchoolInfos</a></span></li>
+<li>Get StudentSchoolEnrollments: <span data-mce-style="color: #0000ff;" style="color: rgb(0,0,255);"><a href="">http://.../</a></span><a href="">StudentSchoolEnrollments</a></li>
+<li>Get StudentPersonals: <a href="">http://.../</a><a href="">StudentPersonals</a> (linked to school via StudentSchoolEnrollment; equivalent to <a href="">http://..../SchoolInfo/\{REFID}/StudentSchoolEnrollments/{REFID}/StudentPersonals</a> )</li>
+<li>Get StaffAssignments: <a href="">http://.../StaffAssignments</a></li>
+<li>Get StaffPersonals: <a href="http://hits.nsip.edu.au/SchoolInfo/%7b%7d/CalendarDates">http://.../S</a>taffPersonals (linked to school via StaffAssignment; equivalent to <a href="">http://.../SchoolInfo/\{REFID}/StaffAssignments/{REFID}/StaffPersonals</a> )</li>
+<li>Get TeachingGroups: <a href="">http://.../TeachingGroups</a> (linked to a school via SchoolInfoRefId)</li>
+</ol>
+<div>
+<span>B. The second assumes, more realistically, that only certain teaching groups will be exposed to the application, and that any staff and student records exposed should be accessed via their teaching group. You do not need to obtain data this way for HITS assurance: you will end up getting the same data, since at this stage endpoints are customised for the user. But you should be prepared to consume data from SIF APIs in the following way for production environment where the end point contains more than one school's data:</span>
+<div>
+ 
+<div>
+<ol style="list-style-type: decimal">
+<li>Get SchoolInfos: <span data-mce-style="color: #0000ff;" style="color: rgb(0,0,255);"><a href="">http://.../SchoolInfos</a></span></li>
+<li>Get TeachingGroups: <a href="">http://.../TeachingGroups</a></li>
+<li><span data-mce-style="line-height: 13.0pt; font-size: 10.0pt;" style="line-height: 13.0pt;font-size: 10.0pt;">Get StudentPersonals: </span><a href="">http://.../TeachingGroups/{REFID}/</a><a href="">StudentPersonals</a><span data-mce-style="line-height: 13.0pt; font-size: 10.0pt;" style="line-height: 13.0pt;font-size: 10.0pt;"> (Calls to StudentSchoolEnrollment are unnecessary; note that the same student record may appear under two different teaching groups</span><span data-mce-style="line-height: 13.0pt; font-size: 10.0pt;" style="line-height: 13.0pt;font-size: 10.0pt;"> )</span></li>
+<li>Get StaffPersonals: <a href="http://hits.nsip.edu.au/SchoolInfo/%7b%7d/CalendarDates">http://.../TeachingGroups/{REFID}/S</a>taffPersonals (<span>Calls to StaffAssignment are unnecessary; note that the same staff record may appear under two different teaching groups</span> )</li>
+</ol>
+<p>Endpoints may support additional queries for retreiving data - refer to <strong><a href="qbe-or-service-paths">Query-by-example or service paths?</a></strong> for HITS guidance on queries.</p>
+<p> </p>
+<h2 id="processes-in-3rd-party-application">5. Processes in 3<sup>rd</sup> party application</h2>
+<p>3rd Party App uses the consumed data to produce descriptions of classroom assignments, and records of assignment results. The definition and automation of this process is out of scope of HITs.<br />
+Steps:</p>
+<ul>
+<li>Third party app processes information and generates accounts for staff and students, organised by teaching group.</li>
+<li>Staff uses Third party app to create classroom assessment tasks</li>
+<li>Staff uses <span>Third party app to assign classroom assessment tasks to students in a teaching group</span></li>
+<li><span>Students use <span>Third party app to perform <span>classroom assessment tasks</span></span></span></li>
+<li>Third party application creates descriptions of the classroom assessment tasks created</li>
+<li>Third party application creates descriptions of the results that students achieved when performing the <span>classroom assessment tasks</span><br />
+ </li>
+</ul>
+<p> </p>
+<p><strong>6. Provide authoritative data</strong></p>
+<p>Prior to providing: </p>
+<p> Third party expresses return information in SIF/XML:</p>
+<ul>
+<li>Third party app connects to Jurisdiction-established Zone for the School (&quot;HITS Zone 1&quot;)</li>
+<li>Third party app authenticates to Jurisdiction-established Zone for the School (&quot;HITS Zone 1 Authz&quot;)</li>
+<li>Jurisdiction-established Zone authorises write access to objects in the Jurisdiction Zone for the School (&quot;HITS Zone 1 Authn&quot;)</li>
+<li>Following is provided by the 3<sup>rd</sup> Party App back to HITs;
+<ol style="list-style-type: decimal">
+<li>Post GradingAssignment to URL <a href="">http://.../GradingAssignments</a></li>
+<li>Post <span>GradingAssignmentScore</span> to URL <a href="">http://../GradingAssignmentScores</a></li>
+</ol></li>
+</ul>
+<div>
+ 
+<div>
+<p><span>(Note: the Activity object could be used instead of or alongside the <span>GradingAssignment object to describe a classroom task, and gives much more information about the pedagogical context of the task. However although Activity/Points provides the possible score of the task, SIF does not contain an object giving individual students' performance against the activity.)</span></span>  </p>
+<h2 id="self-confirm-usecase-support">7. Self – confirm usecase support</h2>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>Validate <span>GradingAssignment</span> records</li>
+<li>Validate <span>GradingAssignmentScore</span> records</li>
+</ol></li>
+</ol>
+<p> </p>
+<p> </p>
+<h1 id="more-information">More information</h1>
+<p> </p>
+<h4 id="businessdriver">Business driver - what problem is this usecase is trying to solve?</h4>
+<h6 id="in-brief">In brief:</h6>
+<ul>
+<li>Allow schools secure access to SIS information</li>
+<li>Allow schools to use the classroom assessment product of their choice</li>
+<li>Allow 3rd Party <span>classroom assessment</span> apps automated access to base information, including class membership</li>
+<li>Allow 3rd Party <span>classroom assessment</span> apps to publish assessment results records to a jurisdictional hub.</li>
+</ul>
+<p>Schools currently use third-party <span>classroom assessment</span> locally for formative assessment. The seed information for generating accounts on third party <span>applications</span> is held in the School's <span>Student Information System (SIS),</span> and is usually exported locally to the third party applications with little security. An added complication is that not only student data needs to be provided as seed information, but also class membership data, since classroom assessment is typically assigned to a class cohort by the class teacher; class memberships can change frequently, and impose an additional burden on teachers manually updating the third-party tools.<br />
+<br />
+As jurisdictions centralise systems, 3rd Party Vendors have the opportunity to seed their product/s from a quality assured data hub using automated feeds, rather than manual updates from the school. This allows changes such as new enrolments and changes in class membership to be reflected promptly and accurately in the third party applications. 3rd Party Vendors are also expected to provide information directly back to the centralised system through an automated feed, rather than having the information mediated through the school. This enables not only more secure and efficient transfer of information, but also the possibility of extracting business intelligence across the assessment results of multiple schools stored in the same hub. </p>
+<p>This use case shows how 3rd party classroom assessment vendors can connect to a centralised data hub to securely access to the required information and publish back the assessment result records to the centralised data hub.</p>
+<h4 id="usecasepreconditions">Usecase preconditions (assurance)</h4>
+<p><span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">The following conditions also must be met:</span></p>
+<ul>
+<li><span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">Any SIF object published by the App must be valid against the SIF AU 1.4 schema. Note that the GradingAssignment and GradingAssignmentScore objects are proposed for inclusion in SIF  AU1.4.</span></li>
+<li><span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">All SIF objects posted by the Classroom Assessment App must have referential integrity. Any RefId contained in the SIF object must refer either to a SIF object provisioned to the App—e.g. SchoolInfo, StudentPersonal, StaffPersonal, TeachingGroup), or to a SIF object that has also been posted by the App to the Zone (e.g. GradingAssignmentScore referring to <span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">GradingAssignment</span>).This condition applies recursively to all additional SIF objects posted by the App. The test of this condition is done only when the App indicates that it has finished publishing to the Zone the objects required for the test.</span></li>
+</ul>
+<p><span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">For the purposes of validation, a new <span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">GradingAssignment</span> object is well-formed if:</span></p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>All mandatory elements of the <span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">GradingAssignment</span> object are provided</li>
+<li>The TeachingGroupRefId element is provided</li>
+<li>The SchoolInfoRefId element is provided</li>
+</ol></li>
+</ul>
+<p>For the purposes of validation, a new <span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">GradingAssignmentScore</span> object is well-formed if it satisfies the following requirements:</p>
+<ol style="list-style-type: decimal">
+<li>All mandatory elements of the <span data-mce-style="color: #000000;" style="color: rgb(0,0,0);">GradingAssignmentScore</span> object are provided</li>
+<li>The StudentPersonalRefId element is provided</li>
+<li>The TeachingGroupRefId element is provided</li>
+<li>The SchoolInfoRefId element is provided</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- include ../include/demo.jade-->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
+    <script src="libs/sparkline/jquery.sparkline.min.js"></script>
+    <script src="libs/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="libs/inputNumber/js/inputNumber.js"></script>
+    <script src="libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="libs/jquery.rest.js"></script>
+    <script src="libs/purl.js"></script>
+    <script src="libs/sockets.io.js"></script>
+    <script src="libs/raphael/raphael-min.js"></script>
+    <script src="libs/morris.js/morris.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="libs/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="libs/datatables/media/js/dataTables.select.js"></script>
+    <script src="libs/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

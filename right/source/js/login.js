@@ -9,7 +9,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: "/login",
+			url: "/users/login",
 			data: {
 				username: $('input[name="username"]').val(),
 				password: $('input[name="password"]').val()
@@ -18,13 +18,7 @@ $(document).ready(function() {
 		.done(function( data ) {
 			if (data && data.success) {
 				console.log(data);
-				// XXX Keep some information
-				// keep across a redirect
-				// window.location = "/ui/";
-				// 	- cookie
-				// 	- ?x=y
-				// 	$.ajax GET /user - returns current user information
-				window.location = "/ui/projects.html"
+				window.location = "/admin.html"
 			}
 			else {
 				alert("Failed login - " + data.error);

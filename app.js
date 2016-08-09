@@ -37,6 +37,7 @@ app.use(require('./utils'));
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/admin', require('./routes/admin'));
+app.use('/update', require('./routes/update'));
 app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));

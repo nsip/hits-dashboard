@@ -1,0 +1,38 @@
+extends ./parts/layout.jade
+
+block vars
+    - page = 'Blank';
+
+block sidebar
+        ul.nav.nav-menu
+            li(class=page=='General' || page == 'Panels' || page == 'Tabs' || page == 'Modals' || page == 'Buttons' ? 'active opened' : '')
+                a(href="#")
+                    .nav-menu__ico
+                        i.fa.fa-fw.fa-th-large
+                    .nav-menu__text
+                        span {NAME}
+                    .nav-menu__right
+                        i.fa.fa-fw.fa-angle-right.arrow
+                // ul.nav.nav-menu__second.collapse(class=page=='General' || page == 'Panels' || page == 'Tabs' || page == 'Modals' || page == 'Buttons' ? 'in' : '')
+                .toc $toc$
+                    //
+                        li(class=page=='General' ? 'active' : '')
+                            a(href='#x1') General
+                        li(class=page=='Panels' ? 'active' : '')
+                            a(href='#x2') Panels
+                        li(class=page=='Tabs' ? 'active' : '')
+                            a(href='tabs.html') Tabs
+                        li(class=page=='Modals' ? 'active' : '')
+                            a(href='modals.html') Modals
+                        li(class=page=='Buttons' ? 'active' : '')
+                            a(href='buttons.html') Buttons
+block main
+    .container-fluid.half-padding
+        .template.template__blank
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title $title$ $date$ $author$
+                        .panel-body
+                            .body $body$
