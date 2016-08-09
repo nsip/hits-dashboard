@@ -39,7 +39,7 @@
           <div class="header-navbar-mobile__menu">
             <button type="button" class="btn"><i class="fa fa-bars"></i></button>
           </div>
-          <div class="header-navbar-mobile__title"><span>Admin</span></div>
+          <div class="header-navbar-mobile__title"><span>Dashboard</span></div>
           <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#">Log Out</a></li>
@@ -52,7 +52,7 @@
             </div></a></div>
         <div class="topnavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="index.html"><span>Dashboard</span></a></li>
+            <li class="active"><a href="index.html"><span>Dashboard</span></a></li>
           </ul>
           <ul class="userbar nav navbar-nav">
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
@@ -72,7 +72,7 @@
               <div class="sidebar__menu">
                 <div class="sidebar__title">HITS Pages</div>
                 <ul class="nav nav-menu">
-                  <li><a href="./">
+                  <li class="active"><a href="./">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
                       <div class="nav-menu__text"><span>Dashboard</span></div></a></li>
                 </ul>
@@ -107,36 +107,22 @@
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
-                          <h3 class="panel-title">Data Table</h3>
+                          <h3 class="panel-title">Dashbaord</h3>
                         </div>
                         <div class="panel-body">
                           <div class="container-fluid half-padding">
-                            <div id="buttons"></div>
-                            <table id="admin-accounts" width="100%" class="datalist__table table datatable display table-hover"></table>
+                            <p>Old dashboard</p>
+                            <ul>
+                              <li>List of connection data</li>
+                              <li>DB Information (which Use case?)</li>
+                              <li>References to all documentation</li>
+                              <li>Table viewer (raw DB data)</li>
+                              <li>Error Log viewer (on SIF Server)</li>
+                              <li>SIF Javascript Client</li>
+                            </ul>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="container-fluid half-padding">
-                <div class="template template__blank">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <form>
-                        <div class="form-group">
-                          <input id="create-name" name="name" type="text" placeholder="Name of Account" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <input id="create-email" name="type" type="text" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group login__action">
-                          <div class="login__submit">
-                            <button id="create-create" type="submit" class="btn btn-default">Create</button>
-                          </div>
-                        </div>
-                      </form>
                     </div>
                   </div>
                 </div>

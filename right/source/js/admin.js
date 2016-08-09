@@ -39,7 +39,7 @@ $(document).ready(function() {
 	};
 	
 	loadTable();
-	setTimeout(loadTable, 15000);
+	setInterval(loadTable, 10000);
 
 	// Create new entry
 	$('#create-create').click(function() {
@@ -58,6 +58,8 @@ $(document).ready(function() {
 		.done(function( data ) {
 			if (!data || !data.success)
 				alert("Failed create TODO");
+			$('#create-name').val("");
+			$('#create-email').val("");
 			loadTable();
 		})
 		.fail(function() {

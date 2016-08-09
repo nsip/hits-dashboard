@@ -2,6 +2,8 @@
 $(document).ready(function() {
 
 	// XXX Reloading?
+
+	$('.selectize').selectize();
 	
 	var id = $.url(window.location.href).param('id');
 
@@ -45,7 +47,7 @@ $(document).ready(function() {
 	
 	// Load table
 	loadTable();
-	setTimeout(loadTable, 15000);
+	setInterval(loadTable, 10000);
 
 	// Create new entry
 	$('#create-create').click(function() {
@@ -62,6 +64,11 @@ $(document).ready(function() {
 			}
 		})
 		.done(function( data ) {
+			if (!data || !data.success)
+				alert("Failed create TODO");
+			
+			$('#create-name').val("");
+			$('#create-type').val("");
 			loadTable();
 		})
 		.fail(function() {

@@ -26,11 +26,16 @@ block main
         .template.template__blank
             .row
                 .col-md-12
-                    form
+                    .form
                         .form-group
                             input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
                         .form-group
-                            input.form-control#create-type(name="type", type='text', placeholder='Type')
+                            label.control-label Type
+                            select.selectize#create-type
+                                option(value="blank") Blank
+                                option(value="basic") Basic
+                                option(value="timetable") Timetable
+
                         .form-group.login__action
                             .login__submit
                                 button.btn.btn-default#create-create(type='submit') Create

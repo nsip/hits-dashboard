@@ -61,7 +61,10 @@ router.post('/:accountId/database', function(req, res, next) {
 				'http://hits.dev.nsip.edu.au/dbcreate'
 				+ '?name=' + id 
 				+ '&encode=json'
-				+ '&type=' + type
+				+ '&type=' + type,
+				{
+					timeout: 300000	// Long timeout for slow DB Build
+				}
 			)
 			.then(function(response) {
 				logger.debug("REMOTE: Response.", response.getBody());
