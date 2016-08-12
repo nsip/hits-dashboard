@@ -1,0 +1,21 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Naplan Registration';
+    - development = false;
+    - area = 'Usecase';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active General
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        include:markdown-it ../../../../usecases/docs/naplan_registration/naplan_registration.md

@@ -76,6 +76,45 @@
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
                       <div class="nav-menu__text"><span>Dashboard</span></div></a></li>
                 </ul>
+                <!-- TODO - Copy this to Topbar if necessary ?-->
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>Use Cases</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="usecase_basic_daily_attendance.html">Basic Daily Attendance</a></li>
+                      <li><a href="usecase_basic_financial_transactions.html">Basic Financial Transactions</a></li>
+                      <li><a href="usecase_enrollment.html">Enrollment</a></li>
+                      <li><a href="usecase_gradebook.html">Gradebook</a></li>
+                      <li><a href="usecase_naplan_registration.html">Naplan Registration</a></li>
+                      <li><a href="usecase_timetable.html">Timetable</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>Developer Tools</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="account.html">Account</a></li>
+                      <li><a href="dashboard.html">Dashboard</a></li>
+                      <li><a href="recover.html">Recover</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li class="active opened"><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>Admin</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse in">
+                      <li class="active"><a href="admin.html">Admin</a></li>
+                      <li><a href="login.html">Admin</a></li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -107,7 +146,7 @@
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
-                          <h3 class="panel-title">Data Table</h3>
+                          <h3 class="panel-title">Accounts</h3>
                         </div>
                         <div class="panel-body">
                           <div class="container-fluid half-padding">
@@ -124,6 +163,7 @@
                 <div class="template template__blank">
                   <div class="row">
                     <div class="col-md-12">
+                      <h3>Create new account</h3>
                       <form>
                         <div class="form-group">
                           <input id="create-name" name="name" type="text" placeholder="Name of Account" class="form-control">

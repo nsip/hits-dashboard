@@ -24,6 +24,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.2.4",
     "imagemin-pngquant": "^4.1.0",
+    "jstransformer-markdown-it": "^0.2.3",
     "main-bower-files": "^2.8.2",
     "rimraf": "^2.4.1"
   }

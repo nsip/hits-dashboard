@@ -1,6 +1,7 @@
 extends ./parts/layout.jade
 block vars
     - page = 'Admin';
+    - area = 'Admin';
     - development = false;
 block main
     .main-heading
@@ -22,7 +23,7 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Data Table
+                            h3.panel-title Accounts
                         .panel-body
                             .container-fluid.half-padding
                                 #buttons
@@ -32,6 +33,7 @@ block main
         .template.template__blank
             .row
                 .col-md-12
+                    h3 Create new account
                     form
                         .form-group
                             input.form-control#create-name(name="name", type='text', placeholder='Name of Account')

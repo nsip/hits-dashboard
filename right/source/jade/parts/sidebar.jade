@@ -24,6 +24,59 @@
                                 i.fa.fa-fw.fa-star
                             .nav-menu__text
                                 span Dashboard
+                // TODO - Copy this to Topbar if necessary ?
+                ul.nav.nav-menu
+                    li(class=area=='Usecase' ? 'active opened' : '')
+                        a(href="#")
+                            .nav-menu__ico
+                                i.fa.fa-fw.fa-th-large
+                            .nav-menu__text
+                                span Use Cases
+                            .nav-menu__right
+                                i.fa.fa-fw.fa-angle-right.arrow
+                        ul.nav.nav-menu__second.collapse(class=area == 'Usecase' ? 'in' : '')
+                            li(class=page=='Basic Daily Attendance' ? 'active' : '')
+                                a(href='usecase_basic_daily_attendance.html') Basic Daily Attendance
+                            li(class=page=='Basic Financial Transactions' ? 'active' : '')
+                                a(href='usecase_basic_financial_transactions.html') Basic Financial Transactions
+                            li(class=page=='Enrollment' ? 'active' : '')
+                                a(href='usecase_enrollment.html') Enrollment
+                            li(class=page=='Gradebook' ? 'active' : '')
+                                a(href='usecase_gradebook.html') Gradebook
+                            li(class=page=='Naplan Registration' ? 'active' : '')
+                                a(href='usecase_naplan_registration.html') Naplan Registration
+                            li(class=page=='Timetable' ? 'active' : '')
+                                a(href='usecase_timetable.html') Timetable
+                ul.nav.nav-menu
+                    li(class=area=='Tools' ? 'active opened' : '')
+                        a(href="#")
+                            .nav-menu__ico
+                                i.fa.fa-fw.fa-th-large
+                            .nav-menu__text
+                                span Developer Tools
+                            .nav-menu__right
+                                i.fa.fa-fw.fa-angle-right.arrow
+                        ul.nav.nav-menu__second.collapse(class=area == 'Tools' ? 'in' : '')
+                            li(class=page=='Account' ? 'active' : '')
+                                a(href='account.html') Account
+                            li(class=page=='Dashboard' ? 'active' : '')
+                                a(href='dashboard.html') Dashboard
+                            li(class=page=='Recover' ? 'active' : '')
+                                a(href='recover.html') Recover
+                ul.nav.nav-menu
+                    li(class=area=='Admin' ? 'active opened' : '')
+                        a(href="#")
+                            .nav-menu__ico
+                                i.fa.fa-fw.fa-th-large
+                            .nav-menu__text
+                                span Admin
+                            .nav-menu__right
+                                i.fa.fa-fw.fa-angle-right.arrow
+                        ul.nav.nav-menu__second.collapse(class=area == 'Admin' ? 'in' : '')
+                            li(class=page=='Admin' ? 'active' : '')
+                                a(href='admin.html') Admin
+                            li(class=page=='Login' ? 'active' : '')
+                                a(href='login.html') Admin
                 block sidebar
                 if development
                     .sidebar__title Template

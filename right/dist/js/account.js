@@ -5,7 +5,8 @@ $(document).ready(function() {
 
 	$('.selectize').selectize();
 	
-	var id = $.url(window.location.href).param('id');
+	// Get specific ID or 'default' (default is captured from last session)
+	var id = $.url(window.location.href).param('id') || 'default';
 
 	var table = undefined;
 	var loadTable = function() {
