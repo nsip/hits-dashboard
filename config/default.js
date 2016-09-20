@@ -10,10 +10,10 @@ module.exports = {
 	// Primary database
 	"database": {
 		driver: 'mysql',
-		host: 'sifau.cspvdo7mmaoe.ap-southeast-2.rds.amazonaws.com',
+		host: 'db.dev.nsip.edu.au',
 		database: 'hits',
-		user: 'sifau',
-		password: '03_SIS_was_not'
+		user: 'hitsadmin',
+		password: 'foxcrowbaker'
 	},
 
 	"log": {

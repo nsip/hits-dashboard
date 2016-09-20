@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 // XXX Add Winston logging including express winston
-// XXX Add basic login function 
+// XXX Add basic login function
 
 var app = express();
 
@@ -41,6 +41,10 @@ app.use('/update', require('./routes/update'));
 app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));
+
+// NODEAdmin - Access to MySQL - needs security
+var nodeadmin = require('nodeadmin');
+app.use(nodeadmin(app));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
