@@ -1,5 +1,5 @@
 
-
+# Interoperability: HITS + SIF
 
 ### The demand for technology in the classroom has never been higher. As well as searching for the best products to help achieve learning outcomes, schools have to support many hardware types such as tablets and mobile devices; they must also integrate laptops that may be brought to the school by the student, rather than provided by the school.
 
