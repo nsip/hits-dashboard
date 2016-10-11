@@ -1,4 +1,4 @@
-# Commitment to SIF in Australia
+# Commitment
 
 There is explicit support in the Australian education sector for both the use of SIF, and the emergence of the 'Information Hub' pattern of 
 market engagement.
