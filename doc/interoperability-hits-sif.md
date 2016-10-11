@@ -1,7 +1,7 @@
 
 
 
-The demand for technology in the classroom has never been higher. As well as searching for the best products to help achieve learning outcomes, schools have to support many hardware types such as tablets and mobile devices; they must also integrate laptops that may be brought to the school by the student, rather than provided by the school.
+### The demand for technology in the classroom has never been higher. As well as searching for the best products to help achieve learning outcomes, schools have to support many hardware types such as tablets and mobile devices; they must also integrate laptops that may be brought to the school by the student, rather than provided by the school.
 
 It is also important to educators, administrators and technicians that the products selected for use by schools can share and reuse common data as easily as possible.
 
@@ -17,9 +17,9 @@ For example, when a school decides to use a new software product, information (s
 
 The advantages are many:
 
-The centrally maintained repository in the Hub will be up to date and accurate, so solution providers can deal with a single source of truth.
-In the classroom, less effort in needed to make new solutions available to students.
-Overall there is also a benefit to the central institution as it allows schools to choose which products they want to work with, and allows the market to provide solutions which include mobile and tablet interfaces which would be prohibitive for the institution itself to provide.
+* The centrally maintained repository in the Hub will be up to date and accurate, so solution providers can deal with a single source of truth.
+* In the classroom, less effort in needed to make new solutions available to students.
+* Overall there is also a benefit to the central institution as it allows schools to choose which products they want to work with, and allows the market to provide solutions which include mobile and tablet interfaces which would be prohibitive for the institution itself to provide.
 
 There is a clear need within this Hub model for data exchange to be based on open, transparent and secure standards.
 
