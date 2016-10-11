@@ -5,6 +5,10 @@ module.exports = {
 
 	"auth": {
 		"scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
+		"peter": { "password": "NoneShallNSIP", "email": "peter.haydon@nsip.edu.au" },
+		"matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
+		"nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
+		"linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
 	},
 
 	// Primary database
