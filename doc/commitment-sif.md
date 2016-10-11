@@ -6,12 +6,12 @@ market engagement.
 Extract taken from: **Statement of Status and Intent for SIF adoption in Australia**
 
     SIF has been used in the USA for more than a decade to enable interoperability between software 
-    products within schools districts and     to facilitate data exchange between schools, school 
+    products within schools districts and to facilitate data exchange between schools, school 
     systems and education authorities. SIF is also in the early stages of adoption in the UK and 
     under investigation in several other countries. Currently more than 15 million students benefit 
-    every day from interoperability delivered via SIF.*
+    every day from interoperability delivered via SIF.
 
-    In Australia currently there are 43 member organisations including education authorities and 
+    In Australia currently there are over 40 member organisations including education authorities and 
     software vendors. SIF has been used in projects involving government and non-government schools 
     in all States and Territories. These include local, national and cross-jurisdictional initiatives 
     spanning access to online learning resources, online assessment, enterprise wide data synchronisation, 
@@ -27,7 +27,7 @@ Extract taken from: **Statement of Status and Intent for SIF adoption in Austral
     and student (or school) information systems.
 
     The SBP is now used across Tasmania, ACT, South Australia, and the Northern Territory with Student 
-    Information System (SIS) vendors providing core Identity data to external applications and services.
+    Information System (SIS) vendors providing core identity data to external applications and services.
 
     The level of SIS vendor engagement with SIF is evidence of the degree of general market adoption of SIF. 
     Ten out of thirteen leading SIS vendors have an active interest in working with SIF and five have operating 
