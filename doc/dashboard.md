@@ -1,4 +1,4 @@
-# Welcome to HITS (Hub Integration Testing Service)
+# Welcome to NSIP HITS (Hub Integration Testing Service)
 
 An assurance and demonstration environment for education integrations.
 
