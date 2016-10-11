@@ -29,4 +29,3 @@ The following quotes are from a strategic direction statement issued by NSW Depa
     In the outbound SIF flow, the framework publishes and makes available DEC’s core information - school records, courses and subjects, student records, school staff records - to authenticated, authorised and targeted external third party systems. This information is necessary for external third party timetabling and attendance management systems to return their data to DEC.
 
     In the inbound SIF flow, the framework provides a gateway for the SALM solution to receive two types of data from external third party systems. The timetabling data type consists of timetables, daily variations and roll classes generated and administered by external third party systems. The attendance data type represents student and teacher’s class attendance (period- or day-based) information recorded against school timetables.
-
