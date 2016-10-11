@@ -1,1 +1,1 @@
-Just a little test to see what happens.
+Welcome to HITS (Hub Integration Testing Service) - an assurance and demonstration environment for education integrations.
