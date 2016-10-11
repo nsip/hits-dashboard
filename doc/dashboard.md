@@ -1,3 +1,5 @@
-Welcome to HITS (Hub Integration Testing Service) - an assurance and demonstration environment for education integrations.
+# Welcome to HITS (Hub Integration Testing Service)
 
-Apply for an account on HITS
+An assurance and demonstration environment for education integrations.
+
+[Apply for an account on HITS](mailto:info@nsip.edu.au)
