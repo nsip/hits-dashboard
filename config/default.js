@@ -5,15 +5,19 @@ module.exports = {
 
 	"auth": {
 		"scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
+		"peter": { "password": "NoneShallNSIP", "email": "peter.haydon@nsip.edu.au" },
+		"matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
+		"nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
+		"linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
 	},
 
 	// Primary database
 	"database": {
 		driver: 'mysql',
-		host: 'sifau.cspvdo7mmaoe.ap-southeast-2.rds.amazonaws.com',
+		host: 'db.dev.nsip.edu.au',
 		database: 'hits',
-		user: 'sifau',
-		password: '03_SIS_was_not'
+		user: 'hitsadmin',
+		password: 'foxcrowbaker'
 	},
 
 	"log": {

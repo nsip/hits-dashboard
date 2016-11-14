@@ -8,6 +8,20 @@ var uuid = require('node-uuid');
 router.use(function (req, res, next) {
 	// TODO
 	console.log('XXX ADMIN Time:', Date.now());
+
+	if (
+		req
+		&& req.session
+		&& req.session.user
+	) {
+		console.log("Valid login... continue");
+	}
+	else {
+		console.log("No valid login - redirect");
+		// XXX How - res.redirect?
+		return res.redirect("/login.html");
+	}
+
 	next();
 });
 
@@ -18,9 +32,9 @@ router.get('/', function(req, res) {
 		'SELECT account.id, account.name, account.email, '
 		+  ' (SELECT count(*) FROM `database` WHERE account_id = account.id) as count, '
 		+  ' (SELECT max(`when`) FROM `database` WHERE account_id = account.id) as recent'
-		+ ' FROM account', 
+		+ ' FROM account',
 		function(err, rows, fields) {
-			if (err) 
+			if (err)
 				return res.error(err);
 			return res.json({
 				success: 1,
@@ -38,7 +52,7 @@ router.post('/', function(req, res) {
 
 	var connection = db.connect();
 	connection.query(
-		'INSERT INTO account (id,name,email) VALUES (?,?,?)', 
+		'INSERT INTO account (id,name,email) VALUES (?,?,?)',
 		[ id, name, email ],
 		function(err, rows, fields) {
 			if (err)
@@ -56,10 +70,10 @@ router.post('/', function(req, res) {
 router.get('/:id', function(req, res) {
 	var connection = db.connect();
 	connection.query(
-		'SELECT * FROM account WHERE id = ?', 
+		'SELECT * FROM account WHERE id = ?',
 		[ req.params.id ],
 		function(err, rows, fields) {
-			if (err) 
+			if (err)
 				return res.error(err);
 			if (rows.length) {
 				return res.json({
@@ -80,6 +94,22 @@ router.get('/:id', function(req, res) {
 // PUT - update existing entry
 router.put('/:id', function(req, res) {
 	// Update record
+});
+
+router.get('/test/mail', function(req, res) {
+	res.mailer.send('email', {
+     to: 'scottp@dd.com.au', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+     subject: 'Test Email', // REQUIRED.
+     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+   }, function (err) {
+     if (err) {
+       // handle error
+       console.log(err);
+       res.send('There was an error sending the email = ' + err);
+       return;
+     }
+     res.send('Email Sent');
+   });
 });
 
 module.exports = router;

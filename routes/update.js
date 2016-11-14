@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
 var uuid = require('node-uuid');
+var exec = require('child_process').exec;
 
 // AUTHENTICATION - All routes here require authentication as admin
 router.use(function (req, res, next) {
@@ -11,9 +12,42 @@ router.use(function (req, res, next) {
 	next();
 });
 
-// GET - Update docs
-router.get('/', function(req, res) {
-	
+// GET - Update SPECS
+router.get('/specs', function(req, res) {
+	exec(
+		__dirname + "/../../web-specs/update.sh",
+		{ cwd: __dirname + "/../../web-specs"},
+		(error, stdout, stderr) => {
+	    //console.error(`exec error: ${error}`);
+		  //console.log(`stdout: ${stdout}`);
+		  //console.log(`stderr: ${stderr}`);
+			res.type("text/plain");
+			res.send(""
+				+ "success: " + (error ? false : true) + "\n"
+				+ stdout
+				+ stderr
+				+ error
+			);
+		});
+});
+
+// GET - Update SPECS
+router.get('/usecases', function(req, res) {
+	exec(
+		__dirname + "/../../usecases/build.sh",
+		{ cwd: __dirname + "/../../usecases"},
+		(error, stdout, stderr) => {
+	    //console.error(`exec error: ${error}`);
+		  //console.log(`stdout: ${stdout}`);
+		  //console.log(`stderr: ${stderr}`);
+			res.type("text/plain");
+			res.send(""
+				+ "success: " + (error ? false : true) + "\n"
+				+ stdout
+				+ stderr
+				+ error
+			);
+		});
 });
 
 module.exports = router;

@@ -38,6 +38,19 @@ app.use('/usecasedev', serveIndex("../usecases/output", {'icons': true}));
 
 app.use(require('./utils'));
 
+var mailer = require('express-mailer');
+mailer.extend(app, {
+  from: 'nsiphits@gmail.com',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'nsiphits@gmail.com',
+    pass: 'NoneShallNSIP',
+  }
+});
+
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/admin', require('./routes/admin'));
@@ -46,6 +59,11 @@ app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/build', require('./routes/build'));
+app.use('/login', require('./routes/login')());
+
+// NODEAdmin - Access to MySQL - needs security
+var nodeadmin = require('nodeadmin');
+app.use(nodeadmin(app));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
