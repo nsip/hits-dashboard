@@ -18,6 +18,7 @@
     "node-uuid": "^1.4.7",
     "requestify": "^0.1.17",
     "serve-favicon": "~2.3.0",
+    "serve-index": "^1.8.0",
     "winston": "^2.2.0"
   }
 }

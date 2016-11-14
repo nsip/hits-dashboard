@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var serveIndex = require('serve-index');
 
 // XXX Add Winston logging including express winston
-// XXX Add basic login function 
+// XXX Add basic login function
 
 var app = express();
 
@@ -32,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/usecasedev", express.static("../usecases/output"));
+app.use('/usecasedev', serveIndex("../usecases/output", {'icons': true}));
+
 app.use(require('./utils'));
 
 app.use('/', require('./routes/index'));
@@ -41,6 +45,7 @@ app.use('/update', require('./routes/update'));
 app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));
+app.use('/build', require('./routes/build'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
