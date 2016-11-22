@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// XXX Reloading?
 
 	$('.selectize').selectize();
-	
+
 	// Get specific ID or 'default' (default is captured from last session)
 	var id = $.url(window.location.href).param('id') || 'default';
 
@@ -13,14 +13,14 @@ $(document).ready(function() {
 		if (!table) {
 			table = $('#account-databases').DataTable( {
 				"ajax": {
-					"url": "/account/" + id + "/database",
+					"url": "/api/account/" + id + "/database",
 					"dataSrc": "data"
 				},
 				"order": [[ 0, "desc" ]],
 				"columns": [
-					{ 
-						"title": "ID", 
-						"width": "25%", 
+					{
+						"title": "ID",
+						"width": "25%",
 						"data": "id",
 						"render": function (data, type, row, meta) {
 							return '<a href="dashboard.html?id=' + data + '">' + data + '</a>';
@@ -45,7 +45,7 @@ $(document).ready(function() {
 			table.ajax.reload();
 		}
 	};
-	
+
 	// Load table
 	loadTable();
 	setInterval(loadTable, 10000);
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: "/account/" + id + "/database",
+			url: "/api/account/" + id + "/database",
 			data: {
 				name: name,
 				type: type
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		.done(function( data ) {
 			if (!data || !data.success)
 				alert("Failed create TODO");
-			
+
 			$('#create-name').val("");
 			$('#create-type').val("");
 			loadTable();

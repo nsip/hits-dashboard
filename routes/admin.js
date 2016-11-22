@@ -18,8 +18,10 @@ router.use(function (req, res, next) {
 	}
 	else {
 		console.log("No valid login - redirect");
+		// XXX doesn't work, since redirect of JSON request !
 		// XXX How - res.redirect?
-		return res.redirect("/login.html");
+		// return res.redirect("/login.html");
+		return res.json({success: false, redirect: 'login.html' });
 	}
 
 	next();

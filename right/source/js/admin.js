@@ -1,18 +1,19 @@
 // ----------------------------------------------------------------------
 $(document).ready(function() {
 	var table = undefined;
+	// XXX How to get on error to redriect to api admin
 	var loadTable = function() {
 		if (!table) {
 			table = $('#admin-accounts').DataTable( {
 				"ajax": {
-					"url": "/admin",
+					"url": "/api/admin",
 					"dataSrc": "data"
 				},
 				"order": [[ 0, "desc" ]],
 				"columns": [
-					{ 
-						"title": "ID", 
-						"width": "25%", 
+					{
+						"title": "ID",
+						"width": "25%",
 						"data": "id",
 						"render": function (data, type, row, meta) {
 							return '<a href="account.html?id=' + data + '">' + data + '</a>';
@@ -37,7 +38,7 @@ $(document).ready(function() {
 			table.ajax.reload();
 		}
 	};
-	
+
 	loadTable();
 	setInterval(loadTable, 10000);
 
@@ -49,7 +50,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: "/admin/",
+			url: "/api/admin/",
 			data: {
 				name: name,
 				email: email

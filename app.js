@@ -53,15 +53,16 @@ mailer.extend(app, {
   }
 });
 
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
-app.use('/admin', require('./routes/admin'));
-app.use('/update', require('./routes/update'));
-app.use('/account', require('./routes/account'));
-app.use('/recover', require('./routes/recover'));
-app.use('/dashboard', require('./routes/dashboard'));
+// Routes all at /api
+app.use('/api/', require('./routes/index'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/admin', require('./routes/admin'));
+app.use('/api/update', require('./routes/update'));
+app.use('/api/account', require('./routes/account'));
+app.use('/api/recover', require('./routes/recover'));
+app.use('/api/dashboard', require('./routes/dashboard'));
 // XXX app.use('/build', require('./routes/build'));
-app.use('/login', require('./routes/login')());
+app.use('/api/login', require('./routes/login')());
 
 // NODEAdmin - Access to MySQL - needs security
 var nodeadmin = require('nodeadmin');
