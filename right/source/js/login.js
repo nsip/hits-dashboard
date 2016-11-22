@@ -18,7 +18,7 @@ $(document).ready(function() {
 		.done(function( data ) {
 			if (data && data.success) {
 				console.log(data);
-				window.location = "admin.html"
+				window.location = "admin.html";
 			}
 			else {
 				alert("Failed login - " + data.error);
