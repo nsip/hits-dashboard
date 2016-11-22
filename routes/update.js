@@ -17,7 +17,7 @@ router.get('/specs', function(req, res) {
 	exec(
 		__dirname + "/../../web-specs/update.sh",
 		{ cwd: __dirname + "/../../web-specs"},
-		(error, stdout, stderr) => {
+		function(error, stdout, stderr) {
 	    //console.error(`exec error: ${error}`);
 		  //console.log(`stdout: ${stdout}`);
 		  //console.log(`stderr: ${stderr}`);
@@ -36,7 +36,7 @@ router.get('/usecases', function(req, res) {
 	exec(
 		__dirname + "/../../usecases/build.sh",
 		{ cwd: __dirname + "/../../usecases"},
-		(error, stdout, stderr) => {
+		function (error, stdout, stderr){
 	    //console.error(`exec error: ${error}`);
 		  //console.log(`stdout: ${stdout}`);
 		  //console.log(`stderr: ${stderr}`);
