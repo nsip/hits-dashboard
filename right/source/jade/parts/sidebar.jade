@@ -35,6 +35,21 @@
                             .nav-menu__right
                                 i.fa.fa-fw.fa-angle-right.arrow
                         ul.nav.nav-menu__second.collapse(class=area == 'Usecase' ? 'in' : '')
+                            li
+                                a(href='/usecases/basic_daily_attendance/technical.html') Basic Daily Attendance
+                            li
+                                a(href='/usecases/basic_financial_transactions/hits-dashboard.html') Basic Financial Transactions
+                            li
+                                a(href='/usecases/enrollment/hits-dashboard.html') Enrolment
+                            li
+                                a(href='/usecases/gradebook/hits-dashboard.html') Gradebook
+                            li
+                                a(href='/usecases/naplan_registration/hits-dashboard.html') NAPLAN Registration
+                            li
+                                a(href='/usecases/naplan_results_reporting/hits-dashboard.html') NAPLAN Results Reporting
+                            li
+                                a(href='/usecases/timetable/hits-dashboard.html') Timetable
+                          // OLD
                             li(class=page=='Basic Daily Attendance' ? 'active' : '')
                                 a(href='usecase_basic_daily_attendance.html') Basic Daily Attendance
                             li(class=page=='Basic Financial Transactions' ? 'active' : '')
@@ -63,24 +78,25 @@
                                 a(href='dashboard.html') Dashboard
                             li(class=page=='Recover' ? 'active' : '')
                                 a(href='recover.html') Recover
-                ul.nav.nav-menu
-                    // XXX This must be hidden unless logged in !
-                    // XXX Which must be done in Javascript !
-                    // CSS Loaded and selected by login ! (client side)
-                    // Then hide this based on that?
-                    li(class=area=='Admin' ? 'active opened' : '')
-                        a(href="#")
-                            .nav-menu__ico
-                                i.fa.fa-fw.fa-th-large
-                            .nav-menu__text
-                                span Admin
-                            .nav-menu__right
-                                i.fa.fa-fw.fa-angle-right.arrow
-                        ul.nav.nav-menu__second.collapse(class=area == 'Admin' ? 'in' : '')
-                            li(class=page=='Admin' ? 'active' : '')
-                                a(href='admin.html') Admin
-                            li(class=page=='Login' ? 'active' : '')
-                                a(href='login.html') Admin
+                if area == "Admin"
+                  ul.nav.nav-menu
+                      // XXX This must be hidden unless logged in !
+                      // XXX Which must be done in Javascript !
+                      // CSS Loaded and selected by login ! (client side)
+                      // Then hide this based on that?
+                      li(class=area=='Admin' ? 'active opened' : '')
+                          a(href="#")
+                              .nav-menu__ico
+                                  i.fa.fa-fw.fa-th-large
+                              .nav-menu__text
+                                  span Admin
+                              .nav-menu__right
+                                  i.fa.fa-fw.fa-angle-right.arrow
+                          ul.nav.nav-menu__second.collapse(class=area == 'Admin' ? 'in' : '')
+                              li(class=page=='Admin' ? 'active' : '')
+                                  a(href='admin.html') Admin
+                              li(class=page=='Login' ? 'active' : '')
+                                  a(href='login.html') Admin
                 block sidebar
                 if development
                     .sidebar__title Template

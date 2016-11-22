@@ -82,13 +82,28 @@
                       <div class="nav-menu__text"><span>Use Cases</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
                     <ul class="nav nav-menu__second collapse in">
-                      <li><a href="usecase_basic_daily_attendance.html">Basic Daily Attendance</a></li>
-                      <li><a href="usecase_basic_financial_transactions.html">Basic Financial Transactions</a></li>
-                      <li><a href="usecase_enrollment.html">Enrollment</a></li>
-                      <li><a href="usecase_gradebook.html">Gradebook</a></li>
-                      <li><a href="usecase_naplan_registration.html">Naplan Registration</a></li>
-                      <li class="active"><a href="usecase_timetable.html">Timetable</a></li>
+                      <li><a href="/usecases/basic_daily_attendance/technical.html">Basic Daily Attendance</a></li>
+                      <li><a href="/usecases/basic_financial_transactions/hits-dashboard.html">Basic Financial Transactions</a></li>
+                      <li><a href="/usecases/enrollment/hits-dashboard.html">Enrolment</a></li>
+                      <li><a href="/usecases/gradebook/hits-dashboard.html">Gradebook</a></li>
+                      <li><a href="/usecases/naplan_registration/hits-dashboard.html">NAPLAN Registration</a></li>
+                      <li><a href="/usecases/naplan_results_reporting/hits-dashboard.html">NAPLAN Results Reporting</a></li>
+                      <li><a href="/usecases/timetable/hits-dashboard.html">Timetable</a></li>
                     </ul>
+                    <!-- OLD
+                    li(class=page=='Basic Daily Attendance' ? 'active' : '')
+                        a(href='usecase_basic_daily_attendance.html') Basic Daily Attendance
+                    li(class=page=='Basic Financial Transactions' ? 'active' : '')
+                        a(href='usecase_basic_financial_transactions.html') Basic Financial Transactions
+                    li(class=page=='Enrollment' ? 'active' : '')
+                        a(href='usecase_enrollment.html') Enrollment
+                    li(class=page=='Gradebook' ? 'active' : '')
+                        a(href='usecase_gradebook.html') Gradebook
+                    li(class=page=='Naplan Registration' ? 'active' : '')
+                        a(href='usecase_naplan_registration.html') Naplan Registration
+                    li(class=page=='Timetable' ? 'active' : '')
+                        a(href='usecase_timetable.html') Timetable
+                    -->
                   </li>
                 </ul>
                 <ul class="nav nav-menu">
@@ -100,21 +115,6 @@
                       <li><a href="account.html">Account</a></li>
                       <li><a href="dashboard.html">Dashboard</a></li>
                       <li><a href="recover.html">Recover</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul class="nav nav-menu">
-                  <!-- XXX This must be hidden unless logged in !-->
-                  <!-- XXX Which must be done in Javascript !-->
-                  <!-- CSS Loaded and selected by login ! (client side)-->
-                  <!-- Then hide this based on that?-->
-                  <li><a href="#">
-                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
-                      <div class="nav-menu__text"><span>Admin</span></div>
-                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
-                    <ul class="nav nav-menu__second collapse">
-                      <li><a href="admin.html">Admin</a></li>
-                      <li><a href="login.html">Admin</a></li>
                     </ul>
                   </li>
                 </ul>

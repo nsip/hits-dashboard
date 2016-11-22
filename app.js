@@ -32,7 +32,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/usecases", express.static(path.join(__dirname, '../usecases/output')));
 
+// TODO Separate entry, location, files etc
 app.use("/usecasedev", express.static("../usecases/output"));
 app.use('/usecasedev', serveIndex("../usecases/output", {'icons': true}));
 
@@ -58,7 +60,7 @@ app.use('/update', require('./routes/update'));
 app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));
-app.use('/build', require('./routes/build'));
+// XXX app.use('/build', require('./routes/build'));
 app.use('/login', require('./routes/login')());
 
 // NODEAdmin - Access to MySQL - needs security
