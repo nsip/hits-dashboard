@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var serveIndex = require('serve-index');
 
 // XXX Add Winston logging including express winston
 // XXX Add basic login function
@@ -32,7 +33,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/usecasedev", express.static("../usecases/output"));
+app.use('/usecasedev', serveIndex("../usecases/output", {'icons': true}));
+
 app.use(require('./utils'));
+
+var mailer = require('express-mailer');
+mailer.extend(app, {
+  from: 'nsiphits@gmail.com',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'nsiphits@gmail.com',
+    pass: 'NoneShallNSIP',
+  }
+});
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
@@ -41,6 +58,8 @@ app.use('/update', require('./routes/update'));
 app.use('/account', require('./routes/account'));
 app.use('/recover', require('./routes/recover'));
 app.use('/dashboard', require('./routes/dashboard'));
+app.use('/build', require('./routes/build'));
+app.use('/login', require('./routes/login')());
 
 // NODEAdmin - Access to MySQL - needs security
 var nodeadmin = require('nodeadmin');

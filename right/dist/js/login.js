@@ -9,7 +9,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: "/users/login",
+			url: "/login",
 			data: {
 				username: $('input[name="username"]').val(),
 				password: $('input[name="password"]').val()
