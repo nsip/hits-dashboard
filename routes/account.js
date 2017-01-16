@@ -108,7 +108,18 @@ router.post('/:accountId/database', function(req, res, next) {
 
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {
-	res.send('TEST last respond with a resource = ' + req.params.accountId);
+	connection.query(
+		'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
+		[ req.params.accountId, req.params.dbId ],
+		function(err, rows, fields) {
+			if (err)
+				return res.error(err);
+			return res.json({
+				success: 1,
+				data: rows[0],
+			});
+		}
+	);
 });
 
 module.exports = router;

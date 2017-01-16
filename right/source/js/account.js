@@ -32,7 +32,8 @@ $(document).ready(function() {
 					},
 					{ "title": "Name", "width": "25%", "data": "name" },
 					{ "title": "When", "width": "25%", "data": "when" },
-					{ "title": "Status", "width": "10%", "data": "status" }
+					{ "title": "Status", "width": "10%", "data": "status" },
+					{ "title": "Options", "width": "10%", "data": "options" },
 					// { "title": "Databases", "width": "10%", "data": "databases", defaultContent: "None" }
 					// Adding buttons
 				]

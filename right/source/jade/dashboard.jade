@@ -26,6 +26,20 @@ block main
                             h3.panel-title Dashbaord
                         .panel-body
                             .container-fluid.half-padding
+                                ul
+                                    li Status
+                                        span#dashboard-status
+                                    li Options
+                                        span#dashboard-options
+                                    li Message
+                                        span#dashboard-message
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Dashbaord
+                        .panel-body
+                            .container-fluid.half-padding
                                 p Old dashboard
                                 ul
                                     li List of connection data
@@ -40,4 +54,4 @@ block css
 block js
     script(src='libs/datatables/media/js/jquery.dataTables.min.js')
     script(src='libs/datatables/media/js/dataTables.bootstrap.js')
-    script(src='js/admin.js')
+    script(src='js/dashboard.js')
