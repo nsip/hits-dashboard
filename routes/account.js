@@ -108,6 +108,7 @@ router.post('/:accountId/database', function(req, res, next) {
 
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {
+	var connection = db.connect();
 	connection.query(
 		'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
 		[ req.params.accountId, req.params.dbId ],

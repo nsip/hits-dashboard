@@ -27,7 +27,7 @@ $(document).ready(function() {
 						"width": "25%",
 						"data": "id",
 						"render": function (data, type, row, meta) {
-							return '<a href="dashboard.html?id=' + data + '">' + data + '</a>';
+							return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '">' + data + '</a>';
 						}
 					},
 					{ "title": "Name", "width": "25%", "data": "name" },
