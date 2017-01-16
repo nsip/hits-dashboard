@@ -6,7 +6,11 @@ $(document).ready(function() {
 	$('.selectize').selectize();
 
 	// Get specific ID or 'default' (default is captured from last session)
-	var id = $.url(window.location.href).param('id') || 'default';
+	var id = $.url(window.location.href).param('id');
+	if (!id) {
+		alert("No ID provided. Find your original URL");
+		return;
+	}
 
 	var table = undefined;
 	var loadTable = function() {

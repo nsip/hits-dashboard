@@ -22,7 +22,7 @@ router.get('/:accountId/', function(req, res, next) {
 router.get('/:accountId/database', function(req, res, next) {
 	var connection = db.connect();
 	connection.query(
-		'SELECT * FROM `database` WHERE account_id = ?',
+		'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
 		[ req.params.accountId ],
 		function(err, rows, fields) {
 			if (err)
@@ -47,15 +47,11 @@ router.post('/:accountId/database', function(req, res, next) {
 
 	var connection = db.connect();
 	connection.query(
-		"INSERT INTO `database` (account_id, id, name, status, options, `when`) VALUES (?,?,?,'building', ?, NOW())",
+		"INSERT INTO `database` (account_id, id, name, status, options, `when`) VALUES (?,?,?,'waiting', ?, NOW())",
 		[ req.params.accountId, id, name, type ],
 		function(err, rows, fields) {
 			if (err)
-				console.error(err);
-				// return res.error(err);
-
-			// XXX
-			return;
+				return res.error(err);
 
 			// TODO - Build Time for Database
 			// TODO - Allow very long times for huge builds
@@ -63,6 +59,12 @@ router.post('/:accountId/database', function(req, res, next) {
 			// * Do GET above in background
 
 			// XXX Change this to check value of return straight away
+			logger.debug("REMOTE: Sending request GET " + 
+                                'http://hits.nsip.edu.au/dbcreate'
+                                + '?name=' + id
+                                + '&encode=json'
+                                + '&type=' + type
+			);
 			requestify.get(
 				'http://hits.nsip.edu.au/dbcreate'
 				+ '?name=' + id
@@ -74,24 +76,8 @@ router.post('/:accountId/database', function(req, res, next) {
 			)
 			.then(function(response) {
 				logger.debug("REMOTE: Response.", response.getBody());
-				// XXX
+				// Updated within script if working ok
 				return;
-				// XXX Decode response body and check success
-				// Else error
-				// * On complete build, update status
-				var stat = "unknown";
-				var responseData = JSON.parse(response.getBody());
-				if (responseData.success)
-					stat = "complete";
-				connection.query(
-					"UPDATE `database` SET status = ? WHERE id = ?",
-					[ stat, id ],
-					function(err, rows, fields) {
-						if (err)
-							return logger.error("ERROR: " + err, err);
-						logger.info("UPDATE: XXX");
-					}
-				);
 			})
 			.fail(function(response) {
 				// XXX logger
