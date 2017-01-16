@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var uuid = require('node-uuid');
 var db = require('../database');
-var requestify = require('requestify'); 
+var requestify = require('requestify');
 var logger = require('../logger');
 
 // AUTHENTICATION - All entries start with base URL
@@ -22,10 +22,10 @@ router.get('/:accountId/', function(req, res, next) {
 router.get('/:accountId/database', function(req, res, next) {
 	var connection = db.connect();
 	connection.query(
-		'SELECT * FROM `database` WHERE account_id = ?', 
+		'SELECT * FROM `database` WHERE account_id = ?',
 		[ req.params.accountId ],
 		function(err, rows, fields) {
-			if (err) 
+			if (err)
 				return res.error(err);
 			return res.json({
 				success: 1,
@@ -42,12 +42,12 @@ router.post('/:accountId/database', function(req, res, next) {
 	id = id.replace(/-/g,"");
 	var name = req.body.name || "no name";
 	var type = req.body.type || "empty";
-	
+
 	// * Insert record into database with "status" = "building"
-	
+
 	var connection = db.connect();
 	connection.query(
-		"INSERT INTO `database` (account_id, id,name,status, options, `when`) VALUES (?,?,?,'building', ?, NOW())", 
+		"INSERT INTO `database` (account_id, id, name, status, options, `when`) VALUES (?,?,?,'building', ?, NOW())",
 		[ req.params.accountId, id, name, type ],
 		function(err, rows, fields) {
 			if (err)
@@ -59,7 +59,7 @@ router.post('/:accountId/database', function(req, res, next) {
 			// * Do GET above in background
 			requestify.get(
 				'http://hits.dev.nsip.edu.au/dbcreate'
-				+ '?name=' + id 
+				+ '?name=' + id
 				+ '&encode=json'
 				+ '&type=' + type,
 				{
@@ -76,7 +76,7 @@ router.post('/:accountId/database', function(req, res, next) {
 				if (responseData.success)
 					stat = "complete";
 				connection.query(
-					"UPDATE `database` SET status = ? WHERE id = ?", 
+					"UPDATE `database` SET status = ? WHERE id = ?",
 					[ stat, id ],
 					function(err, rows, fields) {
 						if (err)
@@ -88,7 +88,7 @@ router.post('/:accountId/database', function(req, res, next) {
 			.fail(function(response) {
 				// XXX logger
 				connection.query(
-					"UPDATE `database` SET status = ? WHERE id = ?", 
+					"UPDATE `database` SET status = ? WHERE id = ?",
 					[ 'error', id ],
 					function(err, rows, fields) {
 						if (err)
@@ -97,7 +97,7 @@ router.post('/:accountId/database', function(req, res, next) {
 					}
 				);
 			});
-			
+
 			// * Return immediate data
 			return res.json({
 				success: 1,
