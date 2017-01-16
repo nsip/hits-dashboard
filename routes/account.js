@@ -51,14 +51,20 @@ router.post('/:accountId/database', function(req, res, next) {
 		[ req.params.accountId, id, name, type ],
 		function(err, rows, fields) {
 			if (err)
-				return res.error(err);
+				console.error(err);
+				// return res.error(err);
+
+			// XXX
+			return;
 
 			// TODO - Build Time for Database
 			// TODO - Allow very long times for huge builds
 
 			// * Do GET above in background
+
+			// XXX Change this to check value of return straight away
 			requestify.get(
-				'http://hits.dev.nsip.edu.au/dbcreate'
+				'http://hits.nsip.edu.au/dbcreate'
 				+ '?name=' + id
 				+ '&encode=json'
 				+ '&type=' + type,
@@ -68,6 +74,8 @@ router.post('/:accountId/database', function(req, res, next) {
 			)
 			.then(function(response) {
 				logger.debug("REMOTE: Response.", response.getBody());
+				// XXX
+				return;
 				// XXX Decode response body and check success
 				// Else error
 				// * On complete build, update status
