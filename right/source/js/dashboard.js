@@ -18,6 +18,7 @@ $(document).ready(function() {
 		$('#dashboard-status').text(data.data.status);
 		$('#dashboard-options').text(data.data.options);
 		$('#dashboard-message').text(data.data.message);
+		$('#dashboard-client').attr('href', "/client/Simple/?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
 	});
 
 });
