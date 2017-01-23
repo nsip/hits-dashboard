@@ -61,6 +61,7 @@ app.use('/api/update', require('./routes/update'));
 app.use('/api/account', require('./routes/account'));
 app.use('/api/recover', require('./routes/recover'));
 app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/database', require('./routes/database'));
 // XXX app.use('/build', require('./routes/build'));
 app.use('/api/login', require('./routes/login')());
 

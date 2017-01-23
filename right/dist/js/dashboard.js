@@ -17,8 +17,46 @@ $(document).ready(function() {
 		console.log(data);
 		$('#dashboard-status').text(data.data.status);
 		$('#dashboard-options').text(data.data.options);
-		$('#dashboard-message').text(data.data.message);
+		$('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
 		$('#dashboard-client').attr('href', "/client/Simple/?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
 	});
 
+    var viewtable;
+	$.get( "/api/database/" + dbid + '/tables', function( data ) {
+        console.log(data);
+        data.data.forEach(function(row) {
+            $('#database-tables').append($('<option>', {value:row, text:row}));
+        });
+        $('#database-tables').change(function() {
+            var table = $("#database-tables option:selected" ).text();
+            $.get( "/api/database/" + dbid + '/data/' + table, function( data ) {
+                try {
+                    if (!data || !data.data || !data.data.length)
+                        return;
+
+                    var cols = [];
+                    Object.keys(data.data[0]).forEach(function(key) {
+                        cols.push({
+                            title: key,
+                            data: key,
+                        });
+                    });
+
+                    console.log(cols, data.data);
+
+                    if (viewtable)
+                        viewtable.destroy();
+
+                    viewtable = $('#database-view').DataTable( {
+                        "data": data.data,
+                        // "order": [[ 0, "desc" ]],
+                        "columns": cols,
+                    });
+                }
+                catch(e) {
+                    alert(e);
+                }
+            });
+        });
+    });
 });

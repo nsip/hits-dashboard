@@ -64,7 +64,9 @@ block main
                                 .tab-pane#database(role="tabpanel")
                                     p Database - Drop down list of Tables. Table view of selected table.
                                     p Select table: 
-                                        select.selectize#database-tables
+                                        // select.selectize#database-tables
+                                        select#database-tables
+                                            option (select)
                                     table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
                                 .tab-pane#old(role="tabpanel")
                                     ul
