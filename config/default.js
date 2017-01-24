@@ -9,6 +9,8 @@ module.exports = {
 		"matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
 		"nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
 		"linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
+		"raf": { "password": "NoneShallNSIP", "email": "rafidzal.rafiq@systemic.com.au" },
+		"joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
 	},
 
 	// Primary database
