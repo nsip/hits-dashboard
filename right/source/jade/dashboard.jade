@@ -25,7 +25,9 @@ block main
                         .panel-heading
                             h3.panel-title Dashbaord
                         .panel-body
-                            .h5 Status
+                          .container-fluid.half-padding
+                            .row
+                              .col-md-6
                                 ul
                                     li Status
                                         span &nbsp;=&nbsp;
@@ -36,10 +38,14 @@ block main
                                     li Message
                                         span &nbsp;=&nbsp;
                                         span#dashboard-message
-                            .h5 Links
-                                ul
-                                    li
-                                       a#dashboard-client Javascript Client
+                              .col-md-6
+                                div
+                                  button.btn#dashboard-statusbutton(type="button") loading
+                                div
+                                  button.btn.btn-info(type="button") Create Environment
+                                div
+                                  a#dashboard-client(href='')
+                                    button.btn.btn-info(type="button") Javascript Client
 
             .row
                 .col-md-12

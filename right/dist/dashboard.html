@@ -153,17 +153,26 @@
                           <h3 class="panel-title">Dashbaord</h3>
                         </div>
                         <div class="panel-body">
-                          <div class="h5">Status
-                            <ul>
-                              <li>Status<span>&nbsp;=&nbsp;</span><span id="dashboard-status"></span></li>
-                              <li>Options<span>&nbsp;=&nbsp;</span><span id="dashboard-options"></span></li>
-                              <li>Message<span>&nbsp;=&nbsp;</span><span id="dashboard-message"></span></li>
-                            </ul>
-                          </div>
-                          <div class="h5">Links
-                            <ul>
-                              <li><a id="dashboard-client">Javascript Client</a></li>
-                            </ul>
+                          <div class="container-fluid half-padding">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <ul>
+                                  <li>Status<span>&nbsp;=&nbsp;</span><span id="dashboard-status"></span></li>
+                                  <li>Options<span>&nbsp;=&nbsp;</span><span id="dashboard-options"></span></li>
+                                  <li>Message<span>&nbsp;=&nbsp;</span><span id="dashboard-message"></span></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-6">
+                                <div>
+                                  <button id="dashboard-statusbutton" type="button" class="btn">loading</button>
+                                </div>
+                                <div>
+                                  <button type="button" class="btn btn-info">Create Environment</button>
+                                </div>
+                                <div><a id="dashboard-client" href="">
+                                    <button type="button" class="btn btn-info">Javascript Client</button></a></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

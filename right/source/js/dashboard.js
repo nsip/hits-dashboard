@@ -16,6 +16,14 @@ $(document).ready(function() {
 	$.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
 		console.log(data);
 		$('#dashboard-status').text(data.data.status);
+		if (data.data.status == 'complete') {
+			$('#dashboard-statusbutton').text("Complete");
+			$('#dashboard-statusbutton').addClass('btn-success');
+		}
+		else {
+			$('#dashboard-statusbutton').text(data.data.status);
+			$('#dashboard-statusbutton').addClass('btn-danger');
+		}
 		$('#dashboard-applicationkey').text(dbid);
 		$('#dashboard-usertoken').text(dbid);
 		$('#dashboard-password').text(dbid);
