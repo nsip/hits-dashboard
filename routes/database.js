@@ -16,13 +16,15 @@ router.get('/:dbid/tables', function(req, res, next) {
 	connection.query(
 		'SHOW TABLES;',
 		function(err, rows, fields) {
-            var ret = [];
-            rows.forEach(function(r) {
-                var k = Object.keys(r);
-                ret.push(r[k[0]]);
-            });
 			if (err)
 				return res.error(err);
+            var ret = [];
+						if (rows) {
+	            rows.forEach(function(r) {
+	                var k = Object.keys(r);
+	                ret.push(r[k[0]]);
+	            });
+						}
 			return res.json({
 				success: 1,
 				data: ret,
