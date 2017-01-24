@@ -25,7 +25,7 @@ block main
                         .panel-heading
                             h3.panel-title Dashbaord
                         .panel-body
-                            .container-fluid.half-padding
+                            .h5 Status
                                 ul
                                     li Status
                                         span &nbsp;=&nbsp;
@@ -36,7 +36,7 @@ block main
                                     li Message
                                         span &nbsp;=&nbsp;
                                         span#dashboard-message
-                            .p Links
+                            .h5 Links
                                 ul
                                     li 
                                        a#dashboard-client Javascript Client
@@ -60,7 +60,98 @@ block main
                                     a(href="#validate",aria-controls="admins", role="tab", data-toggle="tab") Validate
                             .tab-content
                                 .tab-pane.active#info(role="tabpanel")
-                                    p Info (TODO - Usecase data and other links to getting started, download demos and clients etc)
+                                        table.table
+                                            thead
+                                                tr
+                                                    th Field
+                                                    th Value
+                                            tbody
+                                                tr
+                                                    td Provider Server:
+                                                    td
+                                                        span http://hits.nsip.edu.au/SIF3InfraREST/hits/
+                                                tr
+                                                    td Solution ID:
+                                                    td
+                                                        span HITS
+                                                tr
+                                                    td Application Key
+                                                    td
+                                                        span#dashboard-applicationkey
+                                                tr
+                                                    td User Token
+                                                    td
+                                                        span#dashboard-usertoken
+                                                tr
+                                                    td Password
+                                                    td
+                                                        span#dashboard-password
+                                .tab-pane#database(role="tabpanel")
+                                    p Select a table to view.
+                                    p Select table: 
+                                        // select.selectize#database-tables
+                                        select#database-tables
+                                            option (select)
+                                    table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
+                                .tab-pane#old(role="tabpanel")
+                                    ul
+                                        li List of connection data
+                                        li DB Information (which Use case?)
+                                        li References to all documentation
+                                        li Table viewer (raw DB data)
+                                        li Error Log viewer (on SIF Server)
+                                        li SIF Javascript Client
+                                .tab-pane#errorlog(role="tabpanel")
+                                    p Coming soon (TODO copy old code for Error log javascript here)
+                                .tab-pane#validate(role="tabpanel")
+                                    p Coming soon (Feb 2017)
+                                    
+                                        li Solution ID:
+                                            span HITS
+                                .tab-pane#database(role="tabpanel")
+                                    p Database - Drop down list of Tables. Table view of selected table.
+                                    p Select table: 
+                                        // select.selectize#database-tables
+                                        select#database-tables
+                                            option (select)
+                                    table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
+                                .tab-pane#old(role="tabpanel")
+                                    ul
+                                        li List of connection data
+                                        li DB Information (which Use case?)
+                                        li References to all documentation
+                                        li Table viewer (raw DB data)
+                                        li Error Log viewer (on SIF Server)
+                                        li SIF Javascript Client
+                                .tab-pane#errorlog(role="tabpanel")
+                                    p Coming soon (TODO copy old code for Error log javascript here)
+                                .tab-pane#validate(role="tabpanel")
+                                    p Coming soon (Feb 2017)
+                                    
+                                        li Solution ID:
+                                            span HITS
+                                .tab-pane#database(role="tabpanel")
+                                    p Database - Drop down list of Tables. Table view of selected table.
+                                    p Select table: 
+                                        // select.selectize#database-tables
+                                        select#database-tables
+                                            option (select)
+                                    table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
+                                .tab-pane#old(role="tabpanel")
+                                    ul
+                                        li List of connection data
+                                        li DB Information (which Use case?)
+                                        li References to all documentation
+                                        li Table viewer (raw DB data)
+                                        li Error Log viewer (on SIF Server)
+                                        li SIF Javascript Client
+                                .tab-pane#errorlog(role="tabpanel")
+                                    p Coming soon (TODO copy old code for Error log javascript here)
+                                .tab-pane#validate(role="tabpanel")
+                                    p Coming soon (Feb 2017)
+                                    
+                                        li Solution ID:
+                                            span HITS
                                 .tab-pane#database(role="tabpanel")
                                     p Database - Drop down list of Tables. Table view of selected table.
                                     p Select table: 

@@ -153,14 +153,14 @@
                           <h3 class="panel-title">Dashbaord</h3>
                         </div>
                         <div class="panel-body">
-                          <div class="container-fluid half-padding">
+                          <div class="h5">Status
                             <ul>
                               <li>Status<span>&nbsp;=&nbsp;</span><span id="dashboard-status"></span></li>
                               <li>Options<span>&nbsp;=&nbsp;</span><span id="dashboard-options"></span></li>
                               <li>Message<span>&nbsp;=&nbsp;</span><span id="dashboard-message"></span></li>
                             </ul>
                           </div>
-                          <div class="p">Links
+                          <div class="h5">Links
                             <ul>
                               <li> <a id="dashboard-client">Javascript Client</a></li>
                             </ul>
@@ -185,7 +185,120 @@
                           </ul>
                           <div class="tab-content">
                             <div id="info" role="tabpanel" class="tab-pane active">
-                              <p>Info (TODO - Usecase data and other links to getting started, download demos and clients etc)</p>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Field</th>
+                                    <th>Value</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Provider Server:</td>
+                                    <td><span>http://hits.nsip.edu.au/SIF3InfraREST/hits/</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Solution ID:</td>
+                                    <td><span>HITS</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Application Key</td>
+                                    <td><span id="dashboard-applicationkey"></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>User Token</td>
+                                    <td><span id="dashboard-usertoken"></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Password</td>
+                                    <td><span id="dashboard-password"></span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div id="database" role="tabpanel" class="tab-pane">
+                              <p>Select a table to view.</p>
+                              <p>Select table: 
+                                <!-- select.selectize#database-tables-->
+                                <select id="database-tables">
+                                  <option>(select)</option>
+                                </select>
+                              </p>
+                              <table id="database-view" width="100%" class="datalist__table table datatable display table-hover"></table>
+                            </div>
+                            <div id="old" role="tabpanel" class="tab-pane">
+                              <ul>
+                                <li>List of connection data</li>
+                                <li>DB Information (which Use case?)</li>
+                                <li>References to all documentation</li>
+                                <li>Table viewer (raw DB data)</li>
+                                <li>Error Log viewer (on SIF Server)</li>
+                                <li>SIF Javascript Client</li>
+                              </ul>
+                            </div>
+                            <div id="errorlog" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (TODO copy old code for Error log javascript here)</p>
+                            </div>
+                            <div id="validate" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (Feb 2017)
+                                <li>Solution ID:<span>HITS</span></li>
+                              </p>
+                            </div>
+                            <div id="database" role="tabpanel" class="tab-pane">
+                              <p>Database - Drop down list of Tables. Table view of selected table.</p>
+                              <p>Select table: 
+                                <!-- select.selectize#database-tables-->
+                                <select id="database-tables">
+                                  <option>(select)</option>
+                                </select>
+                              </p>
+                              <table id="database-view" width="100%" class="datalist__table table datatable display table-hover"></table>
+                            </div>
+                            <div id="old" role="tabpanel" class="tab-pane">
+                              <ul>
+                                <li>List of connection data</li>
+                                <li>DB Information (which Use case?)</li>
+                                <li>References to all documentation</li>
+                                <li>Table viewer (raw DB data)</li>
+                                <li>Error Log viewer (on SIF Server)</li>
+                                <li>SIF Javascript Client</li>
+                              </ul>
+                            </div>
+                            <div id="errorlog" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (TODO copy old code for Error log javascript here)</p>
+                            </div>
+                            <div id="validate" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (Feb 2017)
+                                <li>Solution ID:<span>HITS</span></li>
+                              </p>
+                            </div>
+                            <div id="database" role="tabpanel" class="tab-pane">
+                              <p>Database - Drop down list of Tables. Table view of selected table.</p>
+                              <p>Select table: 
+                                <!-- select.selectize#database-tables-->
+                                <select id="database-tables">
+                                  <option>(select)</option>
+                                </select>
+                              </p>
+                              <table id="database-view" width="100%" class="datalist__table table datatable display table-hover"></table>
+                            </div>
+                            <div id="old" role="tabpanel" class="tab-pane">
+                              <ul>
+                                <li>List of connection data</li>
+                                <li>DB Information (which Use case?)</li>
+                                <li>References to all documentation</li>
+                                <li>Table viewer (raw DB data)</li>
+                                <li>Error Log viewer (on SIF Server)</li>
+                                <li>SIF Javascript Client</li>
+                              </ul>
+                            </div>
+                            <div id="errorlog" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (TODO copy old code for Error log javascript here)</p>
+                            </div>
+                            <div id="validate" role="tabpanel" class="tab-pane">
+                              <p>Coming soon (Feb 2017)
+                                <li>Solution ID:<span>HITS</span></li>
+                              </p>
                             </div>
                             <div id="database" role="tabpanel" class="tab-pane">
                               <p>Database - Drop down list of Tables. Table view of selected table.</p>
