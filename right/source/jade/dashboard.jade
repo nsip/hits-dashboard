@@ -38,9 +38,9 @@ block main
                                         span#dashboard-message
                             .h5 Links
                                 ul
-                                    li 
+                                    li
                                        a#dashboard-client Javascript Client
-                                   
+
             .row
                 .col-md-12
                     .panel.panel-danger
@@ -71,6 +71,14 @@ block main
                                                     td
                                                         span http://hits.nsip.edu.au/SIF3InfraREST/hits/
                                                 tr
+                                                    td Create Environment URL:
+                                                    td
+                                                        span http://hits.nsip.edu.au/SIF3InfraREST/hits/environments/environment
+                                                tr
+                                                    td Vendor Name
+                                                    td
+                                                        span NSIP (You can choose)
+                                                tr
                                                     td Solution ID:
                                                     td
                                                         span HITS
@@ -88,7 +96,7 @@ block main
                                                         span#dashboard-password
                                 .tab-pane#database(role="tabpanel")
                                     p Select a table to view.
-                                    p Select table: 
+                                    p Select table:
                                         // select.selectize#database-tables
                                         select#database-tables
                                             option (select)
@@ -105,12 +113,12 @@ block main
                                     p Coming soon (TODO copy old code for Error log javascript here)
                                 .tab-pane#validate(role="tabpanel")
                                     p Coming soon (Feb 2017)
-                                    
+
                                         li Solution ID:
                                             span HITS
                                 .tab-pane#database(role="tabpanel")
                                     p Database - Drop down list of Tables. Table view of selected table.
-                                    p Select table: 
+                                    p Select table:
                                         // select.selectize#database-tables
                                         select#database-tables
                                             option (select)
@@ -127,12 +135,12 @@ block main
                                     p Coming soon (TODO copy old code for Error log javascript here)
                                 .tab-pane#validate(role="tabpanel")
                                     p Coming soon (Feb 2017)
-                                    
+
                                         li Solution ID:
                                             span HITS
                                 .tab-pane#database(role="tabpanel")
                                     p Database - Drop down list of Tables. Table view of selected table.
-                                    p Select table: 
+                                    p Select table:
                                         // select.selectize#database-tables
                                         select#database-tables
                                             option (select)
@@ -149,12 +157,12 @@ block main
                                     p Coming soon (TODO copy old code for Error log javascript here)
                                 .tab-pane#validate(role="tabpanel")
                                     p Coming soon (Feb 2017)
-                                    
+
                                         li Solution ID:
                                             span HITS
                                 .tab-pane#database(role="tabpanel")
                                     p Database - Drop down list of Tables. Table view of selected table.
-                                    p Select table: 
+                                    p Select table:
                                         // select.selectize#database-tables
                                         select#database-tables
                                             option (select)
@@ -171,7 +179,7 @@ block main
                                     p Coming soon (TODO copy old code for Error log javascript here)
                                 .tab-pane#validate(role="tabpanel")
                                     p Coming soon (Feb 2017)
-                                    
+
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
 block js

@@ -21,7 +21,7 @@ $(document).ready(function() {
 		$('#dashboard-password').text(dbid);
 		$('#dashboard-options').text(data.data.options);
 		$('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
-		$('#dashboard-client').attr('href', "/client/Simple/?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
+		$('#dashboard-client').attr('href', "client.html?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
 	});
 
     var viewtable;

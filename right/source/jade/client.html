@@ -1,0 +1,196 @@
+<div class="container-fluid half-padding">
+  <div class="row">
+      <div class="col-md-6">
+        <div>
+          <h3>Input</h3>
+        </div>
+        <div>
+          <div class="bs-example">
+            <form role="form">
+              <div class="form-group">
+                <label for="providerServer">Provider Server</label>
+                <input type="text" class="form-control" id="providerServer" placeholder="Provider Server" value="http://hits.nsip.edu.au/SIF3InfraREST/hits/">
+              </div>
+              <div class="form-group">
+                <label for="zoneId">Solution ID</label>
+                <input type="text" class="form-control" id="solutionId" placeholder="Enter Solution Id" value="HITS">
+              </div>
+              <div class="form-group">
+                <label for="applicationKey">Application Key</label>
+                <input type="text" class="form-control" id="applicationKey" placeholder="Enter Application Key" value="HITS">
+              </div>
+              <div class="form-group">
+                <label for="zoneId">User Token</label>
+                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="0EE41AE6-C43F-11E3-9050-E0F4DBD909AB">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" placeholder="Enter Password" value="hits@nsip">
+              </div>
+              <div class="form-group">
+                <label for="sessionToken">Session Token</label>
+                <input type="text" class="form-control" id="sessionToken" placeholder="Leave empty to create environment">
+              </div>
+              <div class="form-group">
+                <label style="text-align:center; width:100%;">&nbsp;</label>
+              </div>
+              <div class="form-group">
+                <label for="provider">SIF Provider</label>
+                <select class="form-control" id="provider"></select>
+              </div>
+              <div class="form-group">
+                <label for="method">Method</label>
+                <select class="form-control" id="method"></select>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row parameter-header" style="display:none;">
+          <h3>Parameters</h3>
+        </div>
+        <div class="row parameter-block" id="postOne" style="display:none;">
+          <div class="bs-example">
+            <form role="form">
+              <div class="form-group">
+                <label for="postOneBody">Body</label>
+                <textarea rows="10" type="text" class="form-control" id="postOneBody" placeholder="Body XML"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row parameter-block" id="postOne" style="display:none;">
+          <div class="bs-example">
+            <form role="form">
+              <div class="form-group">
+                <label for="getOneReferenceId">Reference Id</label>
+                <input type="text" class="form-control" id="putOneReferenceId" placeholder="Reference Id">
+              </div>
+              <div class="form-group">
+                <label for="postOneBody">Body</label>
+                <textarea rows="10" type="text" class="form-control" id="putOneBody" placeholder="Body XML"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row parameter-block" id="getOne" style="display:none;">
+          <div class="bs-example">
+            <form role="form">
+              <div class="form-group">
+                <label for="getOneReferenceId">Reference Id</label>
+                <input type="text" class="form-control" id="getOneReferenceId" placeholder="Reference Id">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row parameter-block" id="getMany" style="display:none;">
+          <div class="bs-example">
+            <form role="form">
+              <div class="form-group">
+                <label for="getManyRecordsPerPage">Records per Page</label>
+                <input type="text" class="form-control" id="getManyRecordsPerPage" placeholder="Records per Page" value=5>
+              </div>
+              <div class="form-group">
+                <label for="getManyPage">Page Number</label>
+                <input type="text" class="form-control" id="getManyPage" placeholder="Page Number" value=1>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          &nbsp;
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary" id="execute">Execute</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <h3>5. Response</h3>
+        </div>
+        <div>
+          URL: <a href="#" id="responseURL"></a>
+        </div>
+        <div>
+          Status: <span id="responseStatus"></span>: <span id="responseStatusText"></span>
+        </div>
+        <div>
+          <pre id="response">
+          </pre>
+        </div>
+      </div>
+  </div>
+</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/client/Simple/js/bootstrap.min.js"></script>
+<script src="/client/Simple/js/base64.js"></script>
+<script src="/client/Simple/js/purl.js"></script>
+<script src="/client/Simple/js/hitsclient.js"></script>
+<script src="/client/Simple/js/environment.js"></script>
+<!-- would be nice to load these dynamically. -->
+<script src="/client/Simple/js/providers/school-info.js"></script>
+<script src="/client/Simple/js/providers/student-personal.js"></script>
+<script src="/client/Simple/js/providers/student-personal-naplan.js"></script>
+<script src="/client/Simple/js/providers/staff-personal.js"></script>
+<script src="/client/Simple/js/providers/staff-assignment.js"></script>
+<script src="/client/Simple/js/providers/teaching-group.js"></script>
+<script src="/client/Simple/js/providers/student-school-enrollment.js"></script>
+<script src="/client/Simple/js/providers/room-info.js"></script>
+<script src="/client/Simple/js/providers/time-table-subject.js"></script>
+<script src="/client/Simple/js/providers/time-table.js"></script>
+<script src="/client/Simple/js/providers/time-table-cell.js"></script>
+<script src="/client/Simple/js/providers/scheduled-activity.js"></script>
+<script src="/client/Simple/js/providers/calendar-summary.js"></script>
+<script src="/client/Simple/js/providers/calendar-date.js"></script>
+<script src="/client/Simple/js/providers/student-attendance-summary.js"></script>
+<script src="/client/Simple/js/providers/student-daily-attendance.js"></script>
+<script src="/client/Simple/js/providers/session-info.js"></script>
+<script src="/client/Simple/js/providers/student-period-attendance.js"></script>
+<script src="/client/Simple/js/providers/student-attendance-time-list.js"></script>
+<script src="/client/Simple/js/providers/student-contact.js"></script>
+<script src="/client/Simple/js/providers/student-contact-relationship.js"></script>
+<script src="/client/Simple/js/providers/grading-assignment.js"></script>
+<script src="/client/Simple/js/providers/grading-assignment-score.js"></script>
+<script src="/client/Simple/js/providers/invoice.js"></script>
+<script src="/client/Simple/js/providers/charged-location-info.js"></script>
+<script src="/client/Simple/js/providers/payment-receipt.js"></script>
+<script src="/client/Simple/js/providers/journal.js"></script>
+<script src="/client/Simple/js/providers/debtor.js"></script>
+<script src="/client/Simple/js/providers/vendor-info.js"></script>
+<script src="/client/Simple/js/providers/financial-account.js"></script>
+<script src="/client/Simple/js/providers/person-picture.js"></script>
+<script src="/client/Simple/js/providers/purchase-order.js"></script>
+<script>
+  $(document).ready(function() {
+    hitsclient.ready();
+
+    var providerServer = $.url().param('providerServer');
+    if (providerServer) {
+            $('#providerServer').val(providerServer);
+    }
+
+            // Load School REF ID - Backwards compatibile
+    var school_id = $.url().param('school_id');
+    if (school_id) {
+            $('#userToken').val(school_id);
+    }
+      var solutionId = $.url().param('solution_id');
+      if (solutionId) {
+        $('#solutionId').val(solutionId);
+      }
+      var applicationKey = $.url().param('application_key');
+      if (applicationKey) {
+        $('#applicationKey').val(applicationKey);
+      }
+      var userToken = $.url().param('user_token');
+      if (userToken) {
+        $('#userToken').val(userToken);
+      }
+      var password = $.url().param('password');
+      if (password) {
+        $('#password').val(password);
+      }
+  });
+</script>

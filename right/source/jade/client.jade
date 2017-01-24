@@ -1,0 +1,28 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Dashboard';
+    - development = false;
+    - area = 'Tools';
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Tables
+                li.active Data Table
+        .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .template.template__table_data
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Client
+                        .panel-body
+                            include client.html

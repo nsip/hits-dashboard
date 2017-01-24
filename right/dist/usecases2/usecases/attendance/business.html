@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>National Use Cases - Attendance:Business</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <!-- navbar and header -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="index.html">Attendance</a></li>
+        <li><a href="#!">Finance</a></li>
+        <li><a href="#!">Gradebook</a></li>
+        <li><a href="#!">NAPLAN registration</a></li>
+        <li><a href="#!">NAPLAN results</a></li>
+        <li><a href="#!">Enrollment</a></li>
+        <li><a href="#!">Timetable</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">NSIA</a></li>
+        <li><a href="#!">ODDESSA</a></li>
+        <li><a href="#!">DSG</a></li>
+        <li><a href="#!">USI</a></li>
+    </ul>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">DSG - National Use Cases</a>
+            <ul class="right hide-on-med-and-down">
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">More...<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="header center orange-text">Daily Attendance - Business</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">
+                Implementation questions and business rules when working with Attendance data exchanges.
+                </h5>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <!-- content from markdown -->
+    <div class="container">
+        <div class="section">
+            <!-- <h4>Introduction</h4> -->
+            <div class="divider"></div>
+            <h5>What data is exchanged?</h5>
+            <div class="divider"></div>
+            <h5>Entity types </h5>
+            <p class="light flow-text">
+                StudentPersonal records identify the students whose attendance is being tracked. Demographic attributes of the students may be required in order to provide reports correlating those attributes. The nationally required attributes are: geolocation, sector, sex, year level, indigenous status.
+            </p>
+            <p class="light flow-text">
+                Attendance records track the attendance of students in school at various levels of granularity:
+            </p>
+            <ol class="flow-text">
+                <li>Student Period Attendance tracks attendance at the level of individual periods for individual students. Period attendance is out of scope of this use case. </li>
+                <li>Student Attendance Time List tracks attendance at the level of parts of the day for individual students. </li>
+                <li>Student Daily Attendance tracks attendance at the level of the day for individual students (with fractions to quantify partial attendance). </li>
+                <li>Student Attendance Summary tracks attendance at the level of a half year or year for individual students </li>
+                <li>System Attendance Summary (not a SIF object) tracks attendance at the level of a half year or year across a cohort of students, at the level of individual schools or a school system. </li>
+            </ol>
+            <div class="divider"></div>
+            <h5>Authoritative source </h5>
+            <p class="light flow-text">
+                The authoritative source for StudentPersonal is the school SMS. The authoritative source for attendance unit records are the attendance tracking applications deployed in schools. This information is stored in the SMS, from where it is propagated on.
+            </p>
+            <div class="divider"></div>
+            <h5>Stakeholders </h5>
+            <p class="light flow-text">
+                School:
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Attendance package vendor</li>
+                    <li>School IT staff</li>
+                    <li>Home group teacher </li>
+                    <li>School principal </li>
+                </ol>
+            </p>
+            <p class="light flow-text">
+                School system:
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>school system IT staff</li>
+                    <li>school system operations staff</li>
+                    <li>school system business owners</li>
+                </ol>
+            </p>
+            <p class="light flow-text">
+                National:
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>reporting group </li>
+                </ol>
+            </p>
+            <div class="divider"></div>
+            <h5>Data recipients at unit level </h5>
+            <p class="light flow-text">
+                School systems (where present) Education researchers (deidentified) -
+            </p>
+            <h5>Data recipients at aggregate level </h5>
+            <p class="light flow-text">
+                Australian government. The reports generated based on this data includes:
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>National Education Agreement (NEA) performance report(s) </li>
+                    <li>National Report on Schooling in Australia </li>
+                    <li>National Indigenous Reform Agreement (NIRA) </li>
+                    <li>Report on Government Services (ROGS) </li>
+                    <li>School-level attendance data on the My School website. </li>
+                </ol>
+            </p>
+            <div class="divider"></div>
+            <h5>Data quality and timeliness </h5>
+            <p class="light flow-text">
+                Timeliness: The Australian government census of attendance data is annual, aggregated over semester 1.
+            </p>
+            <p class="light flow-text">
+                School systems that undertake censuses of attendance gather data at least annually.
+            </p>
+            <p class="light flow-text">
+                Schools require daily attendance promptly, but not necessarily immediately. It has been acceptable in the past for attendance systems to deliver attendance results with a delay of a few days, in batch form. In particular, the justification for absences may be edited as more information is available in the days following the absence.
+            </p>
+            <div class="divider"></div>
+            <h5>Quality: </h5>
+            <p class="light flow-text">
+                There is some tolerance of error in the national-level aggregate reports, as the attendance census is meant to be indicative, and applied at aggregate level.
+            </p>
+            <h5>Are there national definitions? </h5>
+            <p class="light flow-text">
+                National definitions for attendance are provided in the National Standards for Student Attendance Data Reporting, published by ACARA. These have been introduced in 2014, to enable nationally comparable attendance rates, by imposing uniform calculation practices and data collection.
+            </p>
+            <div class="divider"></div>
+            <h5>
+                What are the business rules for this data exchange? 
+                - School - School system - National 
+                </h5>
+            <div class="divider"></div>
+            <h5>National: </h5>
+            <p class="light flow-text">
+                The national reporting requirements calculate attendance for full-time students only at state/territory level. (If a student attends multiple schools in a state, their attendance can be split pro rata between those schools.)
+            </p>
+            <p class="light flow-text">
+                Attendance is calculated as the ratio of full-time equivalent of student-days to the total number of possible student days.
+            </p>
+            <p class="light flow-text">
+                Schools are only included in attendance reporting if they fall within the NSSC definition of a school: their major activity is providing education, and students can enrol in the school for a minimum of four continuous weeks.
+            </p>
+            <p class="light flow-text">
+                Part-day absences are to be reported as either 0.5 or to two decimal places, depending on individual school arrangements.
+            </p>
+            <p class="light flow-text">
+                The National Standards define 19 categories of absence, whether each should be counted as absences for attendance reporting, and whether the absence should be included in the possible school day count.
+            </p>
+            <h5>School System: </h5>
+            <p class="light flow-text">
+                Students enrolled full time at state level but across multiple schools in the same sector are excluded from Qld government, all Catholic and independent schools.
+            </p>
+            <p class="light flow-text">
+                School systems typically have absence categories that do not coincide with the national absence categories. All school systems need to provide mappings from their local categories to the national categories. Not all national absence categories are applicable locally.
+            </p>
+            <p class="light flow-text">
+                Schools have the option of providing school systems with data in aggregated form, instead of unit records. Typically schools will opt to provide unit records, as they do not have the internal capability to perform the aggregations at the different levels required for systemic and national reporting.
+            </p>
+            <p class="light flow-text">
+                VIC and WA report part-day absences consistently as 0.5.
+            </p>
+            <p class="light flow-text">
+                School systems will vary as to whether they require schools to calculate the percentages of attendance for part-day attendance, or whether they will undertake those calculations centrally. If the former is the case, then an object like StudentDailyAttendance is adequate. If the latter is the case, then schools must provide all times in and out for a student during the day; in that case, an object like StudentAttendanceTimeList is required.
+            </p>
+            <p class="light flow-text">
+                School systems will vary as to whether attendance is reported by schools only by exception (the school only submits records for days when the student has been absent), or completely (both presences and absences). NSW DEC for example requires the latter.
+            </p>
+            <p class="light flow-text">
+                School systems will normalise attendance results received from different attendance packages, so that they can be aggregated and compared consistently.
+            </p>
+            <h5>School: </h5>
+            <p class="light flow-text">
+                In the absence of a school system, individual non-systemic schools have to comply with the requirements of national reporting on their own.
+            </p>
+            <div class="divider"></div>
+            <h5>What are the privacy implications of this data exchange?</h5>
+            <div class="divider"></div>
+            <p class="light flow-text">
+                You should consider the questions on this page in establishing privacy measures. Many of the questions are specific to your local configuration, but some questions are expected to have the same answer across instances of this use case.
+            </p>
+            <h5>Privacy framework questions </h5>
+            <p class="light flow-text">
+                <h5>Data collection </h5>
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Specific to use case instance; recommend primary purpose only </li>
+                    <li>StudentPersonal, StudentDailyAttendance, StudentAttendanceSummary, StudentAttendanceTimeList. Highly sensitive demographic or personal information within Student Personal is not required. </li>
+                    <li>Specific to use case instance; recommend No </li>
+                </ol>
+            </p>
+            <h5>Data storage and access </h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Information should be stored in same State/Territory as it was sourced, given sensitivity
+                        <li>Some protection needed, given sensitivity; at minimum password access. </li>
+                        <li>Specific to use case instance; if on cloud, tenancy access must apply. </li>
+                        <li>Specific to use case instance; recommend Yes </li>
+                        <li>Specific to use case instance; recommend SSL/TLS per SIF protocol </li>
+                        <li>Homeroom teacher, principal, other teachers of the student on as-needs basis. </li>
+                        <ol class="flow-text" style="list-style-type:disc">
+                            <li>Access should be logged. </li>
+                            <li>Working with children check recommended </li>
+                            <li>Analytics may be subcontracted; if they are, anonymisation recommended </li>
+                        </ol>
+                </ol>
+            </p>
+            <h5>Data and Metadata Retention</h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Data should be retained for entire school year, to allow revision of annual report. Data may be deleted after end of school year; data must be deleted at termination of contract, or on request by school. Protocol for deletion request must be agreed to by school. </li>
+                    <li>Copy of information MAY be provided by vendor to school; not strong requirement </li>
+                    <li>On termination of contract, all data must be returned to school and deleted from vendor systems </li>
+                </ol>
+            </p>
+            <h5>Development and Change Management Process </h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Provider should follow standardised processes for code change management Specific to use case instance </li>
+                    <li>Provider should notify school of changes in information handling </li>
+                </ol>
+            </p>
+            <h5>Audits and Standards </h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Provider must allow security & privacy audit by school </li>
+                    <li>Provider should have security operations externally audited </li>
+                    <li>Provider should comply with external standard </li>
+                </ol>
+            </p>
+            <h5>Test and Development Environments </h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>Live student data should not be used in non-production environments </li>
+                    <li>Non-production environments need not be as secure as production </li>
+                </ol>
+            </p>
+            <h5>Data Breach, Incident Investigation and Response </h5>
+            <p class="light flow-text">
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>At minimum, school informed immediately, will require escalation from principal </li>
+                    <li>Vendor must have logging capability agreed with school, including making logs available to school and police </li>
+                </ol>
+            </p>
+            <h5>Privacy Implications</h5>
+            <p class="light flow-text">
+                At Unit Record level, the most sensitive attributes being transmitted are:
+                <ol class="flow-text" style="list-style-type:disc">
+                    <li>StudentPersonal: Sex and Indigenous Status (Medium) </li>
+                    <li>StudentDailyAttendance: AttendanceCode, AttendanceNote (Extreme) </li>
+                </ol>
+            </p>
+            <p class="light flow-text">
+                At the aggregate level, the objects are of low sensitivity: no identifying information is passed along, and individual absence reasons are suppressed.
+            </p>
+            <p class="light flow-text">
+                Absence information is associated with fully identified students. The reasons why an individual student is absent are potentially embarrassing and need to be kept private, especially if they are described in detail. For that reason, data exchange between attendance applications and the school SMS need to be tightly secured. The school needs to ensure that the data gathered by attendance applications cannot be compromised, or viewed by unauthorised parties outside the school, and should be stored accordingly.
+            </p>
+            <p class="light flow-text">
+                Typically any aggregation of attendance data is done by the school authority and not the student. That means that the data being passed from the school to the school system is as sensitive as the information passed from the attendance applications to the school SMS, with the possible exception of attendance reason details. Highly sensitive information about students is exchanged between schools and school systems routinely; so no additional safeguards should need to be put in place for attendance data.
+            </p>
+            <p class="light flow-text">
+                The data passed on for attendance reporting is aggregated and deidentified, and does not include any breakdown of reasons for absence. This data does not present serious privacy implications.
+            </p>
+            <p class="light flow-text">
+                Any unit data passed to education researchers must be deidentified, and the demographic cohorts of students passed on must be large enough that individual student identity may be recovered.
+            </p>
+        </div>
+        <br>
+        <br>
+        <div class="section">
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="page-footer light-blue lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">DSG National Use Cases</h5>
+                    <p class="grey-text text-lighten-4">
+                        The DSG National Use Cases are a repository of policy, business and technical information that capture the nationally agreed what, why and how of core data exchanges.
+                    </p>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Use Cases</h5>
+                    <ul>
+                        <li><a class="white-text" href="index.html">Attendance</a></li>
+                        <li><a class="white-text" href="#!">Finance</a></li>
+                        <li><a class="white-text" href="#!">Gradebook</a></li>
+                        <li><a class="white-text" href="#!">NAPLAN registration</a></li>
+                        <li><a class="white-text" href="#!">NAPLAN results</a></li>
+                        <li><a class="white-text" href="#!">Enrollment</a></li>
+                        <li><a class="white-text" href="#!">Timetable</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connections</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">NSIA</a></li>
+                        <li><a class="white-text" href="#!">ODDESSA</a></li>
+                        <li><a class="white-text" href="#!">DSG</a></li>
+                        <li><a class="white-text" href="#!">USI</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Created by <a class="orange-text text-lighten-3" href="http://www.nsip.edu.au">NSIP</a>
+            </div>
+        </div>
+    </footer>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../../js/materialize.js"></script>
+    <script src="../../js/init.js"></script>
+</body>
+
+</html>
