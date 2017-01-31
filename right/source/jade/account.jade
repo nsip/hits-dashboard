@@ -28,23 +28,69 @@ block main
             .row
                 .col-md-12
                     .form
-                        .form-group
-                            input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
-                        .form-group
-                            label.control-label Type
-                            select.selectize#create-type
-                                option(value="blank") Blank
-                                option(value="basic") Basic
-                                option(value="timetable") Timetable
+                      .row
+                        .col-md-6
+                          .form-group
+                              label.control-label Name
+                              input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
+                        .col-md-6
+                          .form-group
+                              label.control-label Type/Usecase
+                              select.selectize#create-type
+                                  option(value="blank") Blank
+                                  option(value="basic") Basic
+                                  option(value="timetable") Timetable
+                      .row
+                        .col-md-12
+                            button.btn.btn-success#create-create(type='submit') Create
+                            div &nbsp;
 
-                        .form-group.login__action
-                            .login__submit
-                                button.btn.btn-default#create-create(type='submit') Create
-                    
+                      .row
+                        .col-md-6
+                          .form-group
+                              input.slider#create-schools(type="text", name="schools", value="")
+                          .form-group
+                              input.slider#create-students(type="text", name="students", value="")
+                          .form-group
+                              input.slider#create-teachers(type="text", name="teachers", value="")
+                          .form-group
+                              input.slider#create-classrooms(type="text", name="classrooms", value="")
+
+                        .col-md-6
+                          .checkbox.checkbox-primary
+                              input#create-teachinggroups(type='checkbox', checked='checked')
+                              label(for='create-teachinggroups') Teaching groups
+                          .checkbox.checkbox-primary
+                              input#create-timetable(type='checkbox', checked='checked')
+                              label(for='create-timetable') Timetable example data
+                          .checkbox.checkbox-success
+                              input#create-grading(type='checkbox', checked='checked')
+                              label(for='create-grading') Grading for each class/student
+                          .checkbox.checkbox-info
+                              input#create-contacts(type='checkbox', checked='checked')
+                              label(for='create-contacts') Contacts information and photos
+                          .checkbox.checkbox-warning
+                              input#create-accounts(type='checkbox', checked='checked')
+                              label(for='create-accounts') Accounts and invoices
+                          .checkbox.checkbox-primary
+                              input#create-naplan(type='checkbox', checked='checked')
+                              label(for='create-naplan') NAPLAN sample
+
+
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.default.css', rel='stylesheet')
+    link(href='libs/selectize/dist/css/selectize.bootstrap3.css', rel='stylesheet')
+    link(href='libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css', rel='stylesheet')
+    link(href='libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css', rel='stylesheet')
+    link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='libs/bootstrap-select/dist/css/bootstrap-select.min.css', rel='stylesheet')
 block js
     script(src='libs/datatables/media/js/jquery.dataTables.min.js')
     script(src='libs/datatables/media/js/dataTables.bootstrap.js')
     script(src='js/account.js')
-
+    script(src='libs/selectize/dist/js/standalone/selectize.min.js')
+    script(src='libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    script(src='libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js')
+    script(src='libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js')
+    script(src='libs/bootstrap-select/dist/js/bootstrap-select.min.js')

@@ -5,6 +5,63 @@ $(document).ready(function() {
 
 	$('.selectize').selectize();
 
+
+  $('#create-schools').ionRangeSlider({
+	  type: "single",
+	  min: 0,
+	  max: 10,
+		from: 1,
+	  prefix: "Schools: ",
+	  decorate_both: false,
+	  onChange: function (data) {
+      // tables.draw();
+	  }
+	});
+
+
+  $('#create-students').ionRangeSlider({
+	  type: "double",
+	  grid: true,
+	  min: 0,
+	  max: 500,	// TODO support 2000
+	  from: 100,
+	  to: 200,
+	  prefix: "Students: ",
+	  decorate_both: false,
+	  onChange: function (data) {
+      // tables.draw();
+	  }
+	});
+
+
+  $('#create-teachers').ionRangeSlider({
+	  type: "double",
+	  grid: false,
+	  min: 0,
+	  max: 25,	// TODO support more?
+	  from: 5,
+	  to: 10,
+	  prefix: "Teachers: ",
+	  decorate_both: false,
+	  onChange: function (data) {
+      // tables.draw();
+	  }
+	});
+
+  $('#create-classrooms').ionRangeSlider({
+	  type: "double",
+	  grid: false,
+	  min: 0,
+	  max: 20,	// Per teacher ?
+	  from: 3,
+	  to: 5,
+	  prefix: "Classrooms: ",
+	  decorate_both: false,
+	  onChange: function (data) {
+      // tables.draw();
+	  }
+	});
+
 	// Get specific ID or 'default' (default is captured from last session)
 	var id = $.url(window.location.href).param('id');
 	if (!id) {
