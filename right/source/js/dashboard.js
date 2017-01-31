@@ -9,31 +9,32 @@ $(document).ready(function() {
   var id = $.url(window.location.href).param('id');
   var dbid = $.url(window.location.href).param('dbid');
   if (!id || !dbid) {
-  alert("No ID provided. Find your URL from your account list");
-  return;
+    alert("No ID provided. Find your URL from your account list");
+    window.location = "recover.html";
+    return;
   }
 
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
   console.log(data);
   $('#dashboard-status').text(data.data.status);
   if (data.data.status == 'complete') {
-  $('#dashboard-statusbutton').text("Complete");
-  $('#dashboard-statusbutton').addClass('btn-success');
-  $('#dashboard-statusalert').text("Complete");
-  $('#dashboard-statusalert').addClass('alert-success');
+    $('#dashboard-statusbutton').text("Complete");
+    $('#dashboard-statusbutton').addClass('btn-success');
+    $('#dashboard-statusalert').text("Complete");
+    $('#dashboard-statusalert').addClass('alert-success');
   }
   else {
-  $('#dashboard-statusbutton').text(data.data.status);
-  $('#dashboard-statusbutton').addClass('btn-danger');
-  $('#dashboard-statusalert').text(data.data.status);
-  $('#dashboard-statusalert').addClass('alert-danger');
+    $('#dashboard-statusbutton').text(data.data.status);
+    $('#dashboard-statusbutton').addClass('btn-danger');
+    $('#dashboard-statusalert').text(data.data.status);
+    $('#dashboard-statusalert').addClass('alert-danger');
   }
-  $('#dashboard-applicationkey').text(dbid);
-  $('#dashboard-usertoken').text(dbid);
-  $('#dashboard-password').text(dbid);
-  $('#dashboard-options').text(data.data.options);
-  $('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
-  $('#dashboard-client').attr('href', "client.html?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
+    $('#dashboard-applicationkey').text(dbid);
+    $('#dashboard-usertoken').text(dbid);
+    $('#dashboard-password').text(dbid);
+    $('#dashboard-options').text(data.data.options);
+    $('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
+    $('#dashboard-client').attr('href', "client.html?application_key=" + dbid + "&user_token=" + dbid + "&password=" + dbid + "");
   });
 
   var viewtable = null;

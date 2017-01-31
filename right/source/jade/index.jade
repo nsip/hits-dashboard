@@ -3,12 +3,11 @@ block vars
     - page = 'Dashboard';
 block main
 
-
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Dashboard
-        .main-filter
+                li.active HITS Introduction
+        // .main-filter
             form.main-filter__search
                 .input-group
                     input.form-control(type="text", placeholder="Search...")
@@ -17,7 +16,15 @@ block main
                             .fa.fa-search
         .pages.pages_dashboard
             .row
+              .col-md-12
                 // # - include:markdown-it ../../../doc/dashboard.md
+                p Welcome to NSIP HITS (Hub Integration Testing Service)
+                p An assurance and demonstration environment for education integrations.
+                p [Apply for an account on HITS](mailto:info@nsip.edu.au)
+                p [More about this service](the-hits-website.md)
+                p [More about HITS and SIF](interoperability-hits-sif.md)
+                p [More about national commitment to SIF](commitment-sif.md)
+
 block css
 block js
     if !release

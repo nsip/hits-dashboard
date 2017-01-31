@@ -19,11 +19,11 @@
                 .sidebar__title HITS Pages
                 ul.nav.nav-menu
                     li(class=page=='Dashboard' ? 'active' : '')
-                        a(href="./")
+                        a.addids(href="./")
                             .nav-menu__ico
                                 i.fa.fa-fw.fa-star
                             .nav-menu__text
-                                span Dashboard
+                                span Introduction
                 // TODO - Copy this to Topbar if necessary ?
                 ul.nav.nav-menu
                     li(class=area=='Usecase' ? 'active opened' : '')
@@ -72,12 +72,12 @@
                             .nav-menu__right
                                 i.fa.fa-fw.fa-angle-right.arrow
                         ul.nav.nav-menu__second.collapse(class=area == 'Tools' ? 'in' : '')
-                            li(class=page=='Account' ? 'active' : '')
-                                a(href='account.html') Account
-                            li(class=page=='Dashboard' ? 'active' : '')
-                                a(href='dashboard.html') Dashboard
-                            li(class=page=='Recover' ? 'active' : '')
-                                a(href='recover.html') Recover
+                            li(class=page=='Databases' ? 'active' : '')
+                                a.addids(href='account.html') Account
+                            li(class=page=='Developer Dashboard' ? 'active' : '')
+                                a.addids(href='dashboard.html') Dashboard
+                            li(class=page=='Recover Links' ? 'active' : '')
+                                a.addids(href='recover.html') Recover
                 if area == "Admin"
                   ul.nav.nav-menu
                       // XXX This must be hidden unless logged in !

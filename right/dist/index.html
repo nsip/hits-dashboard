@@ -51,7 +51,7 @@
             </div></a></div>
         <div class="topnavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="index.html"><span>Dashboard</span></a></li>
+            <li class="active"><a href="index.html" class="addids"><span>Introduction</span></a></li>
           </ul>
           <ul class="userbar nav navbar-nav">
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
@@ -71,9 +71,9 @@
               <div class="sidebar__menu">
                 <div class="sidebar__title">HITS Pages</div>
                 <ul class="nav nav-menu">
-                  <li class="active"><a href="./">
+                  <li class="active"><a href="./" class="addids">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
-                      <div class="nav-menu__text"><span>Dashboard</span></div></a></li>
+                      <div class="nav-menu__text"><span>Introduction</span></div></a></li>
                 </ul>
                 <!-- TODO - Copy this to Topbar if necessary ?-->
                 <ul class="nav nav-menu">
@@ -112,9 +112,9 @@
                       <div class="nav-menu__text"><span>Developer Tools</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
                     <ul class="nav nav-menu__second collapse">
-                      <li><a href="account.html">Account</a></li>
-                      <li class="active"><a href="dashboard.html">Dashboard</a></li>
-                      <li><a href="recover.html">Recover</a></li>
+                      <li><a href="account.html" class="addids">Account</a></li>
+                      <li><a href="dashboard.html" class="addids">Dashboard</a></li>
+                      <li><a href="recover.html" class="addids">Recover</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -128,22 +128,28 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
-                    <li class="active">HITS Dashboard</li>
+                    <li class="active">HITS Introduction</li>
                   </ol>
                 </div>
-                <div class="main-filter">
-                  <form class="main-filter__search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search..." class="form-control"><span class="input-group-btn">
-                        <button type="button" class="btn btn-default">
-                          <div class="fa fa-search"></div>
-                        </button></span>
-                    </div>
-                  </form>
-                </div>
+                <!-- .main-filter
+                form.main-filter__search
+                    .input-group
+                        input.form-control(type="text", placeholder="Search...")
+                        span.input-group-btn
+                            button.btn.btn-default(type="button")
+                                .fa.fa-search
+                -->
                 <div class="pages pages_dashboard">
                   <div class="row">
-                    <!-- # - include:markdown-it ../../../doc/dashboard.md-->
+                    <div class="col-md-12">
+                      <!-- # - include:markdown-it ../../../doc/dashboard.md-->
+                      <p>Welcome to NSIP HITS (Hub Integration Testing Service)</p>
+                      <p>An assurance and demonstration environment for education integrations.</p>
+                      <p>[Apply for an account on HITS](mailto:info@nsip.edu.au)</p>
+                      <p>[More about this service](the-hits-website.md)</p>
+                      <p>[More about HITS and SIF](interoperability-hits-sif.md)</p>
+                      <p>[More about national commitment to SIF](commitment-sif.md)</p>
+                    </div>
                   </div>
                 </div>
               </div>
