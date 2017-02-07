@@ -1,12 +1,13 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Dashboard';
+    - page = 'Welcome';
+    - area = 'Welcome';
 block main
 
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Introduction
+                li.active HITS Welcome
         // .main-filter
             form.main-filter__search
                 .input-group
@@ -15,16 +16,61 @@ block main
                         button.btn.btn-default(type="button")
                             .fa.fa-search
         .pages.pages_dashboard
+        .template
             .row
-              .col-md-12
-                // # - include:markdown-it ../../../doc/dashboard.md
-                p Welcome to NSIP HITS (Hub Integration Testing Service)
-                p An assurance and demonstration environment for education integrations.
-                p [Apply for an account on HITS](mailto:info@nsip.edu.au)
-                p [More about this service](the-hits-website.md)
-                p [More about HITS and SIF](interoperability-hits-sif.md)
-                p [More about national commitment to SIF](commitment-sif.md)
-
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-6
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Welcome to HITS (Hub Integration Testing Services)
+                                    .panel-body
+                                        .row
+                                          .col-md-6
+                                            img(src='img/introduction.png',style='max-width: 100%')
+                                          .col-md-6
+                                            p
+                                              strong An assurance and demonstration environment for education integrations.
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Request an account
+                                    .panel-body
+                                      p Form email?
+                                      .form-horizontal
+                                          .form-group
+                                              label.col-sm-2.control-label Email address
+                                              .col-sm-10
+                                                  input.form-control(type="email", placeholder="Text")
+                                                  .checkbox.checkbox-primary
+                                                      input#ch1(type='checkbox', checked='checked')
+                                                      label(for='ch1') Developer
+                                                  .checkbox.checkbox-success
+                                                      input#ch2(type='checkbox', checked='checked')
+                                                      label(for='ch2') Organisation
+                                                  .checkbox.checkbox-info
+                                                      input#ch3(type='checkbox', checked='checked')
+                                                      label(for='ch3') Partner
+                                                  .checkbox.checkbox-warning
+                                                      input#ch4(type='checkbox', checked='checked')
+                                                      label(for='ch4') Request further information
+                                      .form-group
+                                          label.col-sm-2.control-label Submit
+                                          .col-sm-10
+                                              button.btn.btn-default(type='submit') Submit Button
+                                .panel.panel-success
+                                    .panel-heading
+                                        h3.panel-title Information
+                                    .panel-body
+                                        p Copyright NSIP
+                                        p Email Blah
+                                        p Web site blah
+                            .col-md-6
+                                .panel.panel-danger
+                                    .panel-heading
+                                        h3.panel-title What is HITS
+                                    .panel-body
+                                      include ../docs/the-hits-website.html
 block css
 block js
     if !release

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HITS - Dashboard</title>
+    <title>HITS Dashboard</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,12 +47,10 @@
         </div>
         <div class="navbar-header"><a href="index.html" class="navbar-brand">
             <div class="logo text-nowrap">
-              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS</span>
+              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS Dashboard</span>
             </div></a></div>
         <div class="topnavbar">
-          <ul class="nav navbar-nav navbar-left">
-            <li><a href="index.html" class="addids"><span>Introduction</span></a></li>
-          </ul>
+          <ul class="nav navbar-nav navbar-left"></ul>
           <ul class="userbar nav navbar-nav">
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -88,11 +86,17 @@
           <div class="scrollable scrollbar-macosx">
             <div class="sidebar__cont">
               <div class="sidebar__menu">
-                <div class="sidebar__title">HITS Pages</div>
+                <div class="sidebar__title">Menu</div>
                 <ul class="nav nav-menu">
                   <li><a href="./" class="addids">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
-                      <div class="nav-menu__text"><span>Introduction</span></div></a></li>
+                      <div class="nav-menu__text"><span>Welcome</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="interoperability.html">Interoperability</a></li>
+                      <li><a href="commitment.html">Commitment to SIF</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <!-- TODO - Copy this to Topbar if necessary ?-->
                 <ul class="nav nav-menu">

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HITS Dashboard</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/fonts/roboto.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="libs/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <link href="libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="libs/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/morris.js/morris.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/right.light.css" rel="stylesheet" class="demo__css">
+    <link href="css/demo.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="framed main-scrollable">
+    <div class="wrapper">
+      <nav class="navbar navbar-static-top header-navbar">
+        <div class="header-navbar-mobile">
+          <div class="header-navbar-mobile__menu">
+            <button type="button" class="btn"><i class="fa fa-bars"></i></button>
+          </div>
+          <div class="header-navbar-mobile__title"><span>Commitment to SIF</span></div>
+          <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-header"><a href="index.html" class="navbar-brand">
+            <div class="logo text-nowrap">
+              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS Dashboard</span>
+            </div></a></div>
+        <div class="topnavbar">
+          <ul class="nav navbar-nav navbar-left"></ul>
+          <ul class="userbar nav navbar-nav">
+            <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="/logout/">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="dashboard">
+        <div class="sidebar">
+          <div class="quickmenu">
+          </div>
+          <div class="scrollable scrollbar-macosx">
+            <div class="sidebar__cont">
+              <div class="sidebar__menu">
+                <div class="sidebar__title">Menu</div>
+                <ul class="nav nav-menu">
+                  <li><a href="./" class="addids">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
+                      <div class="nav-menu__text"><span>Welcome</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse in">
+                      <li><a href="interoperability.html">Interoperability</a></li>
+                      <li><a href="commitment.html">Commitment to SIF</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- TODO - Copy this to Topbar if necessary ?-->
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>Use Cases</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="/usecases/basic_daily_attendance/hits-dashboard.html">Basic Daily Attendance</a></li>
+                      <li><a href="/usecases/basic_financial_transactions/hits-dashboard.html">Basic Financial Transactions</a></li>
+                      <li><a href="/usecases/enrollment/hits-dashboard.html">Enrolment</a></li>
+                      <li><a href="/usecases/gradebook/hits-dashboard.html">Gradebook</a></li>
+                      <li><a href="/usecases/naplan_registration/hits-dashboard.html">NAPLAN Registration</a></li>
+                      <li><a href="/usecases/naplan_results_reporting/hits-dashboard.html">NAPLAN Results Reporting</a></li>
+                      <li><a href="/usecases/timetable/hits-dashboard.html">Timetable</a></li>
+                    </ul>
+                    <!-- OLD
+                    li(class=page=='Basic Daily Attendance' ? 'active' : '')
+                        a(href='usecase_basic_daily_attendance.html') Basic Daily Attendance
+                    li(class=page=='Basic Financial Transactions' ? 'active' : '')
+                        a(href='usecase_basic_financial_transactions.html') Basic Financial Transactions
+                    li(class=page=='Enrollment' ? 'active' : '')
+                        a(href='usecase_enrollment.html') Enrollment
+                    li(class=page=='Gradebook' ? 'active' : '')
+                        a(href='usecase_gradebook.html') Gradebook
+                    li(class=page=='Naplan Registration' ? 'active' : '')
+                        a(href='usecase_naplan_registration.html') Naplan Registration
+                    li(class=page=='Timetable' ? 'active' : '')
+                        a(href='usecase_timetable.html') Timetable
+                    -->
+                  </li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li><a href="#">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
+                      <div class="nav-menu__text"><span>Developer Tools</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="account.html" class="addids">Account</a></li>
+                      <li><a href="dashboard.html" class="addids">Dashboard</a></li>
+                      <li><a href="recover.html" class="addids">Recover</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main__scroll scrollbar-macosx">
+            <div class="main__cont">
+              <div class="main-heading">
+                <div class="main-title">
+                  <ol class="breadcrumb">
+                    <li class="active">HITS Welcome</li>
+                    <li class="active">Commitment to SIF</li>
+                  </ol>
+                </div>
+                <!-- .main-filter
+                form.main-filter__search
+                    .input-group
+                        input.form-control(type="text", placeholder="Search...")
+                        span.input-group-btn
+                            button.btn.btn-default(type="button")
+                                .fa.fa-search
+                -->
+                <div class="pages pages_dashboard"></div>
+                <div class="template">
+                  <div class="row">
+                    <div class="col-md-12"><h1 id="commitment">Commitment</h1>
+<p>There is explicit support in the Australian education sector for both the use of SIF, and the emergence of the 'Information Hub' pattern of market engagement.</p>
+<p>Extract taken from: <strong>Statement of Status and Intent for SIF adoption in Australia</strong></p>
+<blockquote>
+<p>SIF has been used in the USA for more than a decade to enable interoperability between software products within schools districts and to facilitate data exchange between schools, school systems and education authorities. SIF is also in the early stages of adoption in the UK and under investigation in several other countries. Currently more than 15 million students benefit every day from interoperability delivered via SIF.</p>
+</blockquote>
+<blockquote>
+<p>In Australia currently there are over 40 member organisations including education authorities and software vendors. SIF has been used in projects involving government and non-government schools in all States and Territories. These include local, national and cross-jurisdictional initiatives spanning access to online learning resources, online assessment, enterprise wide data synchronisation, student data transfer and national reporting.</p>
+</blockquote>
+<blockquote>
+<p>In Australia, the SIF Association recognised the benefit in creating a targeted subset or profile of the full Australian Data Model to assist in more speedy and lightweight adoption of the interoperability standard.</p>
+</blockquote>
+<blockquote>
+<p>The Student Information System Baseline Profile (SBP) is a set of core data and business rules defining the relationship between students, parents, teachers, schools and classes. It has reduced the complexity and cost for schools and increased the ease for vendors in creating interoperability between applications and student (or school) information systems.</p>
+</blockquote>
+<blockquote>
+<p>The SBP is now used across Tasmania, ACT, South Australia, and the Northern Territory with Student Information System (SIS) vendors providing core identity data to external applications and services.</p>
+</blockquote>
+<blockquote>
+<p>The level of SIS vendor engagement with SIF is evidence of the degree of general market adoption of SIF. Ten out of thirteen leading SIS vendors have an active interest in working with SIF and five have operating agents developed as a result of participation in NSIP supported pilot projects.</p>
+</blockquote>
+<blockquote>
+<p>SIF enjoys wide support across the Australian education software community.</p>
+</blockquote>
+<p>The following quotes are from a strategic direction statement issued by NSW Department of Education and Communities (DEC) March 2014</p>
+<blockquote>
+<p>The Learning Management Business Reform Program (LMBR) is delivering a common and standardised Student Administration and Learning Management (SALM) solution to all NSW public schools. This solution has recently been implemented in 229 schools. It is recognised that some schools have access to functionality beyond that currently available through the SALM solution through various external third party systems...</p>
+</blockquote>
+<blockquote>
+<p>In response to feedback from principals that many schools wish to continue to use external third party systems for specific student and learning management functions, an announcement was made on Thursday 13th March 2014 to the 229 schools that the Department will implement a framework to enable third party systems to integrate with the Department’s SALM solution where they provide additional functionality. The framework is to be delivered by the NSW DEC Information Technology Directorate (ITD) sponsored by Stephen Loquet. The framework will leverage the investment made from the pilot phase of the Integration Competency Centre (ICC) that NSIP has supported over the last 12-24 months...</p>
+</blockquote>
+<blockquote>
+<p>Technically, the framework will utilise the SIF Infrastructure (version 3.0.1 or above) and the Australian specific SIF Data Model (version 1.4 or above). The data exchanged will flow in two directions:</p>
+</blockquote>
+<blockquote>
+<p>In the outbound SIF flow, the framework publishes and makes available DEC’s core information - school records, courses and subjects, student records, school staff records - to authenticated, authorised and targeted external third party systems. This information is necessary for external third party timetabling and attendance management systems to return their data to DEC.</p>
+</blockquote>
+<blockquote>
+<p>In the inbound SIF flow, the framework provides a gateway for the SALM solution to receive two types of data from external third party systems. The timetabling data type consists of timetables, daily variations and roll classes generated and administered by external third party systems. The attendance data type represents student and teacher’s class attendance (period- or day-based) information recorded against school timetables.</p>
+</blockquote>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- include ../include/demo.jade-->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
+    <script src="libs/sparkline/jquery.sparkline.min.js"></script>
+    <script src="libs/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="libs/inputNumber/js/inputNumber.js"></script>
+    <script src="libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="libs/jquery.rest.js"></script>
+    <script src="libs/purl.js"></script>
+    <script src="libs/sockets.io.js"></script>
+    <script src="libs/raphael/raphael-min.js"></script>
+    <script src="libs/morris.js/morris.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="libs/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="libs/datatables/media/js/dataTables.select.js"></script>
+    <script src="libs/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/template/index.js"></script>
+  </body>
+</html>

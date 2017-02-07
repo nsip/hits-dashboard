@@ -16,14 +16,21 @@
     .scrollable.scrollbar-macosx
         .sidebar__cont
             .sidebar__menu
-                .sidebar__title HITS Pages
+                .sidebar__title Menu
                 ul.nav.nav-menu
-                    li(class=page=='Dashboard' ? 'active' : '')
+                    li(class=page=='Welcome' ? 'active' : '')
                         a.addids(href="./")
                             .nav-menu__ico
                                 i.fa.fa-fw.fa-star
                             .nav-menu__text
-                                span Introduction
+                                span Welcome
+                            .nav-menu__right
+                                i.fa.fa-fw.fa-angle-right.arrow
+                        ul.nav.nav-menu__second.collapse(class=area == 'Welcome' ? 'in' : '')
+                            li
+                                a(href='interoperability.html') Interoperability
+                            li
+                                a(href='commitment.html') Commitment to SIF
                 // TODO - Copy this to Topbar if necessary ?
                 ul.nav.nav-menu
                     li(class=area=='Usecase' ? 'active opened' : '')

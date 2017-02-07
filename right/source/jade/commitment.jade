@@ -1,0 +1,27 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Commitment to SIF';
+    - area = 'Welcome';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active HITS Welcome
+                li.active Commitment to SIF
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                      include ../docs/commitment-sif.html
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

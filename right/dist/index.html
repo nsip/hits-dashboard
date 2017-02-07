@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HITS - Dashboard</title>
+    <title>HITS Dashboard</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
           <div class="header-navbar-mobile__menu">
             <button type="button" class="btn"><i class="fa fa-bars"></i></button>
           </div>
-          <div class="header-navbar-mobile__title"><span>Dashboard</span></div>
+          <div class="header-navbar-mobile__title"><span>Welcome</span></div>
           <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#">Log Out</a></li>
@@ -47,12 +47,10 @@
         </div>
         <div class="navbar-header"><a href="index.html" class="navbar-brand">
             <div class="logo text-nowrap">
-              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS</span>
+              <div class="logo__img"><i class="fa fa-chevron-right"></i></div><span class="logo__text">HITS Dashboard</span>
             </div></a></div>
         <div class="topnavbar">
-          <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="index.html" class="addids"><span>Introduction</span></a></li>
-          </ul>
+          <ul class="nav navbar-nav navbar-left"></ul>
           <ul class="userbar nav navbar-nav">
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -69,11 +67,17 @@
           <div class="scrollable scrollbar-macosx">
             <div class="sidebar__cont">
               <div class="sidebar__menu">
-                <div class="sidebar__title">HITS Pages</div>
+                <div class="sidebar__title">Menu</div>
                 <ul class="nav nav-menu">
                   <li class="active"><a href="./" class="addids">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
-                      <div class="nav-menu__text"><span>Introduction</span></div></a></li>
+                      <div class="nav-menu__text"><span>Welcome</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse in">
+                      <li><a href="interoperability.html">Interoperability</a></li>
+                      <li><a href="commitment.html">Commitment to SIF</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <!-- TODO - Copy this to Topbar if necessary ?-->
                 <ul class="nav nav-menu">
@@ -128,7 +132,7 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
-                    <li class="active">HITS Introduction</li>
+                    <li class="active">HITS Welcome</li>
                   </ol>
                 </div>
                 <!-- .main-filter
@@ -139,16 +143,95 @@
                             button.btn.btn-default(type="button")
                                 .fa.fa-search
                 -->
-                <div class="pages pages_dashboard">
+                <div class="pages pages_dashboard"></div>
+                <div class="template">
                   <div class="row">
                     <div class="col-md-12">
-                      <!-- # - include:markdown-it ../../../doc/dashboard.md-->
-                      <p>Welcome to NSIP HITS (Hub Integration Testing Service)</p>
-                      <p>An assurance and demonstration environment for education integrations.</p>
-                      <p>[Apply for an account on HITS](mailto:info@nsip.edu.au)</p>
-                      <p>[More about this service](the-hits-website.md)</p>
-                      <p>[More about HITS and SIF](interoperability-hits-sif.md)</p>
-                      <p>[More about national commitment to SIF](commitment-sif.md)</p>
+                      <div class="container-fluid half-padding">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="panel panel-info">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Welcome to HITS (Hub Integration Testing Services)</h3>
+                              </div>
+                              <div class="panel-body">
+                                <div class="row">
+                                  <div class="col-md-6"><img src="img/introduction.png" style="max-width: 100%"></div>
+                                  <div class="col-md-6">
+                                    <p><strong>An assurance and demonstration environment for education integrations.</strong></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-info">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Request an account</h3>
+                              </div>
+                              <div class="panel-body">
+                                <p>Form email?</p>
+                                <div class="form-horizontal">
+                                  <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email address</label>
+                                    <div class="col-sm-10">
+                                      <input type="email" placeholder="Text" class="form-control">
+                                      <div class="checkbox checkbox-primary">
+                                        <input id="ch1" type="checkbox" checked="checked">
+                                        <label for="ch1">Developer</label>
+                                      </div>
+                                      <div class="checkbox checkbox-success">
+                                        <input id="ch2" type="checkbox" checked="checked">
+                                        <label for="ch2">Organisation</label>
+                                      </div>
+                                      <div class="checkbox checkbox-info">
+                                        <input id="ch3" type="checkbox" checked="checked">
+                                        <label for="ch3">Partner</label>
+                                      </div>
+                                      <div class="checkbox checkbox-warning">
+                                        <input id="ch4" type="checkbox" checked="checked">
+                                        <label for="ch4">Request further information</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Submit</label>
+                                  <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-default">Submit Button</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-success">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Information</h3>
+                              </div>
+                              <div class="panel-body">
+                                <p>Copyright NSIP</p>
+                                <p>Email Blah</p>
+                                <p>Web site blah</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="panel panel-danger">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">What is HITS</h3>
+                              </div>
+                              <div class="panel-body"><h1 id="the-hits-website">The HITS website</h1>
+<p>This website has two distinct functions:</p>
+<ol style="list-style-type: decimal">
+<li>It provides a learning and demonstration space for anyone interested in exploring the use of SIF 3. Additional Open Standards will be supported by HITS as required. In our demos area we provide examples of how you can integrate SIF into your own products and services.</li>
+<li>HITS maintains a set of use cases and tests that have been created by educational institutions; these include the linking of timetabling and attendence into centrally provided School information Systems, and providing students and teachers access to online services. These can be used for assurance testing by product and service creators.</li>
+</ol>
+<p>We also show how interoperability could be used by schools and jurisdictions, supported by enterprise information management services, in what we refer to as the ‘Information Hub’ model.</p>
+<p>The HITS testing service allows you to test that your product can create, receive and respond to the requirements of the relevant use case. You can run these assurance tests without having a project relationship with an educational institution.</p>
+<p>All data supplied to you as part of the testing service will be artificial, but representative of real-world data.</p>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
