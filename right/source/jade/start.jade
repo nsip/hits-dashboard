@@ -21,27 +21,20 @@ block main
                 .col-md-12
                     .container-fluid.half-padding
                         .row
-                            .col-md-6
+                            .col-md-12
                                 .panel.panel-info
                                     .panel-heading
                                         h3.panel-title Welcome to HITS (Hub Integration Testing Services)
                                     .panel-body
                                         .row
                                           .col-md-6
-                                            img(src='img/introduction.png',style='max-width: 100%')
-                                          .col-md-6
                                             p
                                               strong An assurance and demonstration environment for education integrations.
-                                .panel.panel-info
-                                    .panel-heading
-                                        h3.panel-title Information
-                                    .panel-body
-                            .col-md-6
                                 .panel.panel-danger
                                     .panel-heading
                                         h3.panel-title Start here
                                     .panel-body
-                                        p What ?
+                                        include ../docs/working-usecases.html
 block css
 block js
     if !release
