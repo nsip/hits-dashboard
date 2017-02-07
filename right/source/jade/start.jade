@@ -1,0 +1,48 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Start';
+    - area = 'Tools';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active HITS Welcome
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-6
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Welcome to HITS (Hub Integration Testing Services)
+                                    .panel-body
+                                        .row
+                                          .col-md-6
+                                            img(src='img/introduction.png',style='max-width: 100%')
+                                          .col-md-6
+                                            p
+                                              strong An assurance and demonstration environment for education integrations.
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Information
+                                    .panel-body
+                            .col-md-6
+                                .panel.panel-danger
+                                    .panel-heading
+                                        h3.panel-title Start here
+                                    .panel-body
+                                        p What ?
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

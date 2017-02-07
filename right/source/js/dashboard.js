@@ -17,18 +17,19 @@ $(document).ready(function() {
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
   console.log(data);
   $('#dashboard-status').text(data.data.status);
-  if (data.data.status == 'complete') {
-    $('#dashboard-statusbutton').text("Complete");
-    $('#dashboard-statusbutton').addClass('btn-success');
-    $('#dashboard-statusalert').text("Complete");
-    $('#dashboard-statusalert').addClass('alert-success');
-  }
-  else {
-    $('#dashboard-statusbutton').text(data.data.status);
-    $('#dashboard-statusbutton').addClass('btn-danger');
-    $('#dashboard-statusalert').text(data.data.status);
-    $('#dashboard-statusalert').addClass('alert-danger');
-  }
+    if (data.data.status == 'complete') {
+      $('#dashboard-statusbutton').text("Complete");
+      $('#dashboard-statusbutton').addClass('btn-success');
+      $('#dashboard-statusalert').text("Complete");
+      $('#dashboard-statusalert').addClass('alert-success');
+    }
+    else {
+      $('#dashboard-statusbutton').text(data.data.status);
+      $('#dashboard-statusbutton').addClass('btn-danger');
+      $('#dashboard-statusalert').text(data.data.status);
+      $('#dashboard-statusalert').addClass('alert-danger');
+    }
+    $('#dashboard-sessiontoken').text(data.data.session);
     $('#dashboard-applicationkey').text(dbid);
     $('#dashboard-usertoken').text(dbid);
     $('#dashboard-password').text(dbid);

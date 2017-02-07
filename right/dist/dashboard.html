@@ -55,7 +55,9 @@
           <ul class="userbar nav navbar-nav">
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="/logout/">Log Out</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="logout.html">Log Out</a></li>
+                <li><a href="recover.html">Recover</a></li>
               </ul>
             </li>
           </ul>
@@ -117,6 +119,7 @@
                       <div class="nav-menu__text"><span>Developer Tools</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
                     <ul class="nav nav-menu__second collapse in">
+                      <li><a href="start.html" class="addids">Start here</a></li>
                       <li><a href="account.html" class="addids">Account</a></li>
                       <li><a href="dashboard.html" class="addids">Dashboard</a></li>
                       <li><a href="recover.html" class="addids">Recover</a></li>
@@ -209,6 +212,10 @@
                                 </thead>
                                 <tbody>
                                   <tr>
+                                    <td>Request Base URL</td>
+                                    <td>http://hits.nsip.edu.au/SIF3InfraREST/hits/requests</td>
+                                  </tr>
+                                  <tr>
                                     <td>Provider Server:</td>
                                     <td><span>http://hits.nsip.edu.au/SIF3InfraREST/hits/</span></td>
                                   </tr>
@@ -235,6 +242,10 @@
                                   <tr>
                                     <td>Password</td>
                                     <td><span id="dashboard-password"></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Session Token (when available)</td>
+                                    <td><span id="dashboard-sessiontoken"></span></td>
                                   </tr>
                                 </tbody>
                               </table>

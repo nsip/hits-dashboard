@@ -16,7 +16,7 @@ $(document).ready(function() {
 						"width": "25%",
 						"data": "id",
 						"render": function (data, type, row, meta) {
-							return '<a href="account.html?id=' + data + '">' + data + '</a>';
+							return '<a href="start.html?id=' + data + '">' + data + '</a>';
 						}
 					},
 					{ "title": "Name", "width": "20%", "data": "name" },

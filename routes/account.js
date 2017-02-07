@@ -46,6 +46,7 @@ router.post('/:accountId/database', function(req, res, next) {
 	// * Insert record into database with "status" = "building"
 
 	var connection = db.connect();
+
 	connection.query(
 		"INSERT INTO `database` (account_id, id, name, status, options, `when`) VALUES (?,?,?,'waiting', ?, NOW())",
 		[ req.params.accountId, id, name, type ],
@@ -59,7 +60,7 @@ router.post('/:accountId/database', function(req, res, next) {
 			// * Do GET above in background
 
 			// XXX Change this to check value of return straight away
-			logger.debug("REMOTE: Sending request GET " + 
+			logger.debug("REMOTE: Sending request GET " +
                                 'http://hits.nsip.edu.au/dbcreate'
                                 + '?name=' + id
                                 + '&encode=json'
@@ -109,16 +110,37 @@ router.post('/:accountId/database', function(req, res, next) {
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {
 	var connection = db.connect();
+	var infraconnection = db.get('hits_sif3_infra');
 	connection.query(
 		'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
 		[ req.params.accountId, req.params.dbId ],
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows[0],
-			});
+
+			var ret = rows[0];
+
+			infraconnection.query(
+				"SELECT SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?",
+				[ req.params.dbId ],
+				function(e2, r2, f2) {
+					console.log("SELECT SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
+					if (e2)
+						return res.error(e2);
+
+					console.log(r2);
+
+					if (r2 && r2[0])
+						ret.session = r2[0].SESSION_TOKEN;
+					else
+						ret.session = "";
+
+					return res.json({
+						success: 1,
+						data: ret,
+					});
+				}
+			);
 		}
 	);
 });
