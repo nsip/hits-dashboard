@@ -32,7 +32,6 @@ NOTE 1:
 If the message is not well-formed XML, the message will be rejected:
 
 NOTE 2:
-
 The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not currently perform any syntactic validation of payloads against the SIF XML schema. This includes validating for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have ot been provided properly in the payload.
 					
 					
