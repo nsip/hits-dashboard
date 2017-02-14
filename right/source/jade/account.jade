@@ -20,54 +20,58 @@ block main
         .template.template__blank
             .row
                 .col-md-12
-                    .form
-                      .row
-                        .col-md-6
-                          .form-group
-                              label.control-label Name
-                              input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
-                        .col-md-6
-                          .form-group
-                              label.control-label Type/Usecase
-                              select.selectize#create-type
-                                  option(value="blank") Blank
-                                  option(value="basic") Basic
-                                  option(value="timetable") Timetable
-                      .row
-                        .col-md-12
-                            button.btn.btn-success#create-create(type='submit') Create
-                            div &nbsp;
+                    .panel.panel-success
+                        .panel-heading
+                            h3.panel-title Create Database
+                        .panel-body
+                          .form
+                            .row
+                              .col-md-6
+                                .form-group
+                                    label.control-label Name
+                                    input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
+                              .col-md-6
+                                .form-group
+                                    label.control-label Type/Usecase
+                                    select.selectize#create-type
+                                        option(value="blank") Blank
+                                        option(value="basic") Basic
+                                        option(value="timetable") Timetable
+                            .row
+                              .col-md-12
+                                  button.btn.btn-success#create-create(type='submit') Create
+                                  div &nbsp;
 
-                      .row
-                        .col-md-6
-                          .form-group
-                              input.slider#create-schools(type="text", name="schools", value="")
-                          .form-group
-                              input.slider#create-students(type="text", name="students", value="")
-                          .form-group
-                              input.slider#create-teachers(type="text", name="teachers", value="")
-                          .form-group
-                              input.slider#create-classrooms(type="text", name="classrooms", value="")
+                            .row
+                              .col-md-6
+                                .form-group
+                                    input.slider#create-schools(type="text", name="schools", value="")
+                                .form-group
+                                    input.slider#create-students(type="text", name="students", value="")
+                                .form-group
+                                    input.slider#create-teachers(type="text", name="teachers", value="")
+                                .form-group
+                                    input.slider#create-classrooms(type="text", name="classrooms", value="")
 
-                        .col-md-6
-                          .checkbox.checkbox-primary
-                              input#create-teachinggroups(type='checkbox', checked='checked')
-                              label(for='create-teachinggroups') Teaching groups
-                          .checkbox.checkbox-primary
-                              input#create-timetable(type='checkbox', checked='checked')
-                              label(for='create-timetable') Timetable example data
-                          .checkbox.checkbox-success
-                              input#create-grading(type='checkbox', checked='checked')
-                              label(for='create-grading') Grading for each class/student
-                          .checkbox.checkbox-info
-                              input#create-contacts(type='checkbox', checked='checked')
-                              label(for='create-contacts') Contacts information and photos
-                          .checkbox.checkbox-warning
-                              input#create-accounts(type='checkbox', checked='checked')
-                              label(for='create-accounts') Accounts and invoices
-                          .checkbox.checkbox-primary
-                              input#create-naplan(type='checkbox', checked='checked')
-                              label(for='create-naplan') NAPLAN sample
+                              .col-md-6
+                                .checkbox.checkbox-primary
+                                    input#create-teachinggroups(type='checkbox', checked='checked')
+                                    label(for='create-teachinggroups') Teaching groups
+                                .checkbox.checkbox-primary
+                                    input#create-timetable(type='checkbox', checked='checked')
+                                    label(for='create-timetable') Timetable example data
+                                .checkbox.checkbox-success
+                                    input#create-grading(type='checkbox', checked='checked')
+                                    label(for='create-grading') Grading for each class/student
+                                .checkbox.checkbox-info
+                                    input#create-contacts(type='checkbox', checked='checked')
+                                    label(for='create-contacts') Contacts information and photos
+                                .checkbox.checkbox-warning
+                                    input#create-accounts(type='checkbox', checked='checked')
+                                    label(for='create-accounts') Accounts and invoices
+                                .checkbox.checkbox-primary
+                                    input#create-naplan(type='checkbox', checked='checked')
+                                    label(for='create-naplan') NAPLAN sample
     .container-fluid.half-padding
         .template.template__blank
             .row
