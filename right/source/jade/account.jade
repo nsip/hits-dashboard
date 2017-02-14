@@ -6,7 +6,9 @@ block main
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active Blank
+                li
+                  a(href="start.html") Start here
+                li.active Databases
         .main-filter
             form.main-filter__search
                 .input-group
@@ -72,7 +74,7 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Databases
+                            h3.panel-title Existing Databases
                         .panel-body
                             table.datalist__table.table.datatable.display.table-hover(id='account-databases', width='100%')
 
