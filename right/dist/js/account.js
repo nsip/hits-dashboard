@@ -70,11 +70,20 @@ $(document).ready(function() {
 
   // Get specific ID or 'default' (default is captured from last session)
   var id = $.url(window.location.href).param('id');
+
+  // Get cookie version
+  if (!id)
+    id = $.cookie("hits2.id");
+
+  // Nope - still no id
   if (!id) {
     alert("No ID provided. Find your original URL");
     window.location = "recover.html";
     return;
   }
+
+  // OK - save this id for future
+  $.cookie("hits2.id", id, {expires: 90});
 
   $('#create-type').click(function() {
     alert("Selected...");

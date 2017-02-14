@@ -121,19 +121,23 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
 			var ret = rows[0];
 
 			infraconnection.query(
-				"SELECT SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?",
+				"SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?",
 				[ req.params.dbId ],
 				function(e2, r2, f2) {
-					console.log("SELECT SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
+					console.log("SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
 					if (e2)
 						return res.error(e2);
 
 					console.log(r2);
 
-					if (r2 && r2[0])
+					if (r2 && r2[0]) {
 						ret.session = r2[0].SESSION_TOKEN;
-					else
+						ret.environment = r2[0].ENVIRONMENT_ID;
+					}
+					else {
 						ret.session = "";
+						ret.environment = "";
+					}
 
 					return res.json({
 						success: 1,

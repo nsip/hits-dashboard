@@ -23,15 +23,14 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Dashboard
+                            h3.panel-title Database Status
                         .panel-body
                           .container-fluid.half-padding
                             .row
                               .col-md-6
+                                .alert#dashboard-statusalert
+                                  p &nbsp;
                                 ul
-                                    li Status
-                                        span &nbsp;=&nbsp;
-                                        span#dashboard-status
                                     li Options
                                         span &nbsp;=&nbsp;
                                         span#dashboard-options
@@ -39,11 +38,6 @@ block main
                                         span &nbsp;=&nbsp;
                                         span#dashboard-message
                               .col-md-6
-                                .alert#dashboard-statusalert
-                                  p &nbsp;
-                                div.half-padding
-                                  button.btn.btn-info(type="button") Create Environment
-                                  p &nbsp;
                                 div.half-padding
                                   a#dashboard-client(href='')
                                     button.btn.btn-info(type="button") Javascript Client
@@ -53,7 +47,7 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Dashbaord
+                            h3.panel-title Information, Database tables, Transactions
                         .panel-body
                             ul.nav.nav-tabs(role="tablist")
                                 li.active(role="presentation")
@@ -108,6 +102,10 @@ block main
                                                     td Session Token (when available)
                                                     td
                                                         span#dashboard-sessiontoken
+                                                tr
+                                                    td Environment URL (when available)
+                                                    td
+                                                        span#dashboard-environment
                                 .tab-pane#database(role="tabpanel")
                                     p Select a table to view.
                                     p Select table:

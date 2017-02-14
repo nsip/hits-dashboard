@@ -9,14 +9,23 @@ $(document).ready(function() {
   var id = $.url(window.location.href).param('id');
   var dbid = $.url(window.location.href).param('dbid');
   if (!id || !dbid) {
+    id = $.cookie("hits2.id");
+    dbid = $.cookie("hits2.dbid");
+  }
+
+  if (!id || !dbid) {
     alert("No ID provided. Find your URL from your account list");
     window.location = "recover.html";
     return;
   }
 
+  // Set ID in cookie - expires in 90 days
+  $.cookie("hits2.id", id, {expires: 90});
+  $.cookie("hits2.dbid", dbid, {expires: 90});
+
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
-  console.log(data);
-  $('#dashboard-status').text(data.data.status);
+    console.log(data);
+    $('#dashboard-status').text(data.data.status);
     if (data.data.status == 'complete') {
       $('#dashboard-statusbutton').text("Complete");
       $('#dashboard-statusbutton').addClass('btn-success');
@@ -30,6 +39,10 @@ $(document).ready(function() {
       $('#dashboard-statusalert').addClass('alert-danger');
     }
     $('#dashboard-sessiontoken').text(data.data.session);
+    if (data.data.environment)
+      $('#dashboard-environment').text("http://hits.nsip.edu.au/SIF3InfraREST/hits/environments/" + data.data.environment);
+    else
+      $('#dashboard-environment').text("(not available)");
     $('#dashboard-applicationkey').text(dbid);
     $('#dashboard-usertoken').text(dbid);
     $('#dashboard-password').text(dbid);

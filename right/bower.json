@@ -30,6 +30,7 @@
     "datatables": "~1.10.10",
     "datatables-buttons": "git://github.com/DataTables/Buttons.git#~1.1.0",
     "morris.js": "~0.5.1",
-    "bootstrap-switch": "~3.3.2"
+    "bootstrap-switch": "~3.3.2",
+    "jquery.cookie": "jquery-cookie#^1.4.1"
   }
 }

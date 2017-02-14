@@ -157,26 +157,21 @@
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
-                          <h3 class="panel-title">Dashboard</h3>
+                          <h3 class="panel-title">Database Status</h3>
                         </div>
                         <div class="panel-body">
                           <div class="container-fluid half-padding">
                             <div class="row">
                               <div class="col-md-6">
+                                <div id="dashboard-statusalert" class="alert">
+                                  <p>&nbsp;</p>
+                                </div>
                                 <ul>
-                                  <li>Status<span>&nbsp;=&nbsp;</span><span id="dashboard-status"></span></li>
                                   <li>Options<span>&nbsp;=&nbsp;</span><span id="dashboard-options"></span></li>
                                   <li>Message<span>&nbsp;=&nbsp;</span><span id="dashboard-message"></span></li>
                                 </ul>
                               </div>
                               <div class="col-md-6">
-                                <div id="dashboard-statusalert" class="alert">
-                                  <p>&nbsp;</p>
-                                </div>
-                                <div class="half-padding">
-                                  <button type="button" class="btn btn-info">Create Environment</button>
-                                  <p>&nbsp;</p>
-                                </div>
                                 <div class="half-padding"><a id="dashboard-client" href="">
                                     <button type="button" class="btn btn-info">Javascript Client</button></a>
                                   <p>&nbsp;</p>
@@ -192,7 +187,7 @@
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
-                          <h3 class="panel-title">Dashbaord</h3>
+                          <h3 class="panel-title">Information, Database tables, Transactions</h3>
                         </div>
                         <div class="panel-body">
                           <ul role="tablist" class="nav nav-tabs">
@@ -247,6 +242,10 @@
                                     <td>Session Token (when available)</td>
                                     <td><span id="dashboard-sessiontoken"></span></td>
                                   </tr>
+                                  <tr>
+                                    <td>Environment URL (when available)</td>
+                                    <td><span id="dashboard-environment"></span></td>
+                                  </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -281,6 +280,7 @@
     <script src="libs/jquery/jquery.min.js"></script>
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script src="libs/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="libs/jquery.cookie/jquery.cookie.js"></script>
     <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
     <script src="libs/sparkline/jquery.sparkline.min.js"></script>
     <script src="libs/ionrangeslider/js/ion.rangeSlider.min.js"></script>
