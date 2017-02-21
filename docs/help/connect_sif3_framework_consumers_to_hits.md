@@ -48,46 +48,30 @@ or devLocal.xml. If the HITS.xml doesn’t exist follow the steps below:
 2.  Open the newly created HITS.xml file and put the value of the “SIF
     solutionId” as seen from Figure 1 into the &lt;solutionId&gt; node.
     Your HITS.xml file should look something like this:
+    
+    ```
 
-    &lt;environment
-    xmlns="http://www.sifassociation.org/infrastructure/3.1"&gt;
+   <environment xmlns="http://www.sifassociation.org/infrastructure/3.1">
+  <solutionId>HITS</solutionId>
+  <authenticationMethod>Basic</authenticationMethod>
+  <instanceId/>
+  <userToken/>
+  <consumerName></consumerName>
+  <applicationInfo>
+    <applicationKey></applicationKey>
+    <supportedInfrastructureVersion>3.1</supportedInfrastructureVersion>
+  <dataModelNamespace>http://www.sifassociation.org/au/datamodel/3.4</dataModelNamespace>
+    <transport>REST</transport>
+    <applicationProduct>
+      <vendorName>Systemic Pty Ltd</vendorName>
+      <productName>Test Driver</productName>
+      <productVersion>0.1alpha</productVersion>
+    </applicationProduct>
+  </applicationInfo>
+</environment>
+```
 
-    &lt;solutionId&gt;**HITS**&lt;/solutionId&gt;
-
-    &lt;authenticationMethod&gt;Basic&lt;/authenticationMethod&gt;
-
-    &lt;instanceId/&gt;
-
-    &lt;userToken/&gt;
-
-    &lt;consumerName&gt;&lt;/consumerName&gt;
-
-    &lt;applicationInfo&gt;
-
-    &lt;applicationKey&gt;&lt;/applicationKey&gt;
-
-    &lt;supportedInfrastructureVersion&gt;3.1&lt;/supportedInfrastructureVersion&gt;
-
-    &lt;dataModelNamespace&gt;http://www.sifassociation.org/au/datamodel/3.4&lt;/dataModelNamespace&gt;
-
-    &lt;transport&gt;REST&lt;/transport&gt;
-
-    &lt;applicationProduct&gt;
-
-    &lt;vendorName&gt;Systemic Pty Ltd&lt;/vendorName&gt;
-
-    &lt;productName&gt;Test Driver&lt;/productName&gt;
-
-    &lt;productVersion&gt;0.1alpha&lt;/productVersion&gt;
-
-    &lt;/applicationProduct&gt;
-
-    &lt;/applicationInfo&gt;
-
-    &lt;/environment&gt;
-
-    You can change the values under the &lt;applicationProduct&gt; node
-    to any value that is applicable to you. Leave everything else as is.
+   You can change the values under the applicationProduct node to any value that is applicable to you. Leave everything else as      is.
 
 3.  Save your HITS.xml file.
 
