@@ -1,5 +1,7 @@
 // ----------------------------------------------------------------------
 
+hljs.initHighlightingOnLoad();
+
 function auditOne(dbid, id) {
   console.log("auditOne: " + id);
 
@@ -23,8 +25,6 @@ function auditOne(dbid, id) {
 }
 
 $(document).ready(function() {
-
-  hljs.initHighlightingOnLoad();
 
   $('.selectize').selectize();
 
