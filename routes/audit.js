@@ -35,6 +35,27 @@ router.use(function (req, res, next) {
 +-------------------+---------------+------+-----+---------+----------------+
 */
 
+/*
+
+var she = 'sj';
+var t1 = she.has('boob');
+var t2 = she.has('boob');
+var n1 = n1.has('nipple')
+var n2 = n2.has('nipple')
+n1.has('stud');
+n2.has('stud');
+var he = 'sp';
+he.has(she);
+console.log(she.inspect());
+var l = new Lick();
+he.apply(l, she);
+console.log(she.sound());
+he.on('mmmmm', function() {
+	console.log("!!!!!");
+});
+
+*/
+
 router.get('/:dbid/summary', function(req, res, next) {
 	var connection = db.get('hits_sif3_infra');
 	connection.query(
