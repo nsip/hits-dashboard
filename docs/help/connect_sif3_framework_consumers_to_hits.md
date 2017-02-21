@@ -25,8 +25,7 @@ that page looks like this:
 
 ###### Figure 2: SIF3 HITS Environment Page
 
-![](media/image2.png){width="6.497826990376203in"
-height="3.7130435258092738in"}
+![](figure1.png)
 
 ### Configure SIF3 Framework 
 
