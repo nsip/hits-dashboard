@@ -16,8 +16,7 @@ this:
 
 ###### Figure 1: SIF3 HITS Database View
 
-![](media/image1.png){width="6.573183508311461in"
-height="2.043477690288714in"}
+![](figure1.png)
 
 Select one of the exiting databases and you will get the details page of
 that database with the SIF Environment information. The second part of
@@ -25,7 +24,7 @@ that page looks like this:
 
 ###### Figure 2: SIF3 HITS Environment Page
 
-![](figure1.png)
+![](figure2.png)
 
 ### Configure SIF3 Framework 
 
