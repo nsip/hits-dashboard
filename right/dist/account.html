@@ -128,6 +128,7 @@
                       <li><a href="start.html" class="addids">Start here</a></li>
                       <li class="active"><a href="account.html" class="addids">Databases</a></li>
                       <li><a href="dashboard.html" class="addids">Information</a></li>
+                      <li><a href="client.html" class="addids">Javascript Client</a></li>
                       <li><a href="recover.html" class="addids">Recover</a></li>
                     </ul>
                   </li>
@@ -168,13 +169,13 @@
                         <div class="panel-body">
                           <div class="form">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-8">
                                 <div class="form-group">
                                   <label class="control-label">Name</label>
                                   <input id="create-name" name="name" type="text" placeholder="Name of Database" class="form-control">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="control-label">Type/Usecase</label>
                                   <select id="create-type" class="selectize">
@@ -186,13 +187,7 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-12">
-                                <button id="create-create" type="submit" class="btn btn-success">Create</button>
-                                <div>&nbsp;</div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-8">
                                 <div class="form-group">
                                   <input id="create-schools" type="text" name="schools" value="" class="slider">
                                 </div>
@@ -206,7 +201,7 @@
                                   <input id="create-classrooms" type="text" name="classrooms" value="" class="slider">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="checkbox checkbox-primary">
                                   <input id="create-teachinggroups" type="checkbox" checked="checked">
                                   <label for="create-teachinggroups">Teaching groups</label>
@@ -231,6 +226,12 @@
                                   <input id="create-naplan" type="checkbox" checked="checked">
                                   <label for="create-naplan">NAPLAN sample</label>
                                 </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div>&nbsp;</div>
+                                <button id="create-create" type="submit" class="btn btn-success">Create</button>
                               </div>
                             </div>
                           </div>

@@ -1,6 +1,6 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Dashboard';
+    - page = 'Javascript Client';
     - development = false;
     - area = 'Tools';
 block main
@@ -8,8 +8,12 @@ block main
         .main-title
             ol.breadcrumb
                 li
-                    a(href="./") Tables
-                li.active Data Table
+                  a(href="start.html") Start here
+                li
+                  a(href="account.html") Databases
+                li
+                  a(href="dashboard.html") Information
+                li.active Javscript Client
         .main-filter
             form.main-filter__search
                 .input-group

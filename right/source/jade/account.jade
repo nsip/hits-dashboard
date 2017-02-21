@@ -26,24 +26,20 @@ block main
                         .panel-body
                           .form
                             .row
-                              .col-md-6
+                              .col-md-8
                                 .form-group
                                     label.control-label Name
                                     input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
-                              .col-md-6
+                              .col-md-4
                                 .form-group
                                     label.control-label Type/Usecase
                                     select.selectize#create-type
                                         option(value="blank") Blank
                                         option(value="basic") Basic
                                         option(value="timetable") Timetable
-                            .row
-                              .col-md-12
-                                  button.btn.btn-success#create-create(type='submit') Create
-                                  div &nbsp;
 
                             .row
-                              .col-md-6
+                              .col-md-8
                                 .form-group
                                     input.slider#create-schools(type="text", name="schools", value="")
                                 .form-group
@@ -53,7 +49,7 @@ block main
                                 .form-group
                                     input.slider#create-classrooms(type="text", name="classrooms", value="")
 
-                              .col-md-6
+                              .col-md-4
                                 .checkbox.checkbox-primary
                                     input#create-teachinggroups(type='checkbox', checked='checked')
                                     label(for='create-teachinggroups') Teaching groups
@@ -72,6 +68,10 @@ block main
                                 .checkbox.checkbox-primary
                                     input#create-naplan(type='checkbox', checked='checked')
                                     label(for='create-naplan') NAPLAN sample
+                            .row
+                              .col-md-12
+                                  div &nbsp;
+                                  button.btn.btn-success#create-create(type='submit') Create
     .container-fluid.half-padding
         .template.template__blank
             .row

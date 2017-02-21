@@ -23,7 +23,7 @@ router.use(function (req, res, next) {
 router.get('/', function(req, res) {
 	var connection = db.connect();
 	connection.query('SELECT * FROM account', function(err, rows, fields) {
-		if (err) 
+		if (err)
 			return res.error(err);
 		return res.json({
 			success: 1,
@@ -40,7 +40,7 @@ router.post('/', function(req, res) {
 
 	var connection = db.connect();
 	connection.query(
-		'INSERT INTO account (id,name,email) VALUES (?,?,?)', 
+		'INSERT INTO account (id,name,email) VALUES (?,?,?)',
 		[ id, name, email ],
 		function(err, rows, fields) {
 			if (err)
@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
 router.get('/:id', function(req, res) {
 	var connection = db.connect();
 	connection.query('SELECT * FROM account', function(err, rows, fields) {
-		if (err) 
+		if (err)
 			return res.error(err);
 		return res.json({
 			success: 1,
@@ -116,11 +116,11 @@ use SIF::AU;
 
 Primary protection = appKey (currently only HITS)
 
-	SELECT 
+	SELECT
 		id,
 		requestTime, responseTime,
 		clientIp, solutionId, appKey, instanceId, zone,
-		method, queryParameters, requestHeaders, request, 
+		method, queryParameters, requestHeaders, request,
 		httpStatus, responseHeaders, response
 	FROM
 		XMLAudit
@@ -130,11 +130,11 @@ Primary protection = appKey (currently only HITS)
 		id DESC
 	LIMIT
 		10
-		
-	SELECT 
+
+	SELECT
 		id,
 		requestTime, responseTime,
-		method, queryParameters, 
+		method, queryParameters,
 		httpStatus
 	FROM
 		XMLAudit
@@ -144,7 +144,7 @@ Primary protection = appKey (currently only HITS)
 		id DESC
 	LIMIT
 		10
-		
+
 
 =cut
 
@@ -159,11 +159,11 @@ get '/' => sub {
 get '/:userToken' => sub {
 	# TODO - Show list for this ID (most recent 25, add params later)
 	my $sth = database->prepare(q{
-		SELECT 
+		SELECT
 			id,
 			url,
 			requestTime, responseTime,
-			method, queryParameters, 
+			method, queryParameters,
 			httpStatus
 		FROM
 			XMLAudit
@@ -220,7 +220,7 @@ get '/:userToken/entry/:auditId' => sub {
 			$data->{$type . "Analysis"} = "NO XML";
 		}
 	}
-		
+
 	return $data;
 };
 
@@ -246,7 +246,7 @@ get '/' => sub {
 get '/:userToken' => sub {
 	# TODO - Show list for this ID (most recent 25, add params later)
 	my $sth = database->prepare(q{
-		SELECT 
+		SELECT
 			t.ENV_TEMPLATE_ID, t.PASSWORD, t.APP_TEMPLATE_ID, t.APP_TEMPLATE_ID,
 			t.AUTH_METHOD, t.USER_TOKEN, t.APPLICATION_KEY, t.SOLUTION_ID,
 			s.SESSION_TOKEN, s.ENVIRONMENT_ID
@@ -274,10 +274,10 @@ get '/:userToken' => sub {
 	}
 
 	$sth = database('HITS')->prepare(q{
-		SELECT 
-			app.id app_id, app.name app_name, app.title app_title, 
+		SELECT
+			app.id app_id, app.name app_name, app.title app_title,
 			vendor.name vendor_name, vendor.id vendor_id
-		FROM 
+		FROM
 			app, vendor, app_login
 		WHERE
 			app.vendor_id = vendor.id
@@ -286,7 +286,7 @@ get '/:userToken' => sub {
 	});
 	$sth->execute($data->{APP_TEMPLATE_ID});
 	my $hits = $sth->fetchrow_hashref // {};
-		
+
 	return {
 		vendor => {
 			id => $hits->{vendor_id},
@@ -330,7 +330,7 @@ set serializer => 'JSON';
 
 # XXX NOTE templateId - should work of userToken or what ever that is replaced with
 
-# XXX 
+# XXX
 # 	- List of previously run reports - including currently running
 # 	- Single report by ID - show results of a single report
 #	- Request run report (optional - report ID, normally chosen by current Use Case)
@@ -389,13 +389,13 @@ sub sif_db {
 	if (!$db) {
 		die "No valid DB from userToken $userToken";
 	}
-	
+
 	my $dsn = config->{hits}{dsn_template};
 	$dsn =~ s/TEMPLATE/$db/;
 	return DBI->connect(
 		$dsn,
-		'sifau', 
-		'03_SIS_was_not', 
+		'sifau',
+		'03_SIS_was_not',
 		{ RaiseError => 1, AutoCommit => 1 }
 	);
 }
