@@ -40,8 +40,8 @@ router.use(function (req, res, next) {
 var she = 'sj';
 var t1 = she.has('boob');
 var t2 = she.has('boob');
-var n1 = n1.has('nipple')
-var n2 = n2.has('nipple')
+var n1 = t1.has('nipple')
+var n2 = t2.has('nipple')
 n1.has('stud');
 n2.has('stud');
 var he = 'sp';
