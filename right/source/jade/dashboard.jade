@@ -115,12 +115,40 @@ block main
                                             option (select)
                                     table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
                                 .tab-pane#transactionlog(role="tabpanel")
-                                    p Coming soon (TODO copy old code for Error log javascript here)
+                                    table.datalist__table.table.datatable.display.table-hover(id='audit-view', width='100%')
                                 .tab-pane#validate(role="tabpanel")
                                     p Coming soon (Feb 2017)
+
+      .modal.fade#audit-one
+          .modal-dialog.modal-lg
+              .modal-content
+                  .modal-header
+                      button.close(type="button", data-dismiss="modal", aria-label="Close")
+                          span(aria-hidden="true") &times;
+                      h4.modal-title Audit View
+                  .modal-body
+                      #audit-one-body Loading
+                      h2 Request Headers
+                      pre
+                        code.field.xml#audit-field-requestHeaders
+                      h2 Request
+                      pre
+                        code.field.xml#audit-field-request
+                      h2 Response Headers
+                      pre
+                        code.field.xml#audit-field-responseHeaders
+                      h2 Response
+                      pre
+                        code.field.xml#audit-field-response
+                  .modal-footer
+                      button.btn.btn-default(type="button", data-dismiss="modal") Close
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css')
+
 block js
     script(src='libs/datatables/media/js/jquery.dataTables.min.js')
     script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js')
     script(src='js/dashboard.js')
+    script(src='js/audit.js')

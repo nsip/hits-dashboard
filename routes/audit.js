@@ -38,8 +38,8 @@ router.use(function (req, res, next) {
 router.get('/:dbid/summary', function(req, res, next) {
 	var connection = db.get('hits_sif3_infra');
 	connection.query(
-		'SELECT * FROM XMLAudit WHERE appKey = ? ORDER BY requestTime DESC LIMIT 1000',
-        [req.params.dbid],
+		'SELECT id,requestTime,responseTime,clientIp, url, solutionId, appKey, userToken, context, instanceId, zone, environmentToken, sessionToken, method, httpStatus, requestMediaType, responseMediaType FROM XMLAudit WHERE appKey = ? ORDER BY requestTime DESC LIMIT 1000',
+    [req.params.dbid],
 		function(err, rows, fields) {
             var ret = [];
 			if (err)
@@ -55,13 +55,14 @@ router.get('/:dbid/summary', function(req, res, next) {
 router.get('/:dbid/data/:rowid', function(req, res, next) {
 	var connection = db.get('hits_sif3_infra');
 	connection.query(
-		'SELECT * FROM `' + req.params.table + '` LIMIT 5000',
+		'SELECT * FROM XMLAudit WHERE id = ?',
+		[req.params.rowid],
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
 			return res.json({
 				success: 1,
-				data: rows,
+				data: rows[0],
 			});
 		}
 	);

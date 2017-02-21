@@ -64,6 +64,7 @@ app.use('/api/dashboard', require('./routes/dashboard'));
 app.use('/api/database', require('./routes/database'));
 // XXX app.use('/build', require('./routes/build'));
 app.use('/api/login', require('./routes/login')());
+app.use('/api/audit', require('./routes/audit'));
 
 // NODEAdmin - Access to MySQL - needs security
 var nodeadmin = require('nodeadmin');
