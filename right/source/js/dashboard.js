@@ -27,15 +27,15 @@ $(document).ready(function() {
     console.log(data);
     $('#dashboard-status').text(data.data.status);
     if (data.data.status == 'complete') {
-      $('#dashboard-statusbutton').text("Complete");
+      $('#dashboard-statusbutton').text(data.data.name + " - Complete");
       $('#dashboard-statusbutton').addClass('btn-success');
-      $('#dashboard-statusalert').text("Complete");
+      $('#dashboard-statusalert').text(data.data.name + " - Complete");
       $('#dashboard-statusalert').addClass('alert-success');
     }
     else {
-      $('#dashboard-statusbutton').text(data.data.status);
+      $('#dashboard-statusbutton').text(data.data.name + " - " + data.data.status);
       $('#dashboard-statusbutton').addClass('btn-danger');
-      $('#dashboard-statusalert').text(data.data.status);
+      $('#dashboard-statusalert').text(data.data.name + " - " + data.data.status);
       $('#dashboard-statusalert').addClass('alert-danger');
     }
     $('#dashboard-sessiontoken').text(data.data.session);
