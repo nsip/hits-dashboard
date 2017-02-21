@@ -71,7 +71,7 @@ or devLocal.xml. If the HITS.xml doesn’t exist follow the steps below:
 </environment>
 ```
 
-   You can change the values under the applicationProduct node to any value that is applicable to you. Leave everything else as      is.
+   You can change the values under the **applicationProduct** node to any value that is applicable to you. Leave everything else as      is.
 
 3.  Save your HITS.xml file.
 
