@@ -1,0 +1,33 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Using SIF3 Framework';
+    - area = 'Developer Help';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active Help
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-12
+                                .panel.panel-danger
+                                    .panel-heading
+                                        h3.panel-title Using SIF3 Framework
+                                    .panel-body
+                                        include ../docs/help/connect_sif3_framework_consumers_to_hits.html
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

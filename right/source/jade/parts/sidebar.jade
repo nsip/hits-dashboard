@@ -89,6 +89,18 @@
                                 a.addids(href='client.html') Javascript Client
                             li(class=page=='Recover Links' ? 'active' : '')
                                 a.addids(href='recover.html') Recover
+                ul.nav.nav-menu
+                    li(class=area=='Developer Help' ? 'active opened' : '')
+                        a(href="#")
+                            .nav-menu__ico
+                                i.fa.fa-fw.fa-th-large
+                            .nav-menu__text
+                                span Developer Help
+                            .nav-menu__right
+                                i.fa.fa-fw.fa-angle-right.arrow
+                        ul.nav.nav-menu__second.collapse(class=area == 'Developer Help' ? 'in' : '')
+                            li(class=page=='Using SIF3 Framework' ? 'active' : '')
+                                a.addids(href='using_sif3_framework.html') Using SIF3 Framework
                 if area == "Admin"
                   ul.nav.nav-menu
                       // XXX This must be hidden unless logged in !
