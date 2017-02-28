@@ -14,8 +14,7 @@ this:
 
 ###### Figure 1: SIF3 HITS Database View
 
-![](media/image1.png){width="6.573183508311461in"
-height="2.043477690288714in"}
+![](figure1.png)
 
 Select one of the existing databases and you will get the details page
 of that database with the SIF Environment information. The second part
@@ -23,58 +22,41 @@ of that page looks like this:
 
 ###### Figure 2: SIF3 HITS Environment Page
 
-![](media/image2.png){width="6.497826990376203in"
-height="3.7130435258092738in"}
+![](figure2.png)
 
 ### Configure REST Client 
 
 To configure your REST client to connect to the HITS environment listed
 in previous section, you need to do the following steps. Refer to
-<https://www.sifassociation.org/Specification/Documents/InfrastructureServices.pdf>
+https://www.sifassociation.org/Specification/Documents/InfrastructureServices.pdf
 for more information.
 
-**Step 1**. Create an environment request payload. If the Environment
+### Step 1
+Create an environment request payload. If the Environment
 URL and Session Token are already available from the dashboard, steps
 1–3 can be skipped.
 
 The payload will populate the following XML template:
 
-&lt;environment
-xmlns="http://www.sifassociation.org/infrastructure/3.1"&gt;
+<environment xmlns="http://www.sifassociation.org/infrastructure/3.1">
+  <solutionId>HITS</solutionId>
+  <authenticationMethod>Basic</authenticationMethod>
+  <instanceId/>
+  <userToken/>
+  <consumerName></consumerName>
+  <applicationInfo>
+    <applicationKey></applicationKey>
+    <supportedInfrastructureVersion>3.1</supportedInfrastructureVersion>
+  <dataModelNamespace>http://www.sifassociation.org/au/datamodel/3.4</dataModelNamespace>
+    <transport>REST</transport>
+    <applicationProduct>
+      <vendorName>Systemic Pty Ltd</vendorName>
+      <productName>Test Driver</productName>
+      <productVersion>0.1alpha</productVersion>
+    </applicationProduct>
+  </applicationInfo>
+</environment>
 
-&lt;solutionId&gt;**HITS**&lt;/solutionId&gt;
-
-&lt;authenticationMethod&gt;Basic&lt;/authenticationMethod&gt;
-
-&lt;instanceId/&gt;
-
-&lt;userToken/&gt;
-
-&lt;consumerName&gt;&lt;/consumerName&gt;
-
-&lt;applicationInfo&gt;
-
-&lt;applicationKey&gt;&lt;/applicationKey&gt;
-
-&lt;supportedInfrastructureVersion&gt;3.1&lt;/supportedInfrastructureVersion&gt;
-
-&lt;dataModelNamespace&gt;http://www.sifassociation.org/au/datamodel/3.4&lt;/dataModelNamespace&gt;
-
-&lt;transport&gt;REST&lt;/transport&gt;
-
-&lt;applicationProduct&gt;
-
-&lt;vendorName&gt;Systemic Pty Ltd&lt;/vendorName&gt;
-
-&lt;productName&gt;Test Driver&lt;/productName&gt;
-
-&lt;productVersion&gt;0.1alpha&lt;/productVersion&gt;
-
-&lt;/applicationProduct&gt;
-
-&lt;/applicationInfo&gt;
-
-&lt;/environment&gt;
 
 -   Put the value of the “SIF solutionId” as seen from Figure 2 into the
     &lt;solutionId&gt; node.
