@@ -74,7 +74,8 @@ The payload will populate the following XML template:
 -   You can change the values under the &lt;applicationProduct&gt; node
     to any value that is applicable to you. Leave everything else as is.
 
-**Step 2**: Create the authentication token for the initial environment
+### Step 2
+Create the authentication token for the initial environment
 request. Under HTTP Basic Authentication, this is done as follows.
 
 -   Create the consumer token: this is the Value of “Application Key”
@@ -103,7 +104,8 @@ authorisation token is as follows:
 
 -   Prefix the result of the previous step with “SIF\_HMACSHA256 ”.
 
-**Step 3**: Post the environment body payload, authenticated with the
+### Step 3 
+Post the environment body payload, authenticated with the
 authorisation token, to the URL named in *Create Environment URL* from
 Figure 2.
 
@@ -116,11 +118,12 @@ Figure 2.
     field contents, and the timestamp value derived above is included in
     the HTTP header, as the timestamp: field contents.
 
-**Step 4**: Your client should be authorised now to interact with a new
+### Step 4 
+Your client should be authorised now to interact with a new
 defined environment. The HITS dashboard, under Figure 2, will now
 display a “Session Token” and “Environment URL” value.
 
-**Step 5**:
+### Step 5
 
 -   Read the Request Base URL from Figure 2. That is the base of the URL
     to which you will be addressing your REST queries.
@@ -129,7 +132,8 @@ display a “Session Token” and “Environment URL” value.
     access, followed by “s”; e.g.
     <http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/SchoolInfos/>
 
-**Step 6**: Create an authorisation token for the REST query.
+### Step 6 
+Create an authorisation token for the REST query.
 
 Under BASIC HTTP authentication, the same token will be used for all
 interactions with the server.
@@ -169,7 +173,7 @@ timestamped, so there is a different token for each post.
 -   Prefix the Base 64 encoding of the consumer token with
     “SIF\_HMACSHA256 ”. This is the authorisation token.
 
-**Step 7**:
+### Step 7
 
 Use the authorization field to authenticate all SIF REST queries,
 addressing them to the Environment URL suffixed with the plural object
@@ -203,4 +207,3 @@ Under HMAC SHA-256 authentication
     -   access\_token with the last base64 value from above (without the
         SIF\_HMACSHA256 prefix)
 
-#####
