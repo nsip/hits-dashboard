@@ -38,6 +38,8 @@ URL and Session Token are already available from the dashboard, steps
 
 The payload will populate the following XML template:
 
+```
+
 <environment xmlns="http://www.sifassociation.org/infrastructure/3.1">
   <solutionId>HITS</solutionId>
   <authenticationMethod>Basic</authenticationMethod>
@@ -56,6 +58,8 @@ The payload will populate the following XML template:
     </applicationProduct>
   </applicationInfo>
 </environment>
+
+```
 
 
 -   Put the value of the “SIF solutionId” as seen from Figure 2 into the
