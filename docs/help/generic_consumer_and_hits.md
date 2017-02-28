@@ -2,13 +2,16 @@
 ### HITS environment
 
 To be able to connect your consumer to HITS you must have an account on
-HITS. Please contact NSIP to provide you with details on how to create
-one. Once you have an account, please login or use your account URL that
-is of the form <http://hits.nsip.edu.au/dashboard/account.html> to get
-to the landing page. In the menu on the right select “Developer
-Tools-&gt;Databases” to get your available sandbox databases.
+HITS. Please contact NSIP  at mailto:info@nsip.edu.au for details on how to create
+one. 
 
-Either you create a new database or you use one that has been created
+Once you have an account, please login or use your account URL that
+is of the form <http://hits.nsip.edu.au/dashboard/account.html> to get
+to the landing page. 
+
+From the menu on the right, select “Developer Tools->Databases”.
+
+From the resulting page, you can create a new database or  use one created
 previously. In the lower part of that page you will see something like
 this:
 
