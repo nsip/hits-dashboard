@@ -19,8 +19,8 @@ this:
 
 ![](figure1.png)
 
-Select one of the existing databases and you will get the details page
-of that database with the SIF Environment information. The second part
+Click on an existing database to see the Information page
+of that database, which contains SIF Environment information. The second part
 of that page looks like this:
 
 ###### Figure 2: SIF3 HITS Environment Page
@@ -29,15 +29,17 @@ of that page looks like this:
 
 ### Configure REST Client 
 
-To configure your REST client to connect to the HITS environment listed
-in previous section, you need to do the following steps. Refer to
+To configure your REST client to connect to your HITS environment, follow the steps below: 
+
+(Refer to
 https://www.sifassociation.org/Specification/Documents/InfrastructureServices.pdf
-for more information.
+for more detailed information.)
 
 #### Step 1
-Create an environment request payload. If the Environment
-URL and Session Token are already available from the dashboard, steps
-1–3 can be skipped.
+** (Note: If the Environment URL and Session Token are already available from the dashboard, Steps
+1–3 can be skipped.) **
+
+Create an environment request payload. 
 
 The payload will populate the following XML template:
 
@@ -64,28 +66,25 @@ The payload will populate the following XML template:
 
 ```
 
+Obtaining the following from the Information page:
 
--   Put the value of the “SIF solutionId” as seen from Figure 2 into the
-    &lt;solutionId&gt; node.
+-   Put the value of the “solutionId” into the &lt;solutionId&gt; node.
 
--   Put the value of the “User Token” as seen from Figure 2 into the
-    &lt;userToken&gt; node.
+-   Put the value of the “User Token” into the &lt;userToken&gt; node.  
 
--   Put the value of the “Application Key” as seen from Figure 2 into
-    the &lt;applicationKey&gt; node.
+-   Put the value of the “Application Key”  into the &lt;applicationKey&gt; node.
 
 -   You can change the values under the &lt;applicationProduct&gt; node
-    to any value that is applicable to you. Leave everything else as is.
+    to any value applicable to you. Leave everything else as is.
 
 #### Step 2
 Create the authentication token for the initial environment
-request. Under HTTP Basic Authentication, this is done as follows.
+request. Under HTTP Basic Authentication, this is done as follows:
 
--   Create the consumer token: this is the Value of “Application Key”
-    from Figure 2, followed by colon, followed by the Value of
+-   Create the consumer token: this is the Value of “Application Key”, followed by colon, followed by the Value of
     “Password” from Figure 2. For this example, it would be
     9b19d71b03f84f16aa71f04034c1f1714:9b19d71b03f84f16aa71f04034c1f1714
-
+    
 -   Base-64 encode the consumer token
 
 -   Prefix the Base 64 encoding of the consumer token with “BASIC ”
@@ -98,11 +97,10 @@ authorisation token is as follows:
 
 -   take the string ApplicationKey:timestamp and hash it using
     HMACSHA256 with the Password as the key, then base64 encode
-    this hash. ApplicationKey and Password are from the Dashboard from
-    Figure 2; timestamp is taken from the previous step.
+    this hash. ApplicationKey and Password are from the Information page; timestamp is taken from the previous step.
 
 -   Base64 encode the string ApplicationKey:Base64EncodedHash, where
-    applicationKey is from the dashboard, and Base64EncodedHash is taken
+    Application Key is from the Information page, and Base64EncodedHash is taken
     from the previous step.
 
 -   Prefix the result of the previous step with “SIF\_HMACSHA256 ”.
@@ -110,7 +108,7 @@ authorisation token is as follows:
 #### Step 3 
 Post the environment body payload, authenticated with the
 authorisation token, to the URL named in *Create Environment URL* from
-Figure 2.
+the Information page.
 
 -   Under BASIC HTTP authentication, the resulting token is included in
     the HTTP header of the POST to the URL, as the Authorization:
@@ -122,13 +120,13 @@ Figure 2.
     the HTTP header, as the timestamp: field contents.
 
 #### Step 4 
-Your client should be authorised now to interact with a new
-defined environment. The HITS dashboard, under Figure 2, will now
+Your client should now be authorised to interact with a new
+defined environment. The Information page shouldd now
 display a “Session Token” and “Environment URL” value.
 
 #### Step 5
 
--   Read the Request Base URL from Figure 2. That is the base of the URL
+-   Read the Request Base URL from the Information page. That is the base of the URL
     to which you will be addressing your REST queries.
 
 -   Suffix to the Request Base URL the name of the object you wish to
@@ -141,18 +139,16 @@ Create an authorisation token for the REST query.
 Under BASIC HTTP authentication, the same token will be used for all
 interactions with the server.
 
--   Read the Session Token from Figure 2. This is used for the basis of
+-   Read the Session Token from the Information page. This is used for the basis of
     the authorization value to be included with all subsequent
     interactions with the Environment URL.
 
--   Read the Password from Figure 2. This is used for the basis of the
+-   Read the Password from the Information page. This is used for the basis of the
     authorization value to be included with all subsequent interactions
     with the Environment URL.
 
 -   Concatenate the Application Key and the Session Token, separating
-    them by colon.
-
-<!-- -->
+    them with a colon.
 
 -   Base-64 encode the resulting token
 
@@ -166,11 +162,11 @@ timestamped, so there is a different token for each post.
 
 -   take the string SessionToken:timestamp, and hash it using HMACSHA256
     with the Password as the key, then base64 encode this hash.
-    ApplicationKey and Password are from the Dashboard from Figure 2;
+    ApplicationKey and Password are from the Information page;
     timestamp is taken from the previous step
 
 -   Base64 encode the string SessionToken:Base64EncodedHash,
-    where SessionToken is from the dashboard and Base64EncodedHash is
+    where SessionToken is from the from the Information page and Base64EncodedHash is
     from the previous step.
 
 -   Prefix the Base 64 encoding of the consumer token with
