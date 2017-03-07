@@ -4,7 +4,7 @@ All the use cases follow a similar pattern. Below is our suggestion as to how to
 
 ### 1. Study the use case
 
-The use case lists the kinds of objects involved in the exchange, the anticipated choreographies, and how the objects will be validated. Processing the use case assumes that your client can translate the SIF objects meaningfully into data objects that your software uses. (Here is an example usecase...)[http://hits.nsip.edu.au/usecases/basic_daily_attendance/hits-dashboard.html]
+The use case lists the kinds of objects involved in the exchange, the anticipated choreographies, and how the objects will be validated. Processing the use case assumes that your client can translate the SIF objects meaningfully into data objects that your software uses. [Here is an example usecase...](http://hits.nsip.edu.au/usecases/basic_daily_attendance/hits-dashboard.html)
 
 ### 2. Set up a client to use HITS.
 
