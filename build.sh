@@ -1,5 +1,5 @@
 
-git pull
+# git pull
 rm -Rf right/source/docs
 
 # Copy markdown
@@ -9,6 +9,7 @@ rsync -uvma --include="*.png" docs/* right/dist/
 rsync -uvma --include="*.png" docs/help/* right/dist/
 
 for line in `find docs -name '*.md'`; do
+	echo -n "Building: "
 	echo $line
 	perl ./process.pl $line
 done

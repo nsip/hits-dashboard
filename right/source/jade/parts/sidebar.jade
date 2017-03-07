@@ -99,8 +99,12 @@
                             .nav-menu__right
                                 i.fa.fa-fw.fa-angle-right.arrow
                         ul.nav.nav-menu__second.collapse(class=area == 'Developer Help' ? 'in' : '')
-                            li(class=page=='Using SIF3 Framework' ? 'active' : '')
-                                a.addids(href='using_sif3_framework.html') Using SIF3 Framework
+                            li(class=page=='Connect Java consumer' ? 'active' : '')
+                                a.addids(href='connect_java_consumer.html') Connect Java consumer
+                            // li(class=page=='Connect .NET consumer' ? 'active' : '')
+                                a.addids(href='connect_net_consumer.html') Connect .NET consumer
+                            li(class=page=='Connect generic consumer' ? 'active' : '')
+                                a.addids(href='connect_generic_consumer.html') Connect generic consumer
                 if area == "Admin"
                   ul.nav.nav-menu
                       // XXX This must be hidden unless logged in !

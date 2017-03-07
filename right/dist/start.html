@@ -132,7 +132,10 @@
                       <div class="nav-menu__text"><span>Developer Help</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
                     <ul class="nav nav-menu__second collapse">
-                      <li><a href="using_sif3_framework.html" class="addids">Using SIF3 Framework</a></li>
+                      <li><a href="connect_java_consumer.html" class="addids">Connect Java consumer</a></li>
+                      <!-- li(class=page=='Connect .NET consumer' ? 'active' : '')a.addids(href='connect_net_consumer.html') Connect .NET consumer
+                      -->
+                      <li><a href="connect_generic_consumer.html" class="addids">Connect generic consumer</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -183,10 +186,10 @@
                               <div class="panel-body"><p>There are a number of assurance use cases supported by HITS. All involve SIF CRUD operations over REST, and can confirm your ability to provide a hub provisioning data through SIF.</p>
 <p>All the use cases follow a similar pattern. Below is our suggestion as to how to work through them:</p>
 <h3 id="study-the-use-case">1. Study the use case</h3>
-<p>The use case lists the kinds of objects involved in the exchange, the anticipated choreographies, and how the objects will be validated. (Here is an example usecase...)[http://hits.nsip.edu.au/usecases/basic_daily_attendance/hits-dashboard.html]</p>
+<p>The use case lists the kinds of objects involved in the exchange, the anticipated choreographies, and how the objects will be validated. Processing the use case assumes that your client can translate the SIF objects meaningfully into data objects that your software uses. (Here is an example usecase...)[http://hits.nsip.edu.au/usecases/basic_daily_attendance/hits-dashboard.html]</p>
 <h3 id="set-up-a-client-to-use-hits.">2. Set up a client to use HITS.</h3>
-<p>As a part of your sign-up process for HITS, you will have received a unique environment for testing, accessed via a URL, which takes you the dashboard you now see.</p>
-<p>You can now create databases populated with the randomly-generated demo data you need for testing various use cases. HITS acts as a proxy for the hub you will be integrating into. When you create your database, depending on the options you select, your new database is populated with randomised objects that are representative of the information stored on a hub. To simplify testing, your client is assigned to one dummy school: all objects on the database are associated with that school. <!--- is this last sentence still true? PH ---></p>
+<p>As a part of your sign-up process for HITS, you will have received the URL for a unique environment for testing, which takes you to the dashboard you now see.</p>
+<p>You can now create databases on HITS populated with the randomly-generated demo data you need for testing various use cases. HITS acts as a proxy for the hub you will be integrating into. When you create your database, depending on the options you select, your new database is populated with randomised objects that are representative of the information stored on a hub. To simplify testing, your client is assigned to one dummy school: all objects on the database are associated with that school. <!--- is this last sentence still true? PH ---></p>
 <h3 id="get-some-objects-from-hits">3. Get some objects from HITS</h3>
 <p>The use case describes the objects from the hub that you need to access; we expect that you will get all objects of the given classes that are available from HITS. Each object class is associated with a distinct endpoint, named by appending an &quot;s&quot; to the object class; you fetch instances of ScheduledActivity, for example, from the endpoint ending in /ScheduledActivitys.</p>
 <h3 id="based-on-those-objects-generate-some-new-objects">4. Based on those objects, generate some new objects</h3>
@@ -194,9 +197,9 @@
 <h3 id="clear-the-hits-database">5. Clear the HITS database</h3>
 <p>The validation of your objects runs over the entire contents of your database instance. This means you can validate results only after you have posted all required objects (which may involve several messages). If you have posted some objects with errors, clear the database before resending the corrected objects. This allows you to start with a clean slate, without having to update or delete individual objects you have already posted: your rerun can be treated as new Creates on the endpoint.</p>
 <h3 id="post-those-objects-to-hits-return-path-use-cases">6. Post those objects to HITS (Return Path use cases)</h3>
-<p>Having created new objects, you will need to post them to the HITS endpoint specific to your client. If your post is successful, this will add the objects to the client database instance. As there is a different endpoint for each object class, you may need to post multiple messages. (On the other hand, SIF 3 allows you to package multiple objects of the same class into a single message.)</p>
+<p>Having created new objects, you will need to post them to the HITS endpoint specific to your client. If your post is successful, this will add the objects to the client database instance. As there is a different endpoint for each object class, you may need to post multiple messages. (Note that SIF 3 allows you to package multiple objects of the same class into a single message.)</p>
 <p>NOTE 1: If the message is not well-formed XML, the message will be rejected.</p>
-<p>NOTE 2: The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not automatically perform any syntactic validation of payloads against the SIF XML schema, although you can perform this validation against the transaction log as a manual operation (Dashboard-&gt;Developer Tools-&gt;Information-&gt;Tranasaction Log-&gt;Validate). HITS does not validate for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have ot been provided properly in the payload.</p>
+<p>NOTE 2: The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not automatically perform any syntactic validation of payloads against the SIF XML schema, although you can perform this validation against the transaction log as a manual operation (Dashboard-&gt;Developer Tools-&gt;Information-&gt;Tranasaction Log-&gt;Validate). HITS does not validate for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have not been provided properly in the payload.</p>
 <h3 id="run-report-on-the-objects-you-have-posted">7. Run report on the objects you have posted</h3>
 <p>Validation is run when:</p>
 <ul>
@@ -204,10 +207,10 @@
 <li>the messages have been successfully processed, and</li>
 <li>the resulting objects have been added to the client database.</li>
 </ul>
-<p>Validation runs over the objects added to the database, and checks that the objects make sense in the context of the use case. As a result of validation, a report is generated which indicates whether your objects satisfy the use case requirements:</p>
+<p>Validation runs over the objects added to the database, and checks that the objects make sense in the context of the use case. As a result of validation, a report is generated which indicates whether your objects satisfy the use case requirements.</p>
 <p>The main things checked for are:</p>
 <ol style="list-style-type: decimal">
-<li>Referential integrity: your objects only link to the RefIDs of other objects on the database; whether these are objects that were already on the database (and that you have read from HITS), or objects that you have posted to the database in another message. Because you may need to spread your objects over many messages, do not run validation until you have posted all your messages.</li>
+<li>Referential integrity: your objects only link to the RefIDs of other objects on the database—whether these are objects that were already on the database (and that you have read in from HITS), or objects that you have posted to the database in another message. Because you may need to spread your objects over many messages, do not run validation until you have posted all your messages.</li>
 <li>Object Obligations: you have posted at least the number of instances of each object that is set in the use case. For example, a timetabling application cannot be validated unless it has posted at least one TimeTableCell object.</li>
 <li>Element Obligations: you have posted all the elements in your object that are mandatory in the use case. This includes not only the elements that are mandatory in the SIF-AU schema, but also the elements that this use case specifically requires to be populated.</li>
 <li>Element Values: some use cases will require that a particular value appear in an element. The objects will be tested to confirm that this has been done.</li>

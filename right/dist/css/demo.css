@@ -105,3 +105,7 @@
 .demo__theme_light {
   background-color: #fff;
 }
+.figure img {
+  border: 2px solid #cccccc;
+  margin: 12px;
+}
