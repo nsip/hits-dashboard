@@ -1,11 +1,11 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Recover Dashboard URL';
+    - page = 'Recovery';
 block main
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Dashboard
+                li.active Recovery
         .main-filter
             form.main-filter__search
                 .input-group
@@ -15,7 +15,11 @@ block main
                             .fa.fa-search
         .pages.pages_dashboard
             .row
-                p TODO (Peter... What do you want on the front screen)
+                p Your environment URL is necessary to access any databases you have created in HITS If you do not have your original environment URL, try the following:
+                ol
+                  li If you haven't used HITS before, you will need a unique environment URL to start working with HITS. Request this via info@nsip.edu.au
+                  li If you have used HITS before, search your email for the original environment URL which was sent to you by NSIP.
+                  li If you can't find your environment URL, ask for it to be resent via info@nsip.edu.au. (Automated self resend coming soon!)
 block css
 block js
     if !release
