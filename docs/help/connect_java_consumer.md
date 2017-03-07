@@ -1,5 +1,5 @@
-Connect SIF3 Framework Consumers to HITS
-----------------------------------------
+Connect SIF3 Java Framework Consumers to HITS
+---------------------------------------------
 
 ### HITS environment
 
@@ -26,9 +26,9 @@ that page looks like this:
 
 ![](figure2.png)
 
-### Configure SIF3 Framework 
+### Configure SIF3 Java Framework 
 
-To configure the SIF3 Framework to connect to the HITS environment
+To configure the SIF3 Java Framework to connect to the HITS environment
 listed in previous section you need to do the following steps:
 
 **Step 1**: Set Solution ID in Environment Template
