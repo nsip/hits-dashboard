@@ -25,20 +25,4 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
 	);
 });
 
-router.get('/:dbid/data/:rowid', function(req, res, next) {
-	var connection = db.get('hits_sif3_infra');
-	connection.query(
-		'SELECT * FROM XMLAudit WHERE id = ?',
-		[req.params.rowid],
-		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows[0],
-			});
-		}
-	);
-});
-
 module.exports = router;

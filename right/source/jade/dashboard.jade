@@ -117,8 +117,10 @@ block main
                                 .tab-pane#transactionlog(role="tabpanel")
                                     table.datalist__table.table.datatable.display.table-hover(id='audit-view', width='100%')
                                 .tab-pane#validate(role="tabpanel")
-                                    p Coming soon (Feb 2017)
-                                    
+                                    p Click "Generate" to update report
+                                    button.btn.btn-info#report-button(type="button") Generate
+                                    div#report-data
+
 
       .modal.fade#audit-one
           .modal-dialog.modal-lg
