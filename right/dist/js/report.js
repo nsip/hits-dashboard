@@ -6,12 +6,22 @@ $(document).ready(function() {
     var el = $('#report-data');
     // XXX el.mask("Loading...");
 
-    var dbid = 'db/5a70fe8ea56c4b7380736b63af7e48ed';
-    var report = 'TimeTable';
+    var dbid = $.url(window.location.href).param('dbid');
+    if (!dbid) {
+        dbid = $.cookie("hits2.dbid");
+    }
+    var report = $("#report-type option:selected" ).text();
 
-    $.get('/api/report/' + dbid + '/report/' + report, function(data) {
+    console.log("GETTING", dbid, report);
+
+    $.get('/api/report/' + dbid + '/report/' + report, function(getdata) {
+        var data = getdata.data;
       console.log(data);
       el.empty();
+      if (data.error) {
+          el.append("<h1>ERROR: " + data.error + "</h1>");
+            return;
+        }
       el.append("<h1>Report: " + data.title + "</h1>");
       el.append("<p>" + data.description + "</p>");
       el.append("<p>SCORE: " + data.score.percent + "%</p>");

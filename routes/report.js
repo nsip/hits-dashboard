@@ -12,6 +12,7 @@ router.use(function (req, res, next) {
 
 router.get('/:dbid/report/:reportid', function(req, res, next) {
   var alldata = [];
+    var errors = [];
   // XXX JSON ?
 
   var dbid = req.params.dbid;
@@ -30,16 +31,17 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
 
   prc.on('error', function(err) {
     logger.debug("REPORT: Error = " + err);
+    errors.push(err);
   });
 
   prc.stdout.on('data', function (data) {
-    alldata = alldata + data.toString();
     logger.debug("REPORT: >" + data.toString());
+    alldata.push(data.toString());
   });
 
   prc.stderr.on('data', function (data) {
     logger.debug("REPORT: !" + data.toString());
-    alldata.push(data.toString());
+    errors.push(data.toString());
   });
 
   prc.on('close', function(code) {
@@ -48,7 +50,9 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
        ret = JSON.parse(alldata.join(""));
     } catch (e) {
       console.error(e);
+        ret = { errors: e + "" };
     }
+    ret.errors = ret.errors + errors.join("");
     return res.json({
       data: ret,
     });
