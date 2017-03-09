@@ -42,13 +42,14 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   });
 
   prc.on('close', function(code) {
+    var ret;
     try {
-    messageObject = JSON.parse(message);
+       ret = JSON.parse(alldata.join(""));
     } catch (e) {
-    return console.error(e);
+      console.error(e);
     }
     return res.json({
-      data: alldata,
+      data: ret,
     });
   });
 
