@@ -43,6 +43,11 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   });
 
   prc.on('close', function(code) {
+    try {
+    messageObject = JSON.parse(message);
+    } catch (e) {
+    return console.error(e);
+    }
     return res.json({
       data: alldata,
     });
