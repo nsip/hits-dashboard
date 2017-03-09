@@ -43,8 +43,14 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   });
 
   prc.on('close', function(code) {
+    var ret;
+    try {
+       ret = JSON.parse(alldata.join(""));
+    } catch (e) {
+      console.error(e);
+    }
     return res.json({
-      data: alldata,
+      data: ret,
     });
   });
 
