@@ -22,7 +22,10 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   // var root = os.homedir() + "/HITS-Reports";
   var root = "/home/ubuntu" + "/HITS-Reports";
   var cmd = root + "/bin/report";
-  prc = spawn(root + "/bin/report", [dbid, reportid + "/in.pl"], {env: {"PERL5LIB": root + "/lib"}});
+  prc = spawn(root + "/bin/report", [dbid, reportid + "/in.pl"], {
+    env: {"PERL5LIB": root + "/lib"},
+    cwd: root,
+  });
 
   prc.on('error', function(err) {
     logger.debug("REPORT: Error = " + err);
