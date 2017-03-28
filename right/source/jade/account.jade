@@ -72,6 +72,19 @@ block main
                               .col-md-12
                                   div &nbsp;
                                   button.btn.btn-success#create-create(type='submit') Create
+                      .modal.fade#changeusecase
+                          .modal-dialog
+                              .modal-content
+                                  .modal-header
+                                      button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                          span(aria-hidden="true") &times;
+                                      h4.modal-title Change usecase values
+                                  .modal-body
+                                      p By changing the usecase, you will be updating the options set in the form below.
+                                      p Press Continue to accept the new values. Close will leave the selected usecase and the old form values.
+                                  .modal-footer
+                                      button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+                                      button.btn.btn-primary#set-values(type="button", data-dismiss="modal") Continue
     .container-fluid.half-padding
         .template.template__blank
             .row
@@ -81,7 +94,6 @@ block main
                             h3.panel-title Existing Databases
                         .panel-body
                             table.datalist__table.table.datatable.display.table-hover(id='account-databases', width='100%')
-
 
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
