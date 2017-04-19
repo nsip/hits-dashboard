@@ -57,7 +57,7 @@ he.on('mmmmm', function() {
 */
 
 router.get('/:dbid/summary', function(req, res, next) {
-	var connection = db.get('hits_sif3_infra');
+	var connection = db.infra();
 	connection.query(
 		'SELECT id,requestTime,responseTime,clientIp, url, solutionId, appKey, userToken, context, instanceId, zone, environmentToken, sessionToken, method, httpStatus, requestMediaType, responseMediaType FROM XMLAudit WHERE appKey = ? ORDER BY requestTime DESC LIMIT 1000',
     [req.params.dbid],
@@ -74,7 +74,7 @@ router.get('/:dbid/summary', function(req, res, next) {
 });
 
 router.get('/:dbid/data/:rowid', function(req, res, next) {
-	var connection = db.get('hits_sif3_infra');
+	var connection = db.infra();
 	connection.query(
 		'SELECT * FROM XMLAudit WHERE id = ?',
 		[req.params.rowid],
