@@ -204,13 +204,6 @@
                 <input type="text" class="form-control" id="password" placeholder="Enter Password" value="hits@nsip">
               </div>
               <div class="form-group">
-                <label for="authentication-method">Authentication Method</label>
-                <select id="authentication-method" class="form-control">
-                  <option>Basic</option>
-                  <option value="SIF_HMACSHA256">HmacSHA256</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label for="sessionToken">Session Token</label>
                 <input type="text" class="form-control" id="sessionToken" placeholder="Leave empty to create environment">
               </div>
@@ -288,7 +281,7 @@
       </div>
       <div class="col-md-6">
         <div>
-          <h3>Response</h3>
+          <h3>5. Response</h3>
         </div>
         <div>
           URL: <a href="#" id="responseURL"></a>
@@ -309,9 +302,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/client/Simple/js/bootstrap.min.js"></script>
 <script src="/client/Simple/js/base64.js"></script>
-<script src="/client/Simple/js/moment.min.js"></script>
-<script src="/client/Simple/js/hmac-sha256.js"></script>
-<script src="/client/Simple/js/enc-base64-min.js"></script>
 <script src="/client/Simple/js/purl.js"></script>
 <script src="/client/Simple/js/hitsclient.js"></script>
 <script src="/client/Simple/js/environment.js"></script>
@@ -351,6 +341,33 @@
 <script>
   $(document).ready(function() {
     hitsclient.ready();
+
+    var providerServer = $.url().param('providerServer');
+    if (providerServer) {
+            $('#providerServer').val(providerServer);
+    }
+
+            // Load School REF ID - Backwards compatibile
+    var school_id = $.url().param('school_id');
+    if (school_id) {
+            $('#userToken').val(school_id);
+    }
+      var solutionId = $.url().param('solution_id');
+      if (solutionId) {
+        $('#solutionId').val(solutionId);
+      }
+      var applicationKey = $.url().param('application_key');
+      if (applicationKey) {
+        $('#applicationKey').val(applicationKey);
+      }
+      var userToken = $.url().param('user_token');
+      if (userToken) {
+        $('#userToken').val(userToken);
+      }
+      var password = $.url().param('password');
+      if (password) {
+        $('#password').val(password);
+      }
   });
 </script>
 

@@ -119,12 +119,12 @@ block main
                                 .tab-pane#validate(role="tabpanel")
                                     p Click "Generate" to update report
                                     select#report-type
-                                        option TimeTable
-                                        option AttendanceNAP_Registration
-                                        option ClassroomAssessment
-                                        option NAP_Registration_Aggregated
-                                        option Enrollment
-                                        option Financial
+                                        option(value="TimeTable") Timetable
+                                        option(value="Attendance") Daily Attendance
+                                        option(value="NAP_Registration") NAP Registration
+                                        option(value="ClassroomAssessment") Classroom Assessment
+                                        option(value="Enrollment") Enrollment
+                                        option(value="Financial") Financial
                                     button.btn.btn-info#report-button(type="button") Generate
                                     div#report-data
 
