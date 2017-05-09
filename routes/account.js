@@ -13,9 +13,26 @@ router.use(function (req, res, next) {
 });
 
 // GET / = Return list of information
-router.get('/:accountId/', function(req, res, next) {
-	res.send('ROOT respond with a resource = ' + req.params.accountId);
+router.get('/:accountId', function(req, res, next) {
 	// Especially show status
+	var connection = db.connect();
+	connection.query(
+		'SELECT * FROM `account` WHERE id = ?',
+		[ req.params.accountId ],
+		function(err, rows, fields) {
+			if (err)
+				return res.error(err);
+            if (rows && rows.length) {
+                return res.json({
+                    success: 1,
+                    data: rows[0]
+                });
+            }
+            else {
+                return res.error("not found");
+            }
+		}
+    );
 });
 
 // GET /database = Return a list of databases
