@@ -17,12 +17,13 @@ $(document).ready(function() {
 						"data": "id",
 						"render": function (data, type, row, meta) {
 							return '<a href="start.html?id=' + data + '">' + data + '</a>';
-						}
+						},
+						"defaultContent": '',
 					},
-					{ "title": "Name", "width": "20%", "data": "name" },
-					{ "title": "Email", "width": "20%", "data": "email" },
-					{ "title": "Databases", "width": "10%", "data": "count", defaultContent: "None" },
-					{ "title": "Recent", "width": "20%", "data": "recent", defaultContent: "None" }
+					{ "title": "Name", "width": "20%", "data": "name", "defaultContent": '', },
+					{ "title": "Email", "width": "20%", "data": "email", "defaultContent": '', },
+					{ "title": "Databases", "width": "10%", "data": "count", defaultContent: "None", "defaultContent": '', },
+					{ "title": "Recent", "width": "20%", "data": "recent", defaultContent: "None", "defaultContent": '', }
 					// Adding buttons
 				]
 			} );

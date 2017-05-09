@@ -333,13 +333,14 @@ $(document).ready(function() {
             "data": "id",
             "render": function (data, type, row, meta) {
               return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '">' + data + '</a>';
-            }
+            },
+            "defaultContent": '',
           },
-          { "title": "Name", "width": "25%", "data": "name" },
-          { "title": "When", "width": "25%", "data": "when" },
-          { "title": "Status", "width": "10%", "data": "status" },
-          { "title": "Options", "width": "10%", "data": "options" },
-          // { "title": "Databases", "width": "10%", "data": "databases", defaultContent: "None" }
+          { "title": "Name", "width": "25%", "data": "name", "defaultContent": '' },
+          { "title": "When", "width": "25%", "data": "when" , "defaultContent": ''},
+          { "title": "Status", "width": "10%", "data": "status" , "defaultContent": ''},
+          { "title": "Options", "width": "10%", "data": "options" , "defaultContent": ''},
+          // { "title": "Databases", "width": "10%", "data": "databases", defaultContent: "None" , "defaultContent": ''}
           // Adding buttons
         ]
       } );

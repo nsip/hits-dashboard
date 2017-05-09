@@ -80,6 +80,7 @@ $(document).ready(function() {
                         cols.push({
                             title: key,
                             data: key,
+                            defaultContent: '',
                         });
                     });
 
