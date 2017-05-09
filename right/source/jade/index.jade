@@ -36,12 +36,38 @@ block main
                                     .panel-heading
                                         h3.panel-title Request an account
                                     .panel-body
-                                      p Form email?
                                       .form-horizontal
                                           .form-group
                                               label.col-sm-2.control-label Email address
                                               .col-sm-10
-                                                  input.form-control(type="email", placeholder="Text")
+                                                  input.form-control#email-email(type="email", placeholder="your@email")
+                                              label.col-sm-2.control-label Name
+                                              .col-sm-10
+                                                  input.form-control#email-name(type="text", placeholder="Your name")
+                                              label.col-sm-2.control-label Organisation
+                                              .col-sm-10
+                                                  input.form-control#email-organisation(type="text", placeholder="Your organisation")
+                                              label.col-sm-2.control-label Interest
+                                              .col-sm-10
+                                                  p What is your interst in HITS?
+                                                  textarea.form-control#email-interest(placeholder="Interest")
+
+                                              label.col-sm-2.control-label Options
+
+                                                //
+                                                    What is your interest in HITS?* (long text field)
+                                                    Are you a: (label for checkbox panel)
+                                                    Developer (checkbox)
+                                                    Architect (checkbox)
+                                                    Do you represent a: (label for checkbox panel)
+                                                    Vendor (checkbox)
+                                                    School authority (checkbox)
+                                                    Are you already familiar with SIF? (checkbox)
+                                                    NSIP Project (pulldown list)
+                                                    Submit (button)
+
+
+                                              .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch1(type='checkbox', checked='checked')
                                                       label(for='ch1') Developer

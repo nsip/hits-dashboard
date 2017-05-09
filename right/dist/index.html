@@ -189,12 +189,42 @@
                                 <h3 class="panel-title">Request an account</h3>
                               </div>
                               <div class="panel-body">
-                                <p>Form email?</p>
                                 <div class="form-horizontal">
                                   <div class="form-group">
                                     <label class="col-sm-2 control-label">Email address</label>
                                     <div class="col-sm-10">
-                                      <input type="email" placeholder="Text" class="form-control">
+                                      <input id="email-email" type="email" placeholder="your@email" class="form-control">
+                                    </div>
+                                    <label class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-10">
+                                      <input id="email-name" type="text" placeholder="Your name" class="form-control">
+                                    </div>
+                                    <label class="col-sm-2 control-label">Organisation</label>
+                                    <div class="col-sm-10">
+                                      <input id="email-organisation" type="text" placeholder="Your organisation" class="form-control">
+                                    </div>
+                                    <label class="col-sm-2 control-label">Interest</label>
+                                    <div class="col-sm-10">
+                                      <p>What is your interst in HITS?</p>
+                                      <textarea id="email-interest" placeholder="Interest" class="form-control"></textarea>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Options
+                                      <!--
+                                      What is your interest in HITS?* (long text field)
+                                      Are you a: (label for checkbox panel)
+                                      Developer (checkbox)
+                                      Architect (checkbox)
+                                      Do you represent a: (label for checkbox panel)
+                                      Vendor (checkbox)
+                                      School authority (checkbox)
+                                      Are you already familiar with SIF? (checkbox)
+                                      NSIP Project (pulldown list)
+                                      Submit (button)
+                                      
+                                      
+                                      -->
+                                    </label>
+                                    <div class="col-sm-10">
                                       <div class="checkbox checkbox-primary">
                                         <input id="ch1" type="checkbox" checked="checked">
                                         <label for="ch1">Developer</label>
