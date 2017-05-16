@@ -173,6 +173,13 @@
               <div class="container-fluid half-padding">
                 <div class="template template__table_data">
                   <div class="row">
+                    <div class="col-md-2"><span>Database:</span></div>
+                    <div class="col-md-4">
+                      <select id="hits-dblist"></select>
+                    </div>
+                    <div class="col-md-6"><span></span></div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
@@ -202,7 +209,7 @@
               </div>
               <div class="form-group">
                 <label for="zoneId">User Token</label>
-                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="0EE41AE6-C43F-11E3-9050-E0F4DBD909AB">
+                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
@@ -359,6 +366,19 @@
   $(document).ready(function() {
     hitsclient.ready();
 
+    var id = $.url(window.location.href).param('id');
+    var dbid = $.url(window.location.href).param('dbid');
+    if (!id || !dbid) {
+      id = $.cookie("hits2.id");
+      dbid = $.cookie("hits2.dbid");
+    }
+
+    if (!id || !dbid) {
+      alert("No ID provided. Find your URL from your account list");
+      window.location = "recover.html";
+      return;
+    }
+
     var providerServer = $.url().param('providerServer');
     if (providerServer) {
             $('#providerServer').val(providerServer);
@@ -373,15 +393,16 @@
       if (solutionId) {
         $('#solutionId').val(solutionId);
       }
-      var applicationKey = $.url().param('application_key');
+      // Note - support applicaiton_key override or use dbid from above
+      var applicationKey = $.url().param('application_key') || dbid;
       if (applicationKey) {
         $('#applicationKey').val(applicationKey);
       }
-      var userToken = $.url().param('user_token');
+      var userToken = $.url().param('user_token') || dbid;
       if (userToken) {
         $('#userToken').val(userToken);
       }
-      var password = $.url().param('password');
+      var password = $.url().param('password') || dbid;
       if (password) {
         $('#password').val(password);
       }
