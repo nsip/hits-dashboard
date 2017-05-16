@@ -174,6 +174,13 @@
               <div class="container-fluid half-padding">
                 <div class="template template__table_data">
                   <div class="row">
+                    <div class="col-md-2"><span>Database:</span></div>
+                    <div class="col-md-4">
+                      <select id="hits-dblist"></select>
+                    </div>
+                    <div class="col-md-6"><span></span></div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
@@ -194,6 +201,7 @@
                               <div class="col-md-6">
                                 <div class="half-padding"><a id="dashboard-client" href="">
                                     <button type="button" class="btn btn-info">Javascript Client</button></a>
+                                  <button type="button" data-toggle="modal" data-target="#debug" class="btn btn-primary">Debug Create</button>
                                   <p>&nbsp;</p>
                                 </div>
                               </div>
@@ -318,6 +326,25 @@
                       <pre><code id="audit-field-responseHeaders" class="field xml"></code></pre>
                       <h2>Response</h2>
                       <pre><code id="audit-field-response" class="field xml"></code></pre>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="debug" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Debug</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h2>Option Data</h2>
+                      <pre><code id="debug-optiondata" class="field xml"></code></pre>
+                      <h2>Log</h2>
+                      <pre><code id="debug-log" class="field xml"></code></pre>
                     </div>
                     <div class="modal-footer">
                       <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
