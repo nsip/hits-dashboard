@@ -69,12 +69,7 @@ router.get('/:accountId/counts', function(req, res, next) {
         function(row, step) {
           var dbc = db.get(row.id);
           dbc.query(
-            `
-              SELECT
-                (SELECT COUNT(*) FROM SchoolInfo) as schools,
-                (SELECT COUNT(*) FROM StudentPersonal) as students,
-                (SELECT COUNT(*) FROM StaffPersonal) as teachers
-            `,
+            'SELECT (SELECT COUNT(*) FROM SchoolInfo) as schools, (SELECT COUNT(*) FROM StudentPersonal) as students, (SELECT COUNT(*) FROM StaffPersonal) as teachers',
             function(err, counts, cfields) {
               if (err) {
                 row.errors = err + "";
