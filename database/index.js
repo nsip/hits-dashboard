@@ -31,12 +31,20 @@ module.exports = {
                 password : config.database.password,
                 database : name,
             });
+						// XXX Connection error auto close
+						// connection.on('error', function() {});
         }
         return connections[name];
+	},
+	close: function(name) {
+		// XXX Close and then remove from connection hash
+    if (connections[name]) {
+			connections[name].end();
+			delete connections[name];
+		}
 	},
 	create: function(name, cb) {
 		// XXX Don't we need a callback ?
 		// XXX Check DB is ok. Create and return
-	}
+	},
 };
-

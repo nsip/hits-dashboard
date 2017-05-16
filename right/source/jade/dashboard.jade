@@ -22,6 +22,13 @@ block main
     .container-fluid.half-padding
         .template.template__table_data
             .row
+                .col-md-2
+                  span Database:
+                .col-md-4
+                  select#hits-dblist
+                .col-md-6
+                  span
+            .row
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
@@ -43,6 +50,7 @@ block main
                                 div.half-padding
                                   a#dashboard-client(href='')
                                     button.btn.btn-info(type="button") Javascript Client
+                                  button.btn.btn-primary(type="button", data-toggle="modal", data-target="#debug") Debug Create
                                   p &nbsp;
 
             .row
@@ -152,6 +160,24 @@ block main
                         code.field.xml#audit-field-response
                   .modal-footer
                       button.btn.btn-default(type="button", data-dismiss="modal") Close
+
+      .modal.fade#debug
+          .modal-dialog.modal-lg
+              .modal-content
+                  .modal-header
+                      button.close(type="button", data-dismiss="modal", aria-label="Close")
+                          span(aria-hidden="true") &times;
+                      h4.modal-title Debug
+                  .modal-body
+                      h2 Option Data
+                      pre
+                        code.field.xml#debug-optiondata
+                      h2 Log
+                      pre
+                        code.field.xml#debug-log
+                  .modal-footer
+                      button.btn.btn-default(type="button", data-dismiss="modal") Close
+
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
     link(href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css')

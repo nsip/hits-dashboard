@@ -25,10 +25,10 @@ router.get('/:dbid/tables', function(req, res, next) {
 	                ret.push(r[k[0]]);
 	            });
 						}
-			return res.json({
-				success: 1,
-				data: ret,
-			});
+						return res.json({
+							success: 1,
+							data: ret,
+						});
 		}
 	);
 });

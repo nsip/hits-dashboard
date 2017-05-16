@@ -265,7 +265,6 @@ $(document).ready(function() {
           });
         }
 
-        console.log(uc.options);
         Object.keys(uc.options).forEach(function(key) {
           $('#create-' + key).prop('checked', uc.options[key]);
         });
@@ -320,24 +319,27 @@ $(document).ready(function() {
     if (!table) {
       table = $('#account-databases').DataTable( {
         "ajax": {
-          "url": "/api/account/" + id + "/database",
+          "url": "/api/account/" + id + "/counts",
           "dataSrc": "data"
         },
         "order": [[ 2, "desc" ]],
-        pageLength: 5,
+        pageLength: 10,
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
         "columns": [
           {
             "title": "ID",
-            "width": "25%",
+            "width": "30%",
             "data": "id",
             "render": function (data, type, row, meta) {
               return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '">' + data + '</a>';
             },
             "defaultContent": '',
           },
-          { "title": "Name", "width": "25%", "data": "name", "defaultContent": '' },
-          { "title": "When", "width": "25%", "data": "when" , "defaultContent": ''},
+          { "title": "Name", "width": "20%", "data": "name", "defaultContent": '' },
+          { "title": "When", "width": "20%", "data": "when" , "defaultContent": ''},
+          { "title": "Schools", "width": "5%", "data": "schools" , "defaultContent": ''},
+          { "title": "Students", "width": "5%", "data": "students" , "defaultContent": ''},
+          { "title": "Teachers", "width": "5%", "data": "teachers" , "defaultContent": ''},
           { "title": "Status", "width": "10%", "data": "status" , "defaultContent": ''},
           { "title": "Options", "width": "10%", "data": "options" , "defaultContent": ''},
           // { "title": "Databases", "width": "10%", "data": "databases", defaultContent: "None" , "defaultContent": ''}
@@ -359,7 +361,7 @@ $(document).ready(function() {
 
   // Load table
   loadTable();
-  setInterval(loadTable, 15000);  // TODO Maybe push this to 30 seconds?
+  setInterval(loadTable, 60000);  // TODO Maybe push this to 30 seconds?
 
   // Create new entry
   $('#create-create').click(function() {
@@ -368,33 +370,50 @@ $(document).ready(function() {
 
     // XXX Check values - must have valid entries here
 
+    if (!name) {
+      alert("Please enter a name and select options");
+      // XXX Add as nice dismissable alert like Fran uses
+      return;
+    }
+
     $.ajax({
       type: "POST",
       dataType: 'json',
+      contentType:"application/json; charset=utf-8",
       url: "/api/account/" + id + "/database",
-      data: {
+      data: JSON.stringify({
         name: name,
         type: type,
-        // XXX Get the rest of the options
         options: {
-          schools: 1,
-          students: 1,
-          teachers: 1,
-          classrooms: 1,
-          flags: ['X', 'Y'],
+          schools: createschools.data("from"),
+          students: [createstudents.data("from"), createstudents.data("to")],
+          teachers: [createteachers.data("from"), createteachers.data("to")],
+          classrooms: [createclassrooms.data("from"), createclassrooms.data("to")],
+          teachinggroups: $('#create-teachinggroups').prop('checked'),
+          timetable: $('#create-timetable').prop('checked'),
+          grading: $('#create-grading').prop('checked'),
+          contacts: $('#create-contacts').prop('checked'),
+          accounts: $('#create-accounts').prop('checked'),
+          naplan: $('#create-naplan').prop('checked'),
+          hmac: $('#create-hmac').prop('checked'),
         },
-      }
+      }),
     })
     .done(function( data ) {
-      if (!data || !data.success)
+      if (!data || !data.success) {
         alert("Failed create TODO");
+        return;
+      }
 
       $('#create-name').val("");
       $('#create-type').val("");
       loadTable();
+      // XXX Add as nice dismissable success message like Fran uses
     })
     .fail(function() {
+      // XXX Alert !
       alert("Failed create TODO");
+      return;
     });
 
     return false;
