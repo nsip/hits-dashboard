@@ -42,7 +42,7 @@ $(document).ready(function() {
 
   // XXX Popup !
 
-  table = $('#audit-view').DataTable( {
+      table = $('#audit-view').DataTable( {
           "ajax": {
                   "url": "/api/audit/" + dbid + "/summary",
                   "dataSrc": "data"

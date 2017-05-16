@@ -13,9 +13,14 @@ $(document).ready(function() {
     dbid = $.cookie("hits2.dbid");
   }
 
-  if (!id || !dbid) {
-    alert("No ID provided. Find your URL from your account list");
+  if (!id) {
+    alert("No ID provided. Find your URL from your account list, or create a new entry.");
     window.location = "recover.html";
+    return;
+  }
+  if (!dbid || (dbid == 'undefined')) {
+    alert("No database selected or created. Please select or create a database at the next page.");
+    window.location = "account.html";
     return;
   }
 
@@ -24,6 +29,13 @@ $(document).ready(function() {
   $.cookie("hits2.dbid", dbid, {expires: 90});
 
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
+    if (!data) {
+      $('#dashboard-statusbutton').text("No database exists");
+      $('#dashboard-statusbutton').addClass('btn-danger');
+      $('#dashboard-statusalert').text("No database exists");
+      $('#dashboard-statusalert').addClass('alert-danger');
+        return;
+    }   
     console.log(data);
     $('#dashboard-status').text(data.data.status);
     if (data.data.status == 'complete') {
@@ -53,6 +65,13 @@ $(document).ready(function() {
 
   var viewtable = null;
   $.get( "/api/database/" + dbid + '/tables', function( data ) {
+        if (!data) {
+          $('#dashboard-statusbutton').text("No database exists");
+          $('#dashboard-statusbutton').addClass('btn-danger');
+          $('#dashboard-statusalert').text("No database exists");
+          $('#dashboard-statusalert').addClass('alert-danger');
+            return;
+        }   
         console.log(data);
         data.data.forEach(function(row) {
             $('#database-tables').append($('<option>', {value:row, text:row}));

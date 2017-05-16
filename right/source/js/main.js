@@ -7,6 +7,11 @@
  */
 
 $(document).ready(function() {
+    $.fn.dataTable.ext.errMode = function ( settings, helpPage, message ) {
+        console.log(message);
+        $('#datatable-error').text(message);
+    };
+
   quickmenu($('.quickmenu__item.active'));
 
   $('body').on('click', '.quickmenu__item', function() {
