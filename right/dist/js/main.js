@@ -137,4 +137,14 @@ $(document).ready(function() {
     );
   });
 
+  $('#welcomesubmit').click(function() {
+    var form = $('#welcomeform');
+    var out = {};
+    form.serializeArray().forEach(function(row) {
+      console.log(row);
+      out[row.name] = row.value;
+    });
+    console.log("OUT", out);
+  });
+
 });

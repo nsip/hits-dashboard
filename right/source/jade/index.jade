@@ -38,19 +38,20 @@ block main
                                     .panel-body
                                       .form-horizontal
                                           .form-group
+                                            form#welcomeform
                                               label.col-sm-2.control-label Email address
                                               .col-sm-10
-                                                  input.form-control#email-email(type="email", placeholder="your@email")
+                                                  input.form-control#email-email(name='email',type="email", placeholder="your@email")
                                               label.col-sm-2.control-label Name
                                               .col-sm-10
-                                                  input.form-control#email-name(type="text", placeholder="Your name")
+                                                  input.form-control#email-name(name='name',type="text", placeholder="Your name")
                                               label.col-sm-2.control-label Organisation
                                               .col-sm-10
-                                                  input.form-control#email-organisation(type="text", placeholder="Your organisation")
+                                                  input.form-control#email-organisation(name="organisation",type="text", placeholder="Your organisation")
                                               label.col-sm-2.control-label Interest
                                               .col-sm-10
                                                   p What is your interst in HITS?
-                                                  textarea.form-control#email-interest(placeholder="Interest")
+                                                  textarea.form-control#email-interest(name="interest",placeholder="Interest")
 
                                               label.col-sm-2.control-label Options
 
@@ -69,21 +70,21 @@ block main
 
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
-                                                      input#ch1(type='checkbox', checked='checked')
+                                                      input#ch1(name="checkbox_developer",type='checkbox', checked='checked')
                                                       label(for='ch1') Developer
                                                   .checkbox.checkbox-success
-                                                      input#ch2(type='checkbox', checked='checked')
+                                                      input#ch2(name="checkbox_organisation",type='checkbox', checked='checked')
                                                       label(for='ch2') Organisation
                                                   .checkbox.checkbox-info
-                                                      input#ch3(type='checkbox', checked='checked')
+                                                      input#ch3(name="checkbox_partner",type='checkbox', checked='checked')
                                                       label(for='ch3') Partner
                                                   .checkbox.checkbox-warning
-                                                      input#ch4(type='checkbox', checked='checked')
+                                                      input#ch4(name="checkbox_request",type='checkbox', checked='checked')
                                                       label(for='ch4') Request further information
                                       .form-group
                                           label.col-sm-2.control-label Submit
                                           .col-sm-10
-                                              button.btn.btn-default(type='submit') Submit Button
+                                              button.btn.btn-default#welcomesubmit(type='submit') Send request
                                 .panel.panel-success
                                     .panel-heading
                                         h3.panel-title Information
