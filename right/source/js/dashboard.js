@@ -15,6 +15,8 @@ $(document).ready(function() {
   }
   if (!option)
     option = $.cookie("hits2.option");
+  if (!option)
+    option = "hits";
 
   if (!id) {
     alert("No ID provided. Find your URL from your account list, or create a new entry.");

@@ -52,9 +52,9 @@ $(document).ready(function() {
       keepbyid = {};
       data.data.forEach(function(row) {
         keepbyid[row.id] = row;
-        keepbyid[row.id].opout = "";
+        keepbyid[row.id].opout = "hits";
         if (row.opdata.hmac)
-          keepbyid[row.id].opout = "hmac";
+          keepbyid[row.id].opout += ",hmac";
         dblist.append('<option value="' + row.id + '">' + row.name + '</option>');
         // dblist3.addOption({id: row.id, label: row.name});
         // dblist3.addItem(row.id);

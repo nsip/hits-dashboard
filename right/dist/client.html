@@ -377,7 +377,7 @@
     if (!option)
       option = $.cookie("hits2.option");
     if (!option)
-      option = "";
+      option = "hits";
 
     if (!id || !dbid) {
       alert("No ID provided. Find your URL from your account list");
@@ -414,7 +414,7 @@
       }
 
       // set hmac if an option passed in
-      if (option && option.match('hmac') {
+      if (option && option.match('hmac')) {
         $("#authentication-method").val("SIF_HMACSHA256");
       }
       else {

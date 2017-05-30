@@ -331,9 +331,9 @@ $(document).ready(function() {
             "width": "30%",
             "data": "id",
             "render": function (data, type, row, meta) {
-              var option = "";
+              var option = "hits";
               if (row.opdata.hmac)
-                option = "hmac";
+                option = option + ",hmac";
               return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '&option=' + option + '">' + data + '</a>';
             },
             "defaultContent": '',

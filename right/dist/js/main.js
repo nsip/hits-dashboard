@@ -125,6 +125,8 @@ $(document).ready(function() {
   $(".addids").each(function(index) {
     var id = $.url(window.location.href).param('id');
     var dbid = $.url(window.location.href).param('dbid');
+    var option = $.url(window.location.href).param('option');
+
     var current = $(this).attr("href") + '';
     if ( (typeof id == 'undefined') || (id == 'undefined') || (id == '') )
       return;
@@ -134,6 +136,7 @@ $(document).ready(function() {
       + (current.indexOf('?') > 1 ? '&' : '?')
       + 'id=' + id
       + '&dbid=' + dbid
+      + '&option=' + option
     );
   });
 
