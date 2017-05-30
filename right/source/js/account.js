@@ -331,7 +331,10 @@ $(document).ready(function() {
             "width": "30%",
             "data": "id",
             "render": function (data, type, row, meta) {
-              return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '">' + data + '</a>';
+              var option = "";
+              if (row.opdata.hmac)
+                option = "hmac";
+              return '<a href="dashboard.html?id=' + id + '&dbid=' + data + '&option=' + option + '">' + data + '</a>';
             },
             "defaultContent": '',
           },

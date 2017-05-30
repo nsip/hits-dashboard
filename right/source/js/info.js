@@ -48,7 +48,13 @@ $(document).ready(function() {
       dblist = $('#hits-dblist');
       dblist.empty();
 
+      // Keep a local copy for extra field pass through
+      keepbyid = {};
       data.data.forEach(function(row) {
+        keepbyid[row.id] = row;
+        keepbyid[row.id].opout = "";
+        if (row.opdata.hmac)
+          keepbyid[row.id].opout = "hmac";
         dblist.append('<option value="' + row.id + '">' + row.name + '</option>');
         // dblist3.addOption({id: row.id, label: row.name});
         // dblist3.addItem(row.id);
@@ -57,7 +63,7 @@ $(document).ready(function() {
       var dblist2 = dblist.selectize({
         onChange: function(newval) {
           if (newval != dbid) {
-            window.location = window.location.pathname + "?id=" + id + "&dbid=" + newval;
+            window.location = window.location.pathname + "?id=" + id + "&dbid=" + newval + "&option=" + keepbyid[newval].opout;
           }
           return;
         },

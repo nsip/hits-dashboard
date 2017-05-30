@@ -8,10 +8,13 @@ $(document).ready(function() {
   // Get specific ID or 'default' (default is captured from last session)
   var id = $.url(window.location.href).param('id');
   var dbid = $.url(window.location.href).param('dbid');
+  var option = $.url(window.location.href).param('option');
   if (!id || !dbid) {
     id = $.cookie("hits2.id");
     dbid = $.cookie("hits2.dbid");
   }
+  if (!option)
+    option = $.cookie("hits2.option");
 
   if (!id) {
     alert("No ID provided. Find your URL from your account list, or create a new entry.");
@@ -27,6 +30,7 @@ $(document).ready(function() {
   // Set ID in cookie - expires in 90 days
   $.cookie("hits2.id", id, {expires: 90});
   $.cookie("hits2.dbid", dbid, {expires: 90});
+  $.cookie("hits2.option", option, {expires: 90});
 
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
     if (!data) {
@@ -35,7 +39,7 @@ $(document).ready(function() {
       $('#dashboard-statusalert').text("No database exists");
       $('#dashboard-statusalert').addClass('alert-danger');
         return;
-    }   
+    }
     console.log(data);
     $('#dashboard-status').text(data.data.status);
     if (data.data.status == 'complete') {
@@ -60,7 +64,7 @@ $(document).ready(function() {
     $('#dashboard-password').text(dbid);
     $('#dashboard-options').text(data.data.options);
     $('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
-    $('#dashboard-client').attr('href', "client.html?id=" + id + "&dbid=" + dbid); //  + "&user_token=" + dbid + "&password=" + dbid + "");
+    $('#dashboard-client').attr('href', "client.html?id=" + id + "&dbid=" + dbid + "&optoin=" + option); //  + "&user_token=" + dbid + "&password=" + dbid + "");
 
     $('#debug-optiondata').text(data.data.optiondata);
     $('#debug-log').text(data.data.message);
@@ -74,7 +78,7 @@ $(document).ready(function() {
           $('#dashboard-statusalert').text("No database exists");
           $('#dashboard-statusalert').addClass('alert-danger');
             return;
-        }   
+        }
         console.log(data);
         data.data.forEach(function(row) {
             $('#database-tables').append($('<option>', {value:row, text:row}));

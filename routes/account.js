@@ -40,11 +40,22 @@ router.get('/:accountId', function(req, res, next) {
 router.get('/:accountId/database', function(req, res, next) {
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
+    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL ORDER BY name',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
         return res.error(err);
+
+      for (var i = 0; i < rows.length; i++) {
+        try {
+          // Overloaded name options, optiondata, opdata !!!
+          rows[i].opdata = JSON.parse(rows[i].optiondata);
+        }
+        catch(e) {
+          console.error(e);
+        }
+        rows[i].opdata = rows[i].opdata || {};
+      }
       return res.json({
         success: 1,
         data: rows
@@ -83,6 +94,15 @@ router.get('/:accountId/counts', function(req, res, next) {
                 row.students = counts[0].students;
                 row.teachers = counts[0].teachers;
               }
+
+              // Expand opdata
+              try {
+                row.opdata = JSON.parse(row.optiondata);
+              }
+              catch(e) {
+                console.error(e);
+              }
+              row.opdata = row.opdata || {};
 
               ret.push(row);
               db.close(row.id);
