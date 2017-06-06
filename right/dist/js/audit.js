@@ -42,7 +42,7 @@ $(document).ready(function() {
 
   // XXX Popup !
 
-  table = $('#audit-view').DataTable( {
+      table = $('#audit-view').DataTable( {
           "ajax": {
                   "url": "/api/audit/" + dbid + "/summary",
                   "dataSrc": "data"
@@ -57,7 +57,8 @@ $(document).ready(function() {
                           "render": function (data, type, row, meta) {
                                   // return '<a href="start.html?id=' + data + '">' + data + '</a>';
                                   return '<a onclick="auditOne(\'' + dbid + '\',' + data + ');" href="#">' + data + '</a>';
-                          }
+                          },
+                          "defaultContent": '',
                   },
                   { "title": "Time", "width": "10%", "data": "requestTime", defaultContent: "None" },
                   { "title": "IP", "width": "10%", "data": "clientIp", defaultContent: "None" },

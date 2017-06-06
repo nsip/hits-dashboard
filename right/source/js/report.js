@@ -10,7 +10,7 @@ $(document).ready(function() {
     if (!dbid) {
         dbid = $.cookie("hits2.dbid");
     }
-    var report = $("#report-type option:selected" ).text();
+    var report = $("#report-type option:selected" ).val();
 
     console.log("GETTING", dbid, report);
 

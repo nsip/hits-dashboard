@@ -7,6 +7,11 @@
  */
 
 $(document).ready(function() {
+    $.fn.dataTable.ext.errMode = function ( settings, helpPage, message ) {
+        console.log(message);
+        $('#datatable-error').text(message);
+    };
+
   quickmenu($('.quickmenu__item.active'));
 
   $('body').on('click', '.quickmenu__item', function() {
@@ -120,6 +125,8 @@ $(document).ready(function() {
   $(".addids").each(function(index) {
     var id = $.url(window.location.href).param('id');
     var dbid = $.url(window.location.href).param('dbid');
+    var option = $.url(window.location.href).param('option');
+
     var current = $(this).attr("href") + '';
     if ( (typeof id == 'undefined') || (id == 'undefined') || (id == '') )
       return;
@@ -129,7 +136,18 @@ $(document).ready(function() {
       + (current.indexOf('?') > 1 ? '&' : '?')
       + 'id=' + id
       + '&dbid=' + dbid
+      + '&option=' + option
     );
+  });
+
+  $('#welcomesubmit').click(function() {
+    var form = $('#welcomeform');
+    var out = {};
+    form.serializeArray().forEach(function(row) {
+      console.log(row);
+      out[row.name] = row.value;
+    });
+    console.log("OUT", out);
   });
 
 });

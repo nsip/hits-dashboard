@@ -24,9 +24,17 @@ block main
     .container-fluid.half-padding
         .template.template__table_data
             .row
+                .col-md-2
+                  span Database:
+                .col-md-4
+                  select#hits-dblist
+                .col-md-6
+                  span
+            .row
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
                             h3.panel-title Client
                         .panel-body
+                            p Simple client used to get, post and put SIF records to the HITS endpoint for your unique environment. Implements basic parameters for SIF REST queries such as paging, and takes care of authentication. Provides templates for populating SIF records in create posts.
                             include client.html

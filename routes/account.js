@@ -4,103 +4,206 @@ var uuid = require('node-uuid');
 var db = require('../database');
 var requestify = require('requestify');
 var logger = require('../logger');
+var async = require('async');
 
 // AUTHENTICATION - All entries start with base URL
 router.use(function (req, res, next) {
-	// XXX check :accountId and form error
-	console.log('Time:', Date.now());
-	next();
+  // XXX check :accountId and form error
+  console.log('Time:', Date.now());
+  next();
 });
 
 // GET / = Return list of information
-router.get('/:accountId/', function(req, res, next) {
-	res.send('ROOT respond with a resource = ' + req.params.accountId);
-	// Especially show status
+router.get('/:accountId', function(req, res, next) {
+  // Especially show status
+  var connection = db.connect();
+  connection.query(
+    'SELECT * FROM `account` WHERE id = ?',
+    [ req.params.accountId ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
+            if (rows && rows.length) {
+                return res.json({
+                    success: 1,
+                    data: rows[0]
+                });
+            }
+            else {
+                return res.error("not found");
+            }
+    }
+    );
 });
 
 // GET /database = Return a list of databases
 router.get('/:accountId/database', function(req, res, next) {
-	var connection = db.connect();
-	connection.query(
-		'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
-		[ req.params.accountId ],
-		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows
-			});
-		}
-	);
+  var connection = db.connect();
+  connection.query(
+    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL ORDER BY name',
+    [ req.params.accountId ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
+
+      for (var i = 0; i < rows.length; i++) {
+        try {
+          // Overloaded name options, optiondata, opdata !!!
+          rows[i].opdata = JSON.parse(rows[i].optiondata);
+        }
+        catch(e) {
+          console.error(e);
+        }
+        rows[i].opdata = rows[i].opdata || {};
+      }
+      return res.json({
+        success: 1,
+        data: rows
+      });
+    }
+  );
 });
+
+// Get DAtabases with counts for each
+router.get('/:accountId/counts', function(req, res, next) {
+  var connection = db.connect();
+  connection.query(
+    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
+    [ req.params.accountId ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
+
+      var ret = [];
+      async.mapSeries(
+        rows,
+        function(row, step) {
+          var dbc = db.get(row.id);
+          dbc.query(
+            'SELECT (SELECT COUNT(*) FROM SchoolInfo) as schools, (SELECT COUNT(*) FROM StudentPersonal) as students, (SELECT COUNT(*) FROM StaffPersonal) as teachers',
+            function(err, counts, cfields) {
+              if (err) {
+                row.errors = err + "";
+                row.schools = 0;
+                row.students = 0;
+                row.teachers = 0;
+              }
+              else {
+                row.errors = null;
+                row.schools = counts[0].schools;
+                row.students = counts[0].students;
+                row.teachers = counts[0].teachers;
+              }
+
+              // Expand opdata
+              try {
+                row.opdata = JSON.parse(row.optiondata);
+              }
+              catch(e) {
+                console.error(e);
+              }
+              row.opdata = row.opdata || {};
+
+              ret.push(row);
+              db.close(row.id);
+              step();
+            }
+          );
+        },
+        function(err) {
+          if (err) {
+            return res.status(400).json({
+              success: 0,
+              error: err + "",
+            });
+          }
+          return res.json({
+            success: 1,
+            data: ret,
+          });
+
+        }
+      );
+    }
+  );
+});
+
+/*
+Counts ! Do this as an extended view of database above to reduce load time
+SELECT
+  (SELECT COUNT(*) FROM SchoolInfo) as SchoolInfo,
+  (SELECT COUNT(*) FROM StudentPersonal) as StudentPersonal,
+  (SELECT COUNT(*) FROM StaffPersonal) as StaffPersonal
+*/
 
 // POST /database = Create a database !
 router.post('/:accountId/database', function(req, res, next) {
-	// * Create UUID
-	var id = uuid.v4();
-	id = id.replace(/-/g,"");
-	var name = req.body.name || "no name";
-	var type = req.body.type || "empty";
 
-	// * Insert record into database with "status" = "building"
+  console.log(req.params, req.body);
 
-	var connection = db.connect();
+  // * Create UUID
+  var id = uuid.v4();
+  id = id.replace(/-/g,"");
+  var name = req.body.name || "no name";
+  var type = req.body.type || "empty";
+  var options = req.body.options || {};
 
-	connection.query(
-		"INSERT INTO `database` (account_id, id, name, status, options, `when`) VALUES (?,?,?,'waiting', ?, NOW())",
-		[ req.params.accountId, id, name, type ],
-		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
+  var connection = db.connect();
 
-			// TODO - Build Time for Database
-			// TODO - Allow very long times for huge builds
+  connection.query(
+    "INSERT INTO `database` (account_id, id, name, status, options, optiondata, `when`) VALUES (?,?,?,'waiting', ?, ?, NOW())",
+    [ req.params.accountId, id, name, type, JSON.stringify(options) ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
 
-			// * Do GET above in background
+      // TODO - Build Time for Database
+      // TODO - Allow very long times for huge builds
 
-			// XXX Change this to check value of return straight away
-			logger.debug("REMOTE: Sending request GET " +
+      // * Do GET above in background
+
+      // XXX Change this to check value of return straight away
+      logger.debug("REMOTE: Sending request GET " +
                                 'http://hits.nsip.edu.au/dbcreate'
                                 + '?name=' + id
                                 + '&encode=json'
                                 + '&type=' + type
-			);
-			requestify.get(
-				'http://hits.nsip.edu.au/dbcreate'
-				+ '?name=' + id
-				+ '&encode=json'
-				+ '&type=' + type,
-				{
-					timeout: 300000	// Long timeout for slow DB Build
-				}
-			)
-			.then(function(response) {
-				logger.debug("REMOTE: Response.", response.getBody());
-				// Updated within script if working ok
-				return;
-			})
-			.fail(function(response) {
-				// XXX logger
-				connection.query(
-					"UPDATE `database` SET status = ? WHERE id = ?",
-					[ 'error', id ],
-					function(err, rows, fields) {
-						if (err)
-							return logger.error("ERROR: " + err, err);
-						logger.info("UPDATE: XXX");
-					}
-				);
-			});
+      );
+      requestify.get(
+        'http://hits.nsip.edu.au/dbcreate'
+        + '?name=' + id
+        + '&encode=json'
+        + '&type=' + type,
+        {
+          timeout: 300000  // Long timeout for slow DB Build (XXX is this needed any more?)
+        }
+      )
+      .then(function(response) {
+        logger.debug("REMOTE: Response.", response.getBody());
+        // Updated within script if working ok
+        return;
+      })
+      .fail(function(response) {
+        // XXX logger
+        connection.query(
+          "UPDATE `database` SET status = ? WHERE id = ?",
+          [ 'error', id ],
+          function(err, rows, fields) {
+            if (err)
+              return logger.error("ERROR: " + err, err);
+            logger.info("UPDATE: XXX");
+          }
+        );
+      });
 
-			// * Return immediate data
-			return res.json({
-				success: 1,
-				id: id,
-				status: 'building'
-			});
-		}
-	);
+      // * Return immediate data
+      return res.json({
+        success: 1,
+        id: id,
+        status: 'building'
+      });
+    }
+  );
 });
 
 // DELETE /database = Create a database !
@@ -109,44 +212,44 @@ router.post('/:accountId/database', function(req, res, next) {
 
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {
-	var connection = db.connect();
-	var infraconnection = db.get('hits_sif3_infra');
-	connection.query(
-		'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
-		[ req.params.accountId, req.params.dbId ],
-		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
+  var connection = db.connect();
+  var infraconnection = db.infra();
+  connection.query(
+    'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
+    [ req.params.accountId, req.params.dbId ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
 
-			var ret = rows[0];
+      var ret = rows[0];
 
-			infraconnection.query(
-				"SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?",
-				[ req.params.dbId ],
-				function(e2, r2, f2) {
-					console.log("SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
-					if (e2)
-						return res.error(e2);
+      infraconnection.query(
+        "SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?",
+        [ req.params.dbId ],
+        function(e2, r2, f2) {
+          console.log("SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
+          if (e2)
+            return res.error(e2);
 
-					console.log(r2);
+          console.log(r2);
 
-					if (r2 && r2[0]) {
-						ret.session = r2[0].SESSION_TOKEN;
-						ret.environment = r2[0].ENVIRONMENT_ID;
-					}
-					else {
-						ret.session = "";
-						ret.environment = "";
-					}
+          if (r2 && r2[0]) {
+            ret.session = r2[0].SESSION_TOKEN;
+            ret.environment = r2[0].ENVIRONMENT_ID;
+          }
+          else {
+            ret.session = "";
+            ret.environment = "";
+          }
 
-					return res.json({
-						success: 1,
-						data: ret,
-					});
-				}
-			);
-		}
-	);
+          return res.json({
+            success: 1,
+            data: ret,
+          });
+        }
+      );
+    }
+  );
 });
 
 module.exports = router;

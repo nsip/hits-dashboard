@@ -52,6 +52,10 @@
         <div class="topnavbar">
           <ul class="nav navbar-nav navbar-left"></ul>
           <ul class="userbar nav navbar-nav">
+            <li style="border: 1px solid grey; margin: 7px; padding: 7px; ">
+              <div class="hitsinfo-name"></div>
+              <div class="hitsinfo-email"></div>
+            </li>
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="login.html">Log In</a></li>
@@ -171,120 +175,8 @@
                               <div class="panel-heading">
                                 <h3 class="panel-title">Connect generic consumer</h3>
                               </div>
-                              <div class="panel-body"><h3 id="hits-environment">HITS environment</h3>
-<p>To be able to connect your consumer to HITS you must have an account on HITS. Please contact NSIP at mailto:info@nsip.edu.au for details on how to create one.</p>
-<p>Once you have an account, please login or use your account URL that is of the form <a href="http://hits.nsip.edu.au/dashboard/account.html" class="uri">http://hits.nsip.edu.au/dashboard/account.html</a> to get to the landing page.</p>
-<p>From the menu on the right, select “Developer Tools-&gt;Databases”.</p>
-<p>From the resulting page, you can create a new database or use one created previously. In the lower part of that page you will see something like this:</p>
-<h6 id="figure-1-sif3-hits-database-view">Figure 1: SIF3 HITS Database View</h6>
-<div class="figure">
-<img src="figure1.png" />
-
-</div>
-<p>Click on an existing database to see the Information page of that database, which contains SIF Environment information. The second part of that page looks like this:</p>
-<h6 id="figure-2-sif3-hits-environment-page">Figure 2: SIF3 HITS Environment Page</h6>
-<div class="figure">
-<img src="figure2.png" />
-
-</div>
-<h3 id="configure-rest-client">Configure REST Client</h3>
-<p>To configure your REST client to connect to your HITS environment, follow the steps below:</p>
-<p>(Refer to https://www.sifassociation.org/Specification/Documents/InfrastructureServices.pdf for more detailed information.)</p>
-<h4 id="step-1">Step 1</h4>
-<p>** (Note: If the Environment URL and Session Token are already available from the dashboard, Steps 1–3 can be skipped.) **</p>
-<p>Create an environment request payload.</p>
-<p>The payload will populate the following XML template:</p>
-<pre><code>
-&lt;environment xmlns=&quot;http://www.sifassociation.org/infrastructure/3.1&quot;&gt;
-  &lt;solutionId&gt;HITS&lt;/solutionId&gt;
-  &lt;authenticationMethod&gt;Basic&lt;/authenticationMethod&gt;
-  &lt;instanceId/&gt;
-  &lt;userToken/&gt;
-  &lt;consumerName&gt;&lt;/consumerName&gt;
-  &lt;applicationInfo&gt;
-    &lt;applicationKey&gt;&lt;/applicationKey&gt;
-    &lt;supportedInfrastructureVersion&gt;3.1&lt;/supportedInfrastructureVersion&gt;
-  &lt;dataModelNamespace&gt;http://www.sifassociation.org/au/datamodel/3.4&lt;/dataModelNamespace&gt;
-    &lt;transport&gt;REST&lt;/transport&gt;
-    &lt;applicationProduct&gt;
-      &lt;vendorName&gt;Systemic Pty Ltd&lt;/vendorName&gt;
-      &lt;productName&gt;Test Driver&lt;/productName&gt;
-      &lt;productVersion&gt;0.1alpha&lt;/productVersion&gt;
-    &lt;/applicationProduct&gt;
-  &lt;/applicationInfo&gt;
-&lt;/environment&gt;
-</code></pre>
-<p>Obtaining the following from the Information page:</p>
-<ul>
-<li><p>Put the value of the “solutionId” into the &lt;solutionId&gt; node.</p></li>
-<li><p>Put the value of the “User Token” into the &lt;userToken&gt; node.</p></li>
-<li><p>Put the value of the “Application Key” into the &lt;applicationKey&gt; node.</p></li>
-<li><p>You can change the values under the &lt;applicationProduct&gt; node to any value applicable to you. Leave everything else as is.</p></li>
-</ul>
-<h4 id="step-2">Step 2</h4>
-<p>Create the authentication token for the initial environment request. Under HTTP Basic Authentication, this is done as follows:</p>
-<ul>
-<li><p>Create the consumer token: this is the Value of “Application Key”, followed by colon, followed by the Value of “Password” from Figure 2. For this example, it would be 9b19d71b03f84f16aa71f04034c1f1714:9b19d71b03f84f16aa71f04034c1f1714</p></li>
-<li><p>Base-64 encode the consumer token</p></li>
-<li><p>Prefix the Base 64 encoding of the consumer token with “BASIC ”</p></li>
-</ul>
-<p>HITS will soon be implementing HMAC SHA-256 authentication as an alternative. The procedure under HMAC SHA-256 to generate an authorisation token is as follows:</p>
-<ul>
-<li><p>create a timestamp in ISO-8601 format eg. 2017-02-27T09:48:42.942Z</p></li>
-<li><p>take the string ApplicationKey:timestamp and hash it using HMACSHA256 with the Password as the key, then base64 encode this hash. ApplicationKey and Password are from the Information page; timestamp is taken from the previous step.</p></li>
-<li><p>Base64 encode the string ApplicationKey:Base64EncodedHash, where Application Key is from the Information page, and Base64EncodedHash is taken from the previous step.</p></li>
-<li><p>Prefix the result of the previous step with “SIF_HMACSHA256 ”.</p></li>
-</ul>
-<h4 id="step-3">Step 3</h4>
-<p>Post the environment body payload, authenticated with the authorisation token, to the URL named in <em>Create Environment URL</em> from the Information page.</p>
-<ul>
-<li><p>Under BASIC HTTP authentication, the resulting token is included in the HTTP header of the POST to the URL, as the Authorization: field contents.</p></li>
-<li><p>Under HMAC SHA-256 authentication, the resulting token is included in the HTTP header of the POST to the URL, as the Authorization: field contents, and the timestamp value derived above is included in the HTTP header, as the timestamp: field contents.</p></li>
-</ul>
-<h4 id="step-4">Step 4</h4>
-<p>Your client should now be authorised to interact with a new defined environment. The Information page shouldd now display a “Session Token” and “Environment URL” value.</p>
-<h4 id="step-5">Step 5</h4>
-<ul>
-<li><p>Read the Request Base URL from the Information page. That is the base of the URL to which you will be addressing your REST queries.</p></li>
-<li><p>Suffix to the Request Base URL the name of the object you wish to access, followed by “s”; e.g. <a href="http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/SchoolInfos/" class="uri">http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/SchoolInfos/</a></p></li>
-</ul>
-<h4 id="step-6">Step 6</h4>
-<p>Create an authorisation token for the REST query.</p>
-<p>Under BASIC HTTP authentication, the same token will be used for all interactions with the server.</p>
-<ul>
-<li><p>Read the Session Token from the Information page. This is used for the basis of the authorization value to be included with all subsequent interactions with the Environment URL.</p></li>
-<li><p>Read the Password from the Information page. This is used for the basis of the authorization value to be included with all subsequent interactions with the Environment URL.</p></li>
-<li><p>Concatenate the Application Key and the Session Token, separating them with a colon.</p></li>
-<li><p>Base-64 encode the resulting token</p></li>
-<li><p>Prefix the Base 64 encoding of the consumer token with “BASIC ”. This is the authorisation token.</p></li>
-</ul>
-<p>Under HMAC SHA-256 authentication, each authorisation token is timestamped, so there is a different token for each post.</p>
-<ul>
-<li><p>create a timestamp in ISO8601 format e.g. 2017-02-27T09:48:42.942Z</p></li>
-<li><p>take the string SessionToken:timestamp, and hash it using HMACSHA256 with the Password as the key, then base64 encode this hash. ApplicationKey and Password are from the Information page; timestamp is taken from the previous step</p></li>
-<li><p>Base64 encode the string SessionToken:Base64EncodedHash, where SessionToken is from the from the Information page and Base64EncodedHash is from the previous step.</p></li>
-<li><p>Prefix the Base 64 encoding of the consumer token with “SIF_HMACSHA256 ”. This is the authorisation token.</p></li>
-</ul>
-<h4 id="step-7">Step 7</h4>
-<p>Use the authorization field to authenticate all SIF REST queries, addressing them to the Environment URL suffixed with the plural object name.</p>
-<p>Under BASIC HTTP authentication</p>
-<ul>
-<li><p>The authorisation token is included in the HTTP header for all subsequent queries, as the Authorization: field contents</p></li>
-<li><p>authenticationMethod with the value BASIC</p></li>
-<li><p>Alternatively, the request parameter access_token can be included in the request, with the authorisation token as its value (without the BASIC prefix)</p></li>
-</ul>
-<p>Under HMAC SHA-256 authentication</p>
-<ul>
-<li><p>The authorisation token is included in the HTTP header for all subsequent queries, as the Authorization: field contents</p></li>
-<li><p>Send a header &quot;timestamp&quot; with the value of timestamp from above.</p></li>
-<li><p>instead of headers you can also send your requests with the following request parameters :</p>
-<ul>
-<li><p>timestamp with the value of timestamp above</p></li>
-<li><p>authenticationMethod with the value SIF_HMACSHA256</p></li>
-<li><p>access_token with the last base64 value from above (without the SIF_HMACSHA256 prefix)</p></li>
-</ul></li>
-</ul>
-
+                              <div class="panel-body">
+                                <!-- include ../docs/help/connect_generic_consumer.html-->
                               </div>
                             </div>
                           </div>
@@ -322,6 +214,7 @@
     <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
     <script src="js/template/index.js"></script>
   </body>
 </html>

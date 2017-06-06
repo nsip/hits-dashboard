@@ -52,6 +52,10 @@
         <div class="topnavbar">
           <ul class="nav navbar-nav navbar-left"></ul>
           <ul class="userbar nav navbar-nav">
+            <li style="border: 1px solid grey; margin: 7px; padding: 7px; ">
+              <div class="hitsinfo-name"></div>
+              <div class="hitsinfo-email"></div>
+            </li>
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="login.html">Log In</a></li>
@@ -169,12 +173,20 @@
               <div class="container-fluid half-padding">
                 <div class="template template__table_data">
                   <div class="row">
+                    <div class="col-md-2"><span>Database:</span></div>
+                    <div class="col-md-4">
+                      <select id="hits-dblist"></select>
+                    </div>
+                    <div class="col-md-6"><span></span></div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
                           <h3 class="panel-title">Client</h3>
                         </div>
-                        <div class="panel-body"><div class="container-fluid half-padding">
+                        <div class="panel-body">
+                          <p>Simple client used to get, post and put SIF records to the HITS endpoint for your unique environment. Implements basic parameters for SIF REST queries such as paging, and takes care of authentication. Provides templates for populating SIF records in create posts.</p><div class="container-fluid half-padding">
   <div class="row">
       <div class="col-md-6">
         <div>
@@ -197,14 +209,14 @@
               </div>
               <div class="form-group">
                 <label for="zoneId">User Token</label>
-                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="0EE41AE6-C43F-11E3-9050-E0F4DBD909AB">
+                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input type="text" class="form-control" id="password" placeholder="Enter Password" value="hits@nsip">
               </div>
               <div class="form-group">
-                <label for="authentication-method">Authentication Method</label>
+                <label for="password">Authentication Method</label>
                 <select id="authentication-method" class="form-control">
                   <option>Basic</option>
                   <option value="SIF_HMACSHA256">HmacSHA256</option>
@@ -288,7 +300,7 @@
       </div>
       <div class="col-md-6">
         <div>
-          <h3>Response</h3>
+          <h3>5. Response</h3>
         </div>
         <div>
           URL: <a href="#" id="responseURL"></a>
@@ -309,12 +321,14 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/client/Simple/js/bootstrap.min.js"></script>
 <script src="/client/Simple/js/base64.js"></script>
-<script src="/client/Simple/js/moment.min.js"></script>
-<script src="/client/Simple/js/hmac-sha256.js"></script>
-<script src="/client/Simple/js/enc-base64-min.js"></script>
 <script src="/client/Simple/js/purl.js"></script>
 <script src="/client/Simple/js/hitsclient.js"></script>
 <script src="/client/Simple/js/environment.js"></script>
+
+<script src="/client/Simple/js/moment.min.js"></script>
+<script src="/client/Simple/js/hmac-sha256.js"></script>
+<script src="/client/Simple/js/enc-base64-min.js"></script>
+
 <!-- would be nice to load these dynamically. -->
 <script src="/client/Simple/js/providers/school-info.js"></script>
 <script src="/client/Simple/js/providers/student-personal.js"></script>
@@ -351,6 +365,61 @@
 <script>
   $(document).ready(function() {
     hitsclient.ready();
+
+    var id = $.url(window.location.href).param('id');
+    var dbid = $.url(window.location.href).param('dbid');
+    var option = $.url(window.location.href).param('option');
+    if (!id || !dbid) {
+      id = $.cookie("hits2.id");
+      dbid = $.cookie("hits2.dbid");
+    }
+
+    if (!option)
+      option = $.cookie("hits2.option");
+    if (!option)
+      option = "hits";
+
+    if (!id || !dbid) {
+      alert("No ID provided. Find your URL from your account list");
+      window.location = "recover.html";
+      return;
+    }
+
+    var providerServer = $.url().param('providerServer');
+    if (providerServer) {
+            $('#providerServer').val(providerServer);
+    }
+
+            // Load School REF ID - Backwards compatibile
+    var school_id = $.url().param('school_id');
+    if (school_id) {
+            $('#userToken').val(school_id);
+    }
+      var solutionId = $.url().param('solution_id');
+      if (solutionId) {
+        $('#solutionId').val(solutionId);
+      }
+      // Note - support applicaiton_key override or use dbid from above
+      var applicationKey = $.url().param('application_key') || dbid;
+      if (applicationKey) {
+        $('#applicationKey').val(applicationKey);
+      }
+      var userToken = $.url().param('user_token') || dbid;
+      if (userToken) {
+        $('#userToken').val(userToken);
+      }
+      var password = $.url().param('password') || dbid;
+      if (password) {
+        $('#password').val(password);
+      }
+
+      // set hmac if an option passed in
+      if (option && option.match('hmac')) {
+        $("#authentication-method").val("SIF_HMACSHA256");
+      }
+      else {
+        $("#authentication-method").val("Basic");
+      }
   });
 </script>
 
@@ -388,5 +457,6 @@
     <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
   </body>
 </html>

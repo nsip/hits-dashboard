@@ -54,6 +54,10 @@
         <div class="topnavbar">
           <ul class="nav navbar-nav navbar-left"></ul>
           <ul class="userbar nav navbar-nav">
+            <li style="border: 1px solid grey; margin: 7px; padding: 7px; ">
+              <div class="hitsinfo-name"></div>
+              <div class="hitsinfo-email"></div>
+            </li>
             <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="login.html">Log In</a></li>
@@ -170,6 +174,13 @@
               <div class="container-fluid half-padding">
                 <div class="template template__table_data">
                   <div class="row">
+                    <div class="col-md-2"><span>Database:</span></div>
+                    <div class="col-md-4">
+                      <select id="hits-dblist"></select>
+                    </div>
+                    <div class="col-md-6"><span></span></div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="panel panel-danger">
                         <div class="panel-heading">
@@ -179,7 +190,7 @@
                           <div class="container-fluid half-padding">
                             <div class="row">
                               <div class="col-md-6">
-                                <div id="dashboard-statusalert" class="alert">
+                                <div id="dashboard-statusalert" class="alert">Loading...
                                   <p>&nbsp;</p>
                                 </div>
                                 <ul>
@@ -190,6 +201,7 @@
                               <div class="col-md-6">
                                 <div class="half-padding"><a id="dashboard-client" href="">
                                     <button type="button" class="btn btn-info">Javascript Client</button></a>
+                                  <button type="button" data-toggle="modal" data-target="#debug" class="btn btn-primary">Debug Create</button>
                                   <p>&nbsp;</p>
                                 </div>
                               </div>
@@ -280,12 +292,12 @@
                             <div id="validate" role="tabpanel" class="tab-pane">
                               <p>Click "Generate" to update report</p>
                               <select id="report-type">
-                                <option>TimeTable</option>
-                                <option>AttendanceNAP_Registration</option>
-                                <option>ClassroomAssessment</option>
-                                <option>NAP_Registration_Aggregated</option>
-                                <option>Enrollment</option>
-                                <option>Financial</option>
+                                <option value="TimeTable">Timetable</option>
+                                <option value="Attendance">Daily Attendance</option>
+                                <option value="NAP_Registration">NAP Registration</option>
+                                <option value="ClassroomAssessment">Classroom Assessment</option>
+                                <option value="Enrollment">Enrollment</option>
+                                <option value="Financial">Financial</option>
                               </select>
                               <button id="report-button" type="button" class="btn btn-info">Generate</button>
                               <div id="report-data"></div>
@@ -321,6 +333,25 @@
                   </div>
                 </div>
               </div>
+              <div id="debug" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Debug</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h2>Option Data</h2>
+                      <pre><code id="debug-optiondata" class="field xml"></code></pre>
+                      <h2>Log</h2>
+                      <pre><code id="debug-log" class="field xml"></code></pre>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -349,6 +380,7 @@
     <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
     <script src="libs/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="libs/datatables/media/js/dataTables.bootstrap.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>

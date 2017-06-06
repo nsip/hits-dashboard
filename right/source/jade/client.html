@@ -21,11 +21,18 @@
               </div>
               <div class="form-group">
                 <label for="zoneId">User Token</label>
-                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="0EE41AE6-C43F-11E3-9050-E0F4DBD909AB">
+                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input type="text" class="form-control" id="password" placeholder="Enter Password" value="hits@nsip">
+              </div>
+              <div class="form-group">
+                <label for="password">Authentication Method</label>
+                <select id="authentication-method" class="form-control">
+                  <option>Basic</option>
+                  <option value="SIF_HMACSHA256">HmacSHA256</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="sessionToken">Session Token</label>
@@ -129,6 +136,11 @@
 <script src="/client/Simple/js/purl.js"></script>
 <script src="/client/Simple/js/hitsclient.js"></script>
 <script src="/client/Simple/js/environment.js"></script>
+
+<script src="/client/Simple/js/moment.min.js"></script>
+<script src="/client/Simple/js/hmac-sha256.js"></script>
+<script src="/client/Simple/js/enc-base64-min.js"></script>
+
 <!-- would be nice to load these dynamically. -->
 <script src="/client/Simple/js/providers/school-info.js"></script>
 <script src="/client/Simple/js/providers/student-personal.js"></script>
@@ -166,6 +178,25 @@
   $(document).ready(function() {
     hitsclient.ready();
 
+    var id = $.url(window.location.href).param('id');
+    var dbid = $.url(window.location.href).param('dbid');
+    var option = $.url(window.location.href).param('option');
+    if (!id || !dbid) {
+      id = $.cookie("hits2.id");
+      dbid = $.cookie("hits2.dbid");
+    }
+
+    if (!option)
+      option = $.cookie("hits2.option");
+    if (!option)
+      option = "hits";
+
+    if (!id || !dbid) {
+      alert("No ID provided. Find your URL from your account list");
+      window.location = "recover.html";
+      return;
+    }
+
     var providerServer = $.url().param('providerServer');
     if (providerServer) {
             $('#providerServer').val(providerServer);
@@ -180,17 +211,26 @@
       if (solutionId) {
         $('#solutionId').val(solutionId);
       }
-      var applicationKey = $.url().param('application_key');
+      // Note - support applicaiton_key override or use dbid from above
+      var applicationKey = $.url().param('application_key') || dbid;
       if (applicationKey) {
         $('#applicationKey').val(applicationKey);
       }
-      var userToken = $.url().param('user_token');
+      var userToken = $.url().param('user_token') || dbid;
       if (userToken) {
         $('#userToken').val(userToken);
       }
-      var password = $.url().param('password');
+      var password = $.url().param('password') || dbid;
       if (password) {
         $('#password').val(password);
+      }
+
+      // set hmac if an option passed in
+      if (option && option.match('hmac')) {
+        $("#authentication-method").val("SIF_HMACSHA256");
+      }
+      else {
+        $("#authentication-method").val("Basic");
       }
   });
 </script>
