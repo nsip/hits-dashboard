@@ -67,6 +67,7 @@ $(document).ready(function() {
     $('#dashboard-options').text(data.data.options);
     $('#dashboard-message').text((data.data.status == 'complete') ? "(none)" : data.data.message);
     $('#dashboard-client').attr('href', "client.html?id=" + id + "&dbid=" + dbid + "&optoin=" + option); //  + "&user_token=" + dbid + "&password=" + dbid + "");
+    $('#dashboard-authmethod').text(data.data.auth_method);
 
     $('#debug-optiondata').text(data.data.optiondata);
     $('#debug-log').text(data.data.message);
