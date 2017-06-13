@@ -224,18 +224,17 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
       var ret = rows[0];
 
       infraconnection.query(
-        `
-        SELECT
-                t.ENV_TEMPLATE_ID, t.PASSWORD, t.APP_TEMPLATE_ID, t.APP_TEMPLATE_ID,
-                t.AUTH_METHOD, t.USER_TOKEN, t.APPLICATION_KEY, t.SOLUTION_ID,
-                s.SESSION_TOKEN, s.ENVIRONMENT_ID
-        FROM
-                SIF3_APP_TEMPLATE t
-                LEFT JOIN SIF3_SESSION s
-                ON (s.SOLUTION_ID='HITS' AND s.APPLICATION_KEY=t.APPLICATION_KEY AND s.USER_TOKEN=t.USER_TOKEN)
-        WHERE
-                t.USER_TOKEN = ?
-        `,
+        "SELECT "
+        + "        t.ENV_TEMPLATE_ID, t.PASSWORD, t.APP_TEMPLATE_ID, t.APP_TEMPLATE_ID, "
+        + "        t.AUTH_METHOD, t.USER_TOKEN, t.APPLICATION_KEY, t.SOLUTION_ID, "
+        + "        s.SESSION_TOKEN, s.ENVIRONMENT_ID "
+        + "FROM "
+        + "        SIF3_APP_TEMPLATE t "
+        + "        LEFT JOIN SIF3_SESSION s "
+        + "        ON (s.SOLUTION_ID='HITS' AND s.APPLICATION_KEY=t.APPLICATION_KEY AND s.USER_TOKEN=t.USER_TOKEN) "
+        + "WHERE "
+        + "        t.USER_TOKEN = ? "
+        ,
         [ req.params.dbId ],
         function(e2, r2, f2) {
           console.log("SELECT ENVIRONMENT_ID,SESSION_TOKEN FROM SIF3_SESSION WHERE APPLICATION_KEY = ?", req.params.dbId);
