@@ -26,6 +26,8 @@
     <link href="libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/hits/aj.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Oswald" rel="stylesheet">
     <link href="css/right.light.css" rel="stylesheet" class="demo__css">
     <link href="css/demo.css" rel="stylesheet"><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -98,7 +100,7 @@
                       <li><a href="/usecases/gradebook/hits-dashboard.html">Gradebook</a></li>
                       <li><a href="/usecases/naplan_registration/hits-dashboard.html">NAPLAN Registration</a></li>
                       <li><a href="/usecases/naplan_results_reporting/hits-dashboard.html">NAPLAN Results Reporting</a></li>
-                      <li><a href="/usecases/timetable/hits-dashboard.html">Timetable</a></li>
+                      <li><a href="/usecases/timetable/hits-dashboard.html">Timetable </a></li>
                     </ul>
                     <!-- OLD
                     li(class=page=='Basic Daily Attendance' ? 'active' : '')
@@ -168,24 +170,30 @@
                 <div class="pages pages_dashboard"></div>
                 <div class="template">
                   <div class="row">
-                    <div class="col-md-12"><h1 id="interoperability-hits-sif">Interoperability: HITS + SIF</h1>
-<h3 id="the-demand-for-technology-in-the-classroom-has-never-been-higher.-as-well-as-searching-for-the-best-products-to-help-achieve-learning-outcomes-schools-have-to-support-many-hardware-types-such-as-tablets-and-mobile-devices-they-must-also-integrate-laptops-that-may-be-brought-to-the-school-by-the-student-rather-than-provided-by-the-school.">The demand for technology in the classroom has never been higher. As well as searching for the best products to help achieve learning outcomes, schools have to support many hardware types such as tablets and mobile devices; they must also integrate laptops that may be brought to the school by the student, rather than provided by the school.</h3>
-<p>It is also important to educators, administrators and technicians that the products selected for use by schools can share and reuse common data as easily as possible.</p>
-<p>Faced with such diversity we are seeing the emergence of a new strategic pattern being adopted by educational institutions; that of the ‘Information Hub’.</p>
-<p>In this pattern, institutions (such as state departments of education, Catholic school networks, Independent school networks etc.) will focus their resources on maintaining well-managed central repositories of information about and for the schools they represent.</p>
-<p>With core data services residing in the Hub, institutions can then release useful information to providers of products and services in order to allow them to meet the needs of schools.</p>
-<p>In this model, as schools select products to work with, they also provide data from the Hub to ensure that using the new product is as easy as possible, particularly removing low-value tasks such as creating user accounts for students within each product. Meanwhile the central institution, such as a state department of education, maintains an up-to-date set of information about the enrolment of every student in every school.</p>
-<p>For example, when a school decides to use a new software product, information (subject to any necessary privacy and policy constraints) can be provided from the Hub to the product in order to create user accounts for all students in Year 7 of a particular school, or for all students studying English in an entire jurisdiction.</p>
-<p>The advantages are many:</p>
-<ul>
-<li>The centrally maintained repository in the Hub will be up to date and accurate, so solution providers can deal with a single source of truth.</li>
-<li>In the classroom, less effort in needed to make new solutions available to students.</li>
-<li>Overall there is also a benefit to the central institution as it allows schools to choose which products they want to work with, and allows the market to provide solutions which include mobile and tablet interfaces which would be prohibitive for the institution itself to provide.</li>
-</ul>
-<p>There is a clear need within this Hub model for data exchange to be based on open, transparent and secure standards.</p>
-<p>Across the Australian education institutions there is agreement that the standard to be used is SIF.</p>
-<p>SIF is an international standard for the safe exchange of school and student information, and will be required within products that wish to participate in the Hub-based models that education institutions will support in the coming years in Australia.</p>
-
+                    <div class="col-md-12">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h2 class="panel-title">Interoperability: HITS + SIF</h2>
+                        </div>
+                        <div class="panel-body">
+                          <p>The demand for technology in the classroom has never been higher. As well as searching for the best products to help achieve learning outcomes, schools have to support many hardware types such as tablets and mobile devices; they must also integrate laptops that may be brought to the school by the student, rather than provided by the school.</p>
+                          <p>It is also important to educators, administrators and technicians that the products selected for use by schools can share and reuse common data as easily as possible.</p>
+                          <p>Faced with such diversity we are seeing the emergence of a new strategic pattern being adopted by educational institutions; that of the ‘Information Hub’.</p>
+                          <p>In this pattern, institutions (such as state departments of education, Catholic school networks, Independent school networks etc.) will focus their resources on maintaining well-managed central repositories of information about and for the schools they represent.</p>
+                          <p>With core data services residing in the Hub, institutions can then release useful information to providers of products and services in order to allow them to meet the needs of schools.</p>
+                          <p>In this model, as schools select products to work with, they also provide data from the Hub to ensure that using the new product is as easy as possible, particularly removing low-value tasks such as creating user accounts for students within each product. Meanwhile the central institution, such as a state department of education, maintains an up-to-date set of information about the enrolment of every student in every school.</p>
+                          <p>For example, when a school decides to use a new software product, information (subject to any necessary privacy and policy constraints) can be provided from the Hub to the product in order to create user accounts for all students in Year 7 of a particular school, or for all students studying English in an entire jurisdiction.</p>
+                          <p>The advantages are many:</p>
+                          <ul>
+                            <li>The centrally maintained repository in the Hub will be up to date and accurate, so solution providers can deal with a single source of truth.</li>
+                            <li>In the classroom, less effort in needed to make new solutions available to students.</li>
+                            <li>Overall there is also a benefit to the central institution as it allows schools to choose which products they want to work with, and allows the market to provide solutions which include mobile and tablet interfaces which would be prohibitive for the institution itself to provide.</li>
+                          </ul>
+                          <p>There is a clear need within this Hub model for data exchange to be based on open, transparent and secure standards.</p>
+                          <p>Across the Australian education institutions there is agreement that the standard to be used is SIF.</p>
+                          <p>SIF is an international standard for the safe exchange of school and student information, and will be required within products that wish to participate in the Hub-based models that education institutions will support in the coming years in Australia.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -193,6 +201,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="foot"> 
+        <p>Whatever we want to say in the footer</p>
       </div>
     </div>
     <!-- include ../include/demo.jade-->

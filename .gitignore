@@ -2,3 +2,4 @@ node_modules
 *.swp
 logs
 right/source/docs
+.DS_Store

@@ -85,22 +85,28 @@ block main
                                           label.col-sm-2.control-label Submit
                                           .col-sm-10
                                               button.btn.btn-default#welcomesubmit(type='submit') Send request
+                            .col-md-6
+                                .panel.panel-success
+                                    .panel-heading
+                                        h3.panel-title What is HITS?
+                                    .panel-body
+                                        p This website has two distinct functions:
+                                        ol
+                                            li It provides a learning and demonstration space for anyone interested in exploring the use of SIF 3. Additional Open Standards will be supported by HITS as required. In our demos area we provide examples of how you can integrate SIF into your own products and services.
+                                            li HITS maintains a set of use cases and tests that have been created by educational institutions; these include the linking of timetabling and attendence into centrally provided School information Systems, and providing students and teachers access to online services. These can be used for assurance testing by product and service creators.
+                                        p We also show how interoperability could be used by schools and jurisdictions, supported by enterprise information management services, in what we refer to as the ‘Information Hub’ model.
+                                        p The HITS testing service allows you to test that your product can create, receive and respond to the requirements of the relevant use case. You can run these assurance tests without having a project relationship with an educational institution.
+                                        p All data supplied to you as part of the testing service will be artificial, but representative of real-world data.
                                 .panel.panel-success
                                     .panel-heading
                                         h3.panel-title Information
                                     .panel-body
-                                        p Copyright NSIP 2015 - 2017 under the
+                                        p Copyright NSIP 2015 - 2017 under the 
                                           a(href="http://www.apache.org/licenses/LICENSE-2.0.txt") Apache 2.0 license
-                                        p Email
+                                        p Email 
                                           a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                                        p For more information about NSIP
+                                        p For more information about NSIP 
                                           a(href="http://www.nsip.edu.au") www.nsip.edu.au
-                            .col-md-6
-                                .panel.panel-danger
-                                    .panel-heading
-                                        h3.panel-title What is HITS?
-                                    .panel-body
-                                      // include ../docs/the-hits-website.html
 block css
 block js
     if !release

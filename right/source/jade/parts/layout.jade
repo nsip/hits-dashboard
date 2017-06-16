@@ -26,6 +26,8 @@ html(lang="en")
         link(href='libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css', rel='stylesheet')
         link(href='libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
         link(href='libs/bootstrap-select/dist/css/bootstrap-select.min.css', rel='stylesheet')
+        link(href='libs/hits/aj.css', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Roboto|Oswald', rel='stylesheet')
         block css
         link.demo__css(href='css/right.light.css', rel='stylesheet')
         link(href='css/demo.css', rel='stylesheet')
@@ -40,6 +42,7 @@ html(lang="en")
             .dashboard
                 include ./sidebar.jade
                 include ./main.jade
+            include ./foot.jade
         // include ../include/demo.jade
         script(src='libs/jquery/jquery.min.js')
         script(src='libs/bootstrap/js/bootstrap.min.js')
