@@ -60,6 +60,10 @@ th {
 }
 table {
   font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 100;
+}
+table .label {
+  font-family: 'Roboto', sans-serif;
 }
 body.framed {
   border: 10px solid transparent;

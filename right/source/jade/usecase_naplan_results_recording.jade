@@ -1,14 +1,14 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Interoperability';
-    - area = 'Welcome';
+    - page = 'NAPLAN results reporting';
+    - area = 'Usecase';
 block main
 
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Welcome
-                li.active Interoperability - HITS &amp; SIF
+                li.active Use Cases
+                li.active NAPLAN results reporting
         // .main-filter
             form.main-filter__search
                 .input-group
@@ -22,7 +22,9 @@ block main
                 .col-md-12
                     .panel.panel-info
                             .panel-heading
-                                .panel-body
+                                h2.panel-title How to implement NAPLAN results reporting
+                            .panel-body
+                                 include ../../../../usecases/output/naplan_results_reporting/hits-dashboard_raw.html
 block css
 block js
     if !release

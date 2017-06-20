@@ -1,21 +1,31 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Basic Financial Transactions';
-    - development = false;
+    - page = 'Basic financial transactions';
     - area = 'Usecase';
 block main
+
     .main-heading
         .main-title
             ol.breadcrumb
-                li
-                    a(href="./") UI Elements
-                li.active General
-        .main-filter
+                li.active Use Cases
+                li.active Basic financial transactions
+        // .main-filter
             form.main-filter__search
                 .input-group
                     input.form-control(type="text", placeholder="Search...")
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
-    .container-fluid.half-padding
-        // include:markdown-it ../../../../usecases/docs/basic_financial_transactions/basic_financial_transactions.md
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .panel.panel-info
+                            .panel-heading
+                                h2.panel-title How to implement basic financial transactions
+                            .panel-body
+                                 include ../../../../usecases/output/basic_financial_transactions/hits-dashboard_raw.html
+block css
+block js
+    if !release
+        script(src='js/template/index.js')
