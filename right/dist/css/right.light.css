@@ -55,6 +55,12 @@ h1 {
 h2 {
   font-family: 'Oswald', sans-serif;
 }
+th {
+  color: #286DA8;
+}
+table {
+  font-family: 'Roboto Condensed', sans-serif;
+}
 body.framed {
   border: 10px solid transparent;
 }
@@ -200,7 +206,7 @@ body.main-scrollable .main {
   display: inline-block;
   vertical-align: middle;
   font-size: 25px;
-  width: 15px;
+  width: 60px;
   color: #CD5360;
 }
 .logo__text {
@@ -217,7 +223,7 @@ body.main-scrollable .main {
 .userbar__settings {
   padding: 20px 29px !important;
   box-sizing: border-box;
-  color: #5e6870;
+  color: white;
 }
 .dashboard {
   border-top: 75px solid transparent;
@@ -1714,6 +1720,11 @@ body.main-scrollable .main {
   bottom: 0;
   width: 100%;
   background-color: #CD5360;
+  color: white;
+  padding: 10px;
+}
+.foot a {
+  color: white;
 }
 .no-padding {
   padding: 0;
