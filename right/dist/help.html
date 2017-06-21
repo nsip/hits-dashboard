@@ -40,7 +40,7 @@
           <div class="header-navbar-mobile__menu">
             <button type="button" class="btn"><i class="fa fa-bars"></i></button>
           </div>
-          <div class="header-navbar-mobile__title"><span>Recover</span></div>
+          <div class="header-navbar-mobile__title"><span>Developer Help</span></div>
           <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#">Log Out</a></li>
@@ -119,11 +119,11 @@
                   </li>
                 </ul>
                 <ul class="nav nav-menu">
-                  <li class="active opened"><a href="start.html">
+                  <li><a href="start.html">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
                       <div class="nav-menu__text"><span>Developer Tools</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
-                    <ul class="nav nav-menu__second collapse in">
+                    <ul class="nav nav-menu__second collapse">
                       <li><a href="account.html" class="addids">Databases</a></li>
                       <li><a href="dashboard.html" class="addids">Information</a></li>
                       <li><a href="client.html" class="addids">Javascript Client</a></li>
@@ -132,11 +132,11 @@
                   </li>
                 </ul>
                 <ul class="nav nav-menu">
-                  <li><a href="help.html">
+                  <li class="active opened"><a href="help.html">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-th-large"></i></div>
                       <div class="nav-menu__text"><span>Developer Help</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
-                    <ul class="nav nav-menu__second collapse">
+                    <ul class="nav nav-menu__second collapse in">
                       <li><a href="connect_java_consumer.html" class="addids">Connect Java consumer</a></li>
                       <!-- li(class=page=='Connect .NET consumer' ? 'active' : '')a.addids(href='connect_net_consumer.html') Connect .NET consumer
                       -->
@@ -154,36 +154,40 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
-                    <li><a href="start.html">Developer Tools</a></li>
-                    <li class="active">Recovery</li>
+                    <li class="active">Developer Help</li>
                   </ol>
                 </div>
-                <div class="main-filter">
-                  <form class="main-filter__search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search..." class="form-control"><span class="input-group-btn">
-                        <button type="button" class="btn btn-default">
-                          <div class="fa fa-search"></div>
-                        </button></span>
-                    </div>
-                  </form>
-                </div>
+                <!-- .main-filter
+                form.main-filter__search
+                    .input-group
+                        input.form-control(type="text", placeholder="Search...")
+                        span.input-group-btn
+                            button.btn.btn-default(type="button")
+                                .fa.fa-search
+                -->
                 <div class="pages pages_dashboard"></div>
                 <div class="template">
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="panel panel-info">
-                        <div class="panel-heading">
-                          <h2 class="panel-title">Recovery</h2>
-                        </div>
-                        <div class="panel-body">
-                          <p>Your environment URL is necessary to access any databases you have created in HITS If you do not have your original environment URL, try the following:</p>
-                          <ol>
-                            <li>If you haven't used HITS before, you will need a unique environment URL to start working with HITS. Request this via <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
-                            <li>If you have used HITS before, search your email for the original environment URL which was sent to you by NSIP.</li>
-                            <li>If you can't find your environment URL, ask for it to be resent via <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
-                            <p>(Automated self resend coming soon!)</p>
-                          </ol>
+                      <div class="container-fluid half-padding">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="panel panel-info">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Developer Help</h3>
+                              </div>
+                              <div class="panel-body">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <ul>
+                                      <li><a href="connect_java_consumer.html">Connect Java consumer</a></li>
+                                      <li><a href="connect_generic_consumer.html">Connect generic consumer</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -7,6 +7,8 @@ block main
     .main-heading
         .main-title
             ol.breadcrumb
+                li
+                  a(href="help.html") Developer Help
                 li.active Help
         // .main-filter
             form.main-filter__search
@@ -30,10 +32,10 @@ block main
                                         p To be able to connect your consumer to HITS you must have an account on HITS. Please contact NSIP to provide you with details on how to create one. Once you have an account, please login or use your account URL that is of the form <http://hits.nsip.edu.au/dashboard/account.html> to get to the landing page. In the menu on the right select “Developer Tools-&gt;Databases” to get your available sandbox databases.
                                         p Either you create a new database or you use one that has been created previously. In the lower part of that page you will see something like this:
                                         h4 Figure 1: SIF3 HITS Database View
-                                        img(src="figure1.png")
+                                        img(src="../img/figure1.png")
                                         p Select one of the exiting databases and you will get the details page of that database with the SIF Environment information. The second part of that page looks like this:
                                         h4 Figure 2: SIF3 HITS Environment Page
-                                        img(src="figure2.png")
+                                        img(src="../img/figure2.png")
                                         h3 Configure SIF3 Java Framework
                                         p To configure the SIF3 Java Framework to connect to the HITS environment listed in previous section you need to do the following steps:
                                         h4 Step 1: Set Solution ID in Environment Template

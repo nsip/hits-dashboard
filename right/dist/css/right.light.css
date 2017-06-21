@@ -436,6 +436,7 @@ body.main-scrollable .main {
   background-color: transparent;
   overflow-y: auto;
   border-top: 1px solid #f9f9f9;
+  padding-bottom: 50px;
 }
 @media (max-width: 768px) {
   .main {

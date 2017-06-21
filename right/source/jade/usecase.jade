@@ -1,15 +1,13 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Basic financial transactions';
+    - page = 'Use Cases';
     - area = 'Usecase';
 block main
 
     .main-heading
         .main-title
             ol.breadcrumb
-                li
-                  a(href="usecase.html") Use Cases
-                li.active Basic financial transactions
+                li.active Use Cases
         // .main-filter
             form.main-filter__search
                 .input-group
@@ -23,9 +21,10 @@ block main
                 .col-md-12
                     .panel.panel-info
                             .panel-heading
-                                h2.panel-title How to implement basic financial transactions
+                                h2.panel-title Use Cases
                             .panel-body
-                                 include ../../../../usecases/output/basic_financial_transactions/hits-dashboard_raw.html
+                                ul
+                                    include parts/usecases
 block css
 block js
     if !release
