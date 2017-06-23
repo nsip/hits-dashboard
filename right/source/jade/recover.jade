@@ -4,11 +4,6 @@ block vars
     - area = 'Tools';
 block main
     .main-heading
-        .main-title
-            ol.breadcrumb
-                li
-                    a(href="start.html") Developer Tools
-                li.active Recovery
         .main-filter
             form.main-filter__search
                 .input-group
@@ -16,6 +11,12 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="start.html") Developer Tools
+                li.active Recovery
+    .container-fluid.half-padding
         .pages.pages_dashboard
         .template
             .row

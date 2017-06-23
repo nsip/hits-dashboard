@@ -3,11 +3,10 @@ block vars
     - page = 'Welcome';
     - area = 'Welcome';
 block main
-
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Welcome
+                li.active Welcome
         // .main-filter
             form.main-filter__search
                 .input-group
@@ -15,6 +14,7 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+    .container-fluid.half-padding
         .pages.pages_dashboard
         .template
             .row
@@ -26,12 +26,7 @@ block main
                                     .panel-heading
                                         h3.panel-title Welcome to HITS (Hub Integration Testing Services)
                                     .panel-body
-                                        .row
-                                          .col-md-6
-                                            img(src='img/introduction.png',style='max-width: 100%')
-                                          .col-md-6
-                                            p
-                                              strong An assurance and demonstration environment for education integrations.
+                                        p HITS is an assurance and demonstration environment for education integrations.
                                 .panel.panel-info
                                     .panel-heading
                                         h3.panel-title Request an account

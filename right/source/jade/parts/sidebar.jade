@@ -18,7 +18,7 @@
             .sidebar__menu
                 .sidebar__title Menu
                 ul.nav.nav-menu
-                    li(class=page=='Welcome' ? 'active' : '')
+                    li(class=area=='Welcome' ? 'active' : '')
                         a.addids(href="./")
                             .nav-menu__ico
                                 i.fa.fa-fw.fa-star
@@ -27,16 +27,16 @@
                             .nav-menu__right
                                 i.fa.fa-fw.fa-angle-right.arrow
                         ul.nav.nav-menu__second.collapse(class=area == 'Welcome' ? 'in' : '')
-                            li
-                                a(href='interoperability.html') Interoperability
-                            li
-                                a(href='commitment.html') Commitment to SIF
+                            li(class=page=='Interoperability' ? 'active' : '')
+                                a.addids(href='interoperability.html') Interoperability
+                            li(class=page=='Commitment' ? 'active' : '')
+                                a.addids(href='commitment.html') Commitment to SIF
                 // TODO - Copy this to Topbar if necessary ?
                 ul.nav.nav-menu
                     li(class=area=='Usecase' ? 'active opened' : '')
                         a(href="usecase.html")
                             .nav-menu__ico
-                                i.fa.fa-fw.fa-th-large
+                                i.fa.fa-fw.fa-book
                             .nav-menu__text
                                 span Use Cases
                             .nav-menu__right
@@ -60,7 +60,7 @@
                     li(class=area=='Tools' ? 'active opened' : '')
                         a(href="start.html")
                             .nav-menu__ico
-                                i.fa.fa-fw.fa-th-large
+                                i.fa.fa-fw.fa-puzzle-piece
                             .nav-menu__text
                                 span Developer Tools
                             .nav-menu__right
@@ -78,7 +78,7 @@
                     li(class=area=='Developer Help' ? 'active opened' : '')
                         a(href="help.html")
                             .nav-menu__ico
-                                i.fa.fa-fw.fa-th-large
+                                i.fa.fa-fw.fa-map-signs
                             .nav-menu__text
                                 span Developer Help
                             .nav-menu__right

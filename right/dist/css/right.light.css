@@ -54,6 +54,15 @@ h1 {
 }
 h2 {
   font-family: 'Oswald', sans-serif;
+  font-size: 1.6em;
+}
+h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.1em;
+  font-weight: bold;
 }
 th {
   color: #286DA8;
@@ -274,7 +283,7 @@ body.main-scrollable .main {
 }
 .sidebar__cont {
   margin-top: -30px;
-  padding: 35px 0 40px;
+  padding: 30px 0 40px;
   width: 100%;
   white-space: nowrap;
   font-size: 0;
@@ -291,9 +300,11 @@ body.main-scrollable .main {
 }
 .sidebar__title {
   display: inline-block;
-  padding: 10px 20px 5px;
+  padding: 10px 20px 7px;
   font-weight: bold;
   color: #88939C;
+  width: 100%;
+  background: #f9f9f9;
 }
 .sidebar__btn {
   padding: 10px 20px 2px;
@@ -465,21 +476,22 @@ body.main-scrollable .main {
   width: 100%;
   padding-right: 230px;
   margin-right: -215px;
-  float: left;
 }
 .main-heading .main-filter {
   float: right;
   width: 215px;
 }
 .main-heading .main-filter .main-filter__search .form-control {
-  height: 36px;
-  padding: 5px 15px;
+  height: 28px;
+  padding: 5px 10px;
   background-color: transparent;
   border: 1px solid transparent;
   text-align: right;
   color: #5e6870;
   outline: none;
   box-shadow: none;
+  background: white;
+  margin-top: 4px;
 }
 .main-heading .main-filter .main-filter__search .form-control::-moz-placeholder {
   color: #5e6870;
@@ -2229,7 +2241,7 @@ body.main-scrollable .main {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   text-transform: none;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 .panel-body {
   padding: 7px 20px;
@@ -2413,7 +2425,7 @@ body.main-scrollable .main {
 .dropdown-menu li > a:hover,
 .dropdown-menu li.active > a,
 .dropdown-menu li.active > a:hover {
-  color: #88939C;
+  color: #30363c;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.1);
 }

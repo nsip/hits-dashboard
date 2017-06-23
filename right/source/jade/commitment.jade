@@ -1,13 +1,14 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Commitment to SIF';
+    - page = 'Commitment';
     - area = 'Welcome';
 block main
 
     .main-heading
         .main-title
             ol.breadcrumb
-                li.active HITS Welcome
+                li
+                  a(href="index.html") Welcome
                 li.active Commitment to SIF
         // .main-filter
             form.main-filter__search
@@ -16,6 +17,7 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+    .container-fluid.half-padding
         .pages.pages_dashboard
         .template
             .row
