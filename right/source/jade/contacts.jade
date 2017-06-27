@@ -1,6 +1,6 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Accounts';
+    - page = 'Contacts';
     - area = 'Admin';
     - development = false;
 block main
@@ -9,7 +9,7 @@ block main
             ol.breadcrumb
                 li
                     a(href="./") Admin
-                li.active Accounts
+                li.active Contacts
         .main-filter
             form.main-filter__search
                 .input-group
@@ -23,25 +23,11 @@ block main
                 .col-md-12
                     .panel.panel-danger
                         .panel-heading
-                            h3.panel-title Accounts
+                            h3.panel-title Contacts
                         .panel-body
                             .container-fluid.half-padding
                                 #buttons
-                                table.datalist__table.table.datatable.display.table-hover(id='admin-accounts', width='100%')
-
-    .container-fluid.half-padding
-        .template.template__blank
-            .row
-                .col-md-12
-                    h3 Create new account
-                    form
-                        .form-group
-                            input.form-control#create-name(name="name", type='text', placeholder='Name of Account')
-                        .form-group
-                            input.form-control#create-email(name="type", type='text', placeholder='Email')
-                        .form-group.login__action
-                            .login__submit
-                                button.btn.btn-default#create-create(type='submit') Create
+                                table.datalist__table.table.datatable.display.table-hover(id='admin-contacts', width='100%')
 
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')

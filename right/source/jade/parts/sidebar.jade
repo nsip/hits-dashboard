@@ -105,10 +105,12 @@
                               .nav-menu__right
                                   i.fa.fa-fw.fa-angle-right.arrow
                           ul.nav.nav-menu__second.collapse(class=area == 'Admin' ? 'in' : '')
-                              li(class=page=='Admin' ? 'active' : '')
-                                  a(href='admin.html') Admin
+                              li(class=page=='Accounts' ? 'active' : '')
+                                  a(href='admin.html') Accounts
+                              li(class=page=='Contacts' ? 'active' : '')
+                                  a(href='contacts.html') Contacts
                               li(class=page=='Login' ? 'active' : '')
-                                  a(href='login.html') Admin
+                                  a(href='login.html') Login
                 block sidebar
                 if development
                     .sidebar__title Template
