@@ -26,21 +26,55 @@ body {
 
 a {
   text-decoration: none;
-  color: @gray-ui;
+  color: @blue-light;
 
   &:hover,
   &:focus,
   &:active {
     text-decoration: underline;
-    color: @gray-text;
+    color: @red;
     outline: none;
   }
 }
 
 code {
-  background-color: @smoke-dark;;
+  background-color: @smoke-dark;
 }
 
 .scrollable {
   overflow: hidden;
+}
+
+blockquote {
+    padding: 0 20px;
+    margin: 0 0 20px;
+    border-left: 1px solid @gray-text;
+    font-size: 1em;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+  }
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6em;
+  }
+
+h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4em;
+  }
+
+h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+th {
+  color: @blue;
+}
+
+.panel img {
+   max-width: 100%;
 }

@@ -1,16 +1,16 @@
 extends ./parts/layout.jade
 block vars
     - page = 'Timetable';
-    - development = false;
     - area = 'Usecase';
 block main
+
     .main-heading
         .main-title
             ol.breadcrumb
                 li
-                    a(href="./") UI Elements
-                li.active General
-        .main-filter
+                  a(href="usecase.html") Use Cases
+                li.active Timetable
+        // .main-filter
             form.main-filter__search
                 .input-group
                     input.form-control(type="text", placeholder="Search...")
@@ -18,4 +18,16 @@ block main
                         button.btn.btn-default(type="button")
                             .fa.fa-search
     .container-fluid.half-padding
-        // include:markdown-it ../../../../usecases/docs/timetable/timetable.md
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .panel.panel-info
+                            .panel-heading
+                                h2.panel-title How to implement timetable
+                            .panel-body
+                                 include ../../../../usecases/output/timetable/hits-dashboard_raw.html
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

@@ -23,6 +23,10 @@ module.exports = {
 		password: 'foxcrowbaker'
 	},
 
+	"create": {
+		base: "http://hits.nsip.edu.au/dbcreate",
+	},
+
 	"log": {
 		"output": "logs",
 		"exitOnError": true,

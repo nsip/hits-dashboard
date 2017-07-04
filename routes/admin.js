@@ -68,6 +68,37 @@ router.post('/', function(req, res) {
 	);
 });
 
+router.get('/test/mail', function(req, res) {
+	res.mailer.send('email', {
+     to: 'scottp@dd.com.au', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+     subject: 'Test Email', // REQUIRED.
+     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+   }, function (err) {
+     if (err) {
+       // handle error
+       console.log(err);
+       res.send('There was an error sending the email = ' + err);
+       return;
+     }
+     res.send('Email Sent');
+   });
+});
+
+router.get('/contact', function(req, res) {
+	var connection = db.connect();
+	connection.query(
+		"SELECT * FROM contact WHERE status <> 'done'",
+		function(err, rows, fields) {
+			if (err)
+				return res.error(err);
+			return res.json({
+				success: 1,
+				data: rows
+			});
+		}
+	);
+});
+
 // GET - one account entry
 router.get('/:id', function(req, res) {
 	var connection = db.connect();
@@ -96,22 +127,6 @@ router.get('/:id', function(req, res) {
 // PUT - update existing entry
 router.put('/:id', function(req, res) {
 	// Update record
-});
-
-router.get('/test/mail', function(req, res) {
-	res.mailer.send('email', {
-     to: 'scottp@dd.com.au', // REQUIRED. This can be a comma delimited string just like a normal email to field.
-     subject: 'Test Email', // REQUIRED.
-     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
-   }, function (err) {
-     if (err) {
-       // handle error
-       console.log(err);
-       res.send('There was an error sending the email = ' + err);
-       return;
-     }
-     res.send('Email Sent');
-   });
 });
 
 module.exports = router;

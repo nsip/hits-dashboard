@@ -1,0 +1,33 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Enrolment';
+    - area = 'Usecase';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                  a(href="usecase.html") Use Cases
+                li.active Enrolment
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .panel.panel-info
+                            .panel-heading
+                                h2.panel-title How to implement enrolment
+                            .panel-body
+                                 include ../../../../usecases/output/enrollment/hits-dashboard_raw.html
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

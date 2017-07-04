@@ -5,13 +5,6 @@ block vars
     - area = 'Tools';
 block main
     .main-heading
-        .main-title
-            ol.breadcrumb
-                li
-                  a(href="start.html") Start here
-                li
-                  a(href="account.html") Databases
-                li.active Information
         .main-filter
             form.main-filter__search
                 .input-group
@@ -19,6 +12,11 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+        .main-title
+            ol.breadcrumb
+                li
+                  a(href="start.html") Developer Tools
+                li.active Information
     .container-fluid.half-padding
         .template.template__table_data
             .row
@@ -181,7 +179,6 @@ block main
                         code.field.xml#debug-log
                   .modal-footer
                       button.btn.btn-default(type="button", data-dismiss="modal") Close
-
 block css
     link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
     link(href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css')

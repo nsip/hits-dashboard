@@ -1,0 +1,32 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Use Cases';
+    - area = 'Usecase';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active Use Cases
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .panel.panel-info
+                            .panel-heading
+                                h2.panel-title Use Cases
+                            .panel-body
+                                ul
+                                    include parts/usecases
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

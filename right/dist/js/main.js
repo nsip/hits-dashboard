@@ -147,7 +147,29 @@ $(document).ready(function() {
       console.log(row);
       out[row.name] = row.value;
     });
-    console.log("OUT", out);
+
+    $.ajax({
+      type: "POST",
+      dataType: 'json',
+      url: "/api/contact",
+      data: out
+    })
+    .done(function( data ) {
+      if (data && data.success) {
+        // XXX Improved presentation
+        alert("Successfully requested contact. Please wait 2 working days.");
+        console.log(data);
+      }
+      else {
+        // XXX Improved presentation
+        alert("Failed contact - " + data.error);
+      }
+    })
+    .fail(function() {
+      // XXX Improved presentation
+      alert("Failed contact. Try reloading.");
+    });
+
   });
 
 });

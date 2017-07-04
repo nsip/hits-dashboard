@@ -1,11 +1,9 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'Recovery';
+    - page = 'Recover';
+    - area = 'Tools';
 block main
     .main-heading
-        .main-title
-            ol.breadcrumb
-                li.active Recovery
         .main-filter
             form.main-filter__search
                 .input-group
@@ -13,18 +11,28 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="start.html") Developer Tools
+                li.active Recovery
+    .container-fluid.half-padding
         .pages.pages_dashboard
+        .template
             .row
-                p Your environment URL is necessary to access any databases you have created in HITS If you do not have your original environment URL, try the following:
-                ol
-                  li If you haven't used HITS before, you will need a unique environment URL to start working with HITS. Request this via
-                    span &nbsp;
-                    a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                  li If you have used HITS before, search your email for the original environment URL which was sent to you by NSIP.
-                  li If you can't find your environment URL, ask for it to be resent via
-                    span &nbsp;
-                    a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                  p (Automated self resend coming soon!)
+                .col-md-12
+                    .panel.panel-info
+                            .panel-heading
+                                    h2.panel-title Recovery
+                                .panel-body
+                                    p Your environment URL is necessary to access any databases you have created in HITS If you do not have your original environment URL, try the following:
+                                    ol
+                                        li If you haven't used HITS before, you will need a unique environment URL to start working with HITS. Request this via 
+                                            a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
+                                        li If you have used HITS before, search your email for the original environment URL which was sent to you by NSIP.
+                                        li If you can't find your environment URL, ask for it to be resent via 
+                                            a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
+                                        p (Automated self resend coming soon!)
 block css
 block js
     if !release

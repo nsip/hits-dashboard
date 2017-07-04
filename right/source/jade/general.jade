@@ -4,11 +4,6 @@ block vars
     - development = true;
 block main
     .main-heading
-        .main-title
-            ol.breadcrumb
-                li
-                    a(href="./") UI Elements
-                li.active General
         .main-filter
             form.main-filter__search
                 .input-group
@@ -16,6 +11,11 @@ block main
                     span.input-group-btn
                         button.btn.btn-default(type="button")
                             .fa.fa-search
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") UI Elements
+                li.active General
     .container-fluid.half-padding
         .template.template__general
             .row

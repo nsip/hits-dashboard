@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
 
   var connection = db.connect();
   connection.query(
-    'INSERT INTO contact (id, datetime, data) VALUES (?,NOW(),?)',
+    "INSERT INTO contact (id, status, created_at, data) VALUES (?,'waiting', NOW(),?)",
     [ id, data ],
     function(err, rows, fields) {
       if (err)

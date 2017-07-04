@@ -1,4 +1,7 @@
+config/local.js
 node_modules
 *.swp
 logs
 right/source/docs
+.DS_Store
+package-lock.json

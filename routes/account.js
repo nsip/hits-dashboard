@@ -1,3 +1,4 @@
+var config = require('config');
 var express = require('express');
 var router = express.Router();
 var uuid = require('node-uuid');
@@ -164,13 +165,13 @@ router.post('/:accountId/database', function(req, res, next) {
 
       // XXX Change this to check value of return straight away
       logger.debug("REMOTE: Sending request GET " +
-                                'http://hits.nsip.edu.au/dbcreate'
+				config.create.base
                                 + '?name=' + id
                                 + '&encode=json'
                                 + '&type=' + type
       );
       requestify.get(
-        'http://hits.nsip.edu.au/dbcreate'
+	config.create.base
         + '?name=' + id
         + '&encode=json'
         + '&type=' + type,
