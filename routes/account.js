@@ -172,7 +172,7 @@ router.post('/:accountId/database', function(req, res, next) {
       );
       requestify.get(
 	config.create.base
-        + '?name=' + id
+        + '?name=sif' + id
         + '&encode=json'
         + '&type=' + type,
         {
