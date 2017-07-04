@@ -10,12 +10,11 @@ The use case lists the kinds of objects involved in the exchange, the anticipate
 
 As a part of your sign-up process for HITS, you will have received the URL for a unique environment for testing, which takes you to the dashboard you now see.
 
-You can now create databases on HITS populated with the randomly-generated demo data you need for testing various use cases. HITS acts as a proxy for the hub you will be integrating into. When you create your database, depending on the options you select, your new database is populated with randomised objects that are representative of the information stored on a hub. To simplify testing, your client is assigned to one dummy school: all objects on the database are associated with that school.
-<!--- is this last sentence still true? PH --->
+You can now create databases on HITS populated with the randomly-generated demo data you need for testing various use cases. HITS acts as a proxy for the hub you will be integrating into. When you create your database, depending on the options you select, your new database is populated with randomised objects that are representative of the information stored on a hub. 
 
 ### 3. Get some objects from HITS
 
-The use case describes the objects from the hub that you need to access; we expect that you will get all objects of the given classes that are available from HITS. Each object class is associated with a distinct endpoint, named by appending an "s" to the object class; you fetch instances of ScheduledActivity, for example, from the endpoint ending in /ScheduledActivitys.
+The use case describes the objects from the hub that you need to access; we expect that you will fetch all objects of the given classes that are available from HITS. Each object class is associated with a distinct endpoint, named by appending an "s" to the object class; you fetch instances of ScheduledActivity, for example, from the endpoint ending in /ScheduledActivitys.
 
 ### 4. Based on those objects, generate some new objects
 
