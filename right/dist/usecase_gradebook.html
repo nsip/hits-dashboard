@@ -176,10 +176,15 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement gradebook</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
+<li>A HITS testing account - apply at <script type="text/javascript">
+<!--
+h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -189,16 +194,21 @@
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
-<h2 id="how-to-implement-gradebook">How to implement gradebook</h2>
-<h3 id="whats-the-business-problem">1. What's the business problem?</h3>
+<p>If you get stuck: drop us a line at <script type="text/javascript">
+<!--
+h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
+<h2 id="how-to-implement-gradebook"><a href="#how-to-implement-gradebook">How to implement gradebook</a></h2>
+<h3 id="whats-the-business-problem"><a href="#whats-the-business-problem">1. What's the business problem?</a></h3>
 <p>Allow schools to securely provide account information to the classroom assessment product of their choice, and also to allow assessment results records to be published to a jurisdictional data hub.</p>
 <p><strong><a href="#what-business-problem-does-this-usecase-address">More...</a></strong></p>
-<h3 id="usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</h3>
+<h3 id="usecase-description-pre-conditions"><a href="#usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</a></h3>
 <p>A third party classroom assessment application connects to HITS as a jurisdiction hub, collecting the relevant information and publishing back assessment results records to the centralised system.</p>
-<h4 id="assumptions">Assumptions:</h4>
+<h4 id="assumptions"><a href="#assumptions">Assumptions:</a></h4>
 <p>The third party vendor is a current supplier of a classroom assessment product in schools or has knowledge of classroom assessment processes in K-12 Schools.</p>
-<h4 id="pre-conditions">Pre-Conditions:</h4>
+<h4 id="pre-conditions"><a href="#pre-conditions">Pre-Conditions:</a></h4>
 <ul>
 <li>Vendor has access to HITS.</li>
 <li>HITS has been provisioned with School Data.</li>
@@ -214,8 +224,8 @@
 <li>GradingAssignmentScore</li>
 </ul></li>
 </ul>
-<p><strong>Note:</strong> Some of these objects are proposed for SIF 1.4 and are therefore not in the SIF 1.3 schema. Here is <a href="../common/resources/SIF_Message1.4_3.x_current.zip"><strong>a draft XSD schema for SIF 1.4</strong></a>, and here are <strong><a href="resources/DSWG_V1.4_ChangeProposal_GradingAssignment_0.4.pdf">draft specifications for the proposed grading objects</a></strong> listed above.)</p>
-<h4 id="usecase-workflow-summary">Usecase workflow summary:</h4>
+<p>Here is <a href="http://specification.sifassociation.org/Implementation/AU/3.4.1/XSD/DataModelNoIncludes.zip"><strong>the XSD schema for SIF 3.4.1</strong></a>, and here are <strong><a href="resources/DSWG_V1.4_ChangeProposal_GradingAssignment_0.4.pdf">the specifications for the grading objects</a></strong> listed above.</p>
+<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary:</a></h4>
 <ol style="list-style-type: decimal">
 <li><p>Join</p></li>
 <li><p>Consume</p></li>
@@ -223,21 +233,21 @@
 <li><p>Provide</p></li>
 <li><p>Assurance</p></li>
 </ol>
-<h4 id="assurance">Assurance:</h4>
+<h4 id="assurance"><a href="#assurance">Assurance:</a></h4>
 <p>The SIF/XML data sent by the third party app to the Jurisdiction Zone for the app must satisfy the following conditions:</p>
 <ul>
 <li><p>Must be able to provide all GradingAssignment records within a School;</p></li>
 <li><p>Must be able provide all GradingAssignmentScore records within a School.</p></li>
 </ul>
 <p><strong><a href="#usecase-preconditions-for-assurance">More...</a></strong></p>
-<h3 id="join-school-zone.">3. Join school zone.</h3>
+<h3 id="join-school-zone."><a href="#join-school-zone.">3. Join school zone.</a></h3>
 <p>Join:</p>
 <ul>
 <li>Third party app connects to Jurisdiction-established Zone for the School (&quot;HITS Zone 1&quot;).</li>
 <li>Third party app authenticates to Jurisdiction-established Zone for the School (&quot;HITS Zone 1 Authz&quot;).</li>
 <li>Jurisdiction Zone authorises read access to objects in the Jurisdiction Zone for the School (&quot;HITS Zone 1 Authn&quot;).</li>
 </ul>
-<h3 id="consume-base-data-from-hits">4. Consume base data from HITS</h3>
+<h3 id="consume-base-data-from-hits"><a href="#consume-base-data-from-hits">4. Consume base data from HITS</a></h3>
 <p>Vendor-facing (pull); HITS represents the Jurisdiction and is the data source for seed information.</p>
 <ul>
 <li>Consume:</li>
@@ -247,7 +257,7 @@
 <li>Third party app ingests the relevant SIF objects.</li>
 </ul>
 <p>There are two possible ways to obtain the base information through REST service path calls:</p>
-<h4 id="via-single-data-dump">Via single data dump</h4>
+<h4 id="via-single-data-dump"><a href="#via-single-data-dump">Via single data dump</a></h4>
 <p>The first assumes that all available students, staff, and classes, in all known schools, will be exposed to the third party application, as a single dump of data. This is the path recommended for HITS assurance, as it is simpler to fetch the data and start generating objects for validation.  (This is useful to prove that the objects can be consumed and processed, as HITS end points contain customised test data.)</p>
 <ol style="list-style-type: decimal">
 <li>Get SchoolInfos: <code>http://.../SchoolInfos</code></li>
@@ -257,7 +267,7 @@
 <li>Get StaffPersonals: <code>http://.../StaffPersonals</code> (linked to school via StaffAssignment; equivalent to <code>http://.../SchoolInfo/{REFID}/StaffAssignments/{REFID}/StaffPersonals</code>)</li>
 <li>Get TeachingGroups: <code>http://.../TeachingGroups</code> (linked to a school via SchoolInfoRefId)</li>
 </ol>
-<h4 id="via-teaching-groups">Via teaching groups</h4>
+<h4 id="via-teaching-groups"><a href="#via-teaching-groups">Via teaching groups</a></h4>
 <p>The second assumes, more realistically, that only certain teaching groups will be exposed to the application, and that any staff and student records exposed should be accessed via their teaching group. You do not need to obtain data this way for HITS assurance: you will end up getting the same data, since at this stage endpoints are customised for the user. But you should be prepared to consume data from SIF APIs in the following way for production environment where the end point contains more than one school's data:</p>
 <ol style="list-style-type: decimal">
 <li>Get SchoolInfos: <code>http://.../SchoolInfos</code></li>
@@ -266,7 +276,7 @@
 <li>Get StaffPersonals: <code>http://.../TeachingGroups/{REFID}/StaffPersonals</code> (Calls to StaffAssignment are unnecessary; note that the same staff record may appear under two different teaching groups. )</li>
 </ol>
 <p>Endpoints may support additional queries for retreiving data - refer to <strong><a href="../common/qbe_or_service_paths.html">Query-by-example or service paths?</a></strong> for HITS guidance on queries.</p>
-<h3 id="processes-in-third-party-application">5. Processes in third party application</h3>
+<h3 id="processes-in-third-party-application"><a href="#processes-in-third-party-application">5. Processes in third party application</a></h3>
 <p>The third party app uses the consumed data to produce descriptions of classroom assignments, and records of assignment results. The definition and automation of this process is out of scope of HITs.</p>
 <p>Steps:</p>
 <ol style="list-style-type: decimal">
@@ -277,7 +287,7 @@
 <li>Third party app creates descriptions of the classroom assessment tasks created.</li>
 <li>Third party app creates descriptions of the results that students achieved when performing the classroom assessment tasks.</li>
 </ol>
-<h3 id="provide-authoritative-data">6. Provide authoritative data</h3>
+<h3 id="provide-authoritative-data"><a href="#provide-authoritative-data">6. Provide authoritative data</a></h3>
 <p>Prior to providing, the third party expresses return information in SIF/XML:</p>
 <ol style="list-style-type: decimal">
 <li>Third party app connects to jurisdiction-established zone for the school (&quot;HITS Zone 1&quot;).</li>
@@ -290,13 +300,13 @@
 </ul></li>
 </ol>
 <p><strong>Note:</strong> The Activity object could be used instead of, or alongside, the GradingAssignment object to describe a classroom task, and gives much more information about the pedagogical context of the task. However although Activity/Points provides the possible score of the task, SIF does not contain an object giving individual students' performance against the activity.)  </p>
-<h3 id="self-confirm-usecase-support">7. Self-confirm usecase support</h3>
+<h3 id="self-confirm-usecase-support"><a href="#self-confirm-usecase-support">7. Self-confirm usecase support</a></h3>
 <ol style="list-style-type: decimal">
 <li>Validate GradingAssignment records</li>
 <li>Validate GradingAssignmentScore records</li>
 </ol>
-<h3 id="more-information">More information</h3>
-<h4 id="what-business-problem-does-this-usecase-address">What business problem does this usecase address?</h4>
+<h3 id="more-information"><a href="#more-information">More information</a></h3>
+<h4 id="what-business-problem-does-this-usecase-address"><a href="#what-business-problem-does-this-usecase-address">What business problem does this usecase address?</a></h4>
 <p>In brief:</p>
 <ul>
 <li>Allows schools secure access to SIS information.</li>
@@ -307,7 +317,7 @@
 <p>Schools currently use third-party classroom assessment locally for formative assessment. The seed information for generating accounts on third party apps is held in the School's Student Information System (SIS), and is usually exported locally to the third party apps with little security. There is an added complication: both student and class membership data are required as seed information, since classroom assessment is typically assigned to a class cohort by the class teacher. Class memberships can change frequently, imposing an additional burden on teachers who must manually update the third-party tools.</p>
 <p>As jurisdictions centralise systems, third party vendors have the opportunity to seed their product/s from a quality-assured data hub using automated feeds, rather than manual updates from the school. This allows changes such as new enrolments and changes in class membership to be reflected promptly and accurately in the third party applications. Third party vendors are also expected to provide information directly back to the centralised system through an automated feed, rather than having the information mediated through the school. This enables not only more secure and efficient transfer of information, but also the possibility of extracting business intelligence across the assessment results of multiple schools stored in the same hub. </p>
 <p>This use case shows how third party classroom assessment vendors can connect to a centralised data hub to securely access to the required information and publish back the assessment result records to the centralised data hub.</p>
-<h4 id="usecase-preconditions-for-assurance">Usecase preconditions for assurance</h4>
+<h4 id="usecase-preconditions-for-assurance"><a href="#usecase-preconditions-for-assurance">Usecase preconditions for assurance</a></h4>
 <p>The following conditions also must be met:</p>
 <ul>
 <li>Any SIF object published by the app must be valid against the SIF AU 1.4 schema. Note that the GradingAssignment and GradingAssignmentScore objects are proposed for inclusion in SIF  AU1.4.</li>

@@ -24,7 +24,7 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   var home = "/home/ubuntu";
   var root = home + "/HITS-Reports";
   var cmd = root + "/bin/report";
-  prc = spawn(root + "/bin/report", ["db/" + dbid, reportid + "/in.pl"], {
+  prc = spawn(root + "/bin/report", ["db/sif" + dbid, reportid + "/in.pl"], {
     env: {PERL5LIB: root + "/lib", HOME: home},
     cwd: root,
   });
