@@ -188,61 +188,73 @@
                               </div>
                               <div class="panel-body">
                                 <div class="form-horizontal">
-                                  <div class="form-group">
-                                    <form id="welcomeform">
+                                  <form id="welcomeform">
+                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Email address</label>
                                       <div class="col-sm-10">
                                         <input id="email-email" name="email" type="email" placeholder="your@email" class="form-control">
                                       </div>
+                                    </div>
+                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Name</label>
                                       <div class="col-sm-10">
                                         <input id="email-name" name="name" type="text" placeholder="Your name" class="form-control">
                                       </div>
+                                    </div>
+                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Organisation</label>
                                       <div class="col-sm-10">
                                         <input id="email-organisation" name="organisation" type="text" placeholder="Your organisation" class="form-control">
                                       </div>
+                                    </div>
+                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Interest</label>
                                       <div class="col-sm-10">
                                         <p>What is your interst in HITS?</p>
                                         <textarea id="email-interest" name="interest" placeholder="Interest" class="form-control"></textarea>
                                       </div>
-                                      <label class="col-sm-2 control-label">Options
-                                        <!--
-                                        What is your interest in HITS?* (long text field)
-                                        Are you a: (label for checkbox panel)
-                                        Developer (checkbox)
-                                        Architect (checkbox)
-                                        Do you represent a: (label for checkbox panel)
-                                        Vendor (checkbox)
-                                        School authority (checkbox)
-                                        Are you already familiar with SIF? (checkbox)
-                                        NSIP Project (pulldown list)
-                                        Submit (button)
-                                        
-                                        
-                                        -->
-                                      </label>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label">Options</label>
                                       <div class="col-sm-10">
                                         <div class="checkbox checkbox-primary">
                                           <input id="ch1" name="checkbox_developer" type="checkbox" checked="checked">
                                           <label for="ch1">Developer</label>
                                         </div>
                                         <div class="checkbox checkbox-success">
-                                          <input id="ch2" name="checkbox_organisation" type="checkbox" checked="checked">
-                                          <label for="ch2">Organisation</label>
+                                          <input id="ch2" name="checkbox_architect" type="checkbox" checked="checked">
+                                          <label for="ch2">Architect</label>
                                         </div>
                                         <div class="checkbox checkbox-info">
-                                          <input id="ch3" name="checkbox_partner" type="checkbox" checked="checked">
-                                          <label for="ch3">Partner</label>
+                                          <input id="ch3" name="checkbox_vendor" type="checkbox" checked="checked">
+                                          <label for="ch3">Vendor</label>
                                         </div>
                                         <div class="checkbox checkbox-warning">
-                                          <input id="ch4" name="checkbox_request" type="checkbox" checked="checked">
-                                          <label for="ch4">Request further information</label>
+                                          <input id="ch4" name="checkbox_school_authority" type="checkbox" checked="checked">
+                                          <label for="ch4">School Authority</label>
                                         </div>
                                       </div>
-                                    </form>
-                                  </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label">SIF</label>
+                                      <div class="col-sm-10">
+                                        <div class="checkbox checkbox-primary">
+                                          <input id="ch1" name="checkbox_sif" type="checkbox" checked="checked">
+                                          <label for="ch1">Are you already familiar with SIF?</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label">NSIP</label>
+                                      <div class="col-sm-10">
+                                        <select placeholder="Select" name="nsip_project" class="selectpicker form-control">
+                                          <option>One</option>
+                                          <option>Two</option>
+                                          <option>Three</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </form>
                                 </div>
                                 <div class="form-group">
                                   <label class="col-sm-2 control-label">Submit</label>

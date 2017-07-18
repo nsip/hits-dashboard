@@ -31,5 +31,13 @@ module.exports = {
 		"output": "logs",
 		"exitOnError": true,
 		"level": "info"
-	}
+	},
+
+    "nsip": {
+        "projects": [
+            'a',
+            'b',
+        ],
+    },
+
 };

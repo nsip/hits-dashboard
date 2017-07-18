@@ -32,50 +32,53 @@ block main
                                         h3.panel-title Request an account
                                     .panel-body
                                       .form-horizontal
-                                          .form-group
-                                            form#welcomeform
+                                         form#welcomeform
+                                            .form-group
                                               label.col-sm-2.control-label Email address
                                               .col-sm-10
                                                   input.form-control#email-email(name='email',type="email", placeholder="your@email")
+                                            .form-group
                                               label.col-sm-2.control-label Name
                                               .col-sm-10
                                                   input.form-control#email-name(name='name',type="text", placeholder="Your name")
+                                            .form-group
                                               label.col-sm-2.control-label Organisation
                                               .col-sm-10
                                                   input.form-control#email-organisation(name="organisation",type="text", placeholder="Your organisation")
+                                            .form-group
                                               label.col-sm-2.control-label Interest
                                               .col-sm-10
                                                   p What is your interst in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
 
+                                            .form-group
                                               label.col-sm-2.control-label Options
-
-                                                //
-                                                    What is your interest in HITS?* (long text field)
-                                                    Are you a: (label for checkbox panel)
-                                                    Developer (checkbox)
-                                                    Architect (checkbox)
-                                                    Do you represent a: (label for checkbox panel)
-                                                    Vendor (checkbox)
-                                                    School authority (checkbox)
-                                                    Are you already familiar with SIF? (checkbox)
-                                                    NSIP Project (pulldown list)
-                                                    Submit (button)
-
-
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch1(name="checkbox_developer",type='checkbox', checked='checked')
                                                       label(for='ch1') Developer
                                                   .checkbox.checkbox-success
-                                                      input#ch2(name="checkbox_organisation",type='checkbox', checked='checked')
-                                                      label(for='ch2') Organisation
+                                                      input#ch2(name="checkbox_architect",type='checkbox', checked='checked')
+                                                      label(for='ch2') Architect
                                                   .checkbox.checkbox-info
-                                                      input#ch3(name="checkbox_partner",type='checkbox', checked='checked')
-                                                      label(for='ch3') Partner
+                                                      input#ch3(name="checkbox_vendor",type='checkbox', checked='checked')
+                                                      label(for='ch3') Vendor
                                                   .checkbox.checkbox-warning
-                                                      input#ch4(name="checkbox_request",type='checkbox', checked='checked')
-                                                      label(for='ch4') Request further information
+                                                      input#ch4(name="checkbox_school_authority",type='checkbox', checked='checked')
+                                                      label(for='ch4') School Authority
+                                            .form-group
+                                              label.col-sm-2.control-label SIF
+                                              .col-sm-10
+                                                  .checkbox.checkbox-primary
+                                                      input#ch1(name="checkbox_sif",type='checkbox', checked='checked')
+                                                      label(for='ch1') Are you already familiar with SIF?
+                                            .form-group
+                                              label.col-sm-2.control-label NSIP
+                                              .col-sm-10
+                                                    select.selectpicker.form-control(placeholder='Select',name="nsip_project")
+                                                        option One
+                                                        option Two
+                                                        option Three
                                       .form-group
                                           label.col-sm-2.control-label Submit
                                           .col-sm-10
