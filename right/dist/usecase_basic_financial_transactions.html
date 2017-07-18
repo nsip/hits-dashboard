@@ -176,15 +176,10 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement basic financial transactions</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
+<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -194,20 +189,15 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
-<h2 id="how-to-implement-financial-processing"><a href="#how-to-implement-financial-processing">How to implement financial processing</a></h2>
-<h3 id="whats-the-business-problem"><a href="#whats-the-business-problem">1. What's the business problem?</a></h3>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h2 id="how-to-implement-financial-processing">How to implement financial processing</h2>
+<h3 id="whats-the-business-problem">1. What's the business problem?</h3>
 <p>Allow schools to carry out financial transactions using draft SIF Financial objects, including purchase orders, receipts, invoices, journalling, and payments. <strong><a href="#what-business-problem-does-this-usecase-address">More...</a></strong></p>
-<h3 id="usecase-description-pre-conditions"><a href="#usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</a></h3>
+<h3 id="usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</h3>
 <p>A 3rd Party Finance application connects to HITS as a jurisdiction hub, collecting the relevant information and publishing back finances records to the centralised system.</p>
-<h4 id="assumptions"><a href="#assumptions">Assumptions:</a></h4>
+<h4 id="assumptions">Assumptions:</h4>
 <p>3rd Party Vendor is a current supplier of a Finances product in schools or has knowledge of finances reporting processes in K-12 Schools.</p>
-<h4 id="pre-conditions"><a href="#pre-conditions">Pre-conditions:</a></h4>
+<h4 id="pre-conditions">Pre-conditions:</h4>
 <ul>
 <li>Vendor has access to HITS</li>
 <li>HITS has been provisioned with School Data</li>
@@ -226,7 +216,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>StudentContactPersonal</li>
 </ul></li>
 </ul>
-<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary:</a></h4>
+<h4 id="usecase-workflow-summary">Usecase workflow summary:</h4>
 <ol style="list-style-type: decimal">
 <li><p>Join</p></li>
 <li><p>Consume</p></li>
@@ -234,17 +224,17 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li><p>Provide</p></li>
 <li><p>Assurance</p></li>
 </ol>
-<h4 id="assurance"><a href="#assurance">Assurance:</a></h4>
+<h4 id="assurance">Assurance:</h4>
 <p>The SIF/XML data sent by the 3rd Party app to the Jurisdiction Zone for the app must satisfy the following conditions: - Any SIF object published by the App must be valid against the SIF-AU 3.4 schema - All mandatory elements of the submitted SIF objects are provided - All SIF objects posted by the App must have referential integrity. Any RefId contained in the SIF object must refer to a SIF object provisioned to the App—e.g. AccountingPeriod, FinancialAccount—or to another SIF object posted by the App (e.g. Payment referring to Billing).This condition applies recursively to all additional SIF objects posted by the App. The test of this condition is done only when the App indicates that it has finished publishing to the Zone the objects required for the test.</p>
 <p><strong><a href="#usecase-preconditions-for-assurance">More...</a></strong></p>
-<h3 id="join-school-zone"><a href="#join-school-zone">3. Join school zone</a></h3>
+<h3 id="join-school-zone">3. Join school zone</h3>
 <p>Join:</p>
 <ul>
 <li>Third party app connects to Jurisdiction-established Zone for the School (&quot;HITS Zone 1&quot;)</li>
 <li>Third party app authenticates to Jurisdiction-established Zone for the School (&quot;HITS Zone 1 Authz&quot;)</li>
 <li>Jurisdiction Zone authorises read access to objects in the Jurisdiction Zone for the School (&quot;HITS Zone 1 Authn&quot;)</li>
 </ul>
-<h3 id="consume-base-data-from-hits"><a href="#consume-base-data-from-hits">4. Consume base data from HITS</a></h3>
+<h3 id="consume-base-data-from-hits">4. Consume base data from HITS</h3>
 <p>Vendor-facing (pull); HITS represents the Jurisdiction and is the data source for seed information.</p>
 <ul>
 <li>Consume:</li>
@@ -261,7 +251,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Get StudentContactPersonal: <code>http://.../StudentContactPersonals</code></li>
 </ol>
 <p>Endpoints may support additional queries for retreiving data - refer to <strong><a href="../common/qbe_or_service_paths.html">Query-by-example or service paths</a></strong> for HITS guidance on queries.</p>
-<h3 id="process-in-3rd-party-application"><a href="#process-in-3rd-party-application">5. Process in 3rd Party Application</a></h3>
+<h3 id="process-in-3rd-party-application">5. Process in 3rd Party Application</h3>
 <p>3rd Party App uses the consumed data to generate appropriate transaction information. The definition and automation of this process is out of scope of HITs.</p>
 <p>Steps:</p>
 <ul>
@@ -290,16 +280,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Post Journal to URL <code>http://../Journals</code></li>
 </ol></li>
 </ul>
-<h3 id="self-confirm-usecase-support"><a href="#self-confirm-usecase-support">7. Self – confirm usecase support</a></h3>
+<h3 id="self-confirm-usecase-support">7. Self – confirm usecase support</h3>
 <ol style="list-style-type: decimal">
 <li>Validate Invoice records</li>
 <li>Validate PaymentReceipts records</li>
 <li>Validate PurchaseOrder records</li>
 <li>Validate Journal records</li>
 </ol>
-<h1 id="more-information"><a href="#more-information">More information</a></h1>
-<h4 id="what-business-problem-does-this-usecase-address"><a href="#what-business-problem-does-this-usecase-address">What business problem does this usecase address?</a></h4>
-<h6 id="in-brief"><a href="#in-brief">In brief:</a></h6>
+<h1 id="more-information">More information</h1>
+<h4 id="what-business-problem-does-this-usecase-address">What business problem does this usecase address?</h4>
+<h6 id="in-brief">In brief:</h6>
 <ul>
 <li>Allow schools secure access to finance information</li>
 <li>Allow schools to use the financials product of their choice</li>
@@ -324,21 +314,26 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>The following three workflows are SIF-based exchanges which realise most of these priority areas:</p>
 <div class="figure">
 <img src="images/financial_hits1.png" title="financial_hits1.png" />
+
 </div>
 <div class="figure">
 <img src="images/financial_hits2.png" title="financial_hits2.png" />
+
 </div>
 <div class="figure">
 <img src="images/financial_hits3.png" title="financial_hits3.png" />
+
 </div>
 <p>The following two workflows represent reporting processes which do not require SIF support, as they are already internally to common financial applications:</p>
 <div class="figure">
 <img src="images/financial_hits4.png" title="financial_hits4.png" />
+
 </div>
 <div class="figure">
 <img src="images/financial_hits5.png" title="financial_hits5.png" />
+
 </div>
-<h4 id="usecase-preconditions-for-assurance"><a href="#usecase-preconditions-for-assurance">Usecase preconditions for assurance</a></h4>
+<h4 id="usecase-preconditions-for-assurance">Usecase preconditions for assurance</h4>
 <p>None.</p>
 
                         </div>

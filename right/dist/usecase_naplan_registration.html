@@ -176,15 +176,10 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement NAPLAN registration</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
+<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -194,19 +189,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
-<h2 id="how-to-implement-naplan-standalone-registration"><a href="#how-to-implement-naplan-standalone-registration">How to implement NAPLAN standalone registration</a></h2>
-<h3 id="whats-the-business-problem"><a href="#whats-the-business-problem">1. What's the business problem?</a></h3>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h2 id="how-to-implement-naplan-standalone-registration">How to implement NAPLAN standalone registration</h2>
+<h3 id="whats-the-business-problem">1. What's the business problem?</h3>
 <p>Allow schools with a SIS to provide information about NAPLAN candidates and platform users (staff), and read back the Platform Student Identifier (PSI) assigned by the Assessment Platform.</p>
 <p><strong><a href="#what-business-problem-does-this-usecase-address">More...</a></strong></p>
-<h3 id="usecase-description-pre-conditions"><a href="#usecase-description-pre-conditions">2. Usecase description &amp; Pre-conditions</a></h3>
+<h3 id="usecase-description-pre-conditions">2. Usecase description &amp; Pre-conditions</h3>
 <p>NAPLAN testing is to occur this year, through a national delivery system. Around NAPLAN census time, the SIS lodges bulk information about its NAPLAN candidates to the Assessment Platform (AP), on behalf of one or more schools. Any other information, including registration of students to particular NAPLAN testing events, personal needs and preferences, and assigning staff members and invigilators, is done out of band on the AP web site.</p>
-<h4 id="assumptions"><a href="#assumptions">Assumptions:</a></h4>
+<h4 id="assumptions">Assumptions:</h4>
 <ul>
 <li>SIS can both read and write SIF records.</li>
 <li>SIS manages information for an individual school, a systemic authority data hub, or a third party data hub.</li>
@@ -223,7 +213,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>StudentPersonal/MostRecent includes all information necessary for student registration in NAPLAN, without needing to resort to StudentSchoolEnrollment.</li>
 <li>StudentPersonal records are only assigned to one school for the purposes of NAPLAN. If they need to be assigned to more than one school within a system, multiple StudentPersonal records need to be created for the same student. Note that the Assessment Platform will create a separate record for each student enrolment, which corresponds to the first alternative.</li>
 </ul>
-<h4 id="pre-conditions"><a href="#pre-conditions">Pre-conditions:</a></h4>
+<h4 id="pre-conditions">Pre-conditions:</h4>
 <ul>
 <li>Vendor has access to HITS.</li>
 <li>Vendor has mapped the relevant SIF object to their systems:
@@ -231,7 +221,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>StudentPersonal</li>
 </ul></li>
 </ul>
-<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary:</a></h4>
+<h4 id="usecase-workflow-summary">Usecase workflow summary:</h4>
 <ol style="list-style-type: decimal">
 <li><p>Join</p></li>
 <li><p>Provide</p></li>
@@ -240,32 +230,34 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li><p>Assurance</p></li>
 </ol>
 <p>NOTE: Consume and Process occur after Provide in this use case!</p>
-<h4 id="assurance"><a href="#assurance">Assurance:</a></h4>
+<h4 id="assurance">Assurance:</h4>
 <p>The SIF/XML data sent by the third party app to the jurisdiction zone for the app must satisfy the following conditions:</p>
 <ul>
 <li>All StudentPersonal records are well-formed SIF records.</li>
 <li>None of the SIF records submitted have dependencies on any other SIF records (no RefID references).</li>
 </ul>
 <p><strong><a href="#usecase-preconditions-for-assurance">More...</a></strong></p>
-<h3 id="join-school-zone"><a href="#join-school-zone">3. Join school zone</a></h3>
+<h3 id="join-school-zone">3. Join school zone</h3>
 <p>Join: - SIS client registers with AP. - AP communicates to SIS client out-of-band credentials for connecting to the AP zone.</p>
-<h3 id="provide-authoritative-data"><a href="#provide-authoritative-data">4. Provide authoritative data</a></h3>
+<h3 id="provide-authoritative-data">4. Provide authoritative data</h3>
 <p>Vendor-facing (push); HITS represents AP and is the data sink.</p>
-<p>SIS client expresses information in SIF/XML: - SIS client obtains ACARA ID(s) for its school(s). - SIS client connects to AP zone (“HITS Zone 1”). - SIS client authenticates to AP zone (“HITS Zone 1 Authz”). - AP zone authorises write access to objects in the AP zone (“HITS Zone 1 Authn”, StudentPersonal). - AP zone authorises read access to objects in the AP zone (“HITS Zone 1 Authn”, StudentPersonal). - The SIS client provides to HITS the following:<br /> - Post StudentPersonal to URL <code>http://.../StudentPersonals</code> all StudentPersonal records of students eligible for NAP. - The unique ACARAId of the school that each student is enrolled in, included in StudentPersonal/MostRecent/ACARAId<br />- AP associates the StudentPersonal records with the school nominated in <code>StudentPersonal/MostRecent/ACARAId</code>. - AP assigns a different PSI to each enrolment.</p>
-<h3 id="consume-base-data-from-hits-students"><a href="#consume-base-data-from-hits-students">5. Consume base data from HITS (Students)</a></h3>
+<p>SIS client expresses information in SIF/XML: - SIS client obtains ACARA ID(s) for its school(s). - SIS client connects to AP zone (“HITS Zone 1”). - SIS client authenticates to AP zone (“HITS Zone 1 Authz”). - AP zone authorises write access to objects in the AP zone (“HITS Zone 1 Authn”, StudentPersonal). - AP zone authorises read access to objects in the AP zone (“HITS Zone 1 Authn”, StudentPersonal). - The SIS client provides to HITS the following:<br />
+- Post StudentPersonal to URL <code>http://.../StudentPersonals</code> all StudentPersonal records of students eligible for NAP. - The unique ACARAId of the school that each student is enrolled in, included in StudentPersonal/MostRecent/ACARAId<br />
+- AP associates the StudentPersonal records with the school nominated in <code>StudentPersonal/MostRecent/ACARAId</code>. - AP assigns a different PSI to each enrolment.</p>
+<h3 id="consume-base-data-from-hits-students">5. Consume base data from HITS (Students)</h3>
 <p>SIS client gets from AP: - One or more StudentPersonal records corresponding to every StudentPersonal posted by the SIS client, and containing the PSI identifier. - The PSI is added to the StudentPersonal record as <code>StudentPersonal/OtherIdList/OtherId\type=&quot;NAPPlatformStudentIdentifier&quot;</code></p>
-<h3 id="process-in-third-party-apps"><a href="#process-in-third-party-apps">6. Process in third party apps</a></h3>
+<h3 id="process-in-third-party-apps">6. Process in third party apps</h3>
 <ul>
 <li>SIS client ingests the PSI identifier, by matching the student records received against the student records it has sent.</li>
 <li>Matching is assumed to be done on StudentPersonal/LocalId. (TBC)</li>
 <li>SIS clients must not assume that the StudentPersonal@RefId sent will be the same as the StudentPersonal@RefId received.</li>
 </ul>
-<h3 id="selfconfirm-usecase-support"><a href="#selfconfirm-usecase-support">7. Self–confirm usecase support</a></h3>
+<h3 id="selfconfirm-usecase-support">7. Self–confirm usecase support</h3>
 <ol style="list-style-type: decimal">
 <li>Validate StudentPersonal records</li>
 </ol>
-<h3 id="more-information"><a href="#more-information">More information</a></h3>
-<h4 id="what-business-problem-does-this-usecase-address"><a href="#what-business-problem-does-this-usecase-address">What business problem does this usecase address?</a></h4>
+<h3 id="more-information">More information</h3>
+<h4 id="what-business-problem-does-this-usecase-address">What business problem does this usecase address?</h4>
 <p>In brief:</p>
 <ul>
 <li>Allows schools to provision StudentPersonal records to the Assessment Platform (as potential candidates for NAP).</li>
@@ -274,7 +266,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>The SIS is presumed to have limited technical capabilities. In particular, there is no requirement for it to read SIF objects from external sources (such as the Australian School List), although schools are presumed to be able to supply their own ACARA Id. The SIS is not required to be able to relate objects to each other (e.g. through StudentSchoolEnrollment). The use case is applicable to both individual school and to school systems; in the case of school systems, the SIS is expected to have system-wide scope.</p>
 <p>This use case is quite restricted, and does not support extending SIS capability to other areas (such as online assessment or census). It requires the AP to do school-specific processing for each SIS client. It is not currently clear whether this use case provides enough information to support NAPLAN reporting back to the school.</p>
 <p>This usecase deviates from the usual workflow of HITS: the SIS being tested provides data before it consumes and processes it.</p>
-<h4 id="usecase-preconditions-for-assurance"><a href="#usecase-preconditions-for-assurance">Usecase preconditions for assurance</a></h4>
+<h4 id="usecase-preconditions-for-assurance">Usecase preconditions for assurance</h4>
 <p>No further conditions are set on assurance.</p>
 
                         </div>

@@ -99,6 +99,23 @@ router.get('/contact', function(req, res) {
 	);
 });
 
+router.post('/contact/:id', function(req, res) {
+	var connection = db.connect();
+	connection.query(
+		"UPDATE contact SET status = ? WHERE id = ?",
+		[ req.body.status, req.params.id],
+		function(err, rows, fields) {
+			if (err)
+				return res.error(err);
+			return res.json({
+				success: 1,
+				data: rows
+			});
+		}
+	);
+});
+
+
 // GET - one account entry
 router.get('/:id', function(req, res) {
 	var connection = db.connect();

@@ -58,7 +58,7 @@ $(document).ready(function() {
 						"url": "/api/admin/contact",	// XXX Overloaded use of URL
 						"dataSrc": "data"
 					},
-					"order": [[ 0, "desc" ]],
+					"order": [[ 1, "desc" ]],
 					"columns": [
 						{
 							"title": "ID",
@@ -90,7 +90,13 @@ $(document).ready(function() {
 								return rows.join("<br />\n");
 							},
 						},
+						{ "title": "Account?", "width": "20%", "data": "account", "defaultContent": '', },
 						// Adding buttons
+						{ "title": "Actions", "width": "20%", "data": "id", defaultContent: "None", "defaultContent": '',
+							"render": function (data, type, row, meta) {
+								return '<button onclick="console.log(' + "'" + data + "'" + ');" class="btn btn-primary">View</button>';
+							},
+						},
 					]
 				} );
 

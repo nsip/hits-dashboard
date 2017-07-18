@@ -24,7 +24,7 @@ block main
                             .col-md-6
                                 .panel.panel-info
                                     .panel-heading
-                                        h3.panel-title Welcome to HITS (Hub Integration Testing Services) 
+                                        h3.panel-title Welcome to HITS (Hub Integration Testing Services)
                                     .panel-body
                                         p HITS is an assurance and demonstration environment for education integrations.
                                 .panel.panel-info
@@ -48,32 +48,32 @@ block main
                                             .form-group
                                               label.col-sm-2.control-label Interest
                                               .col-sm-10
-                                                  p What is your interst in HITS?
+                                                  p What is your interest in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
 
                                             .form-group
                                               label.col-sm-2.control-label Options
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
-                                                      input#ch1(name="checkbox_developer",type='checkbox', checked='checked')
+                                                      input#ch1(name="checkbox_developer",type='checkbox')
                                                       label(for='ch1') Developer
                                                   .checkbox.checkbox-success
-                                                      input#ch2(name="checkbox_architect",type='checkbox', checked='checked')
+                                                      input#ch2(name="checkbox_architect",type='checkbox')
                                                       label(for='ch2') Architect
                                                   .checkbox.checkbox-info
-                                                      input#ch3(name="checkbox_vendor",type='checkbox', checked='checked')
+                                                      input#ch3(name="checkbox_vendor",type='checkbox')
                                                       label(for='ch3') Vendor
                                                   .checkbox.checkbox-warning
-                                                      input#ch4(name="checkbox_school_authority",type='checkbox', checked='checked')
+                                                      input#ch4(name="checkbox_school_authority",type='checkbox')
                                                       label(for='ch4') School Authority
                                             .form-group
                                               label.col-sm-2.control-label SIF
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
-                                                      input#ch1(name="checkbox_sif",type='checkbox', checked='checked')
+                                                      input#ch1(name="checkbox_sif",type='checkbox')
                                                       label(for='ch1') Are you already familiar with SIF?
-                                            .form-group
-                                              label.col-sm-2.control-label NSIP
+                                            // .form-group
+                                              label.col-sm-2.control-label NSIP Project
                                               .col-sm-10
                                                     select.selectpicker.form-control(placeholder='Select',name="nsip_project")
                                                         option One
@@ -82,7 +82,7 @@ block main
                                       .form-group
                                           label.col-sm-2.control-label Submit
                                           .col-sm-10
-                                              button.btn.btn-default#welcomesubmit(type='submit') Send request
+                                              button.btn.btn-primary#welcomesubmit(type='submit') Send request
                             .col-md-6
                                 .panel.panel-success
                                     .panel-heading
@@ -99,11 +99,11 @@ block main
                                     .panel-heading
                                         h3.panel-title Information
                                     .panel-body
-                                        p Copyright NSIP 2015 - 2017 under the 
+                                        p Copyright NSIP 2015 - 2017 under the
                                           a(href="http://www.apache.org/licenses/LICENSE-2.0.txt") Apache 2.0 license
-                                        p Email 
+                                        p Email
                                           a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                                        p For more information about NSIP 
+                                        p For more information about NSIP
                                           a(href="http://www.nsip.edu.au") www.nsip.edu.au
                                         img(src='img/nsip.png',style='max-width: 100%; margin-right: 20px;')
                                         img(src='img/logo-200x200.png',style='max-width: 100%')
