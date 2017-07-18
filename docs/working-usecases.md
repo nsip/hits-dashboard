@@ -52,3 +52,5 @@ The main things checked for are:
 2. Object Obligations: you have posted at least the number of instances of each object that is set in the use case. For example, a timetabling application cannot be validated unless it has posted at least one TimeTableCell object.
 3. Element Obligations: you have posted all the elements in your object that are mandatory in the use case. This includes not only the elements that are mandatory in the SIF-AU schema, but also the elements that this use case specifically requires to be populated.
 4. Element Values: some use cases will require that a particular value appear in an element. The objects will be tested to confirm that this has been done.
+
+Note that the validation report checks the current contents of the database. If you have prepopulated the database with objects automatically, and then run validation, the validation will give you a perfect score, as the prepopulated objects are valid. If you then add to the database objects with errors, the score will go down, and you will need to correct those errors to get the validation score back up.
