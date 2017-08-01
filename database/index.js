@@ -1,23 +1,40 @@
 var config = require('config');
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
+    connectionLimit : 25,
 	host     : config.database.host,
 	user     : config.database.user,
 	password : config.database.password,
 	database : config.database.database
 });
-connection.connect();
+connection.on('connection', function (connection) {
+  console.log('connection: mysql Connection');
+});
+connection.on('enqueue', function () {
+  console.log('connection: Waiting for available connection slot');
+});
+connection.on('release', function (connection) {
+  console.log('connection: Connection %d released', connection.threadId);
+});
 
 var connections = {};
 
-var infra = mysql.createConnection({
+var infra = mysql.createPool({
+    connectionLimit : 25,
 	host     : config.database.host,
 	user     : config.database.user,
 	password : config.database.password,
 	database : 'hits_sif3_infra',
 });
-infra.connect();
-
+infra.on('connection', function (connection) {
+  console.log('infra: mysql Connection');
+});
+infra.on('enqueue', function () {
+  console.log('infra: Waiting for available connection slot');
+});
+infra.on('release', function (connection) {
+  console.log('infra: connection: Connection %d released', connection.threadId);
+});
 
 module.exports = {
 	connect: function() { return connection },

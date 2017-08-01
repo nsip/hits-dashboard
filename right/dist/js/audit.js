@@ -70,6 +70,6 @@ $(document).ready(function() {
 
   setInterval( function () {
       table.ajax.reload();
-  }, 20000 );
+  }, 60000 );
 
 });
