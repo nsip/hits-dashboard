@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HITS Dashboard</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-favicon.png">
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/fonts/roboto.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="libs/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="libs/ionrangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <link href="libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="libs/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/morris.js/morris.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="libs/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="libs/hits/aj.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Oswald" rel="stylesheet">
+    <link href="css/right.light.css" rel="stylesheet" class="demo__css">
+    <link href="css/demo.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="framed main-scrollable">
+    <div class="wrapper">
+      <nav class="navbar navbar-static-top header-navbar">
+        <div class="header-navbar-mobile">
+          <div class="header-navbar-mobile__menu">
+            <button type="button" class="btn"><i class="fa fa-bars"></i></button>
+          </div>
+          <div class="header-navbar-mobile__title"><span></span></div>
+          <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-header"><a href="index.html" class="navbar-brand">
+            <div class="logo text-nowrap">
+              <div class="logo__img"><img src="img/nsip-logo-200.png" style="max-width: 100%; padding-right: 4px;"><img src="img/logo-200x200.png" style="max-width: 100%"></div><span class="logo__text">HITS Dashboard</span>
+            </div></a></div>
+        <div class="topnavbar">
+          <ul class="nav navbar-nav navbar-left"></ul>
+          <ul class="userbar nav navbar-nav">
+            <li style="margin: 7px; padding: 7px; ">
+              <div class="hitsinfo-name"></div>
+              <div class="hitsinfo-email"></div>
+            </li>
+            <li class="dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="userbar__settings dropdown-toggle"><i class="fa fa-power-off"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="logout.html">Log Out</a></li>
+                <li><a href="recover.html">Recover</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="dashboard">
+        <div class="sidebar">
+          <div class="quickmenu">
+          </div>
+          <div class="scrollable scrollbar-macosx">
+            <div class="sidebar__cont">
+              <div class="sidebar__menu">
+                <div class="sidebar__title">Menu</div>
+                <ul class="nav nav-menu">
+                  <li><a href="./" class="addids">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-star"></i></div>
+                      <div class="nav-menu__text"><span>Welcome</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="interoperability.html" class="addids">Interoperability</a></li>
+                      <li><a href="commitment.html" class="addids">Commitment to SIF</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- TODO - Copy this to Topbar if necessary ?-->
+                <ul class="nav nav-menu">
+                  <li class="active opened"><a href="usecase.html">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-book"></i></div>
+                      <div class="nav-menu__text"><span>Use Cases</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse in">
+                      <li><a href="usecase_basic_daily_attendance.html">Basic Daily Attendance</a></li>
+                      <li><a href="usecase_basic_financial_transactions.html">Basic Financial Transactions</a></li>
+                      <li><a href="usecase_enrolment.html">Enrolment</a></li>
+                      <li><a href="usecase_gradebook.html">Gradebook</a></li>
+                      <li><a href="usecase_naplan_registration.html">NAPLAN Registration</a></li>
+                      <li><a href="usecase_naplan_results_recording.html">NAPLAN Results Reporting</a></li>
+                      <li><a href="usecase_timetable.html">Timetable </a></li>
+                    </ul>
+                    <!-- OLD
+                    li(class=page=='Basic Daily Attendance' ? 'active' : '')
+                        a(href='usecase_basic_daily_attendance.html') Basic Daily Attendance
+                    li(class=page=='Basic Financial Transactions' ? 'active' : '')
+                        a(href='usecase_basic_financial_transactions.html') Basic Financial Transactions
+                    li(class=page=='Enrollment' ? 'active' : '')
+                        a(href='usecase_enrollment.html') Enrollment
+                    li(class=page=='Gradebook' ? 'active' : '')
+                        a(href='usecase_gradebook.html') Gradebook
+                    li(class=page=='Naplan Registration' ? 'active' : '')
+                        a(href='usecase_naplan_registration.html') Naplan Registration
+                    li(class=page=='Timetable' ? 'active' : '')
+                        a(href='usecase_timetable.html') Timetable
+                    -->
+                  </li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li><a href="start.html">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-puzzle-piece"></i></div>
+                      <div class="nav-menu__text"><span>Developer Tools</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="account.html" class="addids">Databases</a></li>
+                      <li><a href="dashboard.html" class="addids">Information</a></li>
+                      <li><a href="client.html" class="addids">Javascript Client</a></li>
+                      <li><a href="recover.html" class="addids">Recover</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="nav nav-menu">
+                  <li><a href="help.html">
+                      <div class="nav-menu__ico"><i class="fa fa-fw fa-map-signs"></i></div>
+                      <div class="nav-menu__text"><span>Developer Help</span></div>
+                      <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
+                    <ul class="nav nav-menu__second collapse">
+                      <li><a href="connect_java_consumer.html" class="addids">Connect Java consumer</a></li>
+                      <!-- li(class=page=='Connect .NET consumer' ? 'active' : '')a.addids(href='connect_net_consumer.html') Connect .NET consumer
+                      -->
+                      <li><a href="connect_generic_consumer.html" class="addids">Connect generic consumer</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main__scroll scrollbar-macosx">
+            <div class="main__cont">
+              <div class="main-heading">
+                <div class="main-title">
+                  <ol class="breadcrumb">
+                    <li><a href="usecase.html">Use Cases</a></li>
+                    <li class="active">XXX</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="container-fluid half-padding">
+                <div class="pages pages_dashboard"></div>
+                <div class="template">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h2 class="panel-title">XXX</h2>
+                        </div>
+                        <div class="panel-body"><h3 id="data-collection"><a href="#data-collection">Data collection</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Is the use of the data considered a primary or secondary purpose that the data was originally collected for? Are those individuals supplying the data informed explicitly that the data will be provided for this reason and/or to this vendor?</p></li>
+<li><p>What data is required for collection by the vendor? (refer SIF AU mappings)</p></li>
+<li><p>Is any of the data collected by third parties (plugins, statistics, advertising, cookies etc.)?</p></li>
+</ol>
+<h3 id="data-storage-and-access"><a href="#data-storage-and-access">Data storage and access</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Where is the information stored? Is the information stored in the same State/Territory as it was sourced/generated? Is it stored within Australia?</p></li>
+<li><p>How is data protected “at rest”?</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Is all or some data at rest encrypted (e.g. just passwords, passwords and sensitive data, all data)</p></li>
+<li><p>What encryption method is used?</p></li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li><p>How will the information be stored? If the cloud application is multi-tenanted (several authorities’ data on one server/instance) hosting, how is data and access separated from other customers?</p></li>
+<li><p>Are the physical server(s) in a secured, locked and monitored environment to prevent unauthorized entry and/or theft?</p></li>
+<li><p>How is the data protected in transit? e.g. SSL, hashing? (SIF messaging generally use SSL/TLS)</p></li>
+<li><p>Who has access to information stored or processed by the provider?</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Is access logged?</p></li>
+<li><p>Is access provided only to employees of the agency receiving the data or others?</p></li>
+<li><p>When and how is access made available?</p></li>
+<li><p>Are background checks or other vetting procedures performed on those with access (eg working with children checks)?</p></li>
+<li><p>Does the provider subcontract any functions, such as analytics?</p></li>
+<li><p>What is the provider’s process for authenticating callers and resetting access controls, as well as establishing and deleting accounts?</p></li>
+</ol>
+<h3 id="data-and-metadata-retention"><a href="#data-and-metadata-retention">Data and Metadata Retention</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>How does the provider assure the proper management and disposal of data?</p></li>
+<li><p>How will the provider delete data?</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Is data deleted on a specific schedule or only on termination of contract? Can the school/jurisdiction request that information be deleted? What is the protocol for such a request?</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Can a copy of the information (including individual records) maintained by the provider be supplied at any time? How will this be provided?</p></li>
+<li><p>Upon termination of contract/s, will the provider should return all records or data and properly delete any copies still in its possession?</p></li>
+</ol>
+<h3 id="development-and-change-management-process"><a href="#development-and-change-management-process">Development and Change Management Process</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Does the provider follow standardized and documented procedures for coding, configuration management, patch installation, and change management for all servers involved in delivery of contracted services?</p></li>
+<li><p>Are practices regularly audited?</p></li>
+<li><p>Does the provider notify the School System about any changes that will affect the security, storage, usage, or disposal of any information received or collected directly from the School?</p></li>
+</ol>
+<h3 id="audits-and-standards"><a href="#audits-and-standards">Audits and Standards</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Does the provider allow for the audit of security and privacy of records by the jurisdiction/school?</p></li>
+<li><p>Have the provider’s security operations been reviewed or audited by an outside group?</p></li>
+<li><p>Does the provider comply with a security standard such as the International Organization for Standardization (ISO), the Payment Card Industry Data Security Standards (PCI DSS)?</p></li>
+</ol>
+<h3 id="test-and-development-environments"><a href="#test-and-development-environments">Test and Development Environments</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Will “live” student data ever be used in non-production (e.g. test or development, training) environments?</p></li>
+<li><p>Are these environments secure to the same standard as production data?</p></li>
+</ol>
+<h3 id="data-breach-incident-investigation-and-response"><a href="#data-breach-incident-investigation-and-response">Data Breach, Incident Investigation and Response</a></h3>
+<ol style="list-style-type: decimal">
+<li><p>What happens if the vendor experiences a data breach?</p></li>
+<li><p>What are the vendor’s capabilities to perform security incident investigations or e-discovery? Are end user logs, administrative and maintenance activity monitored and are these logs available to the jurisdiction or school for incident investigation?</p></li>
+</ol>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"> 
+        <p>Copyright <a href="http://www.nsip.edu.au/">NSIP</a>&nbsp;2015 - 2017 under the <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2.0 license</a></p>
+      </div>
+    </div>
+    <!-- include ../include/demo.jade-->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="libs/jquery.cookie/jquery.cookie.js"></script>
+    <script src="libs/bootstrap-tabdrop/bootstrap-tabdrop.min.js"></script>
+    <script src="libs/sparkline/jquery.sparkline.min.js"></script>
+    <script src="libs/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="libs/inputNumber/js/inputNumber.js"></script>
+    <script src="libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="libs/jquery.rest.js"></script>
+    <script src="libs/purl.js"></script>
+    <script src="libs/sockets.io.js"></script>
+    <script src="libs/raphael/raphael-min.js"></script>
+    <script src="libs/morris.js/morris.min.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="libs/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="libs/datatables/media/js/dataTables.select.js"></script>
+    <script src="libs/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/template/index.js"></script>
+  </body>
+</html>
