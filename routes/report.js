@@ -11,11 +11,23 @@ router.use(function (req, res, next) {
 });
 
 router.get('/:dbid/report/:reportid', function(req, res, next) {
-  var alldata = [];
-    var errors = [];
+
+  var infraconnection = db.infra();
+  infraconnection.query(
+    'SELECT databaseUrl FROM APPKEY_DB_URL_MAPPER WHERE applicationKey = ?',
+    [ req.params.dbid ],
+    function(err, dbrows, fields) {
+      if (!dbrows || !dbrows[0]) {
+        return res.error("not found");
+      }
+
+  var dbid = dbrows[0].databaseUrl;
+  console.log("DBID Mapped", dbrows[0].databaseUrl);
+
+   var alldata = [];
+   var errors = [];
   // XXX JSON ?
 
-  var dbid = req.params.dbid;
   var reportid = req.params.reportid;
 
   // Perl version - system("export PERL5LIB=$d/lib/; perl $d/bin/report $id $d/$report > /tmp/$$.pl 2> /tmp/$$.err");
@@ -24,7 +36,7 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
   var home = "/home/ubuntu";
   var root = home + "/HITS-Reports";
   var cmd = root + "/bin/report";
-  prc = spawn(root + "/bin/report", ["db/sif" + dbid, reportid + "/in.pl"], {
+  prc = spawn(root + "/bin/report", ["db/" + dbid, reportid + "/in.pl"], {
     env: {PERL5LIB: root + "/lib", HOME: home},
     cwd: root,
   });
@@ -57,6 +69,9 @@ router.get('/:dbid/report/:reportid', function(req, res, next) {
       data: ret,
     });
   });
+
+    }
+  );
 
 });
 
