@@ -176,15 +176,10 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement NAPLAN results reporting</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
+<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -194,17 +189,12 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
-<h3 id="business-problem"><a href="#business-problem">1. Business problem</a></h3>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h3 id="business-problem">1. Business problem</h3>
 <p>Allow jurisdictions to retrieve information about the NAPLAN test constructs for the current cycle, and about the performance of their students in the current cycle, in order to determine the level of education attainment of their students and to generate expected reporting to schools.</p>
-<h3 id="usecase-description-and-pre-conditions"><a href="#usecase-description-and-pre-conditions">2. Usecase description and pre-conditions</a></h3>
+<h3 id="usecase-description-and-pre-conditions">2. Usecase description and pre-conditions</h3>
 <p>A Jurisdiction client connects to HITS as a National Assessment hub, collecting the relevant information about student assessments and performance under NAPLAN, and gathering it back to jurisdiction applications for further processing.</p>
-<h4 id="assumptions"><a href="#assumptions">Assumptions</a></h4>
+<h4 id="assumptions">Assumptions</h4>
 <ul>
 <li><p>Information about the students taking part in the NAPLAN assessment has already been provided to the National Assessment hub. The workflow for this is captured in the NAPLAN Registration use case. The workflow for this use case assumes that the information is already available, either because a client has carried out the NAPLAN Registration workflow, or that the client will accept StudentPersonal records prepopulated on the HITs server.</p></li>
 <li><p>The students have already undertaken all the NAPLAN assessment for this year's, and the responses they have provided have been captured in the National Assessment hub.</p></li>
@@ -212,7 +202,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li><p>The source of truth about the jurisdiction schools involved in NAPLAN assessment is not the National Assessment hub, but the Australian Schools List. The assessment results data includes ACARA Ids for schools, which reference the records held in the Australian Schools List.</p></li>
 <li><p>Jurisdictions need to access information about the NAPLAN test structure as well as the test results: the former helps contextualise and interpret the latter. Information about the NAPLAN test structure is available under SIF modelling in two separate models: a single codeframe object per test, which contains all testlets, test items, rubrics and stimuli accessible through the test; and separate test, testlet and test item objects, which are referenced individually from the student test results object. The use case assumes that the code frame object will be consumed prior to testing, and the individual testlet and test item objects will be consumed alongside the test results.</p></li>
 </ul>
-<h4 id="pre-conditions"><a href="#pre-conditions">Pre-conditions</a></h4>
+<h4 id="pre-conditions">Pre-conditions</h4>
 <ul>
 <li><p>Jurisdiction has access to HITs</p></li>
 <li><p>HITs has been provisioned with School Data. Note that HITs can act as a proxy for the Australian Schools List; but jurisdictions should be planning on integrating with the Australian Schools List directly</p></li>
@@ -228,7 +218,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>NAPStudentEventLink</li>
 <li><p>NAPStudentResponseSet</p></li>
 </ul>
-<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary</a></h4>
+<h4 id="usecase-workflow-summary">Usecase workflow summary</h4>
 <ol style="list-style-type: decimal">
 <li><p>Join</p></li>
 <li><p>Consume (Codeframe)</p></li>
@@ -236,15 +226,15 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 </ol>
 <p>Note that this is not the usual workflow under HITs of Produce–Consume or Consume–Produce. This is a Consume-only workflow: the Produce component of the workflow is already captured under the NAP Registration use case.</p>
 <p>Any processing of the NAPLAN results is out of scope of this use case, since it depends on jurisdiction-speific setup. Note that NSIP will offer some support to jurisdictions for processing NAP results, throughh its NIAS toolkit.</p>
-<h4 id="assurance"><a href="#assurance">Assurance</a></h4>
+<h4 id="assurance">Assurance</h4>
 <p>As there is no Produce component to the workflow, there is also no Assurance component. Any processing of NAPLAN results will be specific to the jurisdiction’s database setup, and will need to be undertaken within the jurisdiction: it is out of scope of this use case.</p>
-<h3 id="join-required-school-zone"><a href="#join-required-school-zone">3. Join required School Zone</a></h3>
+<h3 id="join-required-school-zone">3. Join required School Zone</h3>
 <ul>
 <li>Jurisdiction client connects to Nationally established Zone for the Jurisdiction, which emulates the data tenancy for the Jurisdiction on the National Assessment Platform (&quot;HITS Zone 1&quot;)</li>
 <li>Jurisdiction client authenticates to Nationally established Zone for the Jurisdiction (&quot;HITS Zone 1 Authz&quot;)</li>
 <li>Nationally established Zone authorises read access to objects in the Nationally established Zone for the Jurisdiction (&quot;HITS Zone 1 Authn&quot;)</li>
 </ul>
-<h3 id="consume-base-data"><a href="#consume-base-data">4. Consume base data</a></h3>
+<h3 id="consume-base-data">4. Consume base data</h3>
 <p>Client-facing (pull); HITS represents the National Assessment hub and is the data source for seed information.</p>
 <p>Consume:</p>
 <ul>
@@ -264,8 +254,8 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Get NAPStudentEventLinks - <code>http://.../NAPStudentEventLinks</code></li>
 <li>Get NAPStudentResponseSets - <code>http://.../NAPStudentResponseSets</code></li>
 </ol>
-<h3 id="more-information"><a href="#more-information">More information</a></h3>
-<h4 id="what-is-the-business-problem-this-usecase-addresses"><a href="#what-is-the-business-problem-this-usecase-addresses">What is the business problem this usecase addresses?</a></h4>
+<h3 id="more-information">More information</h3>
+<h4 id="what-is-the-business-problem-this-usecase-addresses">What is the business problem this usecase addresses?</h4>
 <p><strong>Assurance pre-conditions</strong></p>
 <p>The following conditions also must be met:</p>
 <p>N/A</p>

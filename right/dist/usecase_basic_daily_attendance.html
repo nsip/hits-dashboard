@@ -176,15 +176,10 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement basic daily attendance</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
+<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -194,21 +189,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
-<h2 id="how-to-implement-third-party-daily-attendance-recording"><a href="#how-to-implement-third-party-daily-attendance-recording">How to implement third party Daily Attendance Recording</a></h2>
-<h3 id="whats-the-business-problem"><a href="#whats-the-business-problem">1. What's the business problem?</a></h3>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h2 id="how-to-implement-third-party-daily-attendance-recording">How to implement third party Daily Attendance Recording</h2>
+<h3 id="whats-the-business-problem">1. What's the business problem?</h3>
 <p>Allow schools to securely provide SIS information to the Attendance product of their choice, and also to allow school attendance records to be published to a jurisdictional data hub.</p>
 <p><strong><a href="#what-business-problem-does-this-use-case-address">More...</a></strong></p>
-<h3 id="use-case-description-pre-conditions"><a href="#use-case-description-pre-conditions">2. Use Case Description &amp; Pre-Conditions</a></h3>
+<h3 id="use-case-description-pre-conditions">2. Use Case Description &amp; Pre-Conditions</h3>
 <p>A 3rd Party Daily Attendance application connects to HITS as a jurisdiction hub, collecting the relevant information and publishing back attendance records to the centralised system.</p>
-<h4 id="assumptions"><a href="#assumptions">Assumptions:</a></h4>
+<h4 id="assumptions">Assumptions:</h4>
 <p>3rd Party Vendor is a current supplier of a Student Attendance product in schools or has knowledge of Student attendance reporting processes in K-12 Schools.</p>
-<h4 id="pre-conditions"><a href="#pre-conditions">Pre-Conditions:</a></h4>
+<h4 id="pre-conditions">Pre-Conditions:</h4>
 <ul>
 <li>Vendor has access to HITs</li>
 <li>HITs has been provisioned with School Data</li>
@@ -222,7 +212,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>StudentAttendanceTimeList</p></li>
 </ul>
 <p>Here is <a href="http://specification.sifassociation.org/Implementation/AU/3.4.1/XSD/DataModelNoIncludes.zip"><strong>the XSD schema for SIF 3.4.1</strong></a>, and a detailed description of the <strong><a href="resources/Daily_Attendance_Baseline_Profile_v09.pdf">Attendance Baseline Profile</a></strong>.)</p>
-<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary:</a></h4>
+<h4 id="usecase-workflow-summary">Usecase workflow summary:</h4>
 <ol style="list-style-type: decimal">
 <li><p>Join</p></li>
 <li><p>Consume</p></li>
@@ -230,29 +220,22 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li><p>Provide</p></li>
 <li><p>Assurance</p></li>
 </ol>
-<h4 id="assurance"><a href="#assurance">Assurance:</a></h4>
+<h4 id="assurance">Assurance:</h4>
 <p>The SIF/XML data sent by the 3rd Party app to the Jurisdiction Zone for the app must satisfy the following conditions:</p>
 <ul>
-<li><p>Must be able to respond to requests for all StudentDailyAttendance records within a School</p></li>
-<li><p>Must be able to respond to requests for all StudentDailyAttendance records within a School and a nominated date range</p></li>
-<li><p>Must be able to respond to requests for all StudentDailyAttendance records for a nominated Student</p></li>
-<li><p>Must be able to respond to requests for all StudentDailyAttendance records for a nominated Student and a nominated date range</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceSummary records within a School</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceSummary records for a nominated Student and a nominated date range</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceTimeList records within a School</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceTimeList records within a School and a nominated date range</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceTimeList records for a nominated Student</p></li>
-<li><p>Must be able to respond to requests for all StudentAttendanceTimeList records for a nominated Student and a nominated date range</p></li>
+<li>Any SIF object published by the App must be valid against the SIF-AU 3.4 schema</li>
+<li>All mandatory elements of the submitted SIF objects are provided</li>
+<li>All SIF objects posted by the Attendance App must have referential integrity. Any RefId contained in the SIF object must refer to a SIF object provisioned to the App—e.g. SchoolInfo, StudentPersonal, CalendarDate).This condition applies recursively to all additional SIF objects posted by the App. The test of this condition is done only when the App indicates that it has finished publishing to the Zone the objects required for the test.</li>
 </ul>
 <p>Note that in some deployments, only StudentDailyAttendance records, only StudentAttendanceSummary records, or only StudentAttendanceTimeList records may be required.</p>
 <p><strong><a href="#usecase-preconditions-for-assurance">More...</a></strong></p>
-<h3 id="join-required-school-zone."><a href="#join-required-school-zone.">3. Join required School Zone.</a></h3>
+<h3 id="join-required-school-zone.">3. Join required School Zone.</h3>
 <ul>
 <li>Third party app connects to Jurisdiction-established Zone for the School (&quot;HITS Zone 1&quot;)</li>
 <li>Third party app authenticates to Jurisdiction-established Zone for the School (&quot;HITS Zone 1 Authz&quot;)</li>
 <li>Jurisdiction Zone authorises read access to objects in the Jurisdiction Zone for the School (&quot;HITS Zone 1 Authn&quot;)</li>
 </ul>
-<h3 id="consume-base-data-from-hits."><a href="#consume-base-data-from-hits.">4. Consume Base Data from HITS.</a></h3>
+<h3 id="consume-base-data-from-hits.">4. Consume Base Data from HITS.</h3>
 <p>Vendor-facing (pull); HITS represents the Jurisdiction and is the data source for seed information.</p>
 <p>Consume:</p>
 <ul>
@@ -269,14 +252,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Get CalendarSummarys -  <code>http://.../CalendarSummarys</code></li>
 </ol>
 <p>Endpoints may support additional queries for retrieving data - refer to <strong><a href="../common/qbe_or_service_paths.html">Query-by-example or service paths?</a></strong> for HITS guidance on queries.</p>
-<h3 id="process-in-3rd-party-application."><a href="#process-in-3rd-party-application.">5. Process in 3rd Party Application.</a></h3>
+<h3 id="process-in-3rd-party-application.">5. Process in 3rd Party Application.</h3>
 <p>3rd Party App uses the consumed data to produce a schedule. The definition and automation of this process is out of scope of HITs.</p>
 <p>Steps:</p>
 <ul>
 <li>Third party app processes information and gathers Student Attendance Information</li>
 <li>Third party application creates return Student Daily Attendance objects specific to the School</li>
 </ul>
-<h3 id="provide-authoritative-data"><a href="#provide-authoritative-data">6. Provide Authoritative Data</a></h3>
+<h3 id="provide-authoritative-data">6. Provide Authoritative Data</h3>
 <p>Prior to providing:  </p>
 <p>  Third party expresses return information in SIF/XML:</p>
 <ul>
@@ -290,14 +273,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Post StudentAttendanceTimeList to <code>http:// .../StudentAttendanceTimeLists</code></li>
 </ol></li>
 </ul>
-<h3 id="assurance-self-confirmation-of-use-case-support"><a href="#assurance-self-confirmation-of-use-case-support">7. Assurance: Self – Confirmation of Use Case Support</a></h3>
+<h3 id="assurance-self-confirmation-of-use-case-support">7. Assurance: Self – Confirmation of Use Case Support</h3>
 <ol style="list-style-type: decimal">
 <li>Validate StudentDailyAttendance records</li>
 <li>Validate StudentAttendanceSummary records</li>
 <li>Validate StudentAttendanceTimeList records</li>
 </ol>
-<h3 id="more-information..."><a href="#more-information...">More information...</a></h3>
-<h4 id="what-business-problem-does-this-use-case-address"><a href="#what-business-problem-does-this-use-case-address">What business problem does this Use Case address?</a></h4>
+<h3 id="more-information...">More information...</h3>
+<h4 id="what-business-problem-does-this-use-case-address">What business problem does this Use Case address?</h4>
 <p>In brief:</p>
 <ul>
 <li>Allow schools secure access to SIS information</li>
@@ -308,13 +291,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>Schools currently use third-party attendance applications locally to supplement their Student Information System (SIS). The seed information for recording of attendance is held in the School's SIS and usually exported locally with little security.</p>
 <p>As jurisdictions centralise systems, 3rd Party Vendors have the opportunity to seed their product/s from a quality assured data hub using automated feeds, rather than manual updates from the school. 3rd  Party Vendors are also expected to provide information directly back to the centralised system through an automated feed, rather than having the information mediated through the school. </p>
 <p>This use case shows how 3rd  party attendance vendors can connect to a centralised data hub to securely access to the required information and publish back the Daily Attendance records to the centralised data hub.</p>
-<h4 id="usecase-preconditions-for-assurance"><a href="#usecase-preconditions-for-assurance">Usecase preconditions for assurance</a></h4>
-<p>The following conditions also must be met:</p>
-<ul>
-<li>Must be able to post to the Zone an update to a well-formed StudentDailyAttendance object, as defined below.</li>
-<li>Any SIF object published by the App must be valid against the SIF-AU 1.3 schema</li>
-<li>All SIF objects posted by the Attendance App must have referential integrity. Any RefId contained in the SIF object must refer to a SIF object provisioned to the App—e.g. SchoolInfo, StudentPersonal, CalendarDate).This condition applies recursively to all additional SIF objects posted by the App. The test of this condition is done only when the App indicates that it has finished publishing to the Zone the objects required for the test.</li>
-</ul>
+<h4 id="usecase-preconditions-for-assurance">Usecase preconditions for assurance</h4>
 <p>For the purposes of validation, a new StudentDailyAttendance object is well-formed if:</p>
 <ul>
 <li>the provided CalendarDate object indicates that a date is not counted toward student attendance (CalendarDate/StudentAttendance/CountsTowardsAttendance), then either no StudentDailyAttendance record is generated for that date, or else the StudentDailyAttendance/AttendanceStatus value in the object is &quot;NA&quot; (not applicable)</li>

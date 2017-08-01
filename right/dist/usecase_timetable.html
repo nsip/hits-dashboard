@@ -176,15 +176,10 @@
                         <div class="panel-heading">
                           <h2 class="panel-title">How to implement timetable</h2>
                         </div>
-                        <div class="panel-body"><h2 id="what-you-need-before-you-start"><a href="#what-you-need-before-you-start">What you need before you start:</a></h2>
+                        <div class="panel-body"><h2 id="what-you-need-before-you-start">What you need before you start:</h2>
 <p>To use the Hub Testing Integration System (HITS), you'll need the following:</p>
 <ul>
-<li>A HITS testing account - apply at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></li>
+<li>A HITS testing account - apply at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></li>
 <li>This will give you access to your own testing environment </li>
 <li>Your testing environment will provide you with all necessary authentication and access tokens to work with the HITS API.</li>
 </ul>
@@ -194,21 +189,16 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Here is <a href="http://kb.nsip.edu.au/display/SATWI/SIF+3+Bootcamp+online">a short (1-day) course in developing with SIF 3 REST</a>.</li>
 </ul>
 <p>You need to know <a href="../common/working_use_case_hits.html">how to work with a usecase in HITS and access the HITS API</a></p>
-<p>If you get stuck: drop us a line at <script type="text/javascript">
-<!--
-h='&#110;&#x73;&#x69;&#112;&#46;&#x65;&#100;&#x75;&#46;&#x61;&#x75;';a='&#64;';n='&#x69;&#110;&#102;&#x6f;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>&#x69;&#110;&#102;&#x6f;&#32;&#x61;&#116;&#32;&#110;&#x73;&#x69;&#112;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#x61;&#x75;</noscript></p>
-<h2 id="how-to-implement-third-party-timetable-provision"><a href="#how-to-implement-third-party-timetable-provision">How to implement third party timetable provision</a></h2>
-<h3 id="whats-the-business-problem"><a href="#whats-the-business-problem">1. What's the business problem?</a></h3>
+<p>If you get stuck: drop us a line at <a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a></p>
+<h2 id="how-to-implement-third-party-timetable-provision">How to implement third party timetable provision</h2>
+<h3 id="whats-the-business-problem">1. What's the business problem?</h3>
 <p>Allow schools to securely provide SIS information to the Timetabling product of their choice, and also to allow timetable records (including teaching groups and scheduled activities) to be published to a jurisdictional data hub.</p>
 <p><strong><a href="#what-business-problem-does-this-usecase-address">More...</a></strong></p>
-<h3 id="usecase-description-pre-conditions"><a href="#usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</a></h3>
+<h3 id="usecase-description-pre-conditions">2. Usecase description &amp; pre-conditions</h3>
 <p>A third party timetabling application connects to HITS as a jurisdiction hub, collecting the relevant information and publishing back timetable records to the centralised system.</p>
-<h4 id="assumptions"><a href="#assumptions">Assumptions:</a></h4>
+<h4 id="assumptions">Assumptions:</h4>
 <p>A third party vendor is a current supplier of a timetabling product in schools or has knowledge of timetabling and scheduling processes in K-12 Schools.</p>
-<h4 id="pre-conditions"><a href="#pre-conditions">Pre-Conditions:</a></h4>
+<h4 id="pre-conditions">Pre-Conditions:</h4>
 <ul>
 <li>Vendor has access to HITS</li>
 <li>HITS has been provisioned with school data</li>
@@ -228,7 +218,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 </ul></li>
 </ul>
 <p>Here is more information on the <strong><a href="resources/Timetable_Baseline_Profile_v011.pdf">Timetable Baseline Profile</a></strong>.</p>
-<h4 id="usecase-workflow-summary"><a href="#usecase-workflow-summary">Usecase workflow summary:</a></h4>
+<h4 id="usecase-workflow-summary">Usecase workflow summary:</h4>
 <ol style="list-style-type: decimal">
 <li>Join</li>
 <li>Consume</li>
@@ -236,24 +226,29 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Provide</li>
 <li>Assurance</li>
 </ol>
-<h4 id="assurance"><a href="#assurance">Assurance:</a></h4>
-<p>The SIF/XML data sent by the third party app to the jurisdiction zone for the app must be able to respond to requests for all the following records within a school:</p>
+<h4 id="assurance">Assurance:</h4>
+<p>The SIF/XML data sent by the third party app to the jurisdiction zone for the app must be able to provide all the following records within a school:</p>
 <ul>
 <li>TimeTable</li>
 <li>TimeTableCell</li>
 <li>TeachingGroup</li>
 <li>ScheduledActivity (optional)</li>
+<li>SchoolCourseInfo (optional)</li>
 </ul>
 <p>The SchoolCourseInfo object is only required if the Timetabling application will record the link between the School Course offering (as distinct from the Timetable Subject) and the Teaching Group. This link is optional, and application developers should check with the School Authority on whether they need to provide it.</p>
 <p>The ScheduledActivity object is designed for student activities that do not involve classroom instruction, and/or that are not recurring; e.g. excursions. They do not need to be implemented by a TimeTablingApplication (and in fact they relate to scheduling rather than timetabling); application developers should check with the school authority on whether they need to provide it.</p>
+<ul>
+<li>Any SIF object published by the timetabling app must be valid against the SIF-AU 3.4 schema.</li>
+<li>All SIF objects posted by the timetabling app must have referential integrity. Any RefId contained in the SIF object must refer either to a SIF object provisioned to the App (e.g. SchoolInfo, StudentPersonal, RoomInfo, TimeTableSubject) or to a SIF object that has also been posted by the app to the zone (e.g. TimeTableCell referring to TimeTable). This condition applies recursively to all additional SIF objects posted by the app. The test of this condition is done only when the app indicates that it has finished publishing to the zone the objects required for the test.</li>
+</ul>
 <p><strong><a href="#usecase-preconditions-for-assurance">More...</a></strong></p>
-<h3 id="join-school-zone."><a href="#join-school-zone.">3. Join school zone.</a></h3>
+<h3 id="join-school-zone.">3. Join school zone.</h3>
 <ul>
 <li>Third party app connects to jurisdiction-established zone for the school (&quot;HITS Zone 1&quot;).</li>
 <li>Third party app authenticates to jurisdiction-established zone for the school (&quot;HITS Zone 1 Authz&quot;).</li>
 <li>Jurisdiction zone authorises read access to objects in the jurisdiction zone for the school (&quot;HITS Zone 1 Authn&quot;).</li>
 </ul>
-<h3 id="consume-base-data-from-hits."><a href="#consume-base-data-from-hits.">4. Consume base data from HITS.</a></h3>
+<h3 id="consume-base-data-from-hits.">4. Consume base data from HITS.</h3>
 <p>Vendor-facing (pull); HITS represents the Jurisdiction and is the data source for seed information.</p>
 <p>Consume:</p>
 <p>On the jurisdiction-established zone for the app, third party app accesses: - all StudentPersonal records which are in a StudentSchoolEnrollment relationship with the given School RefId - all StaffPersonal records which are in a StaffAssignment relationship with the given School RefId - all RoomInfo objects linked to the given School RefId. - all TimeTableSubject objects linked to the given School RefId. - all SchoolCourseInfo objects linked to the given School RefId. (optional)</p>
@@ -269,14 +264,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Get SchoolCourseInfos: <code>http://.../SchoolCourseInfos</code></li>
 </ol>
 <p>Endpoints may support additional queries for retreiving data - refer to <strong><a href="/docs/common/qbe_or_service_paths.html">Query-by-example or service paths?</a></strong> for HITS guidance on queries.</p>
-<h3 id="process-in-third-party-application."><a href="#process-in-third-party-application.">5. Process in third party application.</a></h3>
+<h3 id="process-in-third-party-application.">5. Process in third party application.</h3>
 <p>The third party app uses the consumed data to produce a timetable. The definition and automation of this process is out of scope of HITs.</p>
 <p>Steps:</p>
 <ul>
 <li>Third party app processes information and generates timetable.</li>
 <li>Third party app creates return timetabling objects specific to the School.</li>
 </ul>
-<h3 id="provide-authoritative-data"><a href="#provide-authoritative-data">6. Provide authoritative data</a></h3>
+<h3 id="provide-authoritative-data">6. Provide authoritative data</h3>
 <p>Prior to providing:</p>
 <p>Third party expresses return information in SIF/XML:</p>
 <ul>
@@ -291,7 +286,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>Post ScheduledActivity to URL <code>http://.../ScheduledActivitys</code></li>
 </ol></li>
 </ul>
-<h3 id="self-confirm-usecase-support"><a href="#self-confirm-usecase-support">7. Self – confirm  usecase support</a></h3>
+<h3 id="self-confirm-usecase-support">7. Self – confirm  usecase support</h3>
 <p>Validate:</p>
 <ol style="list-style-type: decimal">
 <li>TimeTable records</li>
@@ -299,8 +294,8 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <li>TeachingGroup records</li>
 <li>ScheduledActivity records</li>
 </ol>
-<h3 id="more-information"><a href="#more-information">More information</a></h3>
-<h4 id="what-business-problem-does-this-usecase-address"><a href="#what-business-problem-does-this-usecase-address">What business problem does this usecase address?</a></h4>
+<h3 id="more-information">More information</h3>
+<h4 id="what-business-problem-does-this-usecase-address">What business problem does this usecase address?</h4>
 <p>In brief:</p>
 <ul>
 <li>Allows schools secure access to SIS information.</li>
@@ -311,12 +306,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>Schools currently use third-party timetabling apps locally to supplement their Student Information System (SIS). The seed information for generating timetables is held in the School's SIS and usually exported locally with little security. </p>
 <p>As jurisdictions centralise systems, third party vendors have the opportunity to seed their product/s from a quality assured data hub using automated feeds, rather than manual updates from the school. Third party vendors are also expected to provide information directly back to the centralised system through an automated feed, rather than having the information mediated through the school. </p>
 <p>This use case shows how third party vendors can connect to a centralised data hub to securely access to the required information and publish back the timetable records to the centralised data hub.</p>
-<h4 id="usecase-preconditions-for-assurance"><a href="#usecase-preconditions-for-assurance">Usecase preconditions for assurance</a></h4>
-<p>The following conditions also must be met:</p>
-<ul>
-<li>Any SIF object published by the timetabling app must be valid against the SIF-AU 1.3 schema.</li>
-<li>All SIF objects posted by the timetabling app must have referential integrity. Any RefId contained in the SIF object must refer either to a SIF object provisioned to the App (e.g. SchoolInfo, StudentPersonal, RoomInfo, TimeTableSubject) or to a SIF object that has also been posted by the app to the zone (e.g. TimeTableCell referring to TimeTable). This condition applies recursively to all additional SIF objects posted by the app. The test of this condition is done only when the app indicates that it has finished publishing to the zone the objects required for the test.</li>
-</ul>
+<h4 id="usecase-preconditions-for-assurance">Usecase preconditions for assurance</h4>
 <p>For the purposes of validation, a new TeachingGroup object is well-formed if:</p>
 <ol style="list-style-type: decimal">
 <li>All mandatory elements of the TeachingGroup object are provided.</li>
