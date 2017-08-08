@@ -26,7 +26,14 @@ block main
                             .panel-heading
                                 h2.panel-title How to implement timetable
                             .panel-body
-                                 include ../../../../usecases/output/timetable/hits-dashboard_raw.html
+                                 // include ../../../../usecases/output/timetable/hits-dashboard_raw.html
+                                 iframe(
+                                  style="width:100%;margin:auto;",
+                                  src="/usecases/timetable/hits-dashboard.html"
+                                  frameborder="0"
+                                  scrolling="no"
+                                  onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"
+                                )
 block css
 block js
     if !release

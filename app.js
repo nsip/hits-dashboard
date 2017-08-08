@@ -32,11 +32,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/usecases", express.static(path.join(__dirname, '../usecases/output')));
+app.use("/usecases", express.static(path.join(__dirname, '../usecases/raw')));
 
 // TODO Separate entry, location, files etc
-app.use("/usecasedev", express.static("../usecases/output"));
-app.use('/usecasedev', serveIndex("../usecases/output", {'icons': true}));
+app.use("/usecasedev", express.static("../usecases/raw"));
+app.use('/usecasedev', serveIndex("../usecases/raw", {'icons': true}));
 
 app.use(require('./utils'));
 

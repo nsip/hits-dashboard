@@ -26,7 +26,13 @@ block main
                             .panel-heading
                                 h2.panel-title How to implement basic daily attendance
                             .panel-body
-                                 include ../../../../usecases/output/basic_daily_attendance/hits-dashboard_raw.html
+                                 iframe(
+                                  style="width:100%;margin:auto;",
+                                  src="/usecases/basic_daily_attendance/hits-dashboard.html"
+                                  frameborder="0"
+                                  scrolling="no"
+                                  onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"
+                                )
 block css
 block js
     if !release
