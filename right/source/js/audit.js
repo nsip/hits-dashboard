@@ -16,6 +16,9 @@ function auditOne(dbid, id) {
     $('#audit-field-request').text(data.data.request)
     $('#audit-field-responseHeaders').text(data.data.responseHeaders)
     $('#audit-field-response').text(data.data.response)
+    $('#audit-field-xmlcmd').text(data.xmlcmd)
+    $('#audit-field-xmlout').text(data.xmlout)
+    $('#audit-field-xmlerr').text(data.xmlerr)
 
     $(document).find('pre code').each(function(i, block) {
       console.log("Highlighting block");

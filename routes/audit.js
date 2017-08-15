@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
+// var xmllint = require('xmllint');
+var spawn = require('child_process').spawn;
 
 // AUTHENTICATION - All entries start with base URL
 router.use(function (req, res, next) {
@@ -81,10 +83,52 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows[0],
-			});
+
+			var xml;
+			if (rows && rows[0] && rows[0].request)
+				xml = rows[0].request;
+
+			// xmllint --schema SIF_Message.xsd --valid --noout -
+			if (xml) {
+
+				var out = [];
+				var err = [];
+		    // xmllint = spawn('xmllint', ['--valid', '--noout', '-']);
+	    	var params = ['--schema', __dirname + '/../xsd/SIF_Message.xsd', '--valid', '--noout', '-'];
+	    	xmllint = spawn('xmllint', params);
+
+				xmllint.stdin.write(xml);
+				xmllint.stdin.end();
+
+				xmllint.stdout.on('data', function (data) {
+				  console.log('stdout: ' + data.toString());
+					out.push(data.toString());
+				});
+
+				xmllint.stderr.on('data', function (data) {
+				  console.log('stderr: ' + data.toString());
+					err.push(data.toString());
+				});
+
+				xmllint.on('exit', function (code) {
+				  console.log('child process exited with code ' + code.toString());
+					return res.json({
+						success: 1,
+						xmlcmd: "xmllint " + params.join(" "),
+						xmlout: out.join("\n"),
+						xmlerr: err.join("\n"),
+						data: rows[0],
+					});
+				});
+			}
+			else {
+				return res.json({
+					success: 1,
+					data: rows[0],
+					xmllint: "NA",
+					xmlerr: "NA",
+				});
+			}
 		}
 	);
 });
