@@ -99,6 +99,7 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
         res.json({
           success: 1,
           data: rows[0],
+          xml: "",
           xmllint: "NA for DELETE",
           xmlerr: "NA for DELETE",
         });
@@ -111,6 +112,12 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
 
       // xmllint --schema SIF_Message.xsd --valid --noout -
       if (xml) {
+
+        xml = xml.replace(/xmlns="[^"]+"/, "");
+
+        var url = rows[0].url;
+        url = url.replace(/^.+\//, "");
+        xml = '<' + url + 's xmlns="http://www.sifassociation.org/datamodel/au/3.4">' + xml + '</' + url + 's>';
 
         var out = [];
         var err = [];
@@ -152,6 +159,7 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
           console.log('child process exited with code ' + code.toString());
           return res.json({
             success: 1,
+            xml: xml,
             xmlcmd: "xmllint " + params.join(" "),
             xmlout: out.join("\n"),
             xmlerr: err.join("\n"),
@@ -163,6 +171,7 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
         return res.json({
           success: 1,
           data: rows[0],
+          xml: xml,
           xmllint: "NA",
           xmlerr: "NA",
         });
