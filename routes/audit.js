@@ -7,7 +7,7 @@ var spawn = require('child_process').spawn;
 
 // AUTHENTICATION - All entries start with base URL
 router.use(function (req, res, next) {
-	next();
+  next();
 });
 
 /*
@@ -53,84 +53,122 @@ var l = new Lick();
 he.apply(l, she);
 console.log(she.sound());
 he.on('mmmmm', function() {
-	console.log("!!!!!");
+  console.log("!!!!!");
 });
 
 */
 
 router.get('/:dbid/summary', function(req, res, next) {
-	var connection = db.infra();
-	connection.query(
-		'SELECT id,requestTime,responseTime,clientIp, url, solutionId, appKey, userToken, context, instanceId, zone, environmentToken, sessionToken, method, httpStatus, requestMediaType, responseMediaType FROM XMLAudit WHERE appKey = ? ORDER BY requestTime DESC LIMIT 1000',
+  var connection = db.infra();
+  connection.query(
+    'SELECT id,requestTime,responseTime,clientIp, url, solutionId, appKey, userToken, context, instanceId, zone, environmentToken, sessionToken, method, httpStatus, requestMediaType, responseMediaType FROM XMLAudit WHERE appKey = ? ORDER BY requestTime DESC LIMIT 1000',
     [req.params.dbid],
-		function(err, rows, fields) {
+    function(err, rows, fields) {
             var ret = [];
-			if (err)
-				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows,
-			});
-		}
-	);
+      if (err)
+        return res.error(err);
+      return res.json({
+        success: 1,
+        data: rows,
+      });
+    }
+  );
 });
 
 router.get('/:dbid/data/:rowid', function(req, res, next) {
-	var connection = db.infra();
-	connection.query(
-		'SELECT * FROM XMLAudit WHERE id = ?',
-		[req.params.rowid],
-		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
+  var connection = db.infra();
+  connection.query(
+    'SELECT * FROM XMLAudit WHERE id = ?',
+    [req.params.rowid],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
 
-			var xml;
-			if (rows && rows[0] && rows[0].request)
-				xml = rows[0].request;
 
-			// xmllint --schema SIF_Message.xsd --valid --noout -
-			if (xml) {
+      if (rows[0].method == 'GET') {
+        res.json({
+          success: 1,
+          data: rows[0],
+          xmllint: "NA for GET",
+          xmlerr: "NA for GET",
+        });
+        return;
+      }
 
-				var out = [];
-				var err = [];
-		    // xmllint = spawn('xmllint', ['--valid', '--noout', '-']);
-	    	var params = ['--schema', __dirname + '/../xsd/SIF_Message.xsd', '--valid', '--noout', '-'];
-	    	xmllint = spawn('xmllint', params);
+      if (rows[0].method == 'DELETE') {
+        res.json({
+          success: 1,
+          data: rows[0],
+          xmllint: "NA for DELETE",
+          xmlerr: "NA for DELETE",
+        });
+        return;
+      }
 
-				xmllint.stdin.write(xml);
-				xmllint.stdin.end();
+      var xml;
+      if (rows && rows[0] && rows[0].request)
+        xml = rows[0].request;
 
-				xmllint.stdout.on('data', function (data) {
-				  console.log('stdout: ' + data.toString());
-					out.push(data.toString());
-				});
+      // xmllint --schema SIF_Message.xsd --valid --noout -
+      if (xml) {
 
-				xmllint.stderr.on('data', function (data) {
-				  console.log('stderr: ' + data.toString());
-					err.push(data.toString());
-				});
+        var out = [];
+        var err = [];
+        // xmllint = spawn('xmllint', ['--valid', '--noout', '-']);
 
-				xmllint.on('exit', function (code) {
-				  console.log('child process exited with code ' + code.toString());
-					return res.json({
-						success: 1,
-						xmlcmd: "xmllint " + params.join(" "),
-						xmlout: out.join("\n"),
-						xmlerr: err.join("\n"),
-						data: rows[0],
-					});
-				});
-			}
-			else {
-				return res.json({
-					success: 1,
-					data: rows[0],
-					xmllint: "NA",
-					xmlerr: "NA",
-				});
-			}
-		}
-	);
+        var xsd = "";
+
+        if (rows[0].url.match("environment")) {
+          xsd = "POST_environment"
+        }
+        else if (rows[0].method == 'POST') {
+          xsd = "POST_SIF_Message";
+        }
+        else if (rows[0].method == 'PUT') {
+          xsd = "PUT_SIF_Message";
+        }
+        else {
+          console.log("Invalid URL or Method");
+        }
+
+        // --valid - apparently only for DTD not XSD
+        var params = ['--schema', __dirname + '/../xsd/' + xsd + '.xsd', '--noout', '-'];
+        xmllint = spawn('xmllint', params);
+
+        xmllint.stdin.write(xml);
+        xmllint.stdin.end();
+
+        xmllint.stdout.on('data', function (data) {
+          console.log('stdout: ' + data.toString());
+          out.push(data.toString());
+        });
+
+        xmllint.stderr.on('data', function (data) {
+          console.log('stderr: ' + data.toString());
+          err.push(data.toString());
+        });
+
+        xmllint.on('exit', function (code) {
+          console.log('child process exited with code ' + code.toString());
+          return res.json({
+            success: 1,
+            xmlcmd: "xmllint " + params.join(" "),
+            xmlout: out.join("\n"),
+            xmlerr: err.join("\n"),
+            data: rows[0],
+          });
+        });
+      }
+      else {
+        return res.json({
+          success: 1,
+          data: rows[0],
+          xmllint: "NA",
+          xmlerr: "NA",
+        });
+      }
+    }
+  );
 });
 
 module.exports = router;
