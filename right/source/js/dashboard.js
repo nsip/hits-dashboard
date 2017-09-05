@@ -34,6 +34,24 @@ $(document).ready(function() {
   $.cookie("hits2.dbid", dbid, {expires: 90});
   $.cookie("hits2.option", option, {expires: 90});
 
+  var tls = $('#tls-view');
+  if (tls) {
+    var x = location.protocol;
+    var current = location.href.replace(/https?:\/\//i, "")
+    if (x == 'https:') {
+      tls.html("Switch to HTTP");
+      tls.click(function() {
+        window.location = 'http://' + current;
+      });
+    }
+    else {
+      tls.html("Switch to TLS");
+      tls.click(function() {
+        window.location = 'https://' + current;
+      });
+    }
+  }
+
   $.get( "/api/account/" + id + "/database/" + dbid, function( data ) {
     if (!data) {
       $('#dashboard-statusbutton').text("No database exists");
