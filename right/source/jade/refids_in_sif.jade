@@ -1,0 +1,38 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'RefIDs in SIF';
+    - area = 'Developer Help';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                  a(href="help.html") Developer Help
+                li.active Help
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-12
+                                .panel.panel-info
+                                    .panel-heading
+                                        h2.panel-title RefIDS in SIF
+                                    .panel-body
+                                        p The RefId attribute of each object is vitally important in SIF, as it guarantees that an object is uniquely identified, and can be uniquely referenced by other objects. All SIF objects must contain a RefId attribute in order to be valid.
+                                        p As specified  in the current SIF Infrastructure <a href="http://specification.sifassociation.org/Implementation/Infrastructure/3.2.1/Documents/BaseArchitecture_3-2-1.pdf">Base Architecture</a> (§5.12 Create), consumers are expected to provide RefIds they wish to see used in the body of the objects they POST or PUT under SIF. This is mandatory for a payload with multiple objects, and is strongly suggested for a payload with a single object. (The Javascript client incorporated into HITS will validate any POST requests for objects, and it will use a dummy RefId value if one is not included in the payload body.)   
+                                        p The SIF server will return an <code>advisoryId</code> element in the response to the request, linking the RefId specified for each object to the RefId actually assigned by the server. The server is entitled to overrule the RefId suggestion of the client, unless the <code>mustUseAdvisory</code> header has been supplied in the HTTP request. In the latter case, the Create request will be rejected by the server if the provided RefId is unacceptable to the server.
+block css
+block js
+    if !release
+        script(src='js/template/index.js')
