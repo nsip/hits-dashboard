@@ -25,6 +25,48 @@ $(document).ready(function() {
         },
       },
 
+      // Empty
+      {
+        id: 'empty',
+        title: 'Empty',
+        schools: [0,0],
+        students: [0,0],
+        classrooms: [0,0], // XXX Fake
+        teachers: [0,0], // XXX Fake
+        // (optional) CalendarDate for each day of term in a year eg Feb-June, Aug-Nov, 5 days a week
+        // 1 calendarsummary per year
+        // Calendar Date is a check box (because it is an option)
+        // (Classroom=0, Teachers=0) ie not required, maybe don't put up thiose slioders for this use case
+        options: {
+          teachinggroups: false,
+          timetable: false,
+          grading: false,
+          contacts: false,
+          accounts: false,
+          naplan: false,
+        },
+      },
+      // One School
+      {
+        id: 'oneschool',
+        title: 'One School',
+        schools: [1,1],
+        students: [0,0],
+        classrooms: [0,0], // XXX Fake
+        teachers: [0,0], // XXX Fake
+        // (optional) CalendarDate for each day of term in a year eg Feb-June, Aug-Nov, 5 days a week
+        // 1 calendarsummary per year
+        // Calendar Date is a check box (because it is an option)
+        // (Classroom=0, Teachers=0) ie not required, maybe don't put up thiose slioders for this use case
+        options: {
+          teachinggroups: false,
+          timetable: false,
+          grading: false,
+          contacts: false,
+          accounts: false,
+          naplan: false,
+        },
+      },
       // The other entries
       {
         id: 'attendance',

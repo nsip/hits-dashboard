@@ -44,7 +44,6 @@ $(document).ready(function() {
 		};
 
 		loadTable();
-		setInterval(loadTable, 30000);
 	}
 
 	if ($('#admin-contacts').length) {
@@ -113,7 +112,6 @@ $(document).ready(function() {
 		};
 
 		loadTable();
-		setInterval(loadTable, 60000);
 	}
 
 	// Create new entry

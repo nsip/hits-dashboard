@@ -115,6 +115,13 @@ router.get('/:dbid/data/:rowid', function(req, res, next) {
 
         xml = xml.replace(/xmlns="[^"]+"/, "");
 
+        // Add in a pretend
+        var fakeuuid = 'a07da06f-a5bf-4147-b2ab-9e4d648c3241';
+        if (! xml.match(/^<[^>]+RefId=/) ) {
+          xml = xml.replace(/ /, ' RefId="' + fakeuuid + '" ');
+        }
+
+        // Add Collection XML
         var url = rows[0].url;
         url = url.replace(/^.+\//, "");
         xml = '<' + url + 's xmlns="http://www.sifassociation.org/datamodel/au/3.4">' + xml + '</' + url + 's>';
