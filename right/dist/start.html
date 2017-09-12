@@ -141,6 +141,7 @@
                       <!-- li(class=page=='Connect .NET consumer' ? 'active' : '')a.addids(href='connect_net_consumer.html') Connect .NET consumer
                       -->
                       <li><a href="connect_generic_consumer.html" class="addids">Connect generic consumer</a></li>
+                      <li><a href="refids_in_sif.html" class="addids">RefIDs in SIF</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -202,16 +203,16 @@
                                 <h4> 3. Get some objects from HITS</h4>
                                 <p>The use case describes the objects from the hub that you need to access; we expect that you will get all objects of the given classes that are available from HITS. Each object class is associated with a distinct endpoint, named by appending an "s" to the object class; you fetch instances of ScheduledActivity, for example, from the endpoint ending in /ScheduledActivitys.</p>
                                 <h4> 4. Based on those objects, generate some new objects</h4>
-                                <p>Your client will be validated based on your ability to generate valid SIF objects and post them back to the hub. </p>
+                                <p>Your client will be validated based on your ability to generate valid SIF objects and post them back to the hub.</p>
                                 <p>Amongst other things, your objects are tested for referential integrity: do they link to objects that are already on the hub? For example, a class roster must reference the existing students, staff, rooms, and subjects in the school. To create those links, you must access all the relevant objects from HITS (as noted above), and use only their GUIDs when generating the objects that reference them.</p>
                                 <h4> 5. Clear the HITS database</h4>
                                 <p>The validation of your objects runs over the entire contents of your database instance. This means you can validate results only after you have posted all required objects (which may involve several messages). If you have posted some objects with errors, clear the database before resending the corrected objects. This allows you to start with a clean slate, without having to update or delete individual objects you have already posted: your rerun can be treated as new Creates on the endpoint.</p>
                                 <h4> 5.1 Deleting objects</h4>
-                                <p>The database behind HITS imposes constraints on foreign key integrity, and does not implement cascading deletes. As a result, if you are deleting individual objects from HITS via REST, you should delete child objects before you delete parent objects; e.g. delete instances of StudentContactRelationship before StudentContactPersonal before StudentPersonal. An attempt to delete an object with unresolved dependencies will generate an error.                                        </p>
+                                <p>The database behind HITS imposes constraints on foreign key integrity, and does not implement cascading deletes. As a result, if you are deleting individual objects from HITS via REST, you should delete child objects before you delete parent objects; e.g. delete instances of StudentContactRelationship before StudentContactPersonal before StudentPersonal. An attempt to delete an object with unresolved dependencies will generate an error.</p>
                                 <h4> 6. Post those objects to HITS (Return Path use cases)</h4>
                                 <p>Having created new objects, you will need to post them to the HITS endpoint specific to your client. If your post is successful, this will add the objects to the client database instance. As there is a different endpoint for each object class, you may need to post multiple messages. (Note that SIF 3 allows you to package multiple objects of the same class into a single message.)</p>
-                                <p> <strong>NOTE 1:</strong><br>If the message is not well-formed XML, the message will be rejected. </p>
-                                <p> <strong>NOTE 2:</strong><br>The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not automatically perform any syntactic validation of payloads against the SIF XML schema, although you can perform this validation against the transaction log as a manual operation (Dashboard->Developer Tools->Information->Tranasaction Log->Validate). HITS does not validate for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have not been provided properly in the payload.</p>
+                                <p><strong>NOTE 1:</strong><br>If the message is not well-formed XML, the message will be rejected.</p>
+                                <p><strong>NOTE 2:</strong><br>The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not automatically perform any syntactic validation of payloads against the SIF XML schema, although you can perform this validation against the transaction log as a manual operation (Dashboard->Developer Tools->Information->Tranasaction Log->Validate). HITS does not validate for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have not been provided properly in the payload.</p>
                                 <h4> 7. Run report on the objects you have posted</h4>
                                 <p>Validation is run when:</p>
                                 <ul>
@@ -221,13 +222,34 @@
                                 </ul>
                                 <p>Validation runs over the objects added to the database, and checks that the objects make sense in the context of the use case. As a result of validation, a report is generated which indicates whether your objects satisfy the use case requirements.</p>
                                 <p>The main things checked for are:</p>
-                                <ol> 
+                                <ol>
                                   <li>Referential integrity: your objects only link to the RefIDs of other objects on the database—whether these are objects that were already on the database (and that you have read in from HITS), or objects that you have posted to the database in another message. Because you may need to spread your objects over many messages, do not run validation until you have posted all your messages.</li>
                                   <li>Object Obligations: you have posted at least the number of instances of each object that is set in the use case. For example, a timetabling application cannot be validated unless it has posted at least one TimeTableCell object.</li>
                                   <li>Element Obligations: you have posted all the elements in your object that are mandatory in the use case. This includes not only the elements that are mandatory in the SIF-AU schema, but also the elements that this use case specifically requires to be populated.</li>
                                   <li>Element Values: some use cases will require that a particular value appear in an element. The objects will be tested to confirm that this has been done.</li>
                                 </ol>
                                 <p>Note that the validation report checks the current contents of the database. If you have prepopulated the database with objects automatically, and then run validation, the validation will give you a perfect score, as the prepopulated objects are valid. If you then add to the database objects with errors, the score will go down, and you will need to correct those errors to get the validation score back up.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="privacy" class="modal fade">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button id="privacy-close1" type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Privacy</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div role="alert" class="alert alert-danger">
+                                  <p>Warning – do not upload sensitive or personally identifiable information to the Hub Intergation Testing Service (HITS).</p>
+                                  <p>The operators of HITS cannot guarantee the security and confidentiality of any information provided to or downloaded from HITS.</p>
+                                  <p>Only non-identifiable or “dummy” data should be with the HITS site. All data generated by HITS to support test cases is randomly generated.</p>
+                                  <p>Please contact HITS support [link to info@nsip.edu.au] if you have any queries.”</p>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button id="privacy-close2" type="button" data-dismiss="modal" class="btn btn-default">Close</button>
                               </div>
                             </div>
                           </div>
@@ -241,8 +263,8 @@
           </div>
         </div>
       </div>
-      <div class="foot"> 
-        <p>Copyright <a href="http://www.nsip.edu.au/">NSIP</a>&nbsp;2015 - 2017 under the <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2.0 license</a></p>
+      <div class="foot">
+        <p>Copyright<a href="http://www.nsip.edu.au/">NSIP</a>&nbsp;2015 - 2017 under the<a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2.0 license</a>&nbsp; <a href="privacy.html">Privacy</a></p>
       </div>
     </div>
     <!-- include ../include/demo.jade-->
@@ -270,5 +292,6 @@
     <script src="js/main.js"></script>
     <script src="js/info.js"></script>
     <script src="js/template/index.js"></script>
+    <script src="js/privacy.js"></script>
   </body>
 </html>
