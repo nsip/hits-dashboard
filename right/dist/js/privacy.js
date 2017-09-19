@@ -5,11 +5,18 @@ $(document).ready(function() {
     $('#privacy').modal('show');
 
   $('#privacy-close1').click(function() {
-    $.cookie("hits2.privacyhide", true, {expires: 90});
+    // Do nothing - allow box to close for next time
   });
 
   $('#privacy-close2').click(function() {
-    $.cookie("hits2.privacyhide", true, {expires: 90});
+    if ($("#privacy-checkbox").is(':checked')) {
+      $.cookie("hits2.privacyhide", true, {expires: 90});
+      return true;
+    }
+    else {
+      alert("You must accept the conditions first");
+      return false;
+    }
   });
 
 });
