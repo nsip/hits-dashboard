@@ -1,5 +1,5 @@
 var config = require('config');
-var express = require('express'ccou);
+var express = require('express');
 var router = express.Router();
 var uuid = require('node-uuid');
 var db = require('../database');
