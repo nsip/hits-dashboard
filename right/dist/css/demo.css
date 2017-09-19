@@ -109,3 +109,8 @@
   border: 2px solid #cccccc;
   margin: 12px;
 }
+
+body:before {
+    display: none !important;
+}
+
