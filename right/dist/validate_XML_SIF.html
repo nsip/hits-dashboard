@@ -40,7 +40,7 @@
           <div class="header-navbar-mobile__menu">
             <button type="button" class="btn"><i class="fa fa-bars"></i></button>
           </div>
-          <div class="header-navbar-mobile__title"><span>Developer tools</span></div>
+          <div class="header-navbar-mobile__title"><span>Validate your XML against SIF AU schema</span></div>
           <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#">Log Out</a></li>
@@ -119,11 +119,11 @@
                   </li>
                 </ul>
                 <ul class="nav nav-menu">
-                  <li class="active opened"><a href="start.html">
+                  <li><a href="start.html">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-puzzle-piece"></i></div>
                       <div class="nav-menu__text"><span>Developer Tools</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
-                    <ul class="nav nav-menu__second collapse in">
+                    <ul class="nav nav-menu__second collapse">
                       <li><a href="account.html" class="addids">Databases</a></li>
                       <li><a href="dashboard.html" class="addids">Information</a></li>
                       <li><a href="client.html" class="addids">Javascript Client</a></li>
@@ -132,17 +132,17 @@
                   </li>
                 </ul>
                 <ul class="nav nav-menu">
-                  <li><a href="help.html">
+                  <li class="active opened"><a href="help.html">
                       <div class="nav-menu__ico"><i class="fa fa-fw fa-map-signs"></i></div>
                       <div class="nav-menu__text"><span>Developer Help</span></div>
                       <div class="nav-menu__right"><i class="fa fa-fw fa-angle-right arrow"></i></div></a>
-                    <ul class="nav nav-menu__second collapse">
+                    <ul class="nav nav-menu__second collapse in">
                       <li><a href="connect_java_consumer.html" class="addids">Connect Java consumer</a></li>
                       <!-- li(class=page=='Connect .NET consumer' ? 'active' : '')a.addids(href='connect_net_consumer.html') Connect .NET consumer
                       -->
                       <li><a href="connect_generic_consumer.html" class="addids">Connect generic consumer</a></li>
                       <li><a href="refids_in_sif.html" class="addids">RefIDs in SIF</a></li>
-                      <li><a href="validate_XML_SIF.html" class="addids">Validate your XML against SIF AU schema</a></li>
+                      <li class="active"><a href="validate_XML_SIF.html" class="addids">Validate your XML against SIF AU schema</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -156,7 +156,8 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
-                    <li class="active">Developer Tools</li>
+                    <li><a href="help.html">Developer Help</a></li>
+                    <li class="active">Help</li>
                   </ol>
                 </div>
                 <!-- .main-filter
@@ -178,83 +179,23 @@
                           <div class="col-md-12">
                             <div class="panel panel-info">
                               <div class="panel-heading">
-                                <h3 class="panel-title">Welcome to HITS (Hub Integration Testing Services)</h3>
+                                <h2 class="panel-title">Validate your XML against SIF-AU schema</h2>
                               </div>
                               <div class="panel-body">
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <p><strong>An assurance and demonstration environment for education integrations.</strong></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="panel panel-danger">
-                              <div class="panel-heading">
-                                <h3 class="panel-title">Developer Tools</h3>
-                              </div>
-                              <div class="panel-body">
-                                <p>There are a number of assurance use cases supported by HITS. All involve SIF CRUD operations over REST, and can confirm your ability to provide a hub provisioning data through SIF.</p>
-                                <p>All the use cases follow a similar pattern. Below is our suggestion as to how to work through them:</p>
-                                <h4> 1. Study the use case</h4>
-                                <p>The use case lists the kinds of objects involved in the exchange, the anticipated choreographies, and how the objects will be validated. Processing the use case assumes that your client can translate the SIF objects meaningfully into data objects that your software uses. [Here is an example usecase...](http://hits.nsip.edu.au/usecases/basic_daily_attendance/hits-dashboard.html)</p>
-                                <h4> 2. Set up a client to use HITS.</h4>
-                                <p>As a part of your sign-up process for HITS, you will have received the URL for a unique environment for testing, which takes you to the dashboard you now see.</p>
-                                <p>You can now create databases on HITS populated with the randomly-generated demo data you need for testing various use cases. HITS acts as a proxy for the hub you will be integrating into. When you create your database, depending on the options you select, your new database is populated with randomised objects that are representative of the information stored on a hub. To simplify testing, your client is assigned to one dummy school: all objects on the database are associated with that school.</p>
-                                <p><!--- is this last sentence still true? PH ---></p>
-                                <h4> 3. Get some objects from HITS</h4>
-                                <p>The use case describes the objects from the hub that you need to access; we expect that you will get all objects of the given classes that are available from HITS. Each object class is associated with a distinct endpoint, named by appending an "s" to the object class; you fetch instances of ScheduledActivity, for example, from the endpoint ending in /ScheduledActivitys.</p>
-                                <h4> 4. Based on those objects, generate some new objects</h4>
-                                <p>Your client will be validated based on your ability to generate valid SIF objects and post them back to the hub.</p>
-                                <p>Amongst other things, your objects are tested for referential integrity: do they link to objects that are already on the hub? For example, a class roster must reference the existing students, staff, rooms, and subjects in the school. To create those links, you must access all the relevant objects from HITS (as noted above), and use only their GUIDs when generating the objects that reference them.</p>
-                                <h4> 5. Clear the HITS database</h4>
-                                <p>The validation of your objects runs over the entire contents of your database instance. This means you can validate results only after you have posted all required objects (which may involve several messages). If you have posted some objects with errors, clear the database before resending the corrected objects. This allows you to start with a clean slate, without having to update or delete individual objects you have already posted: your rerun can be treated as new Creates on the endpoint.</p>
-                                <h4> 5.1 Deleting objects</h4>
-                                <p>The database behind HITS imposes constraints on foreign key integrity, and does not implement cascading deletes. As a result, if you are deleting individual objects from HITS via REST, you should delete child objects before you delete parent objects; e.g. delete instances of StudentContactRelationship before StudentContactPersonal before StudentPersonal. An attempt to delete an object with unresolved dependencies will generate an error.</p>
-                                <h4> 6. Post those objects to HITS (Return Path use cases)</h4>
-                                <p>Having created new objects, you will need to post them to the HITS endpoint specific to your client. If your post is successful, this will add the objects to the client database instance. As there is a different endpoint for each object class, you may need to post multiple messages. (Note that SIF 3 allows you to package multiple objects of the same class into a single message.)</p>
-                                <p><strong>NOTE 1:</strong><br>If the message is not well-formed XML, the message will be rejected.</p>
-                                <p><strong>NOTE 2:</strong><br>The message will NOT be rejected if the message is well-formed, but does not follow the SIF-AU schema. HITS does not automatically perform any syntactic validation of payloads against the SIF XML schema, although you can perform this validation against the transaction log as a manual operation (Dashboard->Developer Tools->Information->Tranasaction Log->Validate). HITS does not validate for failure to use the code sets prescribed in the SIF-AU specification. However, the payload populated may have empty elements where those elements have not been provided properly in the payload.</p>
-                                <h4> 7. Run report on the objects you have posted</h4>
-                                <p>Validation is run when:</p>
-                                <ul>
-                                  <li>you have posted all the messages required by the use case to the object end points, and</li>
-                                  <li>the messages have been successfully processed, and</li>
-                                  <li>the resulting objects have been added to the client database.</li>
-                                </ul>
-                                <p>Validation runs over the objects added to the database, and checks that the objects make sense in the context of the use case. As a result of validation, a report is generated which indicates whether your objects satisfy the use case requirements.</p>
-                                <p>The main things checked for are:</p>
+                                <p>The HITS platform validates the SIF/XML that you submit to it, prior to ingesting XML content into its databases. Failure to validate the XML against the current SIF-AU schema will not prevent XML from being ingested into the database, but the validation output may be useful to developers seeking to ensure better compliance with SIF.</p>
+                                <p>The validation done by the HITS platform uses the latest SIF-AU XSD schema, and the xmllint tool included in the libxml2 library. Developers can always replicate this kind of validation in their own environments.</p>
+                                <p>To validate your XML against the latest SIF-AU schema:</p>
                                 <ol>
-                                  <li>Referential integrity: your objects only link to the RefIDs of other objects on the database—whether these are objects that were already on the database (and that you have read in from HITS), or objects that you have posted to the database in another message. Because you may need to spread your objects over many messages, do not run validation until you have posted all your messages.</li>
-                                  <li>Object Obligations: you have posted at least the number of instances of each object that is set in the use case. For example, a timetabling application cannot be validated unless it has posted at least one TimeTableCell object.</li>
-                                  <li>Element Obligations: you have posted all the elements in your object that are mandatory in the use case. This includes not only the elements that are mandatory in the SIF-AU schema, but also the elements that this use case specifically requires to be populated.</li>
-                                  <li>Element Values: some use cases will require that a particular value appear in an element. The objects will be tested to confirm that this has been done.</li>
+                                  <li>Go to the built in Javascript client in HITS (Developer Tools > Javascript client)</li>
+                                  <li>Select an arbitrary SIF Provider and Database for your data. (If this is a scratchpad, you may want to create a new database for this purpose.)</li>
+                                  <li>Select Post One as your method.</li>
+                                  <li>In the “Parameters” body, replace the templated XML provided with the XML object you wish to validate. Note that you can only provide a single SIF object to the client.</li>
+                                  <li>Hit Execute. The Response to your post will indicate what information HITS was able to extract out of your payload, whether it was in valid SIF or not; if it was not, the object will be empty of any real content.</li>
+                                  <li>Go to Developer Tools > Databases, and select the Database you had selected as the destination of your post to HITS.</li>
+                                  <li>Select the  Transaction Log window for that database. Your recent post will be at the top of the log, as the most recent interaction you have had with the database.</li>
+                                  <li>Select the hyperlinked transaction ID at the left of the log entry.</li>
+                                  <li>You will see a popup window with the XML. The Request window will contain the payload you submitted. The Err window will contain the output of xmllint run over the payload.</li>
                                 </ol>
-                                <p>Note that the validation report checks the current contents of the database. If you have prepopulated the database with objects automatically, and then run validation, the validation will give you a perfect score, as the prepopulated objects are valid. If you then add to the database objects with errors, the score will go down, and you will need to correct those errors to get the validation score back up.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="privacy" class="modal fade">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button id="privacy-close1" type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Privacy</h4>
-                              </div>
-                              <div class="modal-body">
-                                <div role="alert" class="alert alert-danger">
-                                  <p>Warning – do not upload sensitive or personally identifiable information to the Hub Integration Testing Service (HITS).</p>
-                                  <p>The operators of HITS cannot guarantee the security and confidentiality of any information provided to or downloaded from HITS.</p>
-                                  <p>Only non-identifiable or “dummy” data should be with the HITS site. All data generated by HITS to support test cases is randomly generated.</p>
-                                  <p><span>Please contact HITS support</span><span>&nbsp;</span><a href="mailto:info@nsip.edu.au">info@nsip.edu.au</a><span>&nbsp;</span><span>if you have any queries.”</span></p>
-                                  <div class="checkbox checkbox-primary">
-                                    <input id="privacy-checkbox" type="checkbox">
-                                    <label for="privacy-checkbox">I have read the warning text above and agree not to upload sensitive or personally identifiable information to HITS.</label>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button id="privacy-close2" type="button" data-dismiss="modal" class="btn btn-default">Accept</button>
                               </div>
                             </div>
                           </div>
@@ -297,6 +238,5 @@
     <script src="js/main.js"></script>
     <script src="js/info.js"></script>
     <script src="js/template/index.js"></script>
-    <script src="js/privacy.js"></script>
   </body>
 </html>
