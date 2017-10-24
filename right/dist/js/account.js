@@ -110,14 +110,28 @@ $(document).ready(function() {
         // Vendors
         // Financial accounts (less important)
         // No check boxes
-        options: {},
+        options: {
+          teachinggroups: true,
+          timetable: false,
+          grading: false,
+          contacts: true,
+          accounts: true,
+          naplan: false,
+        },
       },
 
       {
         id: 'enrolment',
         title: 'Enrolment',
         schools: [1,1],
-        options: {},
+        options: {
+          teachinggroups: true,
+          timetable: true,
+          grading: true,
+          contacts: true,
+          accounts: false,
+          naplan: false,
+        },
       },
 
       {
@@ -133,7 +147,14 @@ $(document).ready(function() {
         // 10 Teaching groups, even distro, 1 per student
         // 10 teachers (1 per techning group)
         // (optional) StudentEnrollment and StaffAssignment join records connecting them back to the school
-        options: {},
+        options: {
+          teachinggroups: true,
+          timetable: true,
+          grading: true,
+          contacts: false,
+          accounts: false,
+          naplan: false,
+        },
       },
 
       {
@@ -144,7 +165,14 @@ $(document).ready(function() {
         classrooms: [0,0],
         teachers: [0,0],
         // 20 Schools (with ACARA IDs) - that's it.
-        options: {},
+        options: {
+          teachinggroups: true,
+          timetable: true,
+          grading: false,
+          contacts: false,
+          accounts: false,
+          naplan: true,
+        },
       },
 
       {
@@ -155,7 +183,14 @@ $(document).ready(function() {
         classrooms: [0,0],
         teachers: [0,0],
         // TBD later - not ready for this yet as too early in NAPLAN cycle, not yet relevant for vendor. Covered by NIAS for TAAs. Revisit 2018
-        options: {},
+        options: {
+          teachinggroups: false,
+          timetable: false,
+          grading: false,
+          contacts: false,
+          accounts: false,
+          naplan: false,
+        },
       },
 
       {
@@ -177,7 +212,14 @@ $(document).ready(function() {
         // Teachers
         // Room
         // Checkbox option: School Course Info
-        options: {},
+        options: {
+          teachinggroups: true,
+          timetable: true,
+          grading: false,
+          contacts: false,
+          accounts: false,
+          naplan: false,
+        },
       },
 
       // Checkboxes

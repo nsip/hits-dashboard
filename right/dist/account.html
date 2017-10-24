@@ -188,6 +188,13 @@
                         <div class="panel-body">
                           <div class="form">
                             <div class="row">
+                              <div class="col-md-12">
+                                <div role="alert" class="alert alert-info alert-dismissible">
+                                  <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><i class="alert-ico fa fa-fw fa-info"></i><strong>Name and Template!&thinsp;</strong>Enter a meaningful name for your database and choose a database template.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-8">
                                 <div class="form-group">
                                   <label class="control-label">Name</label>
@@ -196,12 +203,19 @@
                               </div>
                               <div class="col-md-4">
                                 <div class="form-group">
-                                  <label class="control-label">Type/Usecase</label>
+                                  <label class="control-label">Type / Usecase / Template</label>
                                   <select id="create-type" class="selectize">
                                     <option value="blank">Blank</option>
                                     <option value="basic">Basic</option>
                                     <option value="timetable">Timetable</option>
                                   </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div role="alert" class="alert alert-info alert-dismissible">
+                                  <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><i class="alert-ico fa fa-fw fa-info"></i><strong>Customise!&thinsp;</strong>the template settings below.
                                 </div>
                               </div>
                             </div>
@@ -221,31 +235,31 @@
                                 </div>
                               </div>
                               <div class="col-md-4">
-                                <div class="checkbox checkbox-primary">
+                                <div data-toggle="popover" title="What is this?" data-content="Create a set of teaching groups and link the students" class="checkbox checkbox-primary">
                                   <input id="create-teachinggroups" type="checkbox" checked="checked">
                                   <label for="create-teachinggroups">Teaching groups</label>
                                 </div>
-                                <div class="checkbox checkbox-primary">
+                                <div data-toggle="popover" title="What is this?" data-content="Timetable examples for each student" class="checkbox checkbox-primary">
                                   <input id="create-timetable" type="checkbox" checked="checked">
                                   <label for="create-timetable">Timetable example data</label>
                                 </div>
-                                <div class="checkbox checkbox-success">
+                                <div data-toggle="popover" title="What is this?" data-content="Grades created for all students and classes" class="checkbox checkbox-success">
                                   <input id="create-grading" type="checkbox" checked="checked">
                                   <label for="create-grading">Grading for each class/student</label>
                                 </div>
-                                <div class="checkbox checkbox-info">
+                                <div data-toggle="popover" title="What is this?" data-content="Contact information and photo per student and staff" class="checkbox checkbox-info">
                                   <input id="create-contacts" type="checkbox" checked="checked">
                                   <label for="create-contacts">Contacts information and photos</label>
                                 </div>
-                                <div class="checkbox checkbox-warning">
+                                <div data-toggle="popover" title="What is this?" data-content="Random set of invoices and accounts" class="checkbox checkbox-warning">
                                   <input id="create-accounts" type="checkbox" checked="checked">
                                   <label for="create-accounts">Accounts and invoices</label>
                                 </div>
-                                <div class="checkbox checkbox-primary">
+                                <div data-toggle="popover" title="What is this?" data-content="NAPLAN sample data created" class="checkbox checkbox-primary">
                                   <input id="create-naplan" type="checkbox" checked="checked">
                                   <label for="create-naplan">NAPLAN sample</label>
                                 </div>
-                                <div class="checkbox checkbox-primary">
+                                <div data-toggle="popover" title="What is this?" data-content="Use HMAC for authentication by default" class="checkbox checkbox-primary">
                                   <input id="create-hmac" type="checkbox">
                                   <label for="create-hmac">HMAC (auth)</label>
                                 </div>

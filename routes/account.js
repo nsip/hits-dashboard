@@ -68,6 +68,7 @@ router.get('/:accountId/database', function(req, res, next) {
 // Get DAtabases with counts for each
 router.get('/:accountId/counts', function(req, res, next) {
   var connection = db.connect();
+  var infraconnection = db.infra();
   connection.query(
     'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
     [ req.params.accountId ],
@@ -75,41 +76,62 @@ router.get('/:accountId/counts', function(req, res, next) {
       if (err)
         return res.error(err);
 
+      console.log("ROWS", rows);
+
       var ret = [];
       async.mapSeries(
         rows,
         function(row, step) {
-          var dbc = db.get(row.id);
-          dbc.query(
-            'SELECT (SELECT COUNT(*) FROM SchoolInfo) as schools, (SELECT COUNT(*) FROM StudentPersonal) as students, (SELECT COUNT(*) FROM StaffPersonal) as teachers',
-            function(err, counts, cfields) {
-              if (err) {
-                row.errors = err + "";
-                row.schools = 0;
-                row.students = 0;
-                row.teachers = 0;
-              }
-              else {
-                row.errors = null;
-                row.schools = counts[0].schools;
-                row.students = counts[0].students;
-                row.teachers = counts[0].teachers;
-              }
+          infraconnection.query(
+              'SELECT databaseUrl FROM APPKEY_DB_URL_MAPPER WHERE applicationKey = ?',
+              [ row.id ],
+              function(err, dbrows, fields) {
+                console.log("ONE ROW", err, dbrows);
+                if (!dbrows || !dbrows[0]) {
+                  row.errors = "not found";
+                  row.schools = 0;
+                  row.students = 0;
+                  row.teachers = 0;
+                  row.opdata = row.opdata || {};
+                  ret.push(row);
+                  step();
+                  return null;
+                }
 
-              // Expand opdata
-              try {
-                row.opdata = JSON.parse(row.optiondata);
-              }
-              catch(e) {
-                console.error(e);
-              }
-              row.opdata = row.opdata || {};
+                var dbc = db.get(dbrows[0].databaseUrl);
+                dbc.query(
+                  'SELECT (SELECT COUNT(*) FROM SchoolInfo) as schools, (SELECT COUNT(*) FROM StudentPersonal) as students, (SELECT COUNT(*) FROM StaffPersonal) as teachers',
+                  function(err, counts, cfields) {
+                    console.log("COUNTS", err, counts);
+                    if (err) {
+                      row.errors = err + "";
+                      row.schools = 0;
+                      row.students = 0;
+                      row.teachers = 0;
+                    }
+                    else {
+                      row.errors = null;
+                      row.schools = counts[0].schools;
+                      row.students = counts[0].students;
+                      row.teachers = counts[0].teachers;
+                    }
 
-              ret.push(row);
-              db.close(row.id);
-              step();
-            }
-          );
+                    // Expand opdata
+                    try {
+                      row.opdata = JSON.parse(row.optiondata);
+                    }
+                    catch(e) {
+                      console.error(e);
+                    }
+                    row.opdata = row.opdata || {};
+
+                    ret.push(row);
+                    db.close(dbrows[0].databaseUrl);
+                    step();
+                  }
+                );
+              }
+            );
         },
         function(err) {
           if (err) {
@@ -122,7 +144,6 @@ router.get('/:accountId/counts', function(req, res, next) {
             success: 1,
             data: ret,
           });
-
         }
       );
     }

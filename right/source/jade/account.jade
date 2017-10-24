@@ -26,17 +26,36 @@ block main
                         .panel-body
                           .form
                             .row
+                              .col-md-12
+                                .alert.alert-info.alert-dismissible(role="alert")
+                                    button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                        span(aria-hidden="true") &times;
+                                    i.alert-ico.fa.fa-fw.fa-info
+                                    strong Name and Template!&thinsp;
+                                    | Enter a meaningful name for your database and choose a database template.
+
+
+                            .row
                               .col-md-8
                                 .form-group
                                     label.control-label Name
                                     input.form-control#create-name(name="name", type='text', placeholder='Name of Database')
                               .col-md-4
                                 .form-group
-                                    label.control-label Type/Usecase
+                                    label.control-label Type / Usecase / Template
                                     select.selectize#create-type
                                         option(value="blank") Blank
                                         option(value="basic") Basic
                                         option(value="timetable") Timetable
+
+                            .row
+                              .col-md-12
+                                .alert.alert-info.alert-dismissible(role="alert")
+                                    button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                        span(aria-hidden="true") &times;
+                                    i.alert-ico.fa.fa-fw.fa-info
+                                    strong Customise!&thinsp;
+                                    | the template settings below.
 
                             .row
                               .col-md-8
@@ -50,25 +69,25 @@ block main
                                     input.slider#create-classrooms(type="text", name="classrooms", value="")
 
                               .col-md-4
-                                .checkbox.checkbox-primary
+                                .checkbox.checkbox-primary(data-toggle="popover" title="What is this?" data-content="Create a set of teaching groups and link the students")
                                     input#create-teachinggroups(type='checkbox', checked='checked')
                                     label(for='create-teachinggroups') Teaching groups
-                                .checkbox.checkbox-primary
+                                .checkbox.checkbox-primary(data-toggle="popover" title="What is this?" data-content="Timetable examples for each student")
                                     input#create-timetable(type='checkbox', checked='checked')
                                     label(for='create-timetable') Timetable example data
-                                .checkbox.checkbox-success
+                                .checkbox.checkbox-success(data-toggle="popover" title="What is this?" data-content="Grades created for all students and classes")
                                     input#create-grading(type='checkbox', checked='checked')
                                     label(for='create-grading') Grading for each class/student
-                                .checkbox.checkbox-info
+                                .checkbox.checkbox-info(data-toggle="popover" title="What is this?" data-content="Contact information and photo per student and staff")
                                     input#create-contacts(type='checkbox', checked='checked')
                                     label(for='create-contacts') Contacts information and photos
-                                .checkbox.checkbox-warning
+                                .checkbox.checkbox-warning(data-toggle="popover" title="What is this?" data-content="Random set of invoices and accounts")
                                     input#create-accounts(type='checkbox', checked='checked')
                                     label(for='create-accounts') Accounts and invoices
-                                .checkbox.checkbox-primary
+                                .checkbox.checkbox-primary(data-toggle="popover" title="What is this?" data-content="NAPLAN sample data created")
                                     input#create-naplan(type='checkbox', checked='checked')
                                     label(for='create-naplan') NAPLAN sample
-                                .checkbox.checkbox-primary
+                                .checkbox.checkbox-primary(data-toggle="popover" title="What is this?" data-content="Use HMAC for authentication by default")
                                     input#create-hmac(type='checkbox')
                                     label(for='create-hmac') HMAC (auth)
                             .row

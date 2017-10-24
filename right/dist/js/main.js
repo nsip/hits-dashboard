@@ -12,6 +12,13 @@ $(document).ready(function() {
         $('#datatable-error').text(message);
     };
 
+  // Popovers
+  $('[data-toggle="popover"]').popover({
+    animation: true,
+    trigger: 'hover',
+    placement: 'left',
+  });
+
   quickmenu($('.quickmenu__item.active'));
 
   $('body').on('click', '.quickmenu__item', function() {
