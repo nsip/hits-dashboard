@@ -58,17 +58,25 @@ block main
                         .panel-heading
                             h3.panel-title Information, Database tables, Transactions
                         .panel-body
+                            .alert.alert-info.alert-dismissible(role="alert")
+                                button.close(type="button", data-dismiss="alert", aria-label="Close")
+                                    span(aria-hidden="true") &times;
+                                i.alert-ico.fa.fa-fw.fa-info
+                                strong Tabs!&thinsp;
+                                | Select tab below for debugging information
+
                             ul.nav.nav-tabs(role="tablist")
                                 li.active(role="presentation")
                                     a(href="#info",aria-controls="customers", role="tab", data-toggle="tab") Information
                                 li(role="presentation")
                                     a(href="#database",aria-controls="managers", role="tab", data-toggle="tab") Database
-                                le(role="presentation")
+                                li(role="presentation")
                                     a(href="#transactionlog",aria-controls="admins", role="tab", data-toggle="tab") Transaction Log
                                 li(role="presentation")
                                     a(href="#validate",aria-controls="admins", role="tab", data-toggle="tab") Validate
                             .tab-content
                                 .tab-pane.active#info(role="tabpanel")
+                                        p Information on how to connect to the SIF provider
                                         table.table
                                             thead
                                                 tr
@@ -126,6 +134,7 @@ block main
                                             option (select)
                                     table.datalist__table.table.datatable.display.table-hover(id='database-view', width='100%')
                                 .tab-pane#transactionlog(role="tabpanel")
+                                    p Transaction log for debugging existing information
                                     table.datalist__table.table.datatable.display.table-hover(id='audit-view', width='100%')
                                 .tab-pane#validate(role="tabpanel")
                                     p Click "Generate" to update report

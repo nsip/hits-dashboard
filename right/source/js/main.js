@@ -17,6 +17,7 @@ $(document).ready(function() {
     animation: true,
     trigger: 'hover',
     placement: 'left',
+    container: 'body',
   });
 
   quickmenu($('.quickmenu__item.active'));
