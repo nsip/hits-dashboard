@@ -1,0 +1,49 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Validate your XML against SIF AU schema';
+    - area = 'Developer Help';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                  a(href="help.html") Developer Help
+                li.active Help
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-12
+                                .panel.panel-info
+                                    .panel-heading
+                                        h2.panel-title Validate your XML against SIF-AU schema
+                                    .panel-body
+                                        p The HITS platform validates the SIF/XML that you submit to it, prior to ingesting XML content into its databases. Failure to validate the XML against the current SIF-AU schema will not prevent XML from being ingested into the database, but the validation output may be useful to developers seeking to ensure better compliance with SIF.
+                                        p The validation done by the HITS platform uses the latest SIF-AU XSD schema, and the xmllint tool included in the libxml2 library. Developers can always replicate this kind of validation in their own environments.
+                                        p To validate your XML against the latest SIF-AU schema:
+                                        ol
+                                          li Go to the built in Javascript client in HITS (Developer Tools > Javascript client)
+                                          li Select an arbitrary SIF Provider and Database for your data. (If this is a scratchpad, you may want to create a new database for this purpose.)
+                                          li Select Post One as your method.
+                                          li In the “Parameters” body, replace the templated XML provided with the XML object you wish to validate. Note that you can only provide a single SIF object to the client.
+                                          li Hit Execute. The Response to your post will indicate what information HITS was able to extract out of your payload, whether it was in valid SIF or not; if it was not, the object will be empty of any real content.
+                                          li Go to Developer Tools > Databases, and select the Database you had selected as the destination of your post to HITS.
+                                          li Select the  Transaction Log window for that database. Your recent post will be at the top of the log, as the most recent interaction you have had with the database.
+                                          li Select the hyperlinked transaction ID at the left of the log entry.
+                                          li You will see a popup window with the XML. The Request window will contain the payload you submitted. The Err window will contain the output of xmllint run over the payload.
+                                        
+block css
+block js
+    if !release
+        script(src='js/template/index.js')
