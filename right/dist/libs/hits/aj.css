@@ -8,3 +8,7 @@ Greenblue - #438496
 Brown - #B37D4E
 
 */
+
+body:before { 
+ content: none !important;
+}
