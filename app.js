@@ -69,8 +69,8 @@ app.use('/api/audit', require('./routes/audit'));
 app.use('/api/report', require('./routes/report'));
 
 // NODEAdmin - Access to MySQL - needs security
-var nodeadmin = require('nodeadmin');
-app.use(nodeadmin(app));
+// var nodeadmin = require('nodeadmin');
+// app.use(nodeadmin(app));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
