@@ -47,6 +47,7 @@ module.exports = {
                 user     : config.database.user,
                 password : config.database.password,
                 database : name,
+                multipleStatements: true,
             });
 						// XXX Connection error auto close
 						// connection.on('error', function() {});
