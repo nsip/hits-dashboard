@@ -14,7 +14,8 @@ module.exports = {
 		"georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
 	},
 
-	// Primary database
+	/*
+	// Production DB
 	"database": {
 		driver: 'mysql',
 		host: 'db.dev.nsip.edu.au',
@@ -23,9 +24,24 @@ module.exports = {
 		password: 'foxcrowbaker'
 	},
 
+	// Production create
 	"create": {
 		base: "http://hits.nsip.edu.au/dbcreate",
 	},
+	*/
+
+	// Test DB
+	"database": {
+		driver: 'mysql',
+		host: 'testdb.dev.nsip.edu.au',
+		database: 'hits',
+		user: 'hitstest',
+		password: 'foxcrowbaker'
+	},
+	// Test Create
+  "create": {
+    base: "http://hitstest.dev.nsip.edu.au/dbcreate",
+  },
 
 	"log": {
 		"output": "logs",
