@@ -3,6 +3,10 @@ var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
 var uuid = require('node-uuid');
+var Mailgun = require('mailgun-js');
+var mailgun = new Mailgun({apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f', domain: 'hits.nsip.edu.au'});
+// pubkey-e9b8fb5cf3be0d644c9c970086c72b48
+// key-df32edce350d1ce87c630dfe40f39d2f
 
 // AUTHENTICATION - All routes here require authentication as admin
 router.use(function (req, res, next) {
@@ -69,6 +73,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/test/mail', function(req, res) {
+	/* res.mailer - see app.js
 	res.mailer.send('email', {
      to: 'scottp@dd.com.au', // REQUIRED. This can be a comma delimited string just like a normal email to field.
      subject: 'Test Email', // REQUIRED.
@@ -82,6 +87,30 @@ router.get('/test/mail', function(req, res) {
      }
      res.send('Email Sent');
    });
+	 */
+
+	 /* Mail Gun
+
+	 */
+	var data = {
+		from: 'info@nsip.edu.au',
+		to: "scooter.me@gmail.com",
+		subject: "Test subject",
+		// html: templatedata,
+		text: "This is the body",
+	};
+	mailgun.messages().send(data, function(err, body) {
+		//If there is an error, render the error page
+		if (err) {
+			console.log("EMAIL: error: ", err);
+			res.statu(400).json({success: false, message: "Error - " + err});
+		}
+		//Else we can greet    and leave
+		else {
+			console.log("EMAIL: Success: ", body);
+			res.json({success: true, body: body});
+		}
+	});
 });
 
 router.get('/contact', function(req, res) {
