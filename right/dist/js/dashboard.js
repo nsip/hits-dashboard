@@ -89,6 +89,24 @@ $(document).ready(function() {
 
     $('#debug-optiondata').text(data.data.optiondata);
     $('#debug-log').text(data.data.message);
+    
+    if(data.data.version_num) $('#dashboard-version_number').text(data.data.version_num);
+    else $('#dashboard-version_number').text("Unknown");
+  
+    var databasemessages = data.data.database_version_messages;
+    if(databasemessages.length > 0){
+    
+        var databasehtml = "<ul>";
+        for(var i=0; i<databasemessages.length; i++){
+            var stylecolour = "orange";
+            if(databasemessages[i].type == 'error') stylecolour = "red";
+            databasehtml += ("<li style='color:" + stylecolour + "'>" + databasemessages[i].message + "</li>");
+        }
+        databasehtml += "</ul>";
+        
+        $('#dashboard-version_messages').html(databasehtml);
+    }
+    
   });
 
   var viewtable = null;

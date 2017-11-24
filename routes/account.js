@@ -264,6 +264,27 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
 
       var ret = rows[0];
 
+      // Use the version id to get the config messages
+      var databaseMessages = config.database_version_messages;
+      var messageVersions = Object.keys(databaseMessages).sort();
+      
+      var version = 0;
+      if(ret.version_num) version = ret.version_num;
+      
+      var messages = [];
+      if(version < config.database_current_version){
+          
+          for(var i=0; i<messageVersions.length; i++){
+              if(version < messageVersions[i]){
+                  for(var j=0; j<databaseMessages[messageVersions[i]].length; j++){
+                      messages.push(databaseMessages[messageVersions[i]][j]);
+                  }
+              }
+          }
+      }
+      
+      ret.database_version_messages = messages;
+      
       infraconnection.query(
         "SELECT "
         + "        t.ENV_TEMPLATE_ID, t.PASSWORD, t.APP_TEMPLATE_ID, t.APP_TEMPLATE_ID, "

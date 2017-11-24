@@ -57,4 +57,25 @@ module.exports = {
         ],
     },
 
+    
+    database_current_version: 2,
+    
+    // Warnings and errors are shown for every version greater than the current version    
+    database_version_messages: {
+        1: [
+            {   type: 'warn',
+                message: "This is a warning version 1"
+            },
+            {   type: 'error',
+                message: "This is a error on version 1"
+            }
+        ],
+        2: [
+            {
+                type: 'error',
+                message: "This is an error version 2"
+            }
+        ]
+    }
+    
 };

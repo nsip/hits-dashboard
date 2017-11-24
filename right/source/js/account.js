@@ -429,6 +429,7 @@ $(document).ready(function() {
           { "title": "Teachers", "width": "5%", "data": "teachers" , "defaultContent": ''},
           { "title": "Status", "width": "10%", "data": "status" , "defaultContent": ''},
           { "title": "Options", "width": "10%", "data": "options" , "defaultContent": ''},
+          { "title": "Version", "width": "5%", "data": "version_num" , "defaultContent": ''},
           // { "title": "Databases", "width": "10%", "data": "databases", defaultContent: "None" , "defaultContent": ''}
           // Adding buttons
         ]
