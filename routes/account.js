@@ -229,8 +229,27 @@ router.post('/:accountId/database', function(req, res, next) {
 });
 
 // DELETE /database = Create a database !
-//router.post('/:accountId/database', function(req, res, next) {
-//});
+router.delete('/:accountId/database/:dbId', function(req, res, next) {
+
+  var connection = db.connect();
+
+  connection.query(
+    'UPDATE `database` SET deleted_at = now() WHERE account_id = ? AND id = ?',
+    [ req.params.accountId, req.params.dbId ],
+    function(err, rows, fields) {
+      if (err)
+        return res.error(err);
+
+      return res.json({
+        success: 1
+      });
+      
+    }
+  );
+    
+});
+
+//deleted_at
 
 // GET /database/:id = Return a single database details
 router.get('/:accountId/database/:dbId', function(req, res, next) {

@@ -149,4 +149,32 @@ $(document).ready(function() {
         });
     });
 
+  // Adds an onclick function to delete the database
+  $('button.deletedatabase').click(function(){
+      var result = confirm("Are you sure you want to delete this database?");
+      
+      // if yes, then delete the database
+      if(result){
+          
+          $.ajax({
+                url: "/api/account/" + id + '/database/' + dbid,
+                type: 'DELETE',
+                success: function(result) {
+                    try {
+                        
+                        if(!result.success) {
+                            alert("There was a problem deleting your database.");
+                        } else {
+                            window.location.href = 'account.html?id=' + id;
+                        }
+                        
+                    } catch(e) {
+                          alert("There was a problem deleting your database: " + e);
+                    }
+                }
+            });
+      }
+  });
+  
+  
 });
