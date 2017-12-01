@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
 var uuid = require('node-uuid');
+var config = require('config');
 
 // GET data - maybe move to ADMIN !
 /*
@@ -40,6 +41,15 @@ router.post('/', function(req, res) {
       });
     }
   );
+});
+
+router.get('/projectlist', function(req, res) {
+
+  return res.json({
+    success: 1,
+    project_list: config.project_list
+  });
+    
 });
 
 module.exports = router;

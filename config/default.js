@@ -76,6 +76,32 @@ module.exports = {
                 message: "This is an error version 2"
             }
         ]
-    }
+    },
+    
+    //TODO - Should these have a acronym value? Currently I'm setting the value 
+    // and display value as the string below in the select drop down
+    project_list : [
+        'SIF AU Attendance Working Group',
+        'ASL Australian Schools List',
+        'DSR-ACT',
+        'DSR-NSW',
+        'DSR-NT',
+        'DSR-QLD',
+        'DSR-SA',
+        'DSR-TAS',
+        'DSR-VIC',
+        'DSR-WA',
+        'DSWG - Data Standards Working Group',
+        'DSWG Sub Group  - Timetable Daily Variations',
+        'ICON - Catholic Education Melbourne',
+        'INSWP Integrating NSW',
+        'NAPLAN Online National Assessment Platform',
+        'Privacy Framework',
+        'SA HITS Assurance',
+        'SIF Implementation Specification',
+        'VEDU - Vic eduHub',
+        'NT SIF 3 pilot',
+        'WA SIF 3 Hub'
+    ]
     
 };

@@ -217,7 +217,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                      <label class="col-sm-2 control-label">Options</label>
+                                      <label class="col-sm-2 control-label">Are you a: </label>
                                       <div class="col-sm-10">
                                         <div class="checkbox checkbox-primary">
                                           <input id="ch1" name="checkbox_developer" type="checkbox">
@@ -227,6 +227,11 @@
                                           <input id="ch2" name="checkbox_architect" type="checkbox">
                                           <label for="ch2">Architect</label>
                                         </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label">Do you represent a:</label>
+                                      <div class="col-sm-10">
                                         <div class="checkbox checkbox-info">
                                           <input id="ch3" name="checkbox_vendor" type="checkbox">
                                           <label for="ch3">Vendor</label>
@@ -238,26 +243,24 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                      <label class="col-sm-2 control-label">SIF</label>
+                                      <label class="col-sm-2 control-label"> </label>
                                       <div class="col-sm-10">
                                         <div class="checkbox checkbox-primary">
-                                          <input id="ch1" name="checkbox_sif" type="checkbox">
-                                          <label for="ch1">Are you already familiar with SIF?</label>
+                                          <input id="ch5" name="checkbox_sif" type="checkbox">
+                                          <label for="ch5">Are you already familiar with SIF?</label>
                                         </div>
                                       </div>
                                     </div>
-                                    <!-- .form-group
-                                    label.col-sm-2.control-label NSIP Project
-                                    .col-sm-10
-                                          select.selectpicker.form-control(placeholder='Select',name="nsip_project")
-                                              option One
-                                              option Two
-                                              option Three
-                                    -->
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label">Involved in an NSIP Project?</label>
+                                      <div class="col-sm-10">
+                                        <select placeholder="Select" name="nsip_project" class="selectpicker form-control nsip_project_select"></select>
+                                      </div>
+                                    </div>
                                   </form>
                                 </div>
                                 <div class="form-group">
-                                  <label class="col-sm-2 control-label">Submit</label>
+                                  <label class="col-sm-2 control-label"></label>
                                   <div class="col-sm-10">
                                     <button id="welcomesubmit" type="submit" class="btn btn-primary">Send request</button>
                                   </div>
