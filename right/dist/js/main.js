@@ -189,6 +189,31 @@ $(document).ready(function() {
     });
 
   });
+  
+    // Makes the log out button work
+    $('a.logoutLink').click( function(e) {
+        e.preventDefault();
+        
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            url: "/api/login/logout"
+        })
+        .done(function( data ) {
+            if (data && data.success) {
+                console.log(data);
+                window.location = "index.html";
+            }
+            else {
+                alert("Failed logout - " + data.error);
+            }
+        })
+        .fail(function(err) {
+            alert("Failed logout, please try again");
+        });
+
+        return false;
+    });
 
 });
 
