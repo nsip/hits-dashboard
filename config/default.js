@@ -1,7 +1,7 @@
 /* nsip/hits-dashboard
  */
 module.exports = {
-	"version": "0.0.1",	// See CHANGELOG.md
+	"version": "2.3.0",	// See CHANGELOG.md
 
 	"auth": {
 		"scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
