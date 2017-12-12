@@ -31,7 +31,7 @@ module.exports = function () {
 	});
 
 	router.get('/logout', function(req, res) {
-		delete req.session;
+		req.session.user = {};
 		return res.json({ success: 1 });
 	});
 

@@ -16,7 +16,7 @@ var app = express();
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
   secret: 'NSIP has Administration again',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { secure: false }	// Really ?
 }));
