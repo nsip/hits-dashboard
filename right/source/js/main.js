@@ -11,6 +11,10 @@ $(document).ready(function() {
         console.log(message);
         $('#datatable-error').text(message);
     };
+    
+    if($('#welcomeform').length > 0){
+        loadProjectList();
+    }
 
   // Popovers
   $('[data-toggle="popover"]').popover({
@@ -165,8 +169,14 @@ $(document).ready(function() {
     .done(function( data ) {
       if (data && data.success) {
         // XXX Improved presentation
-        alert("Successfully requested contact. Please wait 2 working days.");
-        console.log(data);
+        alert("You have successfully requested an account on HITS. NSIP will provide you with account login information within two days. For problems or questions, contact NSIP on info@nsip.edu.au");
+        
+        // Clear form
+        $('#welcomeform').find("input, textarea").val("").removeAttr('checked');
+        
+        // Specific refresh for the select 
+        $('select.nsip_project_select').val("");
+        $('.nsip_project_select').selectpicker('refresh');
       }
       else {
         // XXX Improved presentation
@@ -181,3 +191,40 @@ $(document).ready(function() {
   });
 
 });
+
+function loadProjectList(){
+    
+    $.ajax({
+        type: "GET",
+        dataType: 'json',
+        url: "/api/contact/projectlist"
+    })
+     .done(function( data ) {
+        if (data && data.success) {
+            
+            var select = $('select.nsip_project_select');
+            
+            select.append($('<option>', {
+                    value: '',
+                    text: ' - - - Select - - - '
+                }));
+            
+            for(var i=0; i<data.project_list.length; i++){
+                select.append($('<option>', {
+                    value: data.project_list[i],
+                    text: data.project_list[i]
+                }));
+            }
+            
+            $('.nsip_project_select').selectpicker('refresh');
+            
+        }
+        else {
+            alert("Failed logout - " + data.error);
+        }
+     })
+     .fail(function(err) {
+         alert("Failed logout, please try again");
+     });
+    
+}

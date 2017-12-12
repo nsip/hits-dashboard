@@ -50,9 +50,8 @@ block main
                                               .col-sm-10
                                                   p What is your interest in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
-
                                             .form-group
-                                              label.col-sm-2.control-label Options
+                                              label.col-sm-2.control-label Are you a: 
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch1(name="checkbox_developer",type='checkbox')
@@ -60,6 +59,9 @@ block main
                                                   .checkbox.checkbox-success
                                                       input#ch2(name="checkbox_architect",type='checkbox')
                                                       label(for='ch2') Architect
+                                            .form-group
+                                              label.col-sm-2.control-label Do you represent a:
+                                              .col-sm-10
                                                   .checkbox.checkbox-info
                                                       input#ch3(name="checkbox_vendor",type='checkbox')
                                                       label(for='ch3') Vendor
@@ -67,20 +69,17 @@ block main
                                                       input#ch4(name="checkbox_school_authority",type='checkbox')
                                                       label(for='ch4') School Authority
                                             .form-group
-                                              label.col-sm-2.control-label SIF
+                                              label.col-sm-2.control-label 
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
-                                                      input#ch1(name="checkbox_sif",type='checkbox')
-                                                      label(for='ch1') Are you already familiar with SIF?
-                                            // .form-group
-                                              label.col-sm-2.control-label NSIP Project
+                                                      input#ch5(name="checkbox_sif",type='checkbox')
+                                                      label(for='ch5') Are you already familiar with SIF?
+                                            .form-group
+                                              label.col-sm-2.control-label Involved in an NSIP Project?
                                               .col-sm-10
-                                                    select.selectpicker.form-control(placeholder='Select',name="nsip_project")
-                                                        option One
-                                                        option Two
-                                                        option Three
+                                                    select.selectpicker.form-control.nsip_project_select(placeholder='Select',name="nsip_project")
                                       .form-group
-                                          label.col-sm-2.control-label Submit
+                                          label.col-sm-2.control-label
                                           .col-sm-10
                                               button.btn.btn-primary#welcomesubmit(type='submit') Send request
                             .col-md-6
