@@ -17,6 +17,7 @@ router.use(function (req, res, next) {
 		req
 		&& req.session
 		&& req.session.user
+		&& req.session.user.username
 	) {
 		console.log("Valid login... continue");
 	}
