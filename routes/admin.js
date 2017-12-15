@@ -130,6 +130,7 @@ router.get('/contact', function(req, res) {
 	);
 });
 
+// TODO - why not PUT?
 router.post('/contact/:id', function(req, res) {
 	var connection = db.connect();
 	connection.query(
