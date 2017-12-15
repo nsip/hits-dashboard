@@ -157,6 +157,10 @@ router.get('/:id', function(req, res) {
 			if (err)
 				return res.error(err);
 			if (rows.length) {
+				// TODO - Lookup contact information (other table) matched by this email address
+				//	contact.account_id = account.id or req.params.id
+				//	However - how does this get set. Perhaps an automatic update at the contact stage ?
+				//	Also, technically could have multiple contacts from the one address. Which is ok, but which do we show
 				return res.json({
 					success: 1,
 					data: rows[0]
