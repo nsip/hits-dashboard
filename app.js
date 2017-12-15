@@ -54,8 +54,6 @@ mailer.extend(app, {
 });
 
 // Routes all at /api
-// app.use('/api/', require('./routes/index'));
-app.use('/api/users', require('./routes/users'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/update', require('./routes/update'));
 app.use('/api/account', require('./routes/account'));

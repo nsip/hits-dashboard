@@ -39,7 +39,8 @@ router.get('/', function(req, res) {
 		'SELECT account.id, account.name, account.email, '
 		+  ' (SELECT count(*) FROM `database` WHERE account_id = account.id) as count, '
 		+  ' (SELECT max(`when`) FROM `database` WHERE account_id = account.id) as recent'
-		+ ' FROM account',
+		+ ' FROM account'
+		+ ' WHERE deleted_at IS NULL',
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
@@ -167,6 +168,24 @@ router.get('/:id', function(req, res) {
 					message: 'not found'
 				});
 			}
+		}
+	);
+});
+
+// DELETE
+router.delete('/:id', function(req, res) {
+	connection.query(
+		'UPDATE account SET deleted_at = NOW() WHERE id = ?',
+		[ req.params.id ],
+		function(err, rows, fields) {
+			if (err)
+				return res.error(err);
+
+			return res.json({
+				success: 1,
+				title: "Record deleted",
+				id: id
+			});
 		}
 	);
 });

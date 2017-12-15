@@ -19,7 +19,7 @@ router.get('/:accountId', function(req, res, next) {
   // Especially show status
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM `account` WHERE id = ?',
+    'SELECT * FROM `account` WHERE id = ? AND deleted_at IS NULL',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
@@ -243,10 +243,10 @@ router.delete('/:accountId/database/:dbId', function(req, res, next) {
       return res.json({
         success: 1
       });
-      
+
     }
   );
-    
+
 });
 
 //deleted_at
@@ -267,13 +267,13 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
       // Use the version id to get the config messages
       var databaseMessages = config.database_version_messages;
       var messageVersions = Object.keys(databaseMessages).sort();
-      
+
       var version = 0;
       if(ret.version_num) version = ret.version_num;
-      
+
       var messages = [];
       if(version < config.database_current_version){
-          
+
           for(var i=0; i<messageVersions.length; i++){
               if(version < messageVersions[i]){
                   for(var j=0; j<databaseMessages[messageVersions[i]].length; j++){
@@ -282,9 +282,9 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
               }
           }
       }
-      
+
       ret.database_version_messages = messages;
-      
+
       infraconnection.query(
         "SELECT "
         + "        t.ENV_TEMPLATE_ID, t.PASSWORD, t.APP_TEMPLATE_ID, t.APP_TEMPLATE_ID, "
