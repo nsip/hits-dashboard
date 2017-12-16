@@ -179,17 +179,22 @@ router.get('/:id', function(req, res) {
 
 // DELETE
 router.delete('/:id', function(req, res) {
+    
+    console.log("Entering delete");
+    
+    var connection = db.connect();
 	connection.query(
 		'UPDATE account SET deleted_at = NOW() WHERE id = ?',
 		[ req.params.id ],
 		function(err, rows, fields) {
-			if (err)
-				return res.error(err);
-
+			if (err){
+				console.log(err);
+			    return res.error(err);
+			}
 			return res.json({
 				success: 1,
 				title: "Record deleted",
-				id: id
+				id: req.params.id
 			});
 		}
 	);

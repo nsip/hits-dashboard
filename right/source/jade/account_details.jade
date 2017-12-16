@@ -1,0 +1,47 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Account Details';
+    - area = 'Admin';
+    - development = false;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Admin
+                li
+                    a(href="admin.html") Accounts
+                li.active Account Details
+    .container-fluid.half-padding
+        .template.template__table_data
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Account Details
+                        .panel-body
+                          .container-fluid.half-padding
+                            .row
+                              .col-md-6
+                                .nameDiv
+                                    span Name:
+                                    span.accountName
+                                .emailDiv
+                                    span Email: 
+                                    span.accountEmail
+                              .col-md-6
+                                div.half-padding
+                                  button.btn.btn-primary.loginAsAccountButton(type="button") Login as Account
+                                  button.btn.btn-primary.emailAccountButton(type="button") Email Account
+                                  button.btn.btn-danger.deleteAccountButton(type="button" style="float: right;") Delete Account
+                                  p &nbsp;
+
+block css
+    link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css')
+
+block js
+    script(src='libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js')
+    script(src='js/account_details.js')

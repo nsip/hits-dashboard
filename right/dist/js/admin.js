@@ -19,7 +19,7 @@ $(document).ready(function() {
 							"width": "25%",
 							"data": "id",
 							"render": function (data, type, row, meta) {
-								return '<a href="start.html?id=' + data + '">' + data + '</a>';
+								return '<a href="account_details.html?account_id=' + data + '">' + data + '</a>';
 							},
 							"defaultContent": '',
 						},
