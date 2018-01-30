@@ -1,0 +1,30 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Change Log';
+    - area = 'Change Log';
+block main
+
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li.active Change Log
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-12
+                                .panel.panel-info
+                                    .panel-heading
+                                        h3.panel-title Change Log
+                                    .panel-body
+                                        .row
+                                            .col-md-12
+                                                 .readme_output(style="white-space: pre;")
+                                          
+block css
+block js
+    if !release
+        script(src='js/template/index.js')

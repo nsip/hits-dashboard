@@ -102,6 +102,11 @@ module.exports = {
         'VEDU - Vic eduHub',
         'NT SIF 3 pilot',
         'WA SIF 3 Hub'
-    ]
+    ],
     
+    project_versions: {
+        sif_data: 1,
+        hits_dashboard: 1,
+        sif_server: 1
+    }
 };
