@@ -1,3 +1,9 @@
-This is an example change log.
+Version 1
+=====================================
 
-This is a new line example change log.
+We fixed xyz in this version
+
+Version 0.9
+====================================
+
+We didn't fix much in this version
