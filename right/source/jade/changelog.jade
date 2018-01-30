@@ -7,6 +7,7 @@ block main
     .main-heading
         .main-title
             ol.breadcrumb
+                li Version
                 li.active Change Log
     .container-fluid.half-padding
         .pages.pages_dashboard
@@ -20,10 +21,21 @@ block main
                                     .panel-heading
                                         h3.panel-title Change Log
                                     .panel-body
-                                        .row
-                                            .col-md-12
-                                                 .readme_output(style="white-space: pre;")
-                                          
+                                         ul.nav.nav-tabs(role="tablist")
+                                                li.active(role="presentation")
+                                                    a(href="#dashboard", role="tab", data-toggle="tab") HITS Dashboard
+                                                li(role="presentation")
+                                                    a(href="#data", role="tab", data-toggle="tab") SIF Data
+                                                li(role="presentation")
+                                                    a(href="#server", role="tab", data-toggle="tab") SIF Server
+                                            .tab-content
+                                                .tab-pane.active#dashboard(role="tabpanel")
+                                                    .readme_output_dashboard(style="white-space: pre;")
+                                                .tab-pane#data(role="tabpanel")
+                                                    .readme_output_data(style="white-space: pre;")
+                                                .tab-pane#server(role="tabpanel")
+                                                    .readme_output_server(style="white-space: pre;")                                                
+
 block css
 block js
     if !release

@@ -28,20 +28,44 @@ router.get('/version', function(req, res, next) {
 
 router.get('/changelog', function(req, res, next) {
 
-    fs.readFile('config/changelog.md', (e, data) => {
+    fs.readFile('config/changelog_dashboard.md', (e, data) => {
         if(e){
             return res.json({
                 success: false
             });
         } else {
             
-            var text = data.toString();
+            var dashboardText = data.toString();
             
-            // TODO - we might want to process more
-            
-            return res.json({
-                text: text,
-                success: true
+            fs.readFile('config/changelog_sif_data.md', (e, data) => {
+                if(e){
+                    return res.json({
+                        success: false
+                    });
+                } else {
+                    
+                    var dataText = data.toString();
+                    
+                    fs.readFile('config/changelog_sif_server.md', (e, data) => {
+                        if(e){
+                            return res.json({
+                                success: false
+                            });
+                        } else {
+                            
+                            var serverText = data.toString();
+                            
+                            return res.json({
+                                text: {
+                                    dashboardText: dashboardText,
+                                    dataText: dataText,
+                                    serverText: serverText
+                                },
+                                success: true
+                            });
+                        }
+                    });
+                }
             });
         }
     });
