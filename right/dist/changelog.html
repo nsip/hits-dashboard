@@ -156,6 +156,7 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
+                    <li>Version</li>
                     <li class="active">Change Log</li>
                   </ol>
                 </div>
@@ -173,9 +174,20 @@
                                 <h3 class="panel-title">Change Log</h3>
                               </div>
                               <div class="panel-body">
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div style="white-space: pre;" class="readme_output"></div>
+                                <ul role="tablist" class="nav nav-tabs">
+                                  <li role="presentation" class="active"><a href="#dashboard" role="tab" data-toggle="tab">HITS Dashboard</a></li>
+                                  <li role="presentation"><a href="#data" role="tab" data-toggle="tab">SIF Data</a></li>
+                                  <li role="presentation"><a href="#server" role="tab" data-toggle="tab">SIF Server</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                  <div id="dashboard" role="tabpanel" class="tab-pane active">
+                                    <div style="white-space: pre;" class="readme_output_dashboard"></div>
+                                  </div>
+                                  <div id="data" role="tabpanel" class="tab-pane">
+                                    <div style="white-space: pre;" class="readme_output_data"></div>
+                                  </div>
+                                  <div id="server" role="tabpanel" class="tab-pane">
+                                    <div style="white-space: pre;" class="readme_output_server">                                               </div>
                                   </div>
                                 </div>
                               </div>
