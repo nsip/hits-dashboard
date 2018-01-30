@@ -63,6 +63,8 @@ $(document).ready(function() {
     
           if (!data || !data.success) {
               $('div.readme_output_dashboard').text("Unable to load the change log. Please try again later.");
+              $('div.readme_output_data').html("Unable to load the change log. Please try again later.");
+              $('div.readme_output_server').html("Unable to load the change log. Please try again later.");
           } else {
               $('div.readme_output_dashboard').html(data.text.dashboardText);
               $('div.readme_output_data').html(data.text.dataText);
@@ -71,6 +73,8 @@ $(document).ready(function() {
       })
       .fail(function() {
               $('div.readme_output_dashboard').text("Unable to load the change log. Please try again later.");
+              $('div.readme_output_data').html("Unable to load the change log. Please try again later.");
+              $('div.readme_output_server').html("Unable to load the change log. Please try again later.");
       });
 	
 	
