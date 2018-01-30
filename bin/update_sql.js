@@ -16,7 +16,7 @@ var updateSQL = [
             ADD PRIMARY KEY (id); \
   ",
   " \
-            UPDATE TimeTable_Period p set TimeTable_Day_Id = (select min(d.id) from TimeTable_Day d where d.TimeTable_RefId = p.TimeTable_RefId and d.DayId = p.DayId); \
+              UPDATE TimeTable_Period p set TimeTable_Day_Id = (select min(d.id) from TimeTable_Day d where d.TimeTable_RefId = p.TimeTable_RefId and d.DayId = p.DayId); \
   ",
   " \
             ALTER TABLE TimeTable_Period \

@@ -44,6 +44,11 @@ module.exports = {
     base: "http://hitstest.dev.nsip.edu.au/dbcreate",
   },
 
+	mailgun: {
+		apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f',
+		domain: 'hits.nsip.edu.au',
+	},
+
 	"log": {
 		"output": "logs",
 		"exitOnError": true,
@@ -57,10 +62,10 @@ module.exports = {
         ],
     },
 
-    
+
     database_current_version: 2,
-    
-    // Warnings and errors are shown for every version greater than the current version    
+
+    // Warnings and errors are shown for every version greater than the current version
     database_version_messages: {
         1: [
             {   type: 'warn',
@@ -77,8 +82,8 @@ module.exports = {
             }
         ]
     },
-    
-    //TODO - Should these have a acronym value? Currently I'm setting the value 
+
+    //TODO - Should these have a acronym value? Currently I'm setting the value
     // and display value as the string below in the select drop down
     project_list : [
         'SIF AU Attendance Working Group',
@@ -109,4 +114,5 @@ module.exports = {
         hits_dashboard: 1,
         sif_server: 1
     }
+
 };
