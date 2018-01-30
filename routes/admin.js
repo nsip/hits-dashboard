@@ -3,10 +3,9 @@ var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
 var uuid = require('node-uuid');
+var config = require('config');
 var Mailgun = require('mailgun-js');
-var mailgun = new Mailgun({apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f', domain: 'hits.nsip.edu.au'});
-// pubkey-e9b8fb5cf3be0d644c9c970086c72b48
-// key-df32edce350d1ce87c630dfe40f39d2f
+var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
 
 // AUTHENTICATION - All routes here require authentication as admin
 router.use(function (req, res, next) {
@@ -179,9 +178,9 @@ router.get('/:id', function(req, res) {
 
 // DELETE
 router.delete('/:id', function(req, res) {
-    
+
     console.log("Entering delete");
-    
+
     var connection = db.connect();
 	connection.query(
 		'UPDATE account SET deleted_at = NOW() WHERE id = ?',
