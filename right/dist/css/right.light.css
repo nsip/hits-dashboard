@@ -2275,7 +2275,7 @@ body.main-scrollable .main {
   border-bottom-color: #029F5F;
 }
 .nav-tabs {
-  border-bottom: 0px solid transparent;
+  border: 0px solid transparent;
   position: relative;
 }
 .nav-tabs > li.active > a,
@@ -2285,11 +2285,17 @@ body.main-scrollable .main {
 .nav-tabs > li > a:focus {
   color: #88939C;
   background-color: #f9f9f9;
-  border: 1px solid #f9f9f9;
-  border-bottom-color: transparent;
+  border: 1px solid #cecece;
+  border-bottom: 0;
+  z-index: 1;
+  bottom: -1px;
 }
 .nav-tabs > li.active > a {
   cursor: default;
+  border: 1px solid #cecece;
+  border-bottom: 0;
+  z-index: 1;
+  bottom: -1px;
 }
 .nav-tabs .open > a,
 .nav-tabs .open > a:focus,
@@ -2328,6 +2334,7 @@ body.main-scrollable .main {
   background-color: #f9f9f9;
   border-radius: 4px;
   border-top-left-radius: 0px;
+  border: 1px solid #cecece;
 }
 .tabdrop * {
   outline: none;
