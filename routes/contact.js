@@ -4,6 +4,8 @@ var db = require('../database');
 var logger = require('../logger');
 var uuid = require('node-uuid');
 var config = require('config');
+var Mailgun = require('mailgun-js');
+var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
 
 // GET data - maybe move to ADMIN !
 /*
@@ -35,6 +37,25 @@ router.post('/', function(req, res) {
       if (err)
         return res.error(err);
 
+      var maildata = {
+        from: 'info@nsip.edu.au',
+        to: 'info@nsip.edu.au',
+        subject: "NSIP Hits Dashboard - contact notification",
+        text: "Contact notification from: " + req.body.email,
+      };
+      mailgun.messages().send(maildata, function(err, body) {
+        //If there is an error, render the error page
+        if (err) {
+          console.log("EMAIL: error: ", err);
+          // res.statu(400).json({success: false, message: "Error - " + err});
+        }
+        //Else we can greet    and leave
+        else {
+          console.log("EMAIL: Success: ", body);
+          // res.json({success: true, body: body});
+        }
+      });
+
       return res.json({
         success: 1,
         id: id
@@ -49,7 +70,7 @@ router.get('/projectlist', function(req, res) {
     success: 1,
     project_list: config.project_list
   });
-    
+
 });
 
 module.exports = router;
