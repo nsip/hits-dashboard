@@ -51,4 +51,26 @@ $(document).ready(function() {
 
 		$('.selectpicker').selectpicker();
 	}
+	
+	if ($('.readme_output').length) {
+	    
+	  $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "/api/about/changelog"
+      })
+      .done(function( data ) {
+    
+          if (!data || !data.success) {
+              $('div.readme_output').text("Unable to load the change log. Please try again later.");
+          } else {
+              $('div.readme_output').html(data.text);
+          }
+      })
+      .fail(function() {
+              $('div.readme_output').text("Unable to load the change log. Please try again later.");
+      });
+	
+	
+	}
 });
