@@ -202,6 +202,29 @@ router.delete('/:id', function(req, res) {
 // PUT - update existing entry
 router.put('/:id', function(req, res) {
 	// Update record
+    
+    console.log("Entering update");
+
+    var connection = db.connect();
+    connection.query(
+        'UPDATE account SET name = ?, email = ? WHERE id = ?',
+        [ req.body.name, req.body.email, req.params.id ],
+        function(err, rows, fields) {
+            if (err){
+                console.log(err);
+                return res.error(err);
+            }
+            return res.json({
+                success: 1,
+                title: "Record Updated",
+                id: req.params.id, 
+                name: req.body.name,
+                email: req.body.email
+            });
+        }
+    );
+    
+    
 });
 
 module.exports = router;
