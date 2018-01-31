@@ -51,7 +51,6 @@ $(document).ready(function() {
 
 		$('.selectpicker').selectpicker();
 	}
-<<<<<<< HEAD
 	
 	if ($('.readme_output_dashboard').length) {
 	    
@@ -80,7 +79,6 @@ $(document).ready(function() {
 	
 	
 	}
-=======
 
 	if($('.recoverEmailSubmit').length){
 	    $('.recoverEmailSubmit').on("click", function() {
@@ -105,5 +103,4 @@ $(document).ready(function() {
 	    }); 
 	}
 
->>>>>>> refs/heads/master
 });
