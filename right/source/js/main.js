@@ -11,7 +11,7 @@ $(document).ready(function() {
         console.log(message);
         $('#datatable-error').text(message);
     };
-    
+
     if($('#welcomeform').length > 0){
         loadProjectList();
     }
@@ -160,6 +160,12 @@ $(document).ready(function() {
       out[row.name] = row.value;
     });
 
+    if (!out.name || !out.email || !out.organisation || !out.interest) {
+      console.log("Out", out);
+        alert("You need to include name, email, organisation and interest");
+        return null;
+    }
+
     $.ajax({
       type: "POST",
       dataType: 'json',
@@ -170,11 +176,11 @@ $(document).ready(function() {
       if (data && data.success) {
         // XXX Improved presentation
         alert("You have successfully requested an account on HITS. NSIP will provide you with account login information within two days. For problems or questions, contact NSIP on info@nsip.edu.au");
-        
+
         // Clear form
         $('#welcomeform').find("input, textarea").val("").removeAttr('checked');
-        
-        // Specific refresh for the select 
+
+        // Specific refresh for the select
         $('select.nsip_project_select').val("");
         $('.nsip_project_select').selectpicker('refresh');
       }
@@ -189,11 +195,11 @@ $(document).ready(function() {
     });
 
   });
-  
+
     // Makes the log out button work
     $('a.logoutLink').click( function(e) {
         e.preventDefault();
-        
+
         $.ajax({
             type: "GET",
             dataType: 'json',
@@ -218,7 +224,7 @@ $(document).ready(function() {
 });
 
 function loadProjectList(){
-    
+
     $.ajax({
         type: "GET",
         dataType: 'json',
@@ -226,23 +232,23 @@ function loadProjectList(){
     })
      .done(function( data ) {
         if (data && data.success) {
-            
+
             var select = $('select.nsip_project_select');
-            
+
             select.append($('<option>', {
                     value: '',
                     text: ' - - - Select - - - '
                 }));
-            
+
             for(var i=0; i<data.project_list.length; i++){
                 select.append($('<option>', {
                     value: data.project_list[i],
                     text: data.project_list[i]
                 }));
             }
-            
+
             $('.nsip_project_select').selectpicker('refresh');
-            
+
         }
         else {
             alert("Failed logout - " + data.error);
@@ -251,5 +257,5 @@ function loadProjectList(){
      .fail(function(err) {
          alert("Failed logout, please try again");
      });
-    
+
 }
