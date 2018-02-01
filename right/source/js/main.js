@@ -160,6 +160,12 @@ $(document).ready(function() {
       out[row.name] = row.value;
     });
 
+    if (!out.name || !out.email || !out.organisation || !out.interest) {
+      console.log("Out", out);
+        alert("You need to include name, email, organisation and interest");
+        return null;
+    }
+
     $.ajax({
       type: "POST",
       dataType: 'json',

@@ -19,14 +19,24 @@ block main
                             .panel-heading
                                     h2.panel-title Recovery
                                 .panel-body
+                                    .alert.alert-success.emailSentSuccessMessage(role="alert", style="display: none;")
+                                        i.alert-ico.fa.fa-fw.fa-check
+                                        strong Email Sent!&thinsp;
+                                        | Please check your inbox for your recovery email. This could take a few minutes to send.
                                     p Your environment URL is necessary to access any databases you have created in HITS If you do not have your original environment URL, try the following:
                                     ol
                                         li If you haven't used HITS before, request an account via 
                                             a(href="http://hits.nsip.edu.au/dashboard/") the <strong>Request an account</strong> section of the HITS Dashboard Welcome page
                                         li If you have used HITS before, search your email for the original environment URL which was sent to you by NSIP.
-                                        li If you can't find your environment URL, ask for it to be resent via 
-                                            a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                                        p (Automated self resend coming soon!)
+                                        li Otherwise use the form below to request NSIP to resend your Enviroment URL to you.
+                                    .form-horizontal(style="margin-left: 34px;")
+                                        .form-group
+                                            .col-sm-10
+                                                input.form-control.recoverEmailAddress(type="email", placeholder="Email")
+                                        .form-group
+                                            .col-sm-10
+                                                 button.btn.btn-default.recoverEmailSubmit(type='submit') Recover Environment URL
+
 block css
 block js
     if !release

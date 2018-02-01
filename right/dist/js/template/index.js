@@ -51,4 +51,56 @@ $(document).ready(function() {
 
 		$('.selectpicker').selectpicker();
 	}
+	
+	if ($('.readme_output_dashboard').length) {
+	    
+	  $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "/api/about/changelog"
+      })
+      .done(function( data ) {
+    
+          if (!data || !data.success) {
+              $('div.readme_output_dashboard').text("Unable to load the change log. Please try again later.");
+              $('div.readme_output_data').html("Unable to load the change log. Please try again later.");
+              $('div.readme_output_server').html("Unable to load the change log. Please try again later.");
+          } else {
+              $('div.readme_output_dashboard').html(data.text.dashboardText);
+              $('div.readme_output_data').html(data.text.dataText);
+              $('div.readme_output_server').html(data.text.serverText);
+          }
+      })
+      .fail(function() {
+              $('div.readme_output_dashboard').text("Unable to load the change log. Please try again later.");
+              $('div.readme_output_data').html("Unable to load the change log. Please try again later.");
+              $('div.readme_output_server').html("Unable to load the change log. Please try again later.");
+      });
+	
+	
+	}
+
+	if($('.recoverEmailSubmit').length){
+	    $('.recoverEmailSubmit').on("click", function() {
+	        
+	        var email = $('.recoverEmailAddress').val();
+	        
+	        $.ajax({
+	            url: "/api/recover/?email=" + email,
+	            type: 'GET',
+	            success: function(result) {
+	                try {
+
+	                    // reset the recovery email address
+	                    $('.recoverEmailAddress').val('');
+	                    $('.emailSentSuccessMessage').show();
+
+	                } catch(e) {
+	                    alert("There was a problem sending a recovery email: " + e);
+	                }
+	            }
+	        });    
+	    }); 
+	}
+
 });
