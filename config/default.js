@@ -111,7 +111,7 @@ module.exports = {
     
     project_versions: {
         sif_data: 1,
-        hits_dashboard: 1,
+        hits_dashboard: 2,
         sif_server: 1
     }
 

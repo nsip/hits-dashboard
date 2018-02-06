@@ -270,6 +270,16 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
 
       var version = 0;
       if(ret.version_num) version = ret.version_num;
+      if (version < 1) {
+        ret.database_version_messages = [];
+        ret.session = "";
+        ret.environment = "";
+        ret.auth_method = "";
+        return res.json({
+          success: 1,
+          data: ret,
+        });
+      }
 
       var messages = [];
       if(version < config.database_current_version){
