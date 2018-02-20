@@ -1,59 +1,66 @@
 /* nsip/hits-dashboard
  */
 module.exports = {
-	"version": "2.3.0",	// See CHANGELOG.md
+  baseurl: "http://hitstest.dev.nsip.edu.au",
+    // baseurl: "https://hits.nsip.edu.au",
+  "version": "2.0.2",  // See CHANGELOG.md
+    project_versions: {
+      sif_data: 1,
+      hits_dashboard: "2.0.2",
+      sif_server: 1
+  },
 
-	"auth": {
-		"scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
-		"peter": { "password": "NoneShallNSIP", "email": "peter.haydon@nsip.edu.au" },
-		"matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
-		"nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
-		"linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
-		"raf": { "password": "NoneShallNSIP", "email": "rafidzal.rafiq@systemic.com.au" },
-		"joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
-		"georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
-		"fran": { "password": "NoneShallNSIP", "email": "nashiralyana@gmail.com" },
-	},
+"auth": {
+    "scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
+    "peter": { "password": "NoneShallNSIP", "email": "peter.haydon@nsip.edu.au" },
+    "matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
+    "nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
+    "linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
+    "raf": { "password": "NoneShallNSIP", "email": "rafidzal.rafiq@systemic.com.au" },
+    "joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
+    "georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
+    "fran": { "password": "NoneShallNSIP", "email": "nashiralyana@gmail.com" },
+  },
 
-	/*
-	// Production DB
-	"database": {
-		driver: 'mysql',
-		host: 'db.dev.nsip.edu.au',
-		database: 'hits',
-		user: 'hitsadmin',
-		password: 'foxcrowbaker'
-	},
+  /*
+  // Production DB
+  "database": {
+    driver: 'mysql',
+    host: 'db.dev.nsip.edu.au',
+    database: 'hits',
+    user: 'hitsadmin',
+    password: 'foxcrowbaker'
+  },
 
-	// Production create
-	"create": {
-		base: "http://hits.nsip.edu.au/dbcreate",
-	},
-	*/
+  // Production create
+  "create": {
+    base: "http://hits.nsip.edu.au/dbcreate",
+  },
+  */
 
-	// Test DB
-	"database": {
-		driver: 'mysql',
-		host: 'testdb.dev.nsip.edu.au',
-		database: 'hits',
-		user: 'hitstest',
-		password: 'foxcrowbaker'
-	},
-	// Test Create
+  // Test DB
+  "database": {
+    driver: 'mysql',
+    host: 'testdb.dev.nsip.edu.au',
+    database: 'hits',
+    user: 'hitstest',
+    password: 'foxcrowbaker'
+  },
+  // Test Create
   "create": {
     base: "http://hitstest.dev.nsip.edu.au/dbcreate",
   },
 
-	mailgun: {
-		apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f',
-		domain: 'hits.nsip.edu.au',
-	},
+  mailgun: {
+    apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f',
+    domain: 'hits.nsip.edu.au',
+  },
 
-	"log": {
-		"output": "logs",
-		"exitOnError": true,
-		"level": "info"
-	},
+  "log": {
+    "output": "logs",
+    "exitOnError": true,
+    "level": "info"
+  },
 
     "nsip": {
         "projects": [
@@ -108,11 +115,6 @@ module.exports = {
         'NT SIF 3 pilot',
         'WA SIF 3 Hub'
     ],
-    
-    project_versions: {
-        sif_data: 1,
-        hits_dashboard: 2,
-        sif_server: 1
-    }
+
 
 };

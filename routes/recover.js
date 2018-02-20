@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM account WHERE email=?',
+    'SELECT * FROM account WHERE email=? AND deleted_at IS NULL',
     [ req.query.email ],
     function(err, rows, fields) {
       if (err)
@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
           from: 'info@nsip.edu.au',
           to: rows[0].email,
           subject: "NSIP Hits Dashboard - recover access url",
-          text: "Your HITS Dashboard access URL = http://hits.nsip.edu.au/dashboard/start.html?id=" + rows[0].id,
+          text: "Your HITS Dashboard access URL = " + config.baseurl + "/dashboard/start.html?id=" + rows[0].id,
         };
         mailgun.messages().send(data, function(err, body) {
           //If there is an error, render the error page
