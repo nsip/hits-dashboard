@@ -9,6 +9,31 @@ Brown - #B37D4E
 
 */
 
-body:before { 
+body:before {
  content: none !important;
+}
+
+.copyright a:link {
+  text-decoration: underline;
+}
+.copyright a:visited {
+  text-decoration: underline;
+}
+.copyright a:hover {
+  text-decoration: underline;
+}
+.copyright a:active {
+  text-decoration: underline;
+}
+a:link.footer_version {
+  text-decoration: underline;
+}
+a:visited.footer_version {
+  text-decoration: underline;
+}
+a:hover.footer_version {
+  text-decoration: underline;
+}
+a:active.footer_version {
+  text-decoration: underline;
 }
