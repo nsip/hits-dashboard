@@ -1,6 +1,20 @@
 # Change Log
 
-## Version 2.3 - 2017-12-12
+## Version 2.0.5 - 2018-02-13
+
+* #208 Required fields on Request an Account form, and change email backend address
+* #131 Privacy and data statement prominent on HITS Presentation
+* #219 Version end point for SIF
+* #222 Deleted Users being sent on recovery
+* #223 Remove redundant dashboard.js route
+* #68 Email recovery URLs
+* #41 Enable Delete/Deactivate/Edit/Archive Account in admin
+* #221 Check new account warning
+* #156 tracking guids for delete
+* #121 Password recovery & New account
+* #154 Enable email in HITS
+
+## Version 2.X - 2017-12-12
 
 * Logout fixed
 * Ticket #111 - Admin login shoudl return to dashboard enviroment.

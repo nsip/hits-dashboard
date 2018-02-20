@@ -18,8 +18,8 @@ router.use(function (req, res, next) {
 router.get('/version', function(req, res, next) {
 
     return res.json({
-        sif_data: config.project_versions.sif_data, 
-        hits_dashboard: config.project_versions.hits_dashboard, 
+        sif_data: config.project_versions.sif_data,
+        hits_dashboard: config.project_versions.hits_dashboard,
         sif_server: config.project_versions.sif_server,
         success: true
     });
@@ -28,33 +28,34 @@ router.get('/version', function(req, res, next) {
 
 router.get('/changelog', function(req, res, next) {
 
-    fs.readFile('config/changelog_dashboard.md', (e, data) => {
+    fs.readFile('CHANGELOG.md', (e, data) => {
         if(e){
             return res.json({
                 success: false
             });
         } else {
-            
+
             var dashboardText = data.toString();
-            
-            fs.readFile('config/changelog_sif_data.md', (e, data) => {
+
+            fs.readFile('../sif-data/CHANGELOG.md', (e, data) => {
                 if(e){
                     return res.json({
                         success: false
                     });
                 } else {
-                    
+
                     var dataText = data.toString();
-                    
+
+                    // XXX SIF Server Changelog location
                     fs.readFile('config/changelog_sif_server.md', (e, data) => {
                         if(e){
                             return res.json({
                                 success: false
                             });
                         } else {
-                            
+
                             var serverText = data.toString();
-                            
+
                             return res.json({
                                 text: {
                                     dashboardText: dashboardText,
