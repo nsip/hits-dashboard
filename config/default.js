@@ -20,6 +20,7 @@ module.exports = {
     "joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
     "georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
     "fran": { "password": "NoneShallNSIP", "email": "nashiralyana@gmail.com" },
+    "lyn": { "password": "NoneShallNSIP", "email": "Lynette.Pecchiar@nsip.edu.au"},
   },
 
   /*
