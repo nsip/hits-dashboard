@@ -29,6 +29,46 @@ router.post('/', function(req, res) {
 
   var data = JSON.stringify(req.body);
 
+  var developerArchitect = "Neither";
+  if(req.body.checkbox_developer && req.body.checkbox_developer == 'on'
+      && req.body.checkbox_developer && req.body.checkbox_developer == 'on'){
+      developerArchitect = "Developer and Architect";
+  } else if(req.body.checkbox_developer && req.body.checkbox_developer == 'on'){
+      developerArchitect = "Developer";
+  } else if(req.body.checkbox_architect && req.body.checkbox_architect == 'on'){
+      developerArchitect = "Architect";
+  }
+
+  var representation = "Neither";
+  if(req.body.checkbox_school_authority && req.body.checkbox_school_authority == 'on'
+      && req.body.checkbox_vendor && req.body.checkbox_vendor == 'on'){
+      representation = "Vendor and School Authority";
+  } else if(req.body.checkbox_vendor && req.body.checkbox_vendor == 'on'){
+      representation = "Vendor";
+  } else if(req.body.checkbox_school_authority && req.body.checkbox_school_authority == 'on'){
+      representation = "School Authority";
+  }
+  
+  var familiarSif = "No";
+  if(req.body.checkbox_sif && req.body.checkbox_sif == 'on'){
+      familiarSif = "Yes";
+  }
+  
+  var nsipProject = "None";
+  if(req.body.nsip_project && req.body.nsip_project.trim() != ''){
+      nsipProject = req.body.nsip_project;
+  }
+  
+  var emailText = "Contact notification from: " + req.body.email
+      + "\nName: " + req.body.name
+      + "\nOrganisation: " + req.body.organisation
+      + "\nInterest: " + req.body.interest
+      + "\nI am a (developer/architect): " + developerArchitect
+      + "\nI represent (vendor/school authority): " + representation
+      + "\nI am familar with SIF: " + familiarSif
+      + "\nI am involved in NSIP project: " + nsipProject;
+  
+  
   var connection = db.connect();
   connection.query(
     "INSERT INTO contact (id, status, created_at, data) VALUES (?,'waiting', NOW(),?)",
@@ -41,7 +81,7 @@ router.post('/', function(req, res) {
         from: 'info@nsip.edu.au',
         to: 'info@nsip.edu.au',
         subject: "NSIP Hits Dashboard - contact notification",
-        text: "Contact notification from: " + req.body.email,
+        text: emailText,
       };
       mailgun.messages().send(maildata, function(err, body) {
         //If there is an error, render the error page
