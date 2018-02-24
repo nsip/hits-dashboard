@@ -1,5 +1,6 @@
 // ----------------------------------------------------------------------
 var account_id;
+var email;
 $(document).ready(function() {
 
     account_id = $.url(window.location.href).param('account_id');
@@ -13,6 +14,8 @@ $(document).ready(function() {
         if (!data || !data.success) {
             alert("Failed load TODO");
         } else {
+            email = data.data.email;
+            
             $('.accountName').text(data.data.name);
             $('.accountEmail').text(data.data.email);
             
@@ -30,10 +33,21 @@ $(document).ready(function() {
         
         return false;
     });
-    
+
     $('.emailAccountButton').click(function() {
 
-        alert("Coming Soon");
+        $.ajax({
+            url: "/api/recover/?email=" + email,
+            type: 'GET',
+            success: function(result) {
+                try {
+                    $('.emailSentSuccessMessage').show();
+                } catch(e) {
+                    alert("There was a problem sending a recovery email: " + e);
+                }
+            }
+        });
+
         return false;
     });
         

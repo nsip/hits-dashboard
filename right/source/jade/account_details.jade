@@ -13,6 +13,10 @@ block main
                     a(href="admin.html") Accounts
                 li.active Account Details
     .container-fluid.half-padding
+        .alert.alert-success.emailSentSuccessMessage(role="alert", style="display: none;")
+            i.alert-ico.fa.fa-fw.fa-check
+            strong Email Sent!&thinsp;
+            | Recovery email has been sent.
         .template.template__table_data
             .row
                 .col-md-12
@@ -44,7 +48,7 @@ block main
                                 div.half-padding
                                   button.btn.btn-primary.editAccountButton(type="button") Edit
                                   button.btn.btn-primary.loginAsAccountButton(type="button") Login as Account
-                                  button.btn.btn-primary.emailAccountButton(type="button") Email Account
+                                  button.btn.btn-primary.emailAccountButton(type="button") Send Recovery Email
                                   button.btn.btn-danger.deleteAccountButton(type="button" style="float: right;") Delete Account
                                   p &nbsp;
 
