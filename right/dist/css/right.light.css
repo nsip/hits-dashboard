@@ -2458,13 +2458,13 @@ table .dropdown-menu {
   color: #88939C;
 }
 .form-control::-moz-placeholder {
-  color: #e9e9e9;
+  color: #dadada;
 }
 .form-control:-ms-input-placeholder {
-  color: #e9e9e9;
+  color: #dadada;
 }
 .form-control::-webkit-input-placeholder {
-  color: #e9e9e9;
+  color: #dadada;
 }
 .form-control:focus {
   border-color: #e9e9e9;

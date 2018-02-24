@@ -154,6 +154,7 @@ $(document).ready(function() {
 
   $('#welcomesubmit').click(function() {
     var form = $('#welcomeform');
+    
     var out = {};
     form.serializeArray().forEach(function(row) {
       console.log(row);
@@ -161,8 +162,23 @@ $(document).ready(function() {
     });
 
     if (!out.name || !out.email || !out.organisation || !out.interest) {
-      console.log("Out", out);
-        alert("You need to include name, email, organisation and interest");
+        console.log("Out", out);
+      
+        var str = "You are missing the following required fields: ";
+      
+        var missingValues = [];
+        
+        if(!out.name) missingValues.push("Name");
+        if(!out.email) missingValues.push("Email");
+        if(!out.organisation) missingValues.push("Organisation");
+        if(!out.interest) missingValues.push("Interest");
+        
+        for(var i=0; i<missingValues.length; i++){
+            if(i!=0) str += ", ";
+            str += missingValues[i];
+        }
+        
+        alert(str);
         return null;
     }
 

@@ -35,18 +35,22 @@ block main
                                          form#welcomeform
                                             .form-group
                                               label.col-sm-2.control-label Email address
+                                                  span.requiredField *
                                               .col-sm-10
                                                   input.form-control#email-email(name='email',type="email", placeholder="your@email")
                                             .form-group
                                               label.col-sm-2.control-label Name
+                                                  span.requiredField *
                                               .col-sm-10
                                                   input.form-control#email-name(name='name',type="text", placeholder="Your name")
                                             .form-group
                                               label.col-sm-2.control-label Organisation
+                                                  span.requiredField *
                                               .col-sm-10
                                                   input.form-control#email-organisation(name="organisation",type="text", placeholder="Your organisation")
                                             .form-group
                                               label.col-sm-2.control-label Interest
+                                                  span.requiredField *
                                               .col-sm-10
                                                   p What is your interest in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
@@ -107,6 +111,10 @@ block main
                                         img(src='img/nsip.png',style='max-width: 100%; margin-right: 20px;')
                                         img(src='img/logo-200x200.png',style='max-width: 100%')
 block css
+  style.
+    .requiredField {
+        color: red; position: absolute; top: 8px; right: -2px;
+    }
 block js
     if !release
         script(src='js/template/index.js')
