@@ -64,38 +64,52 @@ $(document).ready(function() {
 							"width": "25%",
 							"data": "id",
 							"render": function (data, type, row, meta) {
-								// XXX Mark as done etc.
-								//	TODO - Copy fields from this into Account Create - allow creation. Automatic ?
-								//	TODO - Mark this as wip, or done where required
-								return data; // '<a href="start.html?id=' + data + '">' + data + '</a>';
+							    return '<a href="contact_details.html?contact_id=' + data + '">' + data + '</a>';
 							},
 							"defaultContent": '',
 						},
-						{ "title": "Created", "width": "20%", "data": "created_at", "defaultContent": '', },
-						{ "title": "Status", "width": "20%", "data": "status", "defaultContent": '', },
-						{ "title": "Data", "width": "50%", "data": "data", defaultContent: "None", "defaultContent": '',
-							"render": function (data, type, row, meta) {
-								var rows = [];
-								var raw;
-								try {
-									var raw = JSON.parse(data);
-								}
-								catch(e) {
-									return data;
-								}
-								$.each(raw, function(key) {
-									rows.push(key + " = " + raw[key]);
-								});
-								return rows.join("<br />\n");
-							},
-						},
-						{ "title": "Account?", "width": "20%", "data": "account", "defaultContent": '', },
-						// Adding buttons
-						{ "title": "Actions", "width": "20%", "data": "id", defaultContent: "None", "defaultContent": '',
-							"render": function (data, type, row, meta) {
-								return '<button onclick="console.log(' + "'" + data + "'" + ');" class="btn btn-primary">View</button>';
-							},
-						},
+						{ "title": "Created", "width": "20%", "data": "created_at", "defaultContent": '', 
+						    "render": function (data, type, row, meta) {
+                                return moment(data).format("DD/MM/YYYY HH:mm:ss");
+						    }
+                        },
+						{ "title": "Name", "width": "20%", "data": "data", defaultContent: "None", "defaultContent": '',
+                            "render": function (data, type, row, meta) {
+                                var rows = [];
+                                var raw;
+                                try {
+                                    var raw = JSON.parse(data);
+                                }
+                                catch(e) {
+                                    return data;
+                                }
+                                return raw['name'];
+                            },
+                        },
+                        { "title": "Email", "width": "20%", "data": "data", defaultContent: "None", "defaultContent": '',
+                            "render": function (data, type, row, meta) {
+                                var rows = [];
+                                var raw;
+                                try {
+                                    var raw = JSON.parse(data);
+                                }
+                                catch(e) {
+                                    return data;
+                                }
+                                return raw['email'];
+                            },
+                        },
+						{ "title": "Status", "width": "10%", "data": "status", "defaultContent": '', 
+                            "render": function (data, type, row, meta) {
+                                var status = data;
+                                if(row.account_id){
+                                    status = "Existing";
+                                }
+                                if(status) status = status.charAt(0).toUpperCase() + status.slice(1);
+                                
+                                return status;
+                            }
+                        },
 					]
 				} );
 

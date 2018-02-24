@@ -117,7 +117,7 @@ router.get('/test/mail', function(req, res) {
 router.get('/contact', function(req, res) {
 	var connection = db.connect();
 	connection.query(
-		"SELECT * FROM contact WHERE status <> 'done'",
+		"SELECT contact.*, account.id as account_id FROM contact LEFT JOIN account on contact.data LIKE CONCAT('%', account.email, '%') WHERE status <> 'done' AND account.deleted_at IS NULL AND contact.status <> 'ignore'",
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
@@ -127,6 +127,38 @@ router.get('/contact', function(req, res) {
 			});
 		}
 	);
+});
+
+router.get('/contact/:id', function(req, res) {
+    var connection = db.connect();
+    connection.query(
+        "SELECT * FROM contact WHERE id='" + req.params.id + "'",
+        function(err, rows, fields) {
+            if (err)
+                return res.error(err);
+            
+                var contactRow = rows[0];
+                var raw = JSON.parse(contactRow.data);
+            
+                var secondConnection = db.connect();
+                secondConnection.query(
+                    "SELECT * FROM account WHERE email='" + raw['email'] + "' AND deleted_at IS NULL",
+                    function(err2, rows2, fields2) {
+                        if (err2)
+                            return res.error(err2);
+                        
+                            var accountRow;
+                            if(rows2.length > 0) accountRow = rows2[0]
+                        
+                            return res.json({
+                                success: 1,
+                                contact: contactRow,
+                                account: accountRow
+                            });
+                    }
+                );
+        }
+    );
 });
 
 // TODO - why not PUT?

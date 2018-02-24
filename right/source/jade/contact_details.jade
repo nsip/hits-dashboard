@@ -1,0 +1,83 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Account Details';
+    - area = 'Admin';
+    - development = false;
+block main
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                    a(href="./") Admin
+                li
+                    a(href="contacts.html") Contacts
+                li.active Contact Details
+    .container-fluid.half-padding
+        .alert.alert-success.accountCreatedSuccess(role="alert", style="display: none;")
+            i.alert-ico.fa.fa-fw.fa-check
+            strong Account Created!&thinsp;
+            | Account has been succesfully created.
+        .template.template__table_data
+            .row
+                .col-md-12
+                    .panel.panel-danger
+                        .panel-heading
+                            h3.panel-title Contact Details
+                        .panel-body
+                          .container-fluid.half-padding
+                            .row
+                              .col-md-6.displayAccountDetails
+                                .nameDiv
+                                    span.contactTitle Name:&nbsp;
+                                    span.contactName
+                                .emailDiv
+                                    span.contactTitle Email:&nbsp;
+                                    span.contactEmail
+                                .organisationDiv
+                                    span.contactTitle Organisation:&nbsp;
+                                    span.contactOrg
+                                .interestDiv
+                                    span.contactTitle Interest:&nbsp;
+                                    span.contactInterest
+                                .typeDiv
+                                    span.contactTitle Developer or Architect:&nbsp;
+                                    span.contactDevArchitect
+                                .schoolDiv
+                                    span.contactTitle Vendor or School Authority:&nbsp;
+                                    span.contactVendorSchool
+                                .sifDiv
+                                    span.contactTitle Familiar with SIF:&nbsp;
+                                    span.contactSif
+                                .nsipProjectDiv
+                                    span.contactTitle NSIP Project:&nbsp;
+                                    span.contactProject
+                                .statusDiv
+                                    span.contactTitle Status:&nbsp;
+                                    span.contactStatus
+                                .contactDiv
+                                    span.contactTitle Contact Date:&nbsp;
+                                    span.contactDate
+                              .col-md-6
+                                    div.half-padding
+                                        button.btn.btn-primary.createAccountButton(type="button", style="display:none") Create Account
+                                        button.btn.btn-danger.ignoreContactButton(type="button", style="display:none") Ignore
+                                        .accountInformation(style="display:none")
+                                            h2.accountTitle(style="margin-top: 0") Account Details
+                                            .nameDiv
+                                                span.contactTitle Name:&nbsp;
+                                                span.accountName
+                                            .emailDiv
+                                                span.contactTitle Email:&nbsp;
+                                                span.accountEmail
+                                            button.btn.btn-primary.goToAccountButton(type="button", style="margin-top: 10px") Go to Account
+block css
+    style.
+        .contactTitle { font-weight: bold }
+    link(href='libs/datatables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css')
+block js
+    script(src='libs/datatables/media/js/jquery.dataTables.min.js')
+    script(src='libs/datatables/media/js/dataTables.bootstrap.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js')
+    script(src='libs/moment/moment.min.js')
+    script(src='js/contact_details.js')
