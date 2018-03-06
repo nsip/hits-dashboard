@@ -79,7 +79,7 @@ router.post('/', function(req, res) {
 
       var maildata = {
         from: 'info@nsip.edu.au',
-        to: 'info@nsip.edu.au',
+        to: 'accessrequest@nsip.edu.au', // 'info@nsip.edu.au',
         subject: "NSIP Hits Dashboard - contact notification",
         text: emailText,
       };
