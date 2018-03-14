@@ -1736,7 +1736,8 @@ body.main-scrollable .main {
   padding: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  height: 30px;
+  height: 26px;
+  font-size: 12px;
 }
 .foot a {
   color: #f9f9f9;
