@@ -117,14 +117,48 @@ router.get('/test/mail', function(req, res) {
 router.get('/contact', function(req, res) {
 	var connection = db.connect();
 	connection.query(
-		"SELECT contact.*, account.id as account_id FROM contact LEFT JOIN account on contact.data LIKE CONCAT('%', account.email, '%') WHERE status <> 'done' AND account.deleted_at IS NULL AND contact.status <> 'ignore'",
+		"SELECT * FROM contact WHERE status <> 'done' AND status <> 'ignore'",
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
-			return res.json({
-				success: 1,
-				data: rows
-			});
+			
+			res.contacts = rows;
+			var connection2 = db.connect();
+			
+			connection2.query(
+		        "SELECT * FROM account WHERE deleted_at IS NULL", 
+		        function(err2, rows2, fields2) {
+		            if (err2)
+		                return res.error(err2);
+		            
+		            var newRows = [];
+		            
+		            for(var i=0; i<res.contacts.length; i++){
+		                
+		                var contact = res.contacts[i];
+		                var data = contact.data;
+		                
+		                for(var j=0; j<rows2.length; j++){
+		                    
+		                    // see if there is an account for this email if there is
+		                    // then set the account_id
+		                    var email = rows2[j].email;
+		                    
+		                    if(data.indexOf(email) != -1) {
+		                        contact.account_id = rows2[j].id;
+		                        break;
+		                    }
+		                }
+		                
+		                newRows.push(contact);
+		            }
+		            
+		            return res.json({
+                        success: 1,
+                        data: newRows
+                    });
+		        }
+			)
 		}
 	);
 });
