@@ -26,7 +26,20 @@ $(document).ready(function() {
 						{ "title": "Name", "width": "20%", "data": "name", "defaultContent": '', },
 						{ "title": "Email", "width": "20%", "data": "email", "defaultContent": '', },
 						{ "title": "Databases", "width": "10%", "data": "count", defaultContent: "None", "defaultContent": '', },
-						{ "title": "Recent", "width": "20%", "data": "recent", defaultContent: "None", "defaultContent": '', }
+						{ "title": "Recent", "width": "20%", "data": "recent" , 
+                          "defaultContent": '',
+                          "render": function (data, type, row, meta) {
+                              if(!data || data == '') return "";
+                              
+                              return '<span style="display: none">' + moment(data).format("YYYY/MM/DD HH:mm:ss") + '</span><span>' + moment(data).format("DD/MM/YYYY HH:mm:ss") + '</span>';
+                          }},
+                          { "title": "Deactivated", "width": "20%", "data": "deactivated_at" , 
+                          "defaultContent": '',
+                          "render": function (data, type, row, meta) {
+                              if(!data || data == '') return "";
+                              
+                              return '<span style="display: none">' + moment(data).format("YYYY/MM/DD HH:mm:ss") + '</span><span>' + moment(data).format("DD/MM/YYYY HH:mm:ss") + '</span>';
+                          }}
 						// Adding buttons
 					]
 				} );

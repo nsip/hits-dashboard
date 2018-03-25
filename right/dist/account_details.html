@@ -182,6 +182,7 @@
               </div>
               <div class="container-fluid half-padding">
                 <div role="alert" style="display: none;" class="alert alert-success emailSentSuccessMessage"><i class="alert-ico fa fa-fw fa-check"></i><strong>Email Sent!&thinsp;</strong>Recovery email has been sent.</div>
+                <div role="alert" style="display: none;" class="alert alert-info accountDeactivated"><i class="alert-ico fa fa-fw fa-check"></i><strong>Account Deactivated&thinsp;</strong>This account has been deactivated, reactivate to be able to login as account, edit or email.</div>
                 <div class="template template__table_data">
                   <div class="row">
                     <div class="col-md-12">
@@ -220,7 +221,10 @@
                                   <button type="button" class="btn btn-primary editAccountButton">Edit</button>
                                   <button type="button" class="btn btn-primary loginAsAccountButton">Login as Account</button>
                                   <button type="button" class="btn btn-primary emailAccountButton">Send Recovery Email</button>
-                                  <button type="button" style="float: right;" class="btn btn-danger deleteAccountButton">Delete Account</button>
+                                  <div style="float: right;" class="deleteButtons">
+                                    <button type="button" class="btn btn-danger deactivateAccountButton">Deactivate Account</button>
+                                    <button type="button" class="btn btn-danger deleteAccountButton">Delete Account</button>
+                                  </div>
                                   <p>&nbsp;</p>
                                 </div>
                               </div>

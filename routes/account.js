@@ -19,7 +19,7 @@ router.get('/:accountId', function(req, res, next) {
   // Especially show status
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM `account` WHERE id = ? AND deleted_at IS NULL',
+    'SELECT * FROM `account` WHERE id = ? AND deleted_at IS NULL AND deactivated_at IS NULL',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
@@ -41,7 +41,9 @@ router.get('/:accountId', function(req, res, next) {
 router.get('/:accountId/database', function(req, res, next) {
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL ORDER BY name',
+    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
+          + ' WHERE database.account_id = ? AND database.deleted_at IS NULL '
+          + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL ORDER BY database.name',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
@@ -70,7 +72,9 @@ router.get('/:accountId/counts', function(req, res, next) {
   var connection = db.connect();
   var infraconnection = db.infra();
   connection.query(
-    'SELECT * FROM `database` WHERE account_id = ? AND deleted_at IS NULL',
+    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
+      + ' WHERE database.account_id = ? AND database.deleted_at IS NULL '
+      + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
@@ -256,14 +260,23 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
   var connection = db.connect();
   var infraconnection = db.infra();
   connection.query(
-    'SELECT * FROM `database` WHERE account_id = ? AND id = ?',
-    [ req.params.accountId, req.params.dbId ],
+    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
+      + ' WHERE database.account_id = ? AND database.id = ? '
+      + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL',
+    [ req.params.accountId,  req.params.dbId ],
     function(err, rows, fields) {
       if (err)
         return res.error(err);
 
+      if(rows.length == 0){
+          return res.json({
+              success: 0,
+              data: {},
+        });
+      }
+      
       var ret = rows[0];
-
+      
       // Use the version id to get the config messages
       var databaseMessages = config.database_version_messages;
       var messageVersions = Object.keys(databaseMessages).sort();

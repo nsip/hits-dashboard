@@ -37,7 +37,8 @@ router.get('/', function(req, res) {
 	connection.query(
 		'SELECT account.id, account.name, account.email, '
 		+  ' (SELECT count(*) FROM `database` WHERE account_id = account.id) as count, '
-		+  ' (SELECT max(`when`) FROM `database` WHERE account_id = account.id) as recent'
+		+  ' (SELECT max(`when`) FROM `database` WHERE account_id = account.id) as recent,'
+		+  ' account.deactivated_at'
 		+ ' FROM account'
 		+ ' WHERE deleted_at IS NULL',
 		function(err, rows, fields) {
@@ -265,6 +266,37 @@ router.delete('/:id', function(req, res) {
 	);
 });
 
+router.put('/:id/deactivate', function(req, res) {
+    // Update record
+    
+    console.log("Entering deactivate");
+
+    var sql;
+    if(req.body.isDeactivated && req.body.isDeactivated == 'true'){
+        sql = 'UPDATE account SET deactivated_at = NOW() WHERE id = ?';
+    } else {
+        sql = 'UPDATE account SET deactivated_at = null WHERE id = ?'
+    }
+    
+    var connection = db.connect();
+    connection.query(
+        sql,
+        [ req.params.id ],
+        function(err, rows, fields) {
+            if (err){
+                console.log(err);
+                return res.error(err);
+            }
+            return res.json({
+                success: 1,
+                title: "Record Deactivated",
+                id: req.params.id,
+                isDeactivated: req.body.isDeactivated
+            });
+        }
+    );
+});
+
 // PUT - update existing entry
 router.put('/:id', function(req, res) {
 	// Update record
@@ -289,8 +321,6 @@ router.put('/:id', function(req, res) {
             });
         }
     );
-    
-    
 });
 
 module.exports = router;

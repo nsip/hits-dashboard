@@ -17,6 +17,10 @@ block main
             i.alert-ico.fa.fa-fw.fa-check
             strong Email Sent!&thinsp;
             | Recovery email has been sent.
+        .alert.alert-info.accountDeactivated(role="alert", style="display: none;")
+            i.alert-ico.fa.fa-fw.fa-check
+            strong Account Deactivated&thinsp;
+            | This account has been deactivated, reactivate to be able to login as account, edit or email.
         .template.template__table_data
             .row
                 .col-md-12
@@ -49,7 +53,9 @@ block main
                                   button.btn.btn-primary.editAccountButton(type="button") Edit
                                   button.btn.btn-primary.loginAsAccountButton(type="button") Login as Account
                                   button.btn.btn-primary.emailAccountButton(type="button") Send Recovery Email
-                                  button.btn.btn-danger.deleteAccountButton(type="button" style="float: right;") Delete Account
+                                  .deleteButtons(style="float: right;")
+                                    button.btn.btn-danger.deactivateAccountButton(type="button") Deactivate Account
+                                    button.btn.btn-danger.deleteAccountButton(type="button") Delete Account
                                   p &nbsp;
 
 block css

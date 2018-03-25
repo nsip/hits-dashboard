@@ -1,6 +1,7 @@
 // ----------------------------------------------------------------------
 var account_id;
 var email;
+var isDeactivated = false;
 $(document).ready(function() {
 
     account_id = $.url(window.location.href).param('account_id');
@@ -15,6 +16,16 @@ $(document).ready(function() {
             alert("Failed load TODO");
         } else {
             email = data.data.email;
+            
+            isDeactivated = data.data.deactivated_at != undefined;
+            
+            if(isDeactivated){
+                $('.emailAccountButton').attr('disabled', 'disabled');
+                $('.editAccountButton').attr('disabled', 'disabled');
+                $('.loginAsAccountButton').attr('disabled', 'disabled');
+                $('.accountDeactivated').show();
+                $('.deactivateAccountButton').html("Reactivate Account");
+            }
             
             $('.accountName').text(data.data.name);
             $('.accountEmail').text(data.data.email);
@@ -47,6 +58,54 @@ $(document).ready(function() {
                 }
             }
         });
+
+        return false;
+    });
+    
+    $('.deactivateAccountButton').click(function(){
+        
+        var msg = "Are you sure you want to deactivate this user? You can re-activate in the future if necessary.";
+        if(isDeactivated) msg = "Are you sure you want to reactivate this user? You can deactivate in the future if necessary."
+        
+        var r = confirm(msg);
+        
+        if (r == true) {
+             $.ajax({
+                type: "PUT",
+                dataType: 'json',
+                url: "/api/admin/" + account_id + "/deactivate",
+                data: {
+                    isDeactivated: !isDeactivated
+                }
+            })
+            .done(function( data ) {
+                if (!data || !data.success) {
+                    alert("Failed to update");
+                } else {
+                    
+                    isDeactivated = data.isDeactivated == 'true';
+            
+                    if(isDeactivated){
+                        $('.emailAccountButton').attr('disabled', 'disabled');
+                        $('.editAccountButton').attr('disabled', 'disabled');
+                        $('.loginAsAccountButton').attr('disabled', 'disabled');
+                        $('.accountDeactivated').show();
+                        $('.deactivateAccountButton').html("Reactivate Account");
+                    } else {
+                        $('.emailAccountButton').removeAttr('disabled');
+                        $('.editAccountButton').removeAttr('disabled');
+                        $('.loginAsAccountButton').removeAttr('disabled');
+                        $('.accountDeactivated').hide();
+                        $('.deactivateAccountButton').html("Deactivate Account");
+                    }
+                    
+                    console.log(data);
+                }
+            })
+            .fail(function() {
+                alert("Failed to update");
+            });
+        }
 
         return false;
     });
