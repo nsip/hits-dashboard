@@ -423,7 +423,14 @@ $(document).ready(function() {
             "defaultContent": '',
           },
           { "title": "Name", "width": "20%", "data": "name", "defaultContent": '' },
-          { "title": "When", "width": "20%", "data": "when" , "defaultContent": ''},
+          { "title": "When", 
+              "width": "20%", 
+              "data": "when" , 
+              "defaultContent": '',
+              "render": function (data, type, row, meta) {
+                  return '<span style="display: none">' + moment(data).format("YYYY/MM/DD HH:mm:ss") + '</span><span>' + moment(data).format("DD/MM/YYYY HH:mm:ss") + '</span>';
+              }
+          },
           { "title": "Schools", "width": "5%", "data": "schools" , "defaultContent": ''},
           { "title": "Students", "width": "5%", "data": "students" , "defaultContent": ''},
           { "title": "Teachers", "width": "5%", "data": "teachers" , "defaultContent": ''},
