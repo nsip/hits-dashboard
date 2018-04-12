@@ -32,9 +32,8 @@ block main
                                   src="/usecases/timetable/hits-dashboard.html"
                                   frameborder="0"
                                   scrolling="no"
-                                  onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"
                                 )
 block css
 block js
     if !release
-        script(src='js/template/index.js')
+        script(src='js/usecase.js')

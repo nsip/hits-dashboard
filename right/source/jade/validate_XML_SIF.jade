@@ -36,7 +36,7 @@ block main
                                           li Go to the built in Javascript client in HITS (Developer Tools > Javascript client)
                                           li Select an arbitrary SIF Provider and Database for your data. (If this is a scratchpad, you may want to create a new database for this purpose.)
                                           li Select Post One as your method.
-                                          li In the “Parameters” body, replace the templated XML provided with the XML object you wish to validate. Note that you can only provide a single SIF object to the client.
+                                          li In the "Parameters" body, replace the templated XML provided with the XML object you wish to validate. Note that you can only provide a single SIF object to the client.
                                           li Hit Execute. The Response to your post will indicate what information HITS was able to extract out of your payload, whether it was in valid SIF or not; if it was not, the object will be empty of any real content.
                                           li Go to Developer Tools > Databases, and select the Database you had selected as the destination of your post to HITS.
                                           li Select the  Transaction Log window for that database. Your recent post will be at the top of the log, as the most recent interaction you have had with the database.
@@ -45,5 +45,3 @@ block main
 
 block css
 block js
-    if !release
-        script(src='js/template/index.js')

@@ -34,5 +34,3 @@ block main
                                         p The SIF server will return an <code>advisoryId</code> element in the response to the request, linking the RefId specified for each object to the RefId actually assigned by the server. The server is entitled to overrule the RefId suggestion of the client, unless the <code>mustUseAdvisory</code> header has been supplied in the HTTP request. In the latter case, the Create request will be rejected by the server if the provided RefId is unacceptable to the server.
 block css
 block js
-    if !release
-        script(src='js/template/index.js')
