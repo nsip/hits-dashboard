@@ -160,26 +160,25 @@ $(document).ready(function() {
       {
         id: 'naplan_registration',
         title: 'NAPLAN registration',
-        schools: [10,20],
+        schools: [0,0],
         students: [0,0],
         classrooms: [0,0],
         teachers: [0,0],
-        // 20 Schools (with ACARA IDs) - that's it.
         options: {
-          teachinggroups: true,
-          timetable: true,
+          teachinggroups: false,
+          timetable: false,
           grading: false,
           contacts: false,
           accounts: false,
-          naplan: true,
+          naplan: false,
         },
       },
 
       {
         id: 'naplan_results',
         title: 'NAPLAN results',
-        schools: [0,0],
-        students: [0,0],
+        schools: [1,1],
+        students: [100,200],
         classrooms: [0,0],
         teachers: [0,0],
         // TBD later - not ready for this yet as too early in NAPLAN cycle, not yet relevant for vendor. Covered by NIAS for TAAs. Revisit 2018
@@ -189,7 +188,7 @@ $(document).ready(function() {
           grading: false,
           contacts: false,
           accounts: false,
-          naplan: false,
+          naplan: true,
         },
       },
 
