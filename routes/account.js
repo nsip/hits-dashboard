@@ -16,24 +16,34 @@ router.use(function (req, res, next) {
 
 // GET / = Return list of information
 router.get('/:accountId', function(req, res, next) {
-  // Especially show status
-  var connection = db.connect();
-  connection.query(
-    'SELECT * FROM `account` WHERE id = ? AND deleted_at IS NULL AND deactivated_at IS NULL',
-    [ req.params.accountId ],
-    function(err, rows, fields) {
-      if (err)
-        return res.error(err);
+    
+    if(!req.params.accountId) res.error("You have not provided an ID. Please find your URL or recover your account.", undefined, 'recover');
+    
+    // Especially show status
+    var connection = db.connect();
+    connection.query( // AND deleted_at IS NULL AND deactivated_at IS NULL
+        'SELECT * FROM `account` WHERE id = ?',
+        [ req.params.accountId ],
+        function(err, rows, fields) {
+            if (err)
+                return res.error(err);
+
             if (rows && rows.length) {
+                var row = rows[0];
+
+                if(row.deleted_at || row.deactivated_at){
+                    return res.error("There was an error accessing this account. This could be because your account has been deactived. For access please request a new account.", undefined, "deactivated")
+                }
+                
                 return res.json({
                     success: 1,
-                    data: rows[0]
+                    data: row
                 });
             }
             else {
-                return res.error("not found");
+                return res.error("There was an error accessing this account. Please find your URL or recover your account.", undefined, "recover");
             }
-    }
+        }
     );
 });
 

@@ -27,6 +27,23 @@ $(document).ready(function() {
       $('.hitsinfo-email').html(data.data.email);
       $('.hitsinfo-name').html(data.data.name);
     })
+    .error(function(jqXHR, textStatus, errorThrown){
+        var json = jqXHR.responseJSON;
+
+        if(json){
+            alert(json.error);
+            $.removeCookie('hits2.id');
+            $.removeCookie("hits2.dbid");
+            id = undefined;
+            dbid = undefined;
+
+            if(json.type == 'deactivated'){
+                window.location.href = "index.html";
+            } else {
+                window.location.href = "recover.html";
+            }
+        }
+    })
     .fail(function() {
       console.log("Failed create TODO");
     });

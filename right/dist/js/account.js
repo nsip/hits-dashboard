@@ -402,9 +402,9 @@ $(document).ready(function() {
   var loadTable = function() {
     if (!table) {
       table = $('#account-databases').DataTable( {
-        "ajax": {
-          "url": "/api/account/" + id + "/counts",
-          "dataSrc": "data"
+        ajax: {
+          url: "/api/account/" + id + "/counts",
+          dataSrc: "data"
         },
         "order": [[ 2, "desc" ]],
         pageLength: 10,
