@@ -456,7 +456,26 @@ $(document).ready(function() {
 
   // Load table
   loadTable();
-  setInterval(loadTable, 60000);  // TODO Maybe push this to 30 seconds?
+  
+  var loadCount = 0;
+  var timer = setInterval(function(){
+      loadCount++;
+      
+      if(loadCount > 29){
+          
+          var result = confirm("Refresh of Database connections paused. Do you want Database connections to continue refreshing?")
+          if(result){
+              loadCount = 0;
+              loadTable();
+          } else {
+              clearInterval(timer);
+              timer = undefined;
+          }
+      } else {
+          loadTable();
+      }
+      
+  }, 60000);  // TODO Maybe push this to 30 seconds?
 
   // Create new entry
   $('#create-create').click(function() {
