@@ -16,9 +16,9 @@ router.use(function (req, res, next) {
 
 // GET / = Return list of information
 router.get('/:accountId', function(req, res, next) {
-    
+
     if(!req.params.accountId) res.error("You have not provided an ID. Please find your URL or recover your account.", undefined, 'recover');
-    
+
     // Especially show status
     var connection = db.connect();
     connection.query( // AND deleted_at IS NULL AND deactivated_at IS NULL
@@ -34,7 +34,7 @@ router.get('/:accountId', function(req, res, next) {
                 if(row.deleted_at || row.deactivated_at){
                     return res.error("There was an error accessing this account. This could be because your account has been deactived. For access please request a new account.", undefined, "deactivated")
                 }
-                
+
                 return res.json({
                     success: 1,
                     data: row
@@ -51,9 +51,10 @@ router.get('/:accountId', function(req, res, next) {
 router.get('/:accountId/database', function(req, res, next) {
   var connection = db.connect();
   connection.query(
-    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
-          + ' WHERE database.account_id = ? AND database.deleted_at IS NULL '
-          + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL ORDER BY database.name',
+    'SELECT d.account_id, d.id, d.name, d.options, d.status, d.when, d.usecase, d.message, d.token, d.deleted_at, d.optiondata, d.version_num'
+          + ' FROM `database` as d JOIN `account` ON d.account_id = account.id '
+          + ' WHERE d.account_id = ? AND d.deleted_at IS NULL '
+          + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL ORDER BY d.name',
     [ req.params.accountId ],
     function(err, rows, fields) {
       if (err)
@@ -82,8 +83,9 @@ router.get('/:accountId/counts', function(req, res, next) {
   var connection = db.connect();
   var infraconnection = db.infra();
   connection.query(
-    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
-      + ' WHERE database.account_id = ? AND database.deleted_at IS NULL '
+    'SELECT d.account_id, d.id, d.name, d.options, d.status, d.when, d.usecase, d.message, d.token, d.deleted_at, d.optiondata, d.version_num'
+      + ' FROM `database` as d JOIN `account` ON d.account_id = account.id '
+      + ' WHERE d.account_id = ? AND d.deleted_at IS NULL '
       + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL',
     [ req.params.accountId ],
     function(err, rows, fields) {
@@ -270,23 +272,25 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
   var connection = db.connect();
   var infraconnection = db.infra();
   connection.query(
-    'SELECT * FROM `database` JOIN `account` ON database.account_id = account.id '
-      + ' WHERE database.account_id = ? AND database.id = ? '
+    'SELECT d.account_id, d.id, d.name, d.options, d.status, d.when, d.usecase, d.message, d.token, d.deleted_at, d.optiondata, d.version_num'
+      + ' FROM `database` as d JOIN `account` ON d.account_id = account.id '
+      + ' WHERE d.account_id = ? AND d.id = ? '
       + ' AND account.deleted_at IS NULL AND account.deactivated_at IS NULL',
     [ req.params.accountId,  req.params.dbId ],
     function(err, rows, fields) {
       if (err)
         return res.error(err);
 
+      // XXX How about doing an error here?
       if(rows.length == 0){
           return res.json({
               success: 0,
               data: {},
         });
       }
-      
+
       var ret = rows[0];
-      
+
       // Use the version id to get the config messages
       var databaseMessages = config.database_version_messages;
       var messageVersions = Object.keys(databaseMessages).sort();
@@ -295,28 +299,21 @@ router.get('/:accountId/database/:dbId', function(req, res, next) {
       if(ret.version_num) version = ret.version_num;
       if (version < 1) {
         ret.database_version_messages = [];
-        ret.session = "";
-        ret.environment = "";
-        ret.auth_method = "";
-        return res.json({
-          success: 1,
-          data: ret,
-        });
       }
+      else {
+        var messages = [];
+        if(version < config.database_current_version){
 
-      var messages = [];
-      if(version < config.database_current_version){
-
-          for(var i=0; i<messageVersions.length; i++){
-              if(version < messageVersions[i]){
-                  for(var j=0; j<databaseMessages[messageVersions[i]].length; j++){
-                      messages.push(databaseMessages[messageVersions[i]][j]);
-                  }
-              }
-          }
+            for(var i=0; i<messageVersions.length; i++){
+                if(version < messageVersions[i]){
+                    for(var j=0; j<databaseMessages[messageVersions[i]].length; j++){
+                        messages.push(databaseMessages[messageVersions[i]][j]);
+                    }
+                }
+            }
+        }
+        ret.database_version_messages = messages;
       }
-
-      ret.database_version_messages = messages;
 
       infraconnection.query(
         "SELECT "
