@@ -84,18 +84,16 @@
                             .nav-menu__right
                                 i.fa.fa-fw.fa-angle-right.arrow
                         ul.nav.nav-menu__second.collapse(class=area == 'Developer Help' ? 'in' : '')
+                            li(class=page=='FAQ' ? 'active' : '')
+                                a.addids(href='faq.html') FAQ                            
                             li(class=page=='Connect Java consumer' ? 'active' : '')
                                 a.addids(href='connect_java_consumer.html') Connect Java consumer
                             // li(class=page=='Connect .NET consumer' ? 'active' : '')
                                 a.addids(href='connect_net_consumer.html') Connect .NET consumer
                             li(class=page=='Connect generic consumer' ? 'active' : '')
                                 a.addids(href='connect_generic_consumer.html') Connect generic consumer
-                            li(class=page=='RefIDs in SIF' ? 'active' : '')
-                                a.addids(href='refids_in_sif.html') RefIDs in SIF
                             li(class=page=='Validate your XML against SIF AU schema' ? 'active' : '')
                                 a.addids(href='validate_XML_SIF.html') Validate your XML against SIF AU schema
-                            li(class=page=='TLS version' ? 'active' : '')
-                                a.addids(href='tls_version.html') TLS Version
                 if area == "Admin"
                   ul.nav.nav-menu
                       // XXX This must be hidden unless logged in !
