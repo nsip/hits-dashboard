@@ -7,6 +7,7 @@ var requestify = require('requestify');
 var logger = require('../logger');
 var async = require('async');
 var fs = require('fs');
+var pkginfo = require('../pkginfo');
 
 // AUTHENTICATION - All entries start with base URL
 router.use(function (req, res, next) {
@@ -19,13 +20,14 @@ router.get('/version', function(req, res, next) {
 
     return res.json({
         sif_data: config.project_versions.sif_data,
-        hits_dashboard: config.project_versions.hits_dashboard,
+        hits_dashboard: pkginfo.version,
         sif_server: config.project_versions.sif_server,
         success: true
     });
 
 });
 
+// TODO refactor to async module ? (concurrent parsing)
 router.get('/changelog', function(req, res, next) {
 
     fs.readFile('CHANGELOG.md', (e, data) => {

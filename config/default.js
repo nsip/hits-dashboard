@@ -6,7 +6,7 @@ module.exports = {
   "version": "2.0.2",  // See CHANGELOG.md
     project_versions: {
       sif_data: 1,
-      hits_dashboard: "2.0.2",
+      // Deprecated - see package.json hits_dashboard: "2.0.2",
       sif_server: 1
   },
 
