@@ -298,6 +298,20 @@ $(document).ready(function() {
     }
   });
 
+  var createscheduledactivities = $('#create-scheduledactivities').ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 0,
+    max: 20,  // Per teacher ?
+    from: 8,
+    to: 16,
+    prefix: "Scheduled Activities: ",
+    decorate_both: false,
+    onChange: function (data) {
+      // tables.draw();
+    }
+  });
+
   // Add create-type code
   var createtype = $('#create-type');
   if (createtype.length) {
@@ -345,6 +359,14 @@ $(document).ready(function() {
           slider.update({
             from: uc.classrooms[0],
             to: uc.classrooms[1],
+          });
+        }
+
+        if (uc.scheduledactivities) {
+          var slider = createscheduledactivities.data("ionRangeSlider");
+          slider.update({
+            from: uc.scheduledactivities[0],
+            to: uc.scheduledactivities[1],
           });
         }
 
@@ -422,9 +444,9 @@ $(document).ready(function() {
             "defaultContent": '',
           },
           { "title": "Name", "width": "20%", "data": "name", "defaultContent": '' },
-          { "title": "When", 
-              "width": "20%", 
-              "data": "when" , 
+          { "title": "When",
+              "width": "20%",
+              "data": "when" ,
               "defaultContent": '',
               "render": function (data, type, row, meta) {
                   return '<span style="display: none">' + moment(data).format("YYYY/MM/DD HH:mm:ss") + '</span><span>' + moment(data).format("DD/MM/YYYY HH:mm:ss") + '</span>';
@@ -455,13 +477,13 @@ $(document).ready(function() {
 
   // Load table
   loadTable();
-  
+
   var loadCount = 0;
   var timer = setInterval(function(){
       loadCount++;
-      
+
       if(loadCount > 29){
-          
+
           var result = confirm("Refresh of Database connections paused. Do you want Database connections to continue refreshing?")
           if(result){
               loadCount = 0;
@@ -473,7 +495,7 @@ $(document).ready(function() {
       } else {
           loadTable();
       }
-      
+
   }, 60000);  // TODO Maybe push this to 30 seconds?
 
   // Create new entry
@@ -502,6 +524,7 @@ $(document).ready(function() {
           students: [createstudents.data("from"), createstudents.data("to")],
           teachers: [createteachers.data("from"), createteachers.data("to")],
           classrooms: [createclassrooms.data("from"), createclassrooms.data("to")],
+          scheduledactivities: [createscheduledactivities.data("from"), createscheduledactivities.data("to")],
           teachinggroups: $('#create-teachinggroups').prop('checked'),
           timetable: $('#create-timetable').prop('checked'),
           grading: $('#create-grading').prop('checked'),
