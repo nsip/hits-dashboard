@@ -225,7 +225,7 @@
                                   <li>Base-64 encode the consumer token</li>
                                   <li>Prefix the Base 64 encoding of the consumer token with “BASIC ”</li>
                                 </ul>
-                                <p>HITS will soon be implementing HMAC SHA-256 authentication as an alternative. The procedure under HMAC SHA-256 to generate an authorisation token is as follows:</p>
+                                <p>The procedure under HMAC SHA-256 to generate an authorisation token is as follows:</p>
                                 <ul>
                                   <li>create a timestamp in ISO-8601 format eg. 2017-02-27T09:48:42.942Z</li>
                                   <li>take the string ApplicationKey:timestamp and hash it using HMACSHA256 with the Password as the key, then base64 encode this hash. ApplicationKey and Password are from the Information page; timestamp is taken from the previous step.</li>
