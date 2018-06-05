@@ -15,6 +15,7 @@ $(document).ready(function() {
         students: [100,200],
         classrooms: [3,5],
         teachers: [5,10],
+        scheduledactivities: [0, 0],
         options: {
           teachinggroups: true,
           timetable: true,
@@ -33,6 +34,7 @@ $(document).ready(function() {
         students: [0,0],
         classrooms: [0,0], // XXX Fake
         teachers: [0,0], // XXX Fake
+        scheduledactivities: [0, 0],
         // (optional) CalendarDate for each day of term in a year eg Feb-June, Aug-Nov, 5 days a week
         // 1 calendarsummary per year
         // Calendar Date is a check box (because it is an option)
@@ -54,6 +56,7 @@ $(document).ready(function() {
         students: [0,0],
         classrooms: [0,0], // XXX Fake
         teachers: [0,0], // XXX Fake
+        scheduledactivities: [0, 0],
         // (optional) CalendarDate for each day of term in a year eg Feb-June, Aug-Nov, 5 days a week
         // 1 calendarsummary per year
         // Calendar Date is a check box (because it is an option)
@@ -75,6 +78,7 @@ $(document).ready(function() {
         students: [150,250],
         classrooms: [5,10], // XXX Fake
         teachers: [15,20], // XXX Fake
+        scheduledactivities: [0, 0],
         // (optional) CalendarDate for each day of term in a year eg Feb-June, Aug-Nov, 5 days a week
         // 1 calendarsummary per year
         // Calendar Date is a check box (because it is an option)
@@ -99,6 +103,7 @@ $(document).ready(function() {
         teachers: [15,20],
         parents: 20,
         vendors: 5,
+        scheduledactivities: [0, 0],
         // (45 debtors=teachers+parents+vendors)
         // 12 financial accounts - 3 each of asset, liability, revenue, expense
         // (Also delete this from the use case text - Fincancial classifications)
@@ -124,6 +129,7 @@ $(document).ready(function() {
         id: 'enrolment',
         title: 'Enrolment',
         schools: [1,1],
+        scheduledactivities: [0, 0],
         options: {
           teachinggroups: true,
           timetable: true,
@@ -141,6 +147,7 @@ $(document).ready(function() {
         students: [175,225],
         classrooms: [0,0],
         teachers: [0,0],
+        scheduledactivities: [0, 0],
         // teachinggroups: 10,
         // teachers: 10,
         // 200 students
@@ -164,6 +171,7 @@ $(document).ready(function() {
         students: [0,0],
         classrooms: [0,0],
         teachers: [0,0],
+        scheduledactivities: [0, 0],
         options: {
           teachinggroups: false,
           timetable: false,
@@ -181,6 +189,7 @@ $(document).ready(function() {
         students: [100,200],
         classrooms: [0,0],
         teachers: [0,0],
+        scheduledactivities: [0, 0],
         // TBD later - not ready for this yet as too early in NAPLAN cycle, not yet relevant for vendor. Covered by NIAS for TAAs. Revisit 2018
         options: {
           teachinggroups: false,
@@ -199,6 +208,7 @@ $(document).ready(function() {
         students: [200,350],
         classrooms: [30,40],
         teachers: [10,15],
+        scheduledactivities: [0, 0],
         // 1 school
         // 200 students +
         // 20 teachers
@@ -216,6 +226,24 @@ $(document).ready(function() {
           timetable: true,
           grading: false,
           contacts: false,
+          accounts: false,
+          naplan: false,
+        },
+      },
+
+      {
+        id: 'wellbeing',
+        title: 'Wellbeing',
+        schools: [1,1],
+        students: [200,350],
+        classrooms: [30,40],
+        teachers: [10,15],
+        scheduledactivities: [10, 20],
+        options: {
+          teachinggroups: true,
+          timetable: true,
+          grading: false,
+          contacts: true,
           accounts: false,
           naplan: false,
         },
