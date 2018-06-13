@@ -282,7 +282,7 @@ create table StudentAttendanceTimeList_PeriodAttendance (
     attendanceType varchar(200) DEFAULT NULL,
     attendanceCode varchar(200) DEFAULT NULL,
     attendanceStatus varchar(200) DEFAULT NULL,
-    attendanceDate varchar(200) DEFAULT NULL,
+    date varchar(200) DEFAULT NULL,
     sessionInfo_RefId varchar(36) DEFAULT NULL,
     scheduledActivity_RefId varchar(36) DEFAULT NULL,
     timetablePeriod varchar(200) DEFAULT NULL,
@@ -325,3 +325,13 @@ create table StudentAttendanceTimeList_PeriodAttendance_OtherCode (
     CodeSet varchar(200) DEFAULT NULL,
     index OtherCode_periodattendance_ix (PeriodAttendance_Id),
     constraint OtherCode_periodattendance_fk foreign key (PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
+
+ALTER TABLE StudentAttendanceTimeList_AttendanceTime
+CHANGE COLUMN `Code` `AttendanceType` VARCHAR(200) NULL DEFAULT NULL ,
+CHANGE COLUMN `AbsenceValue` `DurationValue` VARCHAR(200) NULL DEFAULT NULL ,
+ADD COLUMN `TimeTableSubject_RefId` VARCHAR(36) NULL AFTER `AttendanceNote`;
+
+ALTER TABLE StudentAttendanceTimeList_AttendanceTime
+ADD CONSTRAINT AttendanceTime_TimeTableSubject_FK
+  FOREIGN KEY (`TimeTableSubject_RefId`)
+  REFERENCES TimeTableSubject (`RefId`);
