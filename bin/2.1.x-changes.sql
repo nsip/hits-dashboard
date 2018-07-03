@@ -299,15 +299,15 @@ ALTER TABLE StudentAttendanceTimeList_PeriodAttendance
 ADD INDEX StudentAttendanceTimeList_PeriodAttendance_IX (studentAttendanceTimeList_RefId);
 
 create table StudentAttendanceTimeList_PeriodAttendance_RoomInfo (
-    PeriodAttendance_Id INT NOT NULL,
+    StudentAttendanceTimeList_PeriodAttendance_Id INT NOT NULL,
     RoomInfo_RefId varchar(36) NOT NULL,
     primary key (PeriodAttendance_Id, RoomInfo_RefId),
-    index roominfo_periodattendance_ix (PeriodAttendance_Id),
-    constraint roominfo_periodattendance_fk foreign key (PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
+    index roominfo_periodattendance_ix (StudentAttendanceTimeList_PeriodAttendance_Id),
+    constraint roominfo_periodattendance_fk foreign key (StudentAttendanceTimeList_PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
     
 create table StudentAttendanceTimeList_PeriodAttendance_TeacherCover (
    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   PeriodAttendance_Id INT NOT NULL,
+   StudentAttendanceTimeList_PeriodAttendance_Id INT NOT NULL,
 	staffPersonal_RefId varchar(36) DEFAULT NULL,
     staffLocalId varchar(200) DEFAULT NULL,
     startTime varchar(200) DEFAULT NULL,
@@ -315,16 +315,16 @@ create table StudentAttendanceTimeList_PeriodAttendance_TeacherCover (
     credit varchar(200) DEFAULT NULL,
     supervision varchar(200) DEFAULT NULL,
     weighting varchar(200) DEFAULT NULL,
-    index teachercover_periodattendance_ix (PeriodAttendance_Id),
-    constraint teachercover_periodattendance_fk foreign key (PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
+    index teachercover_periodattendance_ix (StudentAttendanceTimeList_PeriodAttendance_Id),
+    constraint teachercover_periodattendance_fk foreign key (StudentAttendanceTimeList_PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
 
 create table StudentAttendanceTimeList_PeriodAttendance_OtherCode (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    PeriodAttendance_Id INT NOT NULL,
+    StudentAttendanceTimeList_PeriodAttendance_Id INT NOT NULL,
     OtherCode varchar(200) DEFAULT NULL,
     CodeSet varchar(200) DEFAULT NULL,
-    index OtherCode_periodattendance_ix (PeriodAttendance_Id),
-    constraint OtherCode_periodattendance_fk foreign key (PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
+    index OtherCode_periodattendance_ix (StudentAttendanceTimeList_PeriodAttendance_Id),
+    constraint OtherCode_periodattendance_fk foreign key (StudentAttendanceTimeList_PeriodAttendance_Id) references StudentAttendanceTimeList_PeriodAttendance (id));
 
 ALTER TABLE StudentAttendanceTimeList_AttendanceTime
 CHANGE COLUMN `Code` `AttendanceType` VARCHAR(200) NULL DEFAULT NULL ,
