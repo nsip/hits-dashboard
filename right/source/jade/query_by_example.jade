@@ -1,1 +1,37 @@
+extends ./parts/layout.jade
+block vars
+    - page = 'Query by example';
+    - area = 'Developer Help';
+block main
 
+    .main-heading
+        .main-title
+            ol.breadcrumb
+                li
+                  a(href="help.html") Developer Help
+                li.active Help
+        // .main-filter
+            form.main-filter__search
+                .input-group
+                    input.form-control(type="text", placeholder="Search...")
+                    span.input-group-btn
+                        button.btn.btn-default(type="button")
+                            .fa.fa-search
+    .container-fluid.half-padding
+        .pages.pages_dashboard
+        .template
+            .row
+                .col-md-12
+                    .container-fluid.half-padding
+                        .row
+                            .col-md-12
+                                .panel.panel-info
+                                    .panel-heading
+                                        h2.panel-title Query by example
+                                    .panel-body
+                                        p Query by Example was added to the SIF Infrastructure Specification as of version 3.2. (http://specification.sifassociation.org/Implementation/Infrastructure/3.2/Documents/BaseArchitecture_3-2.pdf, p. 82). Such queries allow an object provider to be queried by providing a partly populated object; the query returns all objects matching that template.
+                                        p To do a Query by Example, do an HTTP POST to the provider with the partly populated object, with the HTTP header methodOverride set to GET. Note that the navigationPage and navigationPageSize parameters are mandatory in a direct environment such as HITS. (In a brokered environment, the navigationPage parameter is optional.) The SIF Frameworks support QBE queries natively; the following is what a QBE query looks like in curl:
+
+                                        
+block css
+block js
