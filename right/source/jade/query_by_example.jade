@@ -32,7 +32,7 @@ block main
                                         p Query by Example was added to the SIF Infrastructure Specification as of version 3.2. (http://specification.sifassociation.org/Implementation/Infrastructure/3.2/Documents/BaseArchitecture_3-2.pdf, p. 82). Such queries allow an object provider to be queried by providing a partly populated object; the query returns all objects matching that template.
                                         p To do a Query by Example, do an HTTP POST to the provider with the partly populated object, with the HTTP header methodOverride set to GET. Note that the navigationPage and navigationPageSize parameters are mandatory in a direct environment such as HITS. (In a brokered environment, the navigationPage parameter is optional.) The SIF Frameworks support QBE queries natively; the following is what a QBE query looks like in curl:
                                         pre.
-                                        curl -H "authorization: Basic {AUTH_TOKEN}" -H "methodOverride: GET" --data "&lt;StudentDailyAttendance><Date&gt;2014-11-24</Date><SchoolYear>2014</SchoolYear></StudentDailyAttendance>" http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/StudentDailyAttendances
+                                        curl -H "authorization: Basic {AUTH_TOKEN}" -H "methodOverride: GET" --data "&lt;StudentDailyAttendance&gt;&lt;Date&gt;2014-11-24&lt;/Date&gt;&lt;SchoolYear&gt;2014&lt;/SchoolYear&gt;&lt;/StudentDailyAttendance&gt;" http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/StudentDailyAttendances
 
                                         
 block css
