@@ -118,4 +118,11 @@ module.exports = {
     ],
 
 
+  xsp: {
+    test: {
+      title: "Test it",
+      path: "/tmp",
+    },
+  },
+
 };
