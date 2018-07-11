@@ -50,10 +50,8 @@ var fileOrList = function(path, req, res) {
 	return;
 };
 
-// AUTHENTICATION - All entries start with base URL
+// AUTHENTICATION - XXX We need a fake Bearer Token here !
 router.use(function (req, res, next) {
-  // XXX check :accountId and form error
-  console.log('Time:', Date.now());
   next();
 });
 
@@ -62,23 +60,13 @@ router.get('/', function (req, res) {
 	return res.json({ success: 1, title: "Get list of tags", tags: config.xsp});
 });
 
-// XXX Next three could be the same
-
-// Return list of directories files & from config
 router.get('/:tag', function (req, res) {
 	return fileOrList(config.xsp[req.params.tag].path, req, res);
 });
 
-// Return list of files in directory OR file
-router.get('/:tag/:area', function (req, res) {
-	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params.area, req, res);
+// Return list of directories files & from config
+router.get('/:tag/*', function (req, res) {
+	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
 });
-
-// Return single file
-router.get('/:tag/:area/:id', function (req, res) {
-	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params.area + "/" + req.params.id, req, res);
-});
-
-// XXX We could allow recursive or deeper?
 
 module.exports = router
