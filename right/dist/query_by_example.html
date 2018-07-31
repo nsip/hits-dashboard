@@ -40,7 +40,7 @@
           <div class="header-navbar-mobile__menu">
             <button type="button" class="btn"><i class="fa fa-bars"></i></button>
           </div>
-          <div class="header-navbar-mobile__title"><span>Developer Help</span></div>
+          <div class="header-navbar-mobile__title"><span>Query by example</span></div>
           <div class="header-navbar-mobile__settings dropdown"><a href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle"><i class="fa fa-power-off"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#">Log Out</a></li>
@@ -156,7 +156,8 @@
               <div class="main-heading">
                 <div class="main-title">
                   <ol class="breadcrumb">
-                    <li class="active">Developer Help</li>
+                    <li><a href="help.html">Developer Help</a></li>
+                    <li class="active">Help</li>
                   </ol>
                 </div>
                 <!-- .main-filter
@@ -178,20 +179,41 @@
                           <div class="col-md-12">
                             <div class="panel panel-info">
                               <div class="panel-heading">
-                                <h3 class="panel-title">Developer Help</h3>
+                                <h2 class="panel-title">Query by example</h2>
                               </div>
                               <div class="panel-body">
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <ul>
-                                      <li><a href="faq.html">FAQ</a></li>
-                                      <li><a href="connect_java_consumer.html">Connect Java consumer</a></li>
-                                      <li><a href="connect_generic_consumer.html">Connect generic consumer</a></li>
-                                      <li><a href="validate_XML_SIF.html">Validate your XML against the SIF AU schema</a></li>
-                                      <li><a href="query_by_example.html">Query by example</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
+                                <p>Query by Example was added to the SIF Infrastructure Specification as of version 3.2. (http://specification.sifassociation.org/Implementation/Infrastructure/3.2/Documents/BaseArchitecture_3-2.pdf, p. 82). Such queries allow an object provider to be queried by providing a partly populated object; the query returns all objects matching that template.</p>
+                                <p>To do a Query by Example, do an HTTP POST to the provider with the partly populated object, with the HTTP header methodOverride set to GET. Note that the navigationPage and navigationPageSize parameters are mandatory in a direct environment such as HITS. (In a brokered environment, the navigationPage parameter is optional.) The SIF Frameworks support QBE queries natively; the following is what a QBE query looks like in curl:</p>
+                                <pre></pre>
+                                <curl>-H "authorization: Basic {AUTH_TOKEN}" -H "methodOverride: GET" --data "&lt;StudentDailyAttendance&gt;&lt;Date&gt;2014-11-24&lt;/Date&gt;&lt;SchoolYear&gt;2014&lt;/SchoolYear&gt;&lt;/StudentDailyAttendance&gt;" http://hits.nsip.edu.au/SIF3InfraREST/hits/requests/StudentDailyAttendances</curl>
+                                <h2>Query-by-example or Service Paths?</h2>
+                                <p>The following considerations apply in choosing whether to implement queries as Query By Example (QBE) or Service Paths (SP):</p>
+                                <h3>Service Paths are not predefined in SIF</h3>
+                                <p>Service Paths are not predefined in the SIF specification: every instance of a SIF server needs to define the Service Paths it will support, through a SIF binding document, and advertise their availability through SIF Infrastructure services. QBE is defined as a template capability, but is also not supported by default in SIF servers: a QBE mapping needs to be realised for each object.</p>
+                                <h3>Service Paths best as a query joined on ID</h3>
+                                <p>The semantics of Service Paths is potentially opaque, and needs to be defined in the SIF binding. Best practice is to treat the Service Path X/{ID}/Y as a join query between X and Y, joined on ID, where ID is the single query parameter. </p>
+                                <If>there are multiple possible RefIds on which the join can take place, the specific RefIDs need to be made explicit and agreed between users.</If>
+                                <Best>practice is not to include other query constraints in the query, explicitly or implicitly.</Best>
+                                <This>is to reduce guesswork from external users about what the Service Path query means. For example, it is not best practice to include in a Service Path /SchoolInfo/{ID}/StudentPersonal the constraint that school enrolments must be current, that school enrolments apply to the current school year, or that the schools are active. </This>
+                                <Naive>users cannot anticipate these additional constraints on the query. While such added constraints can be added to Service Path queries, best practice is to use Query By Example instead. </Naive>
+                                <Potential>and valid exceptions are through the use of contexts where a "current", "past" or "future" context could be used to define temporally based information.</Potential>
+                                <For>example the Service Path /SchoolInfo/{ID}/StudentPersonal in a "current" context could mean only currently enrolled students at the given school.</For>
+                                <h3>Use Service Paths if implicit ID</h3>
+                                <p>If a Service Path query X/{ID}/Y involves an ID which is not an explicit and mandatory element of Y, then Service Paths are the only way to realise the query: QBE is not applicable.</p>
+                                <ul>For example, /SchoolInfo/{ID}/StudentPersonal depends on a join mediated by StudentSchoolEnrollment: neither StudentPersonal nor SchoolInfo refer directly to each other, so the query cannot be realised through QBE on a StudentPersonal or SchoolInfo object.</ul>
+                                <ul>For example, /StudentPersonal/{ID}/Timetable depends on a join via TimeTable/SchoolInfoRefId, which is an optional element, and may not be populated. </ul>
+                                <However>, TimeTableCell/RoomInfoRefId is mandatory, and RoomInfo/SchoolInfoRefId is mandatory, so the SchoolInfo for a non-empty TimeTable can always be recovered.</However>
+                                <For>that reason, the query should be realised through SP rather than QBE.</For>
+                                <h3>Use either if explicit ID...</h3>
+                                <p>If a Service Path query X/{ID}/Y involves ID which is an explicit and mandatory element of Y, then it can be realised as either a Service Path, or as a QBE on Y against ID, and not involving X at all.</p>
+                                <For>example, a query for StudentPersonal/{ID}/PersonPicture can be replaced by a QBE on PersonPicture/ParentObjectRefId = ID and PersonPicture/ParentObjectRefId@SIF\_RefObject = StudentPersonal.</For>
+                                <h3>...but consider this...</h3>
+                                <p>In case the query can be realised as either SP or QBE, the following considerations apply:</p>
+                                <ul>Each Service Path needs to be implemented separately. The QBE for an object needs to be implemented only once. So if there are multiple Service Paths for an object X, QBE involves less resources to be managed.</ul>
+                                <ul>Each Service Path has its own ACL. The QBE for an object involves a single ACL. So if there needs to be differential authorisation for different elements in the object, the QBE needs additional resources to be implemented in order to manage access to elements at a separate layer.</ul>
+                                <h3>HITS does QBE by default</h3>
+                                <p>The HITS default where a query can be realised as either SP or QBE is to realise it as a QBE, as this involves less resources for the HITS team to manage.</p>
+                                <This>may be overridden depending on implementation considerations for particular queries. SIF implementations will need to make their own decisions about whether to use SP or QBE.</This>
                               </div>
                             </div>
                           </div>
