@@ -50,4 +50,23 @@ router.get('/usecases', function(req, res) {
     });
 });
 
+// GET - Update JADE
+router.get('/jade', function(req, res) {
+  exec(
+    __dirname + "/../bin/update_jade.sh",
+    { cwd: __dirname + "/.."},
+    function (error, stdout, stderr){
+      //console.error(`exec error: ${error}`);
+      //console.log(`stdout: ${stdout}`);
+      //console.log(`stderr: ${stderr}`);
+      res.type("text/plain");
+      res.send(""
+        + "success: " + (error ? false : true) + "\n"
+        + stdout
+        + stderr
+        + error
+      );
+    });
+});
+
 module.exports = router;
