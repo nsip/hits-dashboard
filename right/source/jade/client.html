@@ -1,189 +1,196 @@
 <div class="container-fluid half-padding">
-  <div class="row">
-      <div class="col-md-6">
-        <div>
-          <h3>Input</h3>
-        </div>
-        <div>
-          <div class="bs-example">
-            <form role="form">
-              <div class="form-group">
-                <label for="providerServer">Provider Server</label>
-                <input type="text" class="form-control" id="providerServer" placeholder="Provider Server" value="http://hits.nsip.edu.au/SIF3InfraREST/hits/">
-              </div>
-              <div class="form-group">
-                <label for="zoneId">Solution ID</label>
-                <input type="text" class="form-control" id="solutionId" placeholder="Enter Solution Id" value="HITS">
-              </div>
-              <div class="form-group">
-                <label for="applicationKey">Application Key</label>
-                <input type="text" class="form-control" id="applicationKey" placeholder="Enter Application Key" value="HITS">
-              </div>
-              <div class="form-group">
-                <label for="zoneId">User Token</label>
-                <input type="text" class="form-control" id="userToken" placeholder="Enter User Token" value="">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" id="password" placeholder="Enter Password" value="hits@nsip">
-              </div>
-              <div class="form-group">
-                <label for="password">Authentication Method</label>
-                <select id="authentication-method" class="form-control">
-                  <option>Basic</option>
-                  <option value="SIF_HMACSHA256">HmacSHA256</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="sessionToken">Session Token</label>
-                <input type="text" class="form-control" id="sessionToken" placeholder="Leave empty to create environment">
-              </div>
-              <div class="form-group">
-                <label style="text-align:center; width:100%;">&nbsp;</label>
-              </div>
-              <div class="form-group">
-                <label for="provider">SIF Provider</label>
-                <select class="form-control" id="provider"></select>
-              </div>
-              <div class="form-group">
-                <label for="method">Method</label>
-                <select class="form-control" id="method"></select>
-              </div>
-            </form>
+      <div class="row">
+      <div class="col-md-5">
+        <form role="form">
+        <div class="panel-group" role="tablist">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapseServerHeading">
+              <h3 class="panel-title"><a href="#collapseServerGroup" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseServerHeading"> Connection Information </a> </h3>
+            </div>
+            <div class="panel-collapse collapse" role="tabpanel" id="collapseServerGroup" aria-labelledby="collapseServerHeading" aria-expanded="false" style="">
+              <ul class="list-group"> 
+                <li class="list-group-item" style="border-left: none; border-right: none; border-bottom: none;">
+                  <div class="form-group">
+                    <label for="server">Provider Server</label>
+                    <input type="text" class="form-control" id="server" placeholder="Provider Server" name="server" data-name="Provider Server" data-required="true">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="solutionid">Solution ID</label>
+                    <input type="text" class="form-control" id="solutionid" name="solutionId" data-required="true" data-name="Solution Id" placeholder="Enter Solution Id">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="applicationkey">Application Key</label>
+                    <input type="text" class="form-control" id="applicationkey" name="applicationKey" data-required="true" data-name="Application Key" placeholder="Enter Application Key">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="usertoken">User Token</label>
+                    <input type="text" class="form-control" id="usertoken" name="userToken" data-required="true" data-name="User Token" placeholder="Enter User Token">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" name="password" data-required="true" data-name="Password" placeholder="Enter Password">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="password">Authentication Method</label>
+                    <select id="authmethod" class="form-control" name="authmethod" data-name="Authentication Method" data-required="true">
+                      <option>Basic</option>
+                      <option value="SIF_HMACSHA256">HmacSHA256</option>
+                    </select>
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="sessiontoken">Session Token</label>
+                    <input type="text" class="form-control" id="sessiontoken" name="sessionToken" data-required="true" data-name="Session Token">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="password">Environment Id</label>
+                    <input type="text" class="form-control" id="environment" name="environment" data-required="true" data-name="Environment Id">
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="password">Fingerprint</label>
+                    <input type="text" class="form-control" id="fingerprint" name="fingerprint" data-name="Fingerprint">
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="row parameter-header" style="display:none;">
-          <h3>Parameters</h3>
-        </div>
-        <div class="row parameter-block" id="postOne" style="display:none;">
-          <div class="bs-example">
-            <form role="form">
-              <div class="form-group">
-                <label for="postOneBody">Body</label>
-                <textarea rows="10" type="text" class="form-control" id="postOneBody" placeholder="Body XML"></textarea>
-              </div>
-            </form>
+        <div class="panel-group" role="tablist">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapseRequestHeading">
+              <h3 class="panel-title"><a href="#collapseRequestGroup" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseRequestHeading">Request</a></h3>
+            </div>
+            <div class="panel-collapse collapse in" role="tabpanel" id="collapseRequestGroup" aria-labelledby="collapseRequestHeading" aria-expanded="true" style="">
+              <ul class="list-group"> 
+                <li class="list-group-item" style="border-left: none; border-right: none; border-bottom: none;">
+                  <div class="form-group">
+                    <label for="provider">SIF Provider</label>
+                    <select class="form-control" id="provider"></select>
+                  </div>
+                </li>
+                <li class="list-group-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="method">Method</label>
+                    <select class="form-control" id="method"></select>
+                  </div>
+                </li>
+                <li class="list-group-item service-path-item" style="border: none;">
+                  <div class="form-group">
+                    <label for="method">Service Path</label>
+                    <select class="form-control" id="servicePath"></select>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="row parameter-block" id="putOne" style="display:none;">
-          <div class="bs-example">
-            <form role="form">
-              <div class="form-group">
-                <label for="putOneReferenceId">Reference Id</label>
-                <input type="text" class="form-control" id="putOneReferenceId" placeholder="Reference Id">
-              </div>
-              <div class="form-group">
-                <label for="putOneBody">Body</label>
-                <textarea rows="10" type="text" class="form-control" id="putOneBody" placeholder="Body XML"></textarea>
-              </div>
-            </form>
+        <div class="panel-group" role="tablist">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapseParameterHeading">
+              <h3 class="panel-title"><a href="#collapseParameterGroup" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseParameterHeading">Parameters</a></h3>
+            </div>
+            <div class="panel-collapse collapse parameter-body" role="tabpanel" id="collapseParameterGroup" aria-labelledby="collapseParameterHeading" aria-expanded="true" style="">
+            </div>
           </div>
         </div>
-        <div class="row parameter-block" id="getOne" style="display:none;">
-          <div class="bs-example">
-            <form role="form">
-              <div class="form-group">
-                <label for="getOneReferenceId">Reference Id</label>
-                <input type="text" class="form-control" id="getOneReferenceId" placeholder="Reference Id">
-              </div>
-            </form>
+        <div class="panel-group" role="tablist">
+          <div class="panel panel-default"  style="border:none;">
+            <button type="button" class="btn btn-primary" id="execute">Execute</button>
           </div>
         </div>
-        <div class="row parameter-block" id="getMany" style="display:none;">
-          <div class="bs-example">
-            <form role="form">
-              <div class="form-group">
-                <label for="getManyRecordsPerPage">Records per Page</label>
-                <input type="text" class="form-control" id="getManyRecordsPerPage" placeholder="Records per Page" value=5>
-              </div>
-              <div class="form-group">
-                <label for="getManyPage">Page Number</label>
-                <input type="text" class="form-control" id="getManyPage" placeholder="Page Number" value=1>
-              </div>
-            </form>
+        </form>
+      </div>
+      <div class="col-md-7">
+        <div class="panel-group" role="tablist">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="collapseResponseHeading">
+              <h3 class="panel-title">Response</h3>
+            </div>
+            <div class="panel-collapse collapse in" role="tabpanel" id="collapseResponseGroup" aria-labelledby="collapseResponseHeading" aria-expanded="true" style="">
+                <div style='margin: 1em;'>
+                <p>Method: <span id="requestType"></span></p>
+                <p>URL: <span id="responseURL"></span></p>
+                <p>Status: <span id="responseStatus"></span> - <span id="responseStatusText"></span></p>
+                <pre id="response"></pre>
+                </div>
+            </div>
           </div>
-        </div>
-        <div>
-          &nbsp;
-        </div>
-        <div>
-          <button type="button" class="btn btn-primary" id="execute">Execute</button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div>
-          <h3>5. Response</h3>
-        </div>
-        <div>
-          URL: <a href="#" id="responseURL"></a>
-        </div>
-        <div>
-          Status: <span id="responseStatus"></span>: <span id="responseStatusText"></span>
-        </div>
-        <div>
-          <pre id="response">
-          </pre>
-        </div>
-      </div>
-  </div>
+    </div>
 </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/client/Simple/js/bootstrap.min.js"></script>
-<script src="/client/Simple/js/base64.js"></script>
-<script src="/client/Simple/js/purl.js"></script>
-<script src="/client/Simple/js/hitsclient.js"></script>
-<script src="/client/Simple/js/environment.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/hmac-sha256.js"></script>
+    <script src="js/enc-base64-min.js"></script>
+    <script src="js/purl.js"></script>
+    <script src="js/sif.js"></script>
+    <script src="js/hitsclient.js"></script>
+    <script src="js/environment.js"></script>    
+    <!-- would be nice to load these dynamically. -->
 
-<script src="/client/Simple/js/moment.min.js"></script>
-<script src="/client/Simple/js/hmac-sha256.js"></script>
-<script src="/client/Simple/js/enc-base64-min.js"></script>
+    <script src="js/providers/calendar-date.js"></script>
+    <script src="js/providers/calendar-summary.js"></script>
+    <script src="js/providers/charged-location-info.js"></script>
+    <script src="js/providers/debtor.js"></script>
+    <script src="js/providers/financial-account.js"></script>
+    <script src="js/providers/grading-assignment-score.js"></script>
+    <script src="js/providers/grading-assignment.js"></script>
+    <script src="js/providers/invoice.js"></script>
+    <script src="js/providers/journal.js"></script>
+    <script src="js/providers/payment-receipt.js"></script>
+    <script src="js/providers/person-picture.js"></script>
+    <script src="js/providers/personalised-plan.js"></script>
+    <script src="js/providers/purchase-order.js"></script>
+    <script src="js/providers/room-info.js"></script>
+    <script src="js/providers/scheduled-activity.js"></script>
+    <script src="js/providers/school-info.js"></script>
+    <script src="js/providers/session-info.js"></script>
+    <script src="js/providers/staff-assignment.js"></script>
+    <script src="js/providers/staff-personal.js"></script>
+    <script src="js/providers/student-attendance-summary.js"></script>
+    <script src="js/providers/student-attendance-time-list.js"></script>
+    <script src="js/providers/student-contact-relationship.js"></script>
+    <script src="js/providers/student-contact.js"></script>
+    <script src="js/providers/student-daily-attendance.js"></script>
+    <script src="js/providers/student-period-attendance.js"></script>
+    <script src="js/providers/student-personal-naplan.js"></script>
+    <script src="js/providers/student-personal.js"></script>
+    <script src="js/providers/student-school-enrollment.js"></script>
+    <script src="js/providers/teaching-group.js"></script>
+    <script src="js/providers/time-table-cell.js"></script>
+    <script src="js/providers/time-table-subject.js"></script>
+    <script src="js/providers/time-table.js"></script>
+    <script src="js/providers/vendor-info.js"></script>
+    <script src="js/providers/wellbeing-alert.js"></script>
+    <script src="js/providers/wellbeing-appeal.js"></script>
+    <script src="js/providers/wellbeing-characteristic.js"></script>
+    <script src="js/providers/wellbeing-event.js"></script>
+    <script src="js/providers/wellbeing-response.js"></script>
 
-<!-- would be nice to load these dynamically. -->
-    <script src="/client/Simple/js/providers/calendar-date.js"></script>
-    <script src="/client/Simple/js/providers/calendar-summary.js"></script>
-    <script src="/client/Simple/js/providers/charged-location-info.js"></script>
-    <script src="/client/Simple/js/providers/debtor.js"></script>
-    <script src="/client/Simple/js/providers/financial-account.js"></script>
-    <script src="/client/Simple/js/providers/grading-assignment-score.js"></script>
-    <script src="/client/Simple/js/providers/grading-assignment.js"></script>
-    <script src="/client/Simple/js/providers/invoice.js"></script>
-    <script src="/client/Simple/js/providers/journal.js"></script>
-    <script src="/client/Simple/js/providers/payment-receipt.js"></script>
-    <script src="/client/Simple/js/providers/person-picture.js"></script>
-    <script src="/client/Simple/js/providers/personalised-plan.js"></script>
-    <script src="/client/Simple/js/providers/purchase-order.js"></script>
-    <script src="/client/Simple/js/providers/room-info.js"></script>
-    <script src="/client/Simple/js/providers/scheduled-activity.js"></script>
-    <script src="/client/Simple/js/providers/school-info.js"></script>
-    <script src="/client/Simple/js/providers/session-info.js"></script>
-    <script src="/client/Simple/js/providers/staff-assignment.js"></script>
-    <script src="/client/Simple/js/providers/staff-personal.js"></script>
-    <script src="/client/Simple/js/providers/student-attendance-summary.js"></script>
-    <script src="/client/Simple/js/providers/student-attendance-time-list.js"></script>
-    <script src="/client/Simple/js/providers/student-contact-relationship.js"></script>
-    <script src="/client/Simple/js/providers/student-contact.js"></script>
-    <script src="/client/Simple/js/providers/student-daily-attendance.js"></script>
-    <script src="/client/Simple/js/providers/student-period-attendance.js"></script>
-    <script src="/client/Simple/js/providers/student-personal-naplan.js"></script>
-    <script src="/client/Simple/js/providers/student-personal.js"></script>
-    <script src="/client/Simple/js/providers/student-school-enrollment.js"></script>
-    <script src="/client/Simple/js/providers/teaching-group.js"></script>
-    <script src="/client/Simple/js/providers/time-table-cell.js"></script>
-    <script src="/client/Simple/js/providers/time-table-subject.js"></script>
-    <script src="/client/Simple/js/providers/time-table.js"></script>
-    <script src="/client/Simple/js/providers/vendor-info.js"></script>
-    <script src="/client/Simple/js/providers/wellbeing-alert.js"></script>
-    <script src="/client/Simple/js/providers/wellbeing-appeal.js"></script>
-    <script src="/client/Simple/js/providers/wellbeing-characteristic.js"></script>
-    <script src="/client/Simple/js/providers/wellbeing-event.js"></script>
-    <script src="/client/Simple/js/providers/wellbeing-response.js"></script>
-
-<script>
-  $(document).ready(function() {
-    hitsclient.ready();
+    <script>
+      $(document).ready(function() {
+        hitsclient.ready();
 
     var id = $.url(window.location.href).param('id');
     var dbid = $.url(window.location.href).param('dbid');
@@ -203,41 +210,5 @@
       window.location = "recover.html";
       return;
     }
-
-    var providerServer = $.url().param('providerServer');
-    if (providerServer) {
-            $('#providerServer').val(providerServer);
-    }
-
-            // Load School REF ID - Backwards compatibile
-    var school_id = $.url().param('school_id');
-    if (school_id) {
-            $('#userToken').val(school_id);
-    }
-      var solutionId = $.url().param('solution_id');
-      if (solutionId) {
-        $('#solutionId').val(solutionId);
-      }
-      // Note - support applicaiton_key override or use dbid from above
-      var applicationKey = $.url().param('application_key') || dbid;
-      if (applicationKey) {
-        $('#applicationKey').val(applicationKey);
-      }
-      var userToken = $.url().param('user_token') || dbid;
-      if (userToken) {
-        $('#userToken').val(userToken);
-      }
-      var password = $.url().param('password') || dbid;
-      if (password) {
-        $('#password').val(password);
-      }
-
-      // set hmac if an option passed in
-      if (option && option.match('hmac')) {
-        $("#authentication-method").val("SIF_HMACSHA256");
-      }
-      else {
-        $("#authentication-method").val("Basic");
-      }
   });
 </script>
