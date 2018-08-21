@@ -1,6 +1,6 @@
 extends ./parts/layout.jade
 block vars
-    - page = 'NAPLAN Registration';
+    - page = 'Wellbeing';
     - area = 'Usecase';
 block main
 
@@ -9,7 +9,7 @@ block main
             ol.breadcrumb
                 li
                   a(href="usecase.html") Use Cases
-                li.active NAPLAN Registration
+                li.active Wellbeing
         // .main-filter
             form.main-filter__search
                 .input-group
@@ -24,12 +24,12 @@ block main
                 .col-md-12
                     .panel.panel-info
                             .panel-heading
-                                h2.panel-title How to implement NAPLAN registration
+                                h2.panel-title How to implement wellbeing
                             .panel-body
-                                 // include ../../../../usecases/output/naplan_registration/hits-dashboard_raw.html
+                                 // include ../../../../usecases/output/timetable/hits-dashboard_raw.html
                                  iframe(
                                   style="width:100%;margin:auto;",
-                                  src="/usecases/naplan_registration/hits-dashboard.html"
+                                  src="/usecases/wellbeing/hits-dashboard.html"
                                   frameborder="0"
                                   scrolling="no"
                                 )
