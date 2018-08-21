@@ -126,8 +126,8 @@ $(document).ready(function() {
       },
 
       {
-        id: 'enrolment',
-        title: 'Enrolment',
+        id: 'enrollment',
+        title: 'Enrollment',
         schools: [1,1],
         scheduledactivities: [0, 0],
         options: {
