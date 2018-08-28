@@ -132,4 +132,36 @@ module.exports = {
     },
   },
 
+  // Example NAPLAN Passwords - NEVER to be used in production
+  naplanresults: {
+    users: {
+      ABC: "XYZ",
+
+      vicgov: "nnn6WWgqVoHh",
+      qldgov: "EPhEBaxz2tfp",
+      tasgov: "osi7VwpyswDi",
+      ntgov: "LYU8NLwqCdks",
+      actgov: "9PfbBWdZLNbp",
+      wagov: "V4fDzybyDpYU",
+      nswgov: "TNfmUgH8Qoys",
+
+      viccath: "ycXjFNwf9aFy",
+      qldcath: "rYQissZTE3bk",
+      tascath: "yhLiz6YEcpKa",
+      ntcath: "HonyGV9cWgxm",
+      actcath: "anttKfQeXqV9",
+      wacath: "jfUFWGqGq3oG",
+      nswcath: "hfwckxx9meVe",
+
+      vicind: "R6wsGvNQGCod",
+      qldind: "3eRzQAUJPpZX",
+      tasind: "bMHExvYTu3je",
+      ntind: "hCQkBHMzE6xq",
+      actind: "baAmGwiGPT3F",
+      waind: "3TLRNyLGcetz",
+      nswind: "XyYP6YVtacpE",
+
+    },
+  },
+
 };
