@@ -80,6 +80,8 @@ router.use(function (req, res, next) {
 				provided_user: token_bits[0],
 				provided_token: token_bits[1],
 				generated_token: hash,
+				original_auth: auth,
+				original_timestamp: timestamp,
 			},
 		});
 	}
