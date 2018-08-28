@@ -1,3 +1,5 @@
+var path = require('path');
+
 /* nsip/hits-dashboard
  */
 module.exports = {
@@ -121,7 +123,12 @@ module.exports = {
   xsp: {
     test: {
       title: "Test it",
-      path: "/tmp",
+      path: "/Users/scottp/nsip/hits-dashboard/data",
+    },
+    SchoolData: {
+      title: "Naplan Results SchoolDataa",
+      // path: "/Users/xyz/nsip/hits-dashboard/data/SchoolData",
+      path: path.resolve(__dirname + "/../../data/SchoolData"),
     },
   },
 

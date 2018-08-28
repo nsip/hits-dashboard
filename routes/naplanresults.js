@@ -4,13 +4,65 @@ var router  = express.Router();
 var config = require('config');
 var crypto = require('crypto');
 var moment = require('moment');
+var fs = require('fs');
 
+// XXX Move to config
 var secret = "XYZ";
+
+var fileOrList = function(path, req, res) {
+	fs.stat(path, function(err, stats) {
+
+		console.log("Located name", path);
+
+		// Stream File
+		if (stats && stats.isFile()) {
+			var stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
+			// XXX Set headers etc
+			// XXX GZIP compression?
+			// XXX If Stream?
+			console.log("STREAM", stream);
+			stream.pipe(res);
+			return;
+		}
+
+		// Show directory entries of type - or load from internal file
+		else if (stats && stats.isDirectory()) {
+			fs.stat(path + "/index", function(err, stats_index) {
+				if (stats_index && stats_index.isFile()) {
+					var stream = fs.createReadStream(path + "/index", { bufferSize: 64 * 1024 });
+					stream.pipe(res);
+					return;
+				}
+
+				// XXX Open directory and show
+				res.status(400).json({
+					success: false,
+					title: "Not implemented - directory view without index file",
+				});
+				return;
+			});
+		}
+
+		else {
+			// XXX 404?
+			res.status(404).json({
+				success: false,
+				title: "Not implemented - unknown type",
+			});
+			return;
+		}
+	});
+	return;
+};
 
 // Authentication !
 router.use(function (req, res, next) {
 	// TODO
 	console.log('XXX Naplan Results Auth');
+
+	// XXX HACK localhost !
+	next();
+	return;
 
 	var auth = req.headers.authorization;
 	if (!auth) {
@@ -116,7 +168,21 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function (req, res) {
-	return res.json({ success: 1, message: 'TODO'});
+	return res.json({
+		success: 1,
+		message: 'Success - you have logged in. See documentation for how to get data',
+	});
 });
+
+router.get('/:tag', function (req, res) {
+	return fileOrList(config.xsp[req.params.tag].path, req, res);
+});
+
+// Return list of directories files & from config
+router.get('/:tag/*', function (req, res) {
+	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
+});
+
+
 
 module.exports = router;

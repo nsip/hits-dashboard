@@ -8,15 +8,11 @@ var timestamp = "123";
 
 const hash = crypto
   .createHmac('sha256', secret)
-  // Add the USER (trusted for now) & Timestamp
   .update(user + ":" + timestamp)
   .digest('base64');
-
-console.log("Hash", hash);
 var full = (new Buffer.from(user + ":" + hash)).toString('base64');
-console.log("Full", full);
 
-
+// Send request
 request.get(
    {
      url: "http://hitstest.dev.nsip.edu.au/api/naplanresults",
@@ -33,6 +29,5 @@ request.get(
      else {
        console.log("Error", error);
      }
-     // console.log("Response", response);
    }
- );
+);
