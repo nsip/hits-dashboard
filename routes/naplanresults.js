@@ -61,8 +61,10 @@ router.use(function (req, res, next) {
 	console.log('XXX Naplan Results Auth');
 
 	// XXX HACK localhost !
-	next();
-	return;
+	/*
+		next();
+		return;
+	*/
 
 	var auth = req.headers.authorization;
 	if (!auth) {
