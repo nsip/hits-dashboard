@@ -36,7 +36,6 @@ router.use(function (req, res, next) {
 	}
 	*/
 
-
 	// XXX Check timestamp is within a valid range
 
 	var auth = req.headers.authorization;
@@ -56,7 +55,9 @@ router.use(function (req, res, next) {
 		});
 	}
 
-	var token_bits = auth_bits[1].split(":");
+	var decode_token = Buffer.from(auth_bits[1], 'base64');
+
+	var token_bits = decode_token.split(":");
 
 	if (token_bits.length != 2) {
 		return res.status(401).json({
@@ -80,8 +81,6 @@ router.use(function (req, res, next) {
 				provided_user: token_bits[0],
 				provided_token: token_bits[1],
 				generated_token: hash,
-				original_auth: auth,
-				original_timestamp: timestamp,
 			},
 		});
 	}

@@ -26,6 +26,7 @@
     "node-uuid": "^1.4.7",
     "npm-version": "^1.1.0",
     "pkginfo": "^0.4.1",
+    "request": "^2.88.0",
     "requestify": "^0.1.17",
     "serve-favicon": "~2.3.0",
     "serve-index": "^1.8.0",
