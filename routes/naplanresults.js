@@ -12,10 +12,14 @@ router.use(function (req, res, next) {
 	// TODO
 	console.log('XXX Naplan Results Auth');
 
-	if (!req.headers.authorization) {
+	var auth = req.headers.authorization;
+	if (!auth) {
 		return res.status(401).json({
 			success: false,
 			error: 'Must supply an Authorization header',
+			debug: {
+				original_auth: auth,
+			},
 		});
 	}
 
@@ -24,6 +28,10 @@ router.use(function (req, res, next) {
 		return res.status(401).json({
 			success: false,
 			error: 'Must supply a timestamp header',
+			debug: {
+				original_auth: auth,
+				original_timestamp: timestamp,
+			},
 		});
 	}
 
@@ -38,13 +46,15 @@ router.use(function (req, res, next) {
 
 	// XXX Check timestamp is within a valid range
 
-	var auth = req.headers.authorization;
 	var auth_bits = auth.split(" ");
-
 	if (auth_bits.length != 2) {
 		return res.status(401).json({
 			success: false,
 			error: 'Must supply auth type and token',
+			debug: {
+				original_auth: auth,
+				original_timestamp: timestamp,
+			},
 		});
 	}
 
@@ -52,17 +62,26 @@ router.use(function (req, res, next) {
 		return res.status(401).json({
 			success: false,
 			error: 'Auth type must be SIF_HMACSHA256',
+			debug: {
+				original_method: auth_bits[0],
+				original_auth: auth,
+				original_timestamp: timestamp,
+			},
 		});
 	}
 
-	var decode_token = Buffer.from(auth_bits[1], 'base64');
-
+	var decode_token = (new Buffer(auth_bits[1], 'base64')).toString('utf8');
 	var token_bits = decode_token.split(":");
 
 	if (token_bits.length != 2) {
 		return res.status(401).json({
 			success: false,
 			error: 'Must supply auth with a user and token',
+			debug: {
+				token_bits: token_bits,
+				original_auth: auth,
+				original_timestamp: timestamp,
+			},
 		});
 	}
 
