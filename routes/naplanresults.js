@@ -6,9 +6,6 @@ var crypto = require('crypto');
 var moment = require('moment');
 var fs = require('fs');
 
-// XXX Move to config
-var secret = "XYZ";
-
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
 
@@ -139,10 +136,13 @@ router.use(function (req, res, next) {
 		});
 	}
 
+	var user = token_bits[0];
+	var secret = config.naplanresults.users[user]
+
 	const hash = crypto
 		.createHmac('sha256', secret)
 		// Add the USER (trusted for now) & Timestamp
-		.update(token_bits[0] + ":" + timestamp)
+		.update(user + ":" + timestamp)
 		.digest('base64');
 	console.log(hash);
 
