@@ -5,6 +5,7 @@ var config = require('config');
 var crypto = require('crypto');
 var moment = require('moment');
 var fs = require('fs');
+var zlib = require('zlib');
 
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
@@ -13,12 +14,15 @@ var fileOrList = function(path, req, res) {
 
 		// Stream File
 		if (stats && stats.isFile()) {
+			res.set('Content-Encoding', 'gzip');
+			res.set('Content-Type', 'application/xml');
 			var stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
 			// XXX Set headers etc
 			// XXX GZIP compression?
 			// XXX If Stream?
-			console.log("STREAM", stream);
-			stream.pipe(res);
+			stream
+				.pipe(zlib.createGzip())
+				.pipe(res);
 			return;
 		}
 
