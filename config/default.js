@@ -130,6 +130,14 @@ module.exports = {
       // path: "/Users/xyz/nsip/hits-dashboard/data/SchoolData",
       path: path.resolve(__dirname + "/../../data/SchoolData"),
     },
+    TestData: {
+      title: "Naplan Results SchoolDataa",
+      path: path.resolve(__dirname + "/../../data/TestData"),
+    },
+    SchoolList: {
+      title: "Naplan Results SchoolDataa",
+      path: path.resolve(__dirname + "/../../data/SchoolList"),
+    },
   },
 
   // Example NAPLAN Passwords - NEVER to be used in production
