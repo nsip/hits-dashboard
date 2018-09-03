@@ -48,7 +48,10 @@ var fileOrList = function(path, req, res) {
 			// XXX 404?
 			res.status(404).json({
 				success: false,
-				title: "Not implemented - unknown type",
+				title: "Not implemented - unknown type, or file not found!",
+				debug: {
+					path: path,
+				},
 			});
 			return;
 		}
@@ -86,6 +89,50 @@ router.use(function (req, res, next) {
 			debug: {
 				original_auth: auth,
 				original_timestamp: timestamp,
+			},
+		});
+	}
+
+	// Check format - ISO 8601
+	if (! moment(timestamp, moment.ISO_8601).isValid()) {
+		return res.status(401).json({
+			success: false,
+			error: 'Timestamp is not able to be parsed',
+			debug: {
+				timestamp: timestamp,
+			},
+		});
+	}
+
+	// Check it is within the last 5 minutes, and not more than 5 minutes ahead
+	var parsedDate = moment(timestamp);
+	var nowDate = moment();
+	var seconds = nowDate.diff(parsedDate, 'seconds');
+
+	// Old / New
+	if (seconds > 300) {
+		return res.status(401).json({
+			success: false,
+			error: 'Timestamp is older than 5 minutes',
+			debug: {
+				timestamp: timestamp,
+				nowDate: nowDate,
+				parsedDate: parsedDate,
+				seconds: seconds,
+			},
+		});
+	}
+
+	// Old / New
+	if (seconds < -300) {
+		return res.status(401).json({
+			success: false,
+			error: 'Timestamp is ahead by more than 5 minutes',
+			debug: {
+				timestamp: timestamp,
+				nowDate: nowDate,
+				parsedDate: parsedDate,
+				seconds: seconds,
 			},
 		});
 	}
