@@ -14,15 +14,19 @@ var fileOrList = function(path, req, res) {
 
 		// Stream File
 		if (stats && stats.isFile()) {
-			res.set('Content-Encoding', 'gzip');
 			res.set('Content-Type', 'application/xml');
 			var stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
 			// XXX Set headers etc
 			// XXX GZIP compression?
 			// XXX If Stream?
-			stream
-				.pipe(zlib.createGzip())
-				.pipe(res);
+
+
+			var accept = req.get('Accept-Encoding') || "";
+			if (/gzip/i.test(accept)) {
+				res.set('Content-Encoding', 'gzip');
+				stream = stream.pipe(zlib.createGzip())
+			}
+			stream.pipe(res);
 			return;
 		}
 
