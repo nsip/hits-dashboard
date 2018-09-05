@@ -6,6 +6,28 @@ var crypto = require('crypto');
 var moment = require('moment');
 var fs = require('fs');
 var zlib = require('zlib');
+var uuid = require('node-uuid');
+
+// NOTE: Call this with XML safe inputs
+var retError = function(req, res, status, scope, message, description) {
+
+	var id = uuid.v4();
+
+	var xml = ''
+		+ '<error id="' + id + '">'
+		+ '  <Code>' + status + '<Code>'
+		+ '  <Scope>' + scope + '</Scope>'
+		+ '  <Message>' + message + '</Message>'
+		+ '  <Description>' + description + '</Description>'
+		// DEBUG?
+		+ '</error>';
+
+	res.set('Content-Type', 'application/xml');
+	// Non-standard status header (TODO - what should be in this)
+	res.set('Status', status + "");
+	res.status(status);
+	res.send(xml);
+}
 
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
@@ -40,23 +62,14 @@ var fileOrList = function(path, req, res) {
 				}
 
 				// XXX Open directory and show
-				res.status(400).json({
-					success: false,
-					title: "Not implemented - directory view without index file",
-				});
+				retError(res, res, 400, 'GET', 'Directory not implemented', 'This API does not support listing of IDs');
 				return;
 			});
 		}
 
 		else {
 			// XXX 404?
-			res.status(404).json({
-				success: false,
-				title: "Not implemented - unknown type, or file not found!",
-				debug: {
-					path: path,
-				},
-			});
+			retError(res, res, 404, 'GET', 'Entry not found', 'This URL or ID does not exist');
 			return;
 		}
 	});
@@ -76,36 +89,32 @@ router.use(function (req, res, next) {
 
 	var auth = req.headers.authorization;
 	if (!auth) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply an Authorization header',
-			debug: {
-				original_auth: auth,
-			},
-		});
+		retError(res, res, 401, 'AUTH', 'Must supply an Authorization header', '');
+		// debug: { original_auth: auth, },
+		return;
 	}
 
 	var timestamp = req.headers.timestamp;
 	if (!timestamp) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply a timestamp header',
+		retError(res, res, 401, 'AUTH', 'Must supply a timestamp header', '');
+		return;
+		/*
 			debug: {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+		*/
 	}
 
 	// Check format - ISO 8601
 	if (! moment(timestamp, moment.ISO_8601).isValid()) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is not able to be parsed',
+		retError(res, res, 401, 'AUTH', 'Timestamp is not able to be parsed', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	// Check it is within the last 5 minutes, and not more than 5 minutes ahead
@@ -115,30 +124,30 @@ router.use(function (req, res, next) {
 
 	// Old / New
 	if (seconds > 300) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is older than 5 minutes',
+		retError(res, res, 401, 'AUTH', 'Timestamp is older than 5 minutes', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 				nowDate: nowDate,
 				parsedDate: parsedDate,
 				seconds: seconds,
 			},
-		});
+			*/
 	}
 
 	// Old / New
 	if (seconds < -300) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is ahead by more than 5 minutes',
+		retError(res, res, 401, 'AUTH', 'Timestamp is ahead by more than 5 minutes', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 				nowDate: nowDate,
 				parsedDate: parsedDate,
 				seconds: seconds,
 			},
-		});
+			*/
 	}
 
 	/*
@@ -154,45 +163,45 @@ router.use(function (req, res, next) {
 
 	var auth_bits = auth.split(" ");
 	if (auth_bits.length != 2) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply auth type and token',
+		retError(res, res, 401, 'AUTH', 'Must supply auth type and token', '');
+		return;
+			/*
 			debug: {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	if (auth_bits[0] != 'SIF_HMACSHA256') {
-		return res.status(401).json({
-			success: false,
-			error: 'Auth type must be SIF_HMACSHA256',
+		retError(res, res, 401, 'AUTH', 'Auth type must be SIF_HMACSHA256', '');
+		return;
+			/*
 			debug: {
 				original_method: auth_bits[0],
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	var decode_token = (new Buffer(auth_bits[1], 'base64')).toString('utf8');
 	var token_bits = decode_token.split(":");
 
 	if (token_bits.length != 2) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply auth with a user and token',
+		retError(res, res, 401, 'AUTH', 'Must supply auth with a user and token', '');
+		return;
+			/*
 			debug: {
 				token_bits: token_bits,
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	var user = token_bits[0];
-	var secret = config.naplanresults.users[user]
+	var secret = config.naplanresults.users[user] || "CanNeverMatchEverEverEver";
 
 	const hash = crypto
 		.createHmac('sha256', secret)
@@ -202,9 +211,9 @@ router.use(function (req, res, next) {
 	console.log(hash);
 
 	if (token_bits[1] != hash) {
-		return res.status(401).json({
-			success: false,
-			error: 'Token does not match provided',
+		retError(res, res, 401, 'AUTH', 'Token does not match provider', '');
+		return;
+			/*
 			debug: {
 				provided_user: token_bits[0],
 				provided_token: token_bits[1],
@@ -212,7 +221,7 @@ router.use(function (req, res, next) {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	/*
