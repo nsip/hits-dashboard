@@ -15,7 +15,7 @@ var retError = function(req, res, status, scope, message, description) {
 
 	var xml = ''
 		+ '<error id="' + id + '">'
-		+ '  <Code>' + status + '<Code>'
+		+ '  <Code>' + status + '</Code>'
 		+ '  <Scope>' + scope + '</Scope>'
 		+ '  <Message>' + message + '</Message>'
 		+ '  <Description>' + description + '</Description>'
