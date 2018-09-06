@@ -6,54 +6,65 @@ var crypto = require('crypto');
 var moment = require('moment');
 var fs = require('fs');
 var zlib = require('zlib');
+var uuid = require('node-uuid');
+
+// NOTE: Call this with XML safe inputs
+var retError = function(req, res, status, scope, message, description) {
+
+	var id = uuid.v4();
+
+	var xml = ''
+		+ '<error id="' + id + '">'
+		+ '  <Code>' + status + '<Code>'
+		+ '  <Scope>' + scope + '</Scope>'
+		+ '  <Message>' + message + '</Message>'
+		+ '  <Description>' + description + '</Description>'
+		// DEBUG?
+		+ '</error>';
+
+	res.set('Content-Type', 'application/xml');
+	// Non-standard status header (TODO - what should be in this)
+	res.set('Status', status + "");
+	res.status(status);
+	res.send(xml);
+}
 
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
-
 		console.log("Located name", path);
 
-		// Stream File
-		if (stats && stats.isFile()) {
-			res.set('Content-Encoding', 'gzip');
+		var stream;
+		var processFile = function() {
 			res.set('Content-Type', 'application/xml');
-			var stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
-			// XXX Set headers etc
-			// XXX GZIP compression?
-			// XXX If Stream?
-// XXX Support non-gzip
-			stream
-				.pipe(zlib.createGzip())
-				.pipe(res);
+			var accept = req.get('Accept-Encoding') || "";
+			if (/gzip/i.test(accept)) {
+				res.set('Content-Encoding', 'gzip');
+				stream = stream.pipe(zlib.createGzip())
+			}
+			stream.pipe(res);
+			return;
+		};	
+
+		if (stats && stats.isFile()) {
+			stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
+			processFile();
 			return;
 		}
-
-		// Show directory entries of type - or load from internal file
 		else if (stats && stats.isDirectory()) {
-			fs.stat(path + "/index", function(err, stats_index) {
-				if (stats_index && stats_index.isFile()) {
-					var stream = fs.createReadStream(path + "/index", { bufferSize: 64 * 1024 });
-					stream.pipe(res);
-					return;
+                       fs.stat(path + "/index", function(err, stats_index) {
+                               if (stats_index && stats_index.isFile()) {
+                                       stream = fs.createReadStream(path + "/index", { bufferSize: 64 * 1024 });
+					processFile();
 				}
-
-				// XXX Open directory and show
-				res.status(400).json({
-					success: false,
-					title: "Not implemented - directory view without index file",
-				});
+				else {
+					retError(res, res, 404, 'GET', 'No directory listing', 'No index for this directory');
+				}
 				return;
 			});
 		}
 
 		else {
-			// XXX 404?
-			res.status(404).json({
-				success: false,
-				title: "Not implemented - unknown type, or file not found!",
-				debug: {
-					path: path,
-				},
-			});
+			retError(res, res, 404, 'GET', 'Entry not found', 'This URL or ID does not exist');
 			return;
 		}
 	});
@@ -73,38 +84,32 @@ router.use(function (req, res, next) {
 
 	var auth = req.headers.authorization;
 	if (!auth) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply an Authorization header',
-			debug: {
-				original_auth: auth,
-			},
-		});
+		retError(res, res, 401, 'AUTH', 'Must supply an Authorization header', '');
+		// debug: { original_auth: auth, },
+		return;
 	}
-
-// XXX Check they accept XML and optionally GZIP
 
 	var timestamp = req.headers.timestamp;
 	if (!timestamp) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply a timestamp header',
+		retError(res, res, 401, 'AUTH', 'Must supply a timestamp header', '');
+		return;
+		/*
 			debug: {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+		*/
 	}
 
 	// Check format - ISO 8601
 	if (! moment(timestamp, moment.ISO_8601).isValid()) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is not able to be parsed',
+		retError(res, res, 401, 'AUTH', 'Timestamp is not able to be parsed', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	// Check it is within the last 5 minutes, and not more than 5 minutes ahead
@@ -114,30 +119,30 @@ router.use(function (req, res, next) {
 
 	// Old / New
 	if (seconds > 300) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is older than 5 minutes',
+		retError(res, res, 401, 'AUTH', 'Timestamp is older than 5 minutes', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 				nowDate: nowDate,
 				parsedDate: parsedDate,
 				seconds: seconds,
 			},
-		});
+			*/
 	}
 
 	// Old / New
 	if (seconds < -300) {
-		return res.status(401).json({
-			success: false,
-			error: 'Timestamp is ahead by more than 5 minutes',
+		retError(res, res, 401, 'AUTH', 'Timestamp is ahead by more than 5 minutes', '');
+		return;
+			/*
 			debug: {
 				timestamp: timestamp,
 				nowDate: nowDate,
 				parsedDate: parsedDate,
 				seconds: seconds,
 			},
-		});
+			*/
 	}
 
 	/*
@@ -153,45 +158,45 @@ router.use(function (req, res, next) {
 
 	var auth_bits = auth.split(" ");
 	if (auth_bits.length != 2) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply auth type and token',
+		retError(res, res, 401, 'AUTH', 'Must supply auth type and token', '');
+		return;
+			/*
 			debug: {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	if (auth_bits[0] != 'SIF_HMACSHA256') {
-		return res.status(401).json({
-			success: false,
-			error: 'Auth type must be SIF_HMACSHA256',
+		retError(res, res, 401, 'AUTH', 'Auth type must be SIF_HMACSHA256', '');
+		return;
+			/*
 			debug: {
 				original_method: auth_bits[0],
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	var decode_token = (new Buffer(auth_bits[1], 'base64')).toString('utf8');
 	var token_bits = decode_token.split(":");
 
 	if (token_bits.length != 2) {
-		return res.status(401).json({
-			success: false,
-			error: 'Must supply auth with a user and token',
+		retError(res, res, 401, 'AUTH', 'Must supply auth with a user and token', '');
+		return;
+			/*
 			debug: {
 				token_bits: token_bits,
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	var user = token_bits[0];
-	var secret = config.naplanresults.users[user]
+	var secret = config.naplanresults.users[user] || "CanNeverMatchEverEverEver";
 
 	const hash = crypto
 		.createHmac('sha256', secret)
@@ -201,9 +206,9 @@ router.use(function (req, res, next) {
 	console.log(hash);
 
 	if (token_bits[1] != hash) {
-		return res.status(401).json({
-			success: false,
-			error: 'Token does not match provided',
+		retError(res, res, 401, 'AUTH', 'Token does not match provider', '');
+		return;
+			/*
 			debug: {
 				provided_user: token_bits[0],
 				provided_token: token_bits[1],
@@ -211,7 +216,7 @@ router.use(function (req, res, next) {
 				original_auth: auth,
 				original_timestamp: timestamp,
 			},
-		});
+			*/
 	}
 
 	/*

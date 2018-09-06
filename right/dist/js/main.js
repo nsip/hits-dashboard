@@ -12,9 +12,11 @@ $(document).ready(function() {
         $('#datatable-error').text(message);
     };
 
+/*
     if($('#welcomeform').length > 0){
         loadProjectList();
     }
+*/
 
   // Popovers
   $('[data-toggle="popover"]').popover({
@@ -197,8 +199,8 @@ $(document).ready(function() {
         $('#welcomeform').find("input, textarea").val("").removeAttr('checked');
 
         // Specific refresh for the select
-        $('select.nsip_project_select').val("");
-        $('.nsip_project_select').selectpicker('refresh');
+        // $('select.nsip_project_select').val("");
+        // $('.nsip_project_select').selectpicker('refresh');
       }
       else {
         // XXX Improved presentation
