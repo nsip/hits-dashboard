@@ -31,18 +31,11 @@ var retError = function(req, res, status, scope, message, description) {
 
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
-
 		console.log("Located name", path);
 
-		// Stream File
-		if (stats && stats.isFile()) {
+		var stream;
+		var processFile = function() {
 			res.set('Content-Type', 'application/xml');
-			var stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
-			// XXX Set headers etc
-			// XXX GZIP compression?
-			// XXX If Stream?
-
-
 			var accept = req.get('Accept-Encoding') || "";
 			if (/gzip/i.test(accept)) {
 				res.set('Content-Encoding', 'gzip');
@@ -50,25 +43,27 @@ var fileOrList = function(path, req, res) {
 			}
 			stream.pipe(res);
 			return;
+		};	
+
+		if (stats && stats.isFile()) {
+			stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
+			processFile();
+			return;
 		}
-
-		// Show directory entries of type - or load from internal file
 		else if (stats && stats.isDirectory()) {
-			fs.stat(path + "/index", function(err, stats_index) {
-				if (stats_index && stats_index.isFile()) {
-					var stream = fs.createReadStream(path + "/index", { bufferSize: 64 * 1024 });
-					stream.pipe(res);
-					return;
+                       fs.stat(path + "/index", function(err, stats_index) {
+                               if (stats_index && stats_index.isFile()) {
+                                       stream = fs.createReadStream(path + "/index", { bufferSize: 64 * 1024 });
+					processFile();
 				}
-
-				// XXX Open directory and show
-				retError(res, res, 400, 'GET', 'Directory not implemented', 'This API does not support listing of IDs');
+				else {
+					retError(res, res, 404, 'GET', 'No directory listing', 'No index for this directory');
+				}
 				return;
 			});
 		}
 
 		else {
-			// XXX 404?
 			retError(res, res, 404, 'GET', 'Entry not found', 'This URL or ID does not exist');
 			return;
 		}
