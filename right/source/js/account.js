@@ -182,6 +182,7 @@ $(document).ready(function() {
         },
       },
 
+/*
       {
         id: 'naplan_results',
         title: 'NAPLAN results',
@@ -200,6 +201,7 @@ $(document).ready(function() {
           naplan: true,
         },
       },
+*/
 
       {
         id: 'timetabling',
