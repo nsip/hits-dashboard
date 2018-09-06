@@ -20,6 +20,7 @@ var fileOrList = function(path, req, res) {
 			// XXX Set headers etc
 			// XXX GZIP compression?
 			// XXX If Stream?
+// XXX Support non-gzip
 			stream
 				.pipe(zlib.createGzip())
 				.pipe(res);
@@ -80,6 +81,8 @@ router.use(function (req, res, next) {
 			},
 		});
 	}
+
+// XXX Check they accept XML and optionally GZIP
 
 	var timestamp = req.headers.timestamp;
 	if (!timestamp) {
