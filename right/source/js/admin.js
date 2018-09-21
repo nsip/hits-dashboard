@@ -83,7 +83,7 @@ $(document).ready(function() {
 						},
 						{ "title": "Created", "width": "20%", "data": "created_at", "defaultContent": '', 
 						    "render": function (data, type, row, meta) {
-                                return moment(data).format("DD/MM/YYYY HH:mm:ss");
+                                return '<span style="display: none">' + moment(data).format("YYYY/MM/DD HH:mm:ss") + '</span><span>' + moment(data).format("DD/MM/YYYY HH:mm:ss") + '</span>';
 						    }
                         },
 						{ "title": "Name", "width": "20%", "data": "data", defaultContent: "None", "defaultContent": '',

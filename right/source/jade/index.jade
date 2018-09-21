@@ -49,6 +49,32 @@ block main
                                               .col-sm-10
                                                   input.form-control#email-organisation(name="organisation",type="text", placeholder="Your organisation")
                                             .form-group
+                                              label.col-sm-2.control-label Jurisdiction
+                                              .col-sm-10
+                                                select.selectpicker.form-control.nsip_jurisdiction#jurisdiction(name="jurisdiction")
+                                                    option(value="") - - - Select - - -
+                                                    option(value="actgov") ACT Government
+                                                    option(value="nswgov") NSW Government
+                                                    option(value="ntgov") NT Government
+                                                    option(value="qldgov") QLD Government
+                                                    option(value="tasgov") TAS Government
+                                                    option(value="vicgov") VIC Government
+                                                    option(value="wagov") WA Government
+                                                    option(value="actcath") ACT Catholic
+                                                    option(value="nswcath") NSW Catholic
+                                                    option(value="ntcath") NT Catholic
+                                                    option(value="qldcath") QLD Catholic
+                                                    option(value="tascath") TAS Catholic
+                                                    option(value="viccath") VIC Catholic
+                                                    option(value="wacath") WA Catholic
+                                                    option(value="actind") ACT Independent
+                                                    option(value="nswind") NSW Independent
+                                                    option(value="ntind") NT Independent
+                                                    option(value="qldind") QLD Independent
+                                                    option(value="tasind") TAS Independent
+                                                    option(value="vicind") VIC Independent
+                                                    option(value="waind") WA Independent
+                                            .form-group
                                               label.col-sm-2.control-label Interest
                                                   span.requiredField *
                                               .col-sm-10
