@@ -58,9 +58,79 @@ $(document).ready(function() {
                 status = "Existing"
             }
 
+            var jurisdiction = '';
+            switch(raw.jurisdiction) {
+                case "actgov":
+                    jurisdiction = "ACT Government";
+                    break;
+                case "nswgov":
+                    jurisdiction = "NSW Government";
+                    break;
+                case "ntgov":
+                    jurisdiction = "NT Government";
+                    break;
+                case "qldgov":
+                    jurisdiction = "QLD Government";
+                    break;
+                case "tasgov":
+                    jurisdiction = "TAS Government";
+                    break;
+                case "vicgov":
+                    jurisdiction = "VIC Government";
+                    break;
+                case "wagov":
+                    jurisdiction = "WA Government";
+                    break;
+                case "actcath":
+                    jurisdiction = "ACT Catholic";
+                    break;
+                case "nswcath":
+                    jurisdiction = "NSW Catholic";
+                    break;
+                case "ntcath":
+                    jurisdiction = "NT Catholic";
+                    break;
+                case "qldcath":
+                    jurisdiction = "QLD Catholic";
+                    break;   
+                case "tascath":
+                    jurisdiction = "TAS Catholic";
+                    break;   
+                case "viccath":
+                    jurisdiction = "VIC Catholic";
+                    break;   
+                case "wacath":
+                    jurisdiction = "WA Catholic";
+                    break;   
+                case "actind":
+                    jurisdiction = "ACT Independent";
+                    break;   
+                case "nswind":
+                    jurisdiction = "NSW Independent";
+                    break;   
+                case "ntind":
+                    jurisdiction = "NT Independent";
+                    break;   
+                case "qldind":
+                    jurisdiction = "QLD Independent";
+                    break;
+                case "tasind":
+                    jurisdiction = "TAS Independent";
+                    break;
+                case "vicind":
+                    jurisdiction = "VIC Independent";
+                    break;
+                case "waind":
+                    jurisdiction = "WA Independent";
+                    break;
+                default:
+                    jurisdiction = raw.jurisdiction;
+            }
+            
             $('.contactName').text(raw.name);
             $('.contactEmail').text(raw.email);
             $('.contactOrg').text(raw.organisation);
+            $('.contactJurisdiction').text(jurisdiction);
             $('.contactInterest').text(raw.interest);
             $('.contactDevArchitect').text(developerArchitect);
             $('.contactVendorSchool').text(representation);

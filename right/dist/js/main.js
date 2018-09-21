@@ -199,8 +199,8 @@ $(document).ready(function() {
         $('#welcomeform').find("input, textarea").val("").removeAttr('checked');
 
         // Specific refresh for the select
-        // $('select.nsip_project_select').val("");
-        // $('.nsip_project_select').selectpicker('refresh');
+         $('select.nsip_jurisdiction').val("");
+         $('.nsip_jurisdiction').selectpicker('refresh');
       }
       else {
         // XXX Improved presentation
