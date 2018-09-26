@@ -51,7 +51,8 @@ block main
                                             .form-group
                                               label.col-sm-2.control-label Jurisdiction
                                               .col-sm-10
-                                                select.selectpicker.form-control.nsip_jurisdiction#jurisdiction(name="jurisdiction")
+                                                p What jurisdiction is your project associated with?
+                                                select.selectpicker.form-control.nsip_jurisdiction#jurisdiction(name="jurisdiction",data-size="8")
                                                     option(value="") - - - Select - - -
                                                     option(value="actgov") ACT Government
                                                     option(value="nswgov") NSW Government
@@ -81,7 +82,7 @@ block main
                                                   p What is your interest in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
                                             .form-group
-                                              label.col-sm-2.control-label Are you a: 
+                                              label.col-sm-2.control-label Are you a:
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch1(name="checkbox_developer",type='checkbox')
@@ -99,7 +100,7 @@ block main
                                                       input#ch4(name="checkbox_school_authority",type='checkbox')
                                                       label(for='ch4') School Authority
                                             .form-group
-                                              label.col-sm-2.control-label 
+                                              label.col-sm-2.control-label
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch5(name="checkbox_sif",type='checkbox')
