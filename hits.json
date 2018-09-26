@@ -37,6 +37,12 @@
 		  "package": "usecases",
 		  "version": "1.0.0",
 		  "visible": true
-	  }
+	  },
+    {
+		  "source": "nsip",
+		  "package": "sif-hits",
+		  "version": "1.0.0",
+		  "visible": true
+    }
   ]
 }
