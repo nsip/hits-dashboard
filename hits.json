@@ -1,0 +1,42 @@
+{
+  "name": "HITS",
+  "version": "2.6.0",
+  "dependencies": [
+	  {
+		  "source": "nsip",
+		  "package": "hits-dashboard",
+		  "version": "2.6.0",
+		  "visible": true
+	  },
+	  {
+		  "source": "nsip",
+		  "package": "HITS-Reports",
+		  "version": "1.0.0",
+		  "visible": true
+	  },
+	  {
+		  "source": "nsip",
+		  "package": "HIS-Client",
+		  "version": "1.0.0",
+		  "visible": true
+	  },
+	  {
+		  "source": "nsip",
+		  "package": "sif-data",
+		  "version": "1.0.0",
+		  "visible": true
+	  },
+	  {
+		  "source": "na",
+		  "package": "SIF:AU XSD",
+		  "version": "3.4.3",
+		  "visible": true
+	  },
+	  {
+		  "source": "nsip",
+		  "package": "usecases",
+		  "version": "1.0.0",
+		  "visible": true
+	  }
+  ]
+}

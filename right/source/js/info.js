@@ -102,13 +102,10 @@ $(document).ready(function() {
       url: "/api/about/version"
   })
   .done(function( data ) {
-
       if (!data || !data.success) {
           // Don't alert the user, just swallow the error, its not critical
       } else {
-          $('.footer_hits_version_number').text(data.hits_dashboard);
-          $('.footer_data_version_number').text(data.sif_data);
-          $('.foot_server_version_number').text(data.sif_server);
+          $('.footer_hits_version_number').text(data.hits.version);
       }
   })
   .fail(function() {
