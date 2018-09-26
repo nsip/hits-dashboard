@@ -16,7 +16,7 @@
 	  },
 	  {
 		  "source": "nsip",
-		  "package": "HIS-Client",
+		  "package": "HITS-Client",
 		  "version": "1.0.0",
 		  "visible": true
 	  },
