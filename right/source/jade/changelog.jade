@@ -22,19 +22,19 @@ block main
                                         h3.panel-title Change Log
                                     .panel-body
                                          ul.nav.nav-tabs(role="tablist")
-                                                li.active(role="presentation")
+                                                li.active(role="versions")
+                                                    a(href="#versions", role="tab", data-toggle="tab") Versions
+                                                li(role="dashboard")
                                                     a(href="#dashboard", role="tab", data-toggle="tab") HITS Dashboard
-                                                li(role="presentation")
-                                                    a(href="#data", role="tab", data-toggle="tab") SIF Data
-                                                li(role="presentation")
-                                                    a(href="#server", role="tab", data-toggle="tab") SIF Server
                                             .tab-content
-                                                .tab-pane.active#dashboard(role="tabpanel")
+                                                .tab-pane.active#versions(role="tabpanel")
+                                                    .readme_output_versions
+                                                      h2 HITS Version
+                                                      span#hits-version
+                                                      h2 Packages
+                                                      table.datalist__table.table.datatable.display.table-hover(id='hits-packages', width='100%')
+                                                .tab-pane#dashboard(role="tabpanel")
                                                     .readme_output_dashboard(style="white-space: pre;")
-                                                .tab-pane#data(role="tabpanel")
-                                                    .readme_output_data(style="white-space: pre;")
-                                                .tab-pane#server(role="tabpanel")
-                                                    .readme_output_server(style="white-space: pre;")
 
 block css
 block js
