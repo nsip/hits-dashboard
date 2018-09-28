@@ -13,6 +13,15 @@ All notable changes to this project will be documented in this file.
 - HITS Client updated QBE
 - Updated data for StudentContactPersonal
 
+Dependencies:
+
+- HITS-Reports - v1.0.0
+- HITS-Client - v1.0.0
+- sif-data - v1.0.0
+- SIF:AU XSD - v3.4.3
+- usecases - v1.0.0
+- sif-hits
+
 #### [v2.5.1](https://github.com/nsip/hits-dashboard/compare/v2.1.1...v2.5.1)
 > 10 September 2018
 
