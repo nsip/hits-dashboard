@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "debug": "nodemon ./bin/www",
     "update-version": "git checkout master && npm version patch && git commit -m 'Auto update' && git push && git push --tags",
-    "update-prod": "git checkout production && git merge master && git push && git checkout master"
+    "update-prod": "git checkout production && git merge master && git commit -am 'Merged' && git push && git checkout master"
   },
   "dependencies": {
     "async": "^2.4.0",
