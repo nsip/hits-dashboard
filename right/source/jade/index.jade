@@ -49,13 +49,40 @@ block main
                                               .col-sm-10
                                                   input.form-control#email-organisation(name="organisation",type="text", placeholder="Your organisation")
                                             .form-group
+                                              label.col-sm-2.control-label Jurisdiction
+                                              .col-sm-10
+                                                p What jurisdiction is your project associated with?
+                                                select.selectpicker.form-control.nsip_jurisdiction#jurisdiction(name="jurisdiction",data-size="8")
+                                                    option(value="") - - - Select - - -
+                                                    option(value="actgov") ACT Government
+                                                    option(value="nswgov") NSW Government
+                                                    option(value="ntgov") NT Government
+                                                    option(value="qldgov") QLD Government
+                                                    option(value="tasgov") TAS Government
+                                                    option(value="vicgov") VIC Government
+                                                    option(value="wagov") WA Government
+                                                    option(value="actcath") ACT Catholic
+                                                    option(value="nswcath") NSW Catholic
+                                                    option(value="ntcath") NT Catholic
+                                                    option(value="qldcath") QLD Catholic
+                                                    option(value="tascath") TAS Catholic
+                                                    option(value="viccath") VIC Catholic
+                                                    option(value="wacath") WA Catholic
+                                                    option(value="actind") ACT Independent
+                                                    option(value="nswind") NSW Independent
+                                                    option(value="ntind") NT Independent
+                                                    option(value="qldind") QLD Independent
+                                                    option(value="tasind") TAS Independent
+                                                    option(value="vicind") VIC Independent
+                                                    option(value="waind") WA Independent
+                                            .form-group
                                               label.col-sm-2.control-label Interest
                                                   span.requiredField *
                                               .col-sm-10
                                                   p What is your interest in HITS?
                                                   textarea.form-control#email-interest(name="interest",placeholder="Interest")
                                             .form-group
-                                              label.col-sm-2.control-label Are you a: 
+                                              label.col-sm-2.control-label Are you a:
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch1(name="checkbox_developer",type='checkbox')
@@ -73,7 +100,7 @@ block main
                                                       input#ch4(name="checkbox_school_authority",type='checkbox')
                                                       label(for='ch4') School Authority
                                             .form-group
-                                              label.col-sm-2.control-label 
+                                              label.col-sm-2.control-label
                                               .col-sm-10
                                                   .checkbox.checkbox-primary
                                                       input#ch5(name="checkbox_sif",type='checkbox')
@@ -102,11 +129,11 @@ block main
                                     .panel-heading
                                         h3.panel-title Information
                                     .panel-body
-                                        p Copyright NSIP 2015 - 2017 under the
+                                        p Copyright NSIP 2015 - 2018 under the &nbsp;
                                           a(href="http://www.apache.org/licenses/LICENSE-2.0.txt") Apache 2.0 license
-                                        p Email
+                                        p Email &nbsp;
                                           a(href="mailto:info@nsip.edu.au") info@nsip.edu.au
-                                        p For more information about NSIP
+                                        p For more information about NSIP &nbsp;
                                           a(href="http://www.nsip.edu.au") www.nsip.edu.au
                                         img(src='img/nsip.png',style='max-width: 100%; margin-right: 20px;')
                                         img(src='img/logo-200x200.png',style='max-width: 100%')

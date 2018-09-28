@@ -1,12 +1,12 @@
 {
   "name": "hits-dashboard",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "debug": "nodemon ./bin/www",
-    "update-version": "git checkout master && npm version patch && auto-changelog && git add CHANGELOG.md && git commit -m 'Auto update changelog' && git push && git push --tags",
-    "update-prod": "git checkout production && git merge master && git push && git checkout master"
+    "update-version": "git checkout master && npm version patch && git commit -m 'Auto update' && git push && git push --tags",
+    "update-prod": "git checkout production && git merge master && git commit -am 'Merged' && git push && git checkout master"
   },
   "dependencies": {
     "async": "^2.4.0",

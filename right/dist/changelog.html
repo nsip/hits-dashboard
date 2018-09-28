@@ -163,19 +163,19 @@
                               </div>
                               <div class="panel-body">
                                 <ul role="tablist" class="nav nav-tabs">
-                                  <li role="presentation" class="active"><a href="#dashboard" role="tab" data-toggle="tab">HITS Dashboard</a></li>
-                                  <li role="presentation"><a href="#data" role="tab" data-toggle="tab">SIF Data</a></li>
-                                  <li role="presentation"><a href="#server" role="tab" data-toggle="tab">SIF Server</a></li>
+                                  <li role="versions" class="active"><a href="#versions" role="tab" data-toggle="tab">Versions</a></li>
+                                  <li role="dashboard"><a href="#dashboard" role="tab" data-toggle="tab">HITS Dashboard</a></li>
                                 </ul>
                                 <div class="tab-content">
-                                  <div id="dashboard" role="tabpanel" class="tab-pane active">
+                                  <div id="versions" role="tabpanel" class="tab-pane active">
+                                    <div class="readme_output_versions">
+                                      <h2>HITS Version</h2><span id="hits-version"></span>
+                                      <h2>Packages</h2>
+                                      <table id="hits-packages" width="100%" class="datalist__table table datatable display table-hover"></table>
+                                    </div>
+                                  </div>
+                                  <div id="dashboard" role="tabpanel" class="tab-pane">
                                     <div style="white-space: pre;" class="readme_output_dashboard"></div>
-                                  </div>
-                                  <div id="data" role="tabpanel" class="tab-pane">
-                                    <div style="white-space: pre;" class="readme_output_data"></div>
-                                  </div>
-                                  <div id="server" role="tabpanel" class="tab-pane">
-                                    <div style="white-space: pre;" class="readme_output_server"></div>
                                   </div>
                                 </div>
                               </div>
@@ -196,9 +196,8 @@
           Copyright
           &nbsp;<a href="http://www.nsip.edu.au/">NSIP</a>&nbsp;2015 - 2018 under the
           &nbsp;<a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="footerhref">Apache 2.0 license</a>&nbsp; | &nbsp;<a href="privacy.html">Privacy</a>
-        </p><a style="float: right;" href="changelog.html" class="footer_version">Version:&nbsp;<span>HITS Dashboard:&nbsp;</span><span class="footer_hits_version_number"></span><span>&nbsp;SIF Data:&nbsp;</span><span class="footer_data_version_number"></span><span>&nbsp;SIF Server:&nbsp;</span><span class="foot_server_version_number"></span></a>
+        </p><a style="float: right;" href="changelog.html" class="footer_version">Version:&nbsp;<span>HITS:&nbsp;</span><span class="footer_hits_version_number"></span></a>
       </div>
-      <script src="js/about.js"></script>
     </div>
     <!-- include ../include/demo.jade-->
     <script src="libs/jquery/jquery.min.js"></script>

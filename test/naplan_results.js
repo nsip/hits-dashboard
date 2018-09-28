@@ -17,9 +17,12 @@ var full = (new Buffer.from(user + ":" + hash)).toString('base64');
 // Send request
 request.get(
    {
-     url: "http://hitstest.dev.nsip.edu.au/api/naplanresults/SchoolData/0bb5dfc0-0aa1-46ca-9533-a7af9eb02b65",
+     url: "http://hits.nsip.edu.au/api/naplanresults/SchoolData/3afabf3d-cebe-42ce-97d4-0c1444628407",
+     // url: "http://hitstest.dev.nsip.edu.au/api/naplanresults/SchoolData/0bb5dfc0-0aa1-46ca-9533-a7af9eb02b65",
+     // url: "http://hits.nsip.edu.au/api/naplanresults/SchoolData/0bb5dfc0-0aa1-46ca-9533-a7af9eb02b65",
      // url: "http://hitstest.dev.nsip.edu.au/api/naplanresults/SchoolList",
-     // url: "http://hitstest.dev.nsip.edu.au/api/naplanresults/TestData",
+     // url: "http://hits.nsip.edu.au/api/naplanresults/TestData",
+     // url: "http://hits.nsip.edu.au/api/naplanresults/SchoolList",
      // url: "http://localhost:3000/api/naplanresults/SchoolData/0bb5dfc0-0aa1-46ca-9533-a7af9eb02b65",
      headers: {
        'Authorization': 'SIF_HMACSHA256 ' + full,
