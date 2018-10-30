@@ -7,6 +7,7 @@ var moment = require('moment');
 var fs = require('fs');
 var zlib = require('zlib');
 var uuid = require('node-uuid');
+var logger = require('../logger');
 
 // NOTE: Call this with XML safe inputs
 var retError = function(req, res, status, scope, message, description) {
@@ -43,7 +44,7 @@ var fileOrList = function(path, req, res) {
 			}
 			stream.pipe(res);
 			return;
-		};	
+		};
 
 		if (stats && stats.isFile()) {
 			stream = fs.createReadStream(path, { bufferSize: 64 * 1024 });
@@ -84,6 +85,7 @@ router.use(function (req, res, next) {
 
 	var auth = req.headers.authorization;
 	if (!auth) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "No auth header"});
 		retError(res, res, 401, 'AUTH', 'Must supply an Authorization header', '');
 		// debug: { original_auth: auth, },
 		return;
@@ -91,6 +93,7 @@ router.use(function (req, res, next) {
 
 	var timestamp = req.headers.timestamp;
 	if (!timestamp) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "No timestamp"});
 		retError(res, res, 401, 'AUTH', 'Must supply a timestamp header', '');
 		return;
 		/*
@@ -103,6 +106,7 @@ router.use(function (req, res, next) {
 
 	// Check format - ISO 8601
 	if (! moment(timestamp, moment.ISO_8601).isValid()) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Timestamp invalid", value: timestamp});
 		retError(res, res, 401, 'AUTH', 'Timestamp is not able to be parsed', '');
 		return;
 			/*
@@ -119,6 +123,7 @@ router.use(function (req, res, next) {
 
 	// Old / New
 	if (seconds > 300) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Timestamp too old", value: timestamp});
 		retError(res, res, 401, 'AUTH', 'Timestamp is older than 5 minutes', '');
 		return;
 			/*
@@ -133,6 +138,7 @@ router.use(function (req, res, next) {
 
 	// Old / New
 	if (seconds < -300) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Timestamp too new", value: timestamp});
 		retError(res, res, 401, 'AUTH', 'Timestamp is ahead by more than 5 minutes', '');
 		return;
 			/*
@@ -158,6 +164,7 @@ router.use(function (req, res, next) {
 
 	var auth_bits = auth.split(" ");
 	if (auth_bits.length != 2) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Missing Type or Token", value: auth});
 		retError(res, res, 401, 'AUTH', 'Must supply auth type and token', '');
 		return;
 			/*
@@ -169,6 +176,7 @@ router.use(function (req, res, next) {
 	}
 
 	if (auth_bits[0] != 'SIF_HMACSHA256') {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Header must be SIF_HMACSHA256", value: auth});
 		retError(res, res, 401, 'AUTH', 'Auth type must be SIF_HMACSHA256', '');
 		return;
 			/*
@@ -184,6 +192,7 @@ router.use(function (req, res, next) {
 	var token_bits = decode_token.split(":");
 
 	if (token_bits.length != 2) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Missing user or token", value: [auth, decoded_token]});
 		retError(res, res, 401, 'AUTH', 'Must supply auth with a user and token', '');
 		return;
 			/*
@@ -206,6 +215,7 @@ router.use(function (req, res, next) {
 	console.log(hash);
 
 	if (token_bits[1] != hash) {
+		logger.info("NAPLAN", {"area": "authentication", "success": false, message: "Token does not match", value: [auth, decoded_token]});
 		retError(res, res, 401, 'AUTH', 'Token does not match provider', '');
 		return;
 			/*
@@ -225,10 +235,12 @@ router.use(function (req, res, next) {
 		error: 'Must supply an Authorization header',
 	});
 	*/
+	logger.info("NAPLAN", {"area": "authentication", "success": true, message: "User Logged In", value: user});
 	next();
 });
 
 router.get('/', function (req, res) {
+	logger.info("NAPLAN", {"area": "get root", "success": true, message: "", value: null});
 	return res.json({
 		success: 1,
 		message: 'Success - you have logged in. See documentation for how to get data',
@@ -236,14 +248,14 @@ router.get('/', function (req, res) {
 });
 
 router.get('/:tag', function (req, res) {
+	logger.info("NAPLAN", {"area": "get tag", "success": true, message: "", value: req.params.tag});
 	return fileOrList(config.xsp[req.params.tag].path, req, res);
 });
 
 // Return list of directories files & from config
 router.get('/:tag/*', function (req, res) {
+	logger.info("NAPLAN", {"area": "get directory", "success": true, message: "", value: req.params.tag});
 	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
 });
-
-
 
 module.exports = router;
