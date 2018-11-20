@@ -81,7 +81,7 @@ block main
                                         ul
                                             li create a timestamp in ISO-8601 format eg. 2017-02-27T09:48:42.942Z
                                             li take the string ApplicationKey:timestamp and hash it using HMACSHA256 with the Password as the key, then base64 encode this hash. ApplicationKey and Password are from the Information page; timestamp is taken from the previous step.
-                                            li Base64 encode the string ApplicationKey:Base64EncodedHash, where Application Key is from the Information page, and Base64EncodedHash is taken from the previous step.
+                                            li Base64 encode the string Sessiontoken:Base64EncodedHash, where SessionToken is from the Information page, and Base64EncodedHash is taken from the previous step.
                                             li Prefix the result of the previous step with “SIF\_HMACSHA256 ”.
                                         h4 Step 3
                                         p Post the environment body payload, authenticated with the authorisation token, to the URL named in *Create Environment URL* from the Information page.
