@@ -1,9 +1,17 @@
 ### Changelog
 All notable changes to this project will be documented in this file.
 
+#### [v2.7.5](https://github.com/nsip/hits-dashboard/compare/v2.7.0...v2.7.5)
+> 08 January 2019
+- Updated copyright year
+- Fixed links to HTTP sites from HTTPS version
+- XSLT update
+
 #### [v2.7.0](https://github.com/nsip/hits-dashboard/compare/v2.6.0...v2.7.0)
 > 01 November 2018
-- TODO
+- Added initial FQ release
+- FQ Usecase
+- SIF and DB changes for FQ
 
 #### [v2.6.0](https://github.com/nsip/hits-dashboard/compare/v2.5.1...v2.6.0)
 > 26 September 2018
