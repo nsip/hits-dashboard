@@ -5,7 +5,7 @@
 	  {
 		  "source": "nsip",
 		  "package": "hits-dashboard",
-		  "version": "2.7.0",
+		  "version": "2.7.5",
 		  "visible": true
 	  },
 	  {
@@ -35,7 +35,7 @@
 	  {
 		  "source": "nsip",
 		  "package": "usecases",
-		  "version": "1.2.0",
+		  "version": "1.2.1",
 		  "visible": true
 	  },
     {
