@@ -29,6 +29,21 @@ router.get('/version', function(req, res, next) {
 
 });
 
+// Get ALL notifications greater than a specific number.
+router.get('/notifications', function(req, res, next) {
+    var last_id = req.query.id;
+    var ret = [];
+    config.notifications.forEach(function(row) {
+      if (row.id > last_id) {
+        ret.push(row);
+      }
+    });
+    return res.json({
+      success: true,
+      notifications: ret,
+    });
+});
+
 // TODO refactor to async module ? (concurrent parsing)
 router.get('/changelog', function(req, res, next) {
 

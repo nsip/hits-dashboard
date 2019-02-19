@@ -172,4 +172,13 @@ module.exports = {
     },
   },
 
+  // NOTE: Any new notificatino must have a LARGER id than the last one here
+  notifications: [
+    {
+      id: 1,
+      title: "This is first trial notificaiton",
+      body: "Stuff about it",
+    },
+  ],
+
 };
