@@ -138,6 +138,14 @@ module.exports = {
       title: "Naplan Results SchoolDataa",
       path: path.resolve(__dirname + "/../../data/SchoolList"),
     },
+    LargeSchoolList: {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeSchoolList",
+    },
+    LargeSchoolData: {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeSchoolData",
+    },
   },
 
   // Example NAPLAN Passwords - NEVER to be used in production
