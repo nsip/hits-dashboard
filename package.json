@@ -18,6 +18,7 @@
     "express": "^4.16.4",
     "express-mailer": "^0.3.1",
     "express-session": "^1.15.6",
+    "find-deep": "0.0.1",
     "jade": "~1.11.0",
     "mailgun-js": "^0.22.0",
     "moment": "^2.22.2",
@@ -30,6 +31,7 @@
     "requestify": "^0.2.5",
     "serve-favicon": "^2.5.0",
     "serve-index": "^1.9.1",
-    "winston": "^2.4.4"
+    "winston": "^2.4.4",
+    "xml2js": "^0.4.19"
   }
 }
