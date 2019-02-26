@@ -47,7 +47,7 @@ request.get(
           async.eachLimit(
             schoolinfo,
             // NOTE: Concurrency - How many to perform at once
-            100,
+            1,
             function(school, next) {
               count++;
               var RefId = school['$'].RefId;
