@@ -248,17 +248,17 @@ router.get('/', function (req, res) {
 	});
 });
 
-router.get('/:tag', function (req, res) {
-	console.log("NAPLAN", {"area": "get tag", "success": true, message: "", value: req.params.tag});
+router.get('/:area/:tag', function (req, res) {
+	console.log("AREA NAPLAN", {"area": "get tag", "success": true, message: "", value: req.params.tag});
 	logger.info("NAPLAN", {"area": "get tag", "success": true, message: "", value: req.params.tag});
-	return fileOrList(config.xsp[req.params.tag].path, req, res);
+	return fileOrList(config.xsp[req.params.area + '/' + req.params.tag].path, req, res);
 });
 
 // Return list of directories files & from config
-router.get('/:tag/*', function (req, res) {
-	console.log("NAPLAN", {"area": "get directory", "success": true, message: "", value: req.params.tag});
+router.get('/:area/:tag/*', function (req, res) {
+	console.log("AREA NAPLAN", {"area": "get directory", "success": true, message: "", value: req.params.tag});
 	logger.info("NAPLAN", {"area": "get directory", "success": true, message: "", value: req.params.tag});
-	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
+	return fileOrList(config.xsp[req.params.area + '/' + req.params.tag].path + "/" + req.params[0], req, res);
 });
 
 module.exports = router;

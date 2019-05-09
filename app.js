@@ -55,6 +55,7 @@ mailer.extend(app, {
 
 // Routes all at /api
 app.use('/api/naplanresults', require('./routes/naplanresults'));
+app.use('/api/naplantest', require('./routes/naplantest'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/update', require('./routes/update'));
 app.use('/api/account', require('./routes/account'));

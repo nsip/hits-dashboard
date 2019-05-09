@@ -138,13 +138,29 @@ module.exports = {
       title: "Naplan Results SchoolDataa",
       path: path.resolve(__dirname + "/../../data/SchoolList"),
     },
-    LargeSchoolList: {
+    "large/testdata": {
       title: "Naplan Results SchoolDataa",
-      path: "/data/LargeSchoolList",
+      path: "/data/LargeTestData",
     },
-    LargeSchoolData: {
+    "large/schoollist": {
       title: "Naplan Results SchoolDataa",
-      path: "/data/LargeSchoolData",
+      path: "/data/LargeSchoolList_2019-05-08",
+    },
+    "large/schooldata": {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeSchoolData_2019-05-08",
+    },
+    "large/TestData": {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeTestData",
+    },
+    "large/SchoolList": {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeSchoolList_2019-05-08",
+    },
+    "large/SchoolData": {
+      title: "Naplan Results SchoolDataa",
+      path: "/data/LargeSchoolData_2019-05-08",
     },
   },
 
