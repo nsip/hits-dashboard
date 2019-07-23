@@ -21,7 +21,7 @@ module.exports = {
     "raf": { "password": "NoneShallNSIP", "email": "rafidzal.rafiq@systemic.com.au" },
     "joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
     "georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
-    "fran": { "password": "NoneShallNSIP", "email": "nashiralyana@gmail.com" },
+    "amanda": { "password": "NoneShallNSIP", "email": "amanda@dd.com.au" },
     "lyn": { "password": "NoneShallNSIP", "email": "Lynette.Pecchiar@nsip.edu.au"},
   },
 
