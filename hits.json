@@ -1,11 +1,11 @@
 {
   "name": "HITS",
-  "version": "2.7.5",
+  "version": "2.8.0",
   "dependencies": [
 	  {
 		  "source": "nsip",
 		  "package": "hits-dashboard",
-		  "version": "2.7.5",
+		  "version": "2.8.0",
 		  "visible": true
 	  },
 	  {
