@@ -1,5 +1,12 @@
 Dashboard API Code
 
+= Autoamtic Running =
+
+* sudo npm install forever -g
+* sudo npm install forever-service -g
+* cd ~/hits-dashboard
+* sudo forever-service install hits-dashboard -s bin/www -r ubuntu
+* sudo service hits-dashboard start
 
 = Database =
 
