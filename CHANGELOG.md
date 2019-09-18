@@ -1,6 +1,14 @@
 ### Changelog
 All notable changes to this project will be documented in this file.
 
+#### [v2.9.0](https://github.com/nsip/hits-dashboard/compare/v2.8.0...v2.9.0)
+> 08 January 2019
+- 
+
+#### [v2.8.0](https://github.com/nsip/hits-dashboard/compare/v2.7.5...v2.8.0)
+> 08 January 2019
+-
+
 #### [v2.7.5](https://github.com/nsip/hits-dashboard/compare/v2.7.0...v2.7.5)
 > 08 January 2019
 - Updated copyright year
