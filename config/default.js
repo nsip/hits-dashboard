@@ -23,6 +23,7 @@ module.exports = {
     "georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
     "amanda": { "password": "NoneShallNSIP", "email": "amanda@dd.com.au" },
     "lyn": { "password": "NoneShallNSIP", "email": "Lynette.Pecchiar@nsip.edu.au"},
+    "david": { "password": "NoneShallNSIP", "email": "david.fernee@nsip.edu.au"},
   },
 
   /*
