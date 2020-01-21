@@ -33,6 +33,7 @@ var retError = function(req, res, status, scope, message, description) {
 var fileOrList = function(path, req, res) {
 	fs.stat(path, function(err, stats) {
 		console.log("Located name", path);
+		logger.info("NAPLAN PATH = " + path);
 
 		var stream;
 		var processFile = function() {
