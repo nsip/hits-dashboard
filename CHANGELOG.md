@@ -8,7 +8,8 @@ All notable changes to this project will be documented in this file.
     * Improved Privacy and other basic information boxes in the static html
     * Privacy added to Warning popup
     * Improved naplan test code logging
-    * Naplan upper and lower case
+    * Naplan URLs upper and lower case
+    * Naplan improved error handling for 404
     * Reorganised admin users
     * Automatic run script
     * Changed SSH security
