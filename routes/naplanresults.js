@@ -250,13 +250,26 @@ router.get('/', function (req, res) {
 
 router.get('/:tag', function (req, res) {
 	logger.info("NAPLAN", {"area": "get tag", "success": true, message: "", value: req.params.tag});
-	return fileOrList(config.xsp[req.params.tag].path, req, res);
+    if (config.xsp[req.params.tag]) 
+        return fileOrList(config.xsp[req.params.tag].path, req, res);
+    else
+        return res.status(404).json({
+            success: false, title: "URL not found",
+            message: "Try one of: " + Object.keys(config.xsp).join(", "),
+        });
 });
 
 // Return list of directories files & from config
 router.get('/:tag/*', function (req, res) {
 	logger.info("NAPLAN", {"area": "get directory", "success": true, message: "", value: req.params.tag});
-	return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
+    if (config.xsp[req.params.tag]) 
+        return fileOrList(config.xsp[req.params.tag].path + "/" + req.params[0], req, res);
+    else
+        return res.status(404).json({
+            success: false, title: "URL not found",
+            message: "Try one of: " + Object.keys(config.xsp).join(", "),
+        });
+
 });
 
 module.exports = router;
