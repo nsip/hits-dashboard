@@ -2,8 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 #### [v2.9.0](https://github.com/nsip/hits-dashboard/compare/v2.8.0...v2.9.0)
-> 08 January 2019
-- 
+> 28 January 2020
+    * Release SIF 3.4.5
+    * Upgraded node libraries for security
+    * Improved Privacy and other basic information boxes in the static html
+    * Privacy added to Warning popup
+    * Improved naplan test code logging
+    * Naplan upper and lower case
+    * Reorganised admin users
+    * Automatic run script
+    * Changed SSH security
 
 #### [v2.8.0](https://github.com/nsip/hits-dashboard/compare/v2.7.5...v2.8.0)
 > 08 January 2019
@@ -55,4 +63,5 @@ Dependencies:
 > 14 March 2018
 
 #### v2.0.2
-> 20 February 2018
+
+
