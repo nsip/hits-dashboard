@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 #### [v2.10.0](https://github.com/nsip/hits-dashboard/compare/v2.9.0...v2.10.0)
 > 27 May 2020
-    * Release SIF 3.4.6
+    * Updated to support Release SIF 3.4.6
     * Fixed Enrolment report
 
 #### [v2.9.0](https://github.com/nsip/hits-dashboard/compare/v2.8.0...v2.9.0)
