@@ -6,7 +6,8 @@
   right: -120px;
   margin-top: -33px;
   z-index: 1000;
-  transition: right .2s;
+  -webkit-transition: right .2s;
+          transition: right .2s;
 }
 .framed .demo {
   right: -130px;
