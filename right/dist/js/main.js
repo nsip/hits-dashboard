@@ -203,12 +203,11 @@ $(document).ready(function() {
         // $('.nsip_project_select').selectpicker('refresh');
       }
       else {
-        // XXX Improved presentation
-        alert("Failed contact - " + data.error);
+        alert("Failed contact - " + data.message);
+        console.log("Failed email contact error = " + data.error);
       }
     })
     .fail(function() {
-      // XXX Improved presentation
       alert("Failed contact. Try reloading.");
     });
 

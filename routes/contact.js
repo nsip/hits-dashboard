@@ -88,20 +88,25 @@ router.post('/', function(req, res) {
         if (err) {
           console.log("EMAIL: error: ", err);
           // res.statu(400).json({success: false, message: "Error - " + err});
+          return res.json({
+            success: 0,
+            message: "Unable to send email",
+            error: err + "",
+            id: id,
+          });
         }
         //Else we can greet    and leave
         else {
           console.log("EMAIL: Success: ", body);
           // res.json({success: true, body: body});
-        }
-      });
-
-      return res.json({
-        success: 1,
-        id: id
-      });
-    }
-  );
+          return res.json({
+            success: 1,
+            message: "Email sent",
+            id: id,
+          });
+        };
+    });
+  });
 });
 
 router.get('/projectlist', function(req, res) {

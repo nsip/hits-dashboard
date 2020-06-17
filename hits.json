@@ -1,6 +1,7 @@
 {
   "name": "HITS",
   "version": "2.10.1",
+  "sifau_version": "3.4.6",
   "dependencies": [
 	  {
 		  "source": "nsip",
