@@ -6,6 +6,7 @@ var uuid = require('node-uuid');
 var config = require('config');
 var Mailgun = require('mailgun-js');
 var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
+var async = require('async');
 
 // GET data - maybe move to ADMIN !
 /*
@@ -77,35 +78,49 @@ router.post('/', function(req, res) {
       if (err)
         return res.error(err);
 
-      var maildata = {
-        from: 'info@nsip.edu.au',
-        to: 'accessrequest@nsip.edu.au', // 'info@nsip.edu.au',
-        subject: "NSIP Hits Dashboard - contact notification",
-        text: emailText,
-      };
-      mailgun.messages().send(maildata, function(err, body) {
-        //If there is an error, render the error page
-        if (err) {
-          console.log("EMAIL: error: ", err);
-          // res.statu(400).json({success: false, message: "Error - " + err});
-          return res.json({
-            success: 0,
-            message: "Unable to send email",
-            error: err + "",
-            id: id,
+      async.mapSeries(
+        ["info@nsip.edu.au", "scott.penrose@nsip.edu.au", "peter.haydon@nsip.edu.au"],
+        function(to, step) {
+          var maildata = {
+            from: 'info@nsip.edu.au',
+            to: to, // 'accessrequest@nsip.edu.au', // 'info@nsip.edu.au',
+            subject: "NSIP Hits Dashboard - contact notification",
+            text: emailText,
+          };
+          mailgun.messages().send(maildata, function(err, body) {
+            if (err) {
+              console.log("EMAIL: to=" + to + ", error: ", err);
+              step(err);
+            }
+            else {
+              console.log("EMAIL: to=" + to + ", Success: ", body);
+                step();
+            }
           });
-        }
-        //Else we can greet    and leave
-        else {
-          console.log("EMAIL: Success: ", body);
-          // res.json({success: true, body: body});
-          return res.json({
-            success: 1,
-            message: "Email sent",
-            id: id,
-          });
-        };
-    });
+      },
+      function(err) {
+            //If there is an error, render the error page
+            if (err) {
+              // res.statu(400).json({success: false, message: "Error - " + err});
+              return res.json({
+                success: 0,
+                message: "Unable to send email",
+                error: err + "",
+                id: id,
+              });
+            }
+            //Else we can greet    and leave
+            else {
+              // res.json({success: true, body: body});
+              return res.json({
+                success: 1,
+                message: "Email sent",
+                id: id,
+              });
+            }
+      }
+    );
+
   });
 });
 
