@@ -1,12 +1,12 @@
 {
   "name": "HITS",
-  "version": "2.10.3",
+  "version": "2.1l.1",
   "sifau_version": "3.4.6",
   "dependencies": [
 	  {
 		  "source": "nsip",
 		  "package": "hits-dashboard",
-		  "version": "2.10.3",
+		  "version": "2.11.1",
 		  "visible": true
 	  },
 	  {
@@ -24,7 +24,7 @@
 	  {
 		  "source": "nsip",
 		  "package": "sif-data",
-		  "version": "1.3.0",
+		  "version": "2.11.1",
 		  "visible": true
 	  },
 	  {
