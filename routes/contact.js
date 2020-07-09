@@ -79,7 +79,7 @@ router.post('/', function(req, res) {
         return res.error(err);
 
       async.mapSeries(
-        ["info@nsip.edu.au", "scott.penrose@nsip.edu.au", "peter.haydon@nsip.edu.au"],
+        ["accessrequest@nsip.edu.au", "scott.penrose@nsip.edu.au", "peter.haydon@nsip.edu.au"],
         function(to, step) {
           var maildata = {
             from: 'info@nsip.edu.au',
