@@ -347,8 +347,8 @@
     <script src="/client/Simple/js/providers/student-personal.js"></script>
     <script src="/client/Simple/js/providers/student-school-enrollment.js"></script>
     <script src="/client/Simple/js/providers/student-score-judgement-against-standard.js"></script>
-    <script src="/client/Simple/js/providers/terminfo.js"></script>
     <script src="/client/Simple/js/providers/teaching-group.js"></script>
+    <script src="/client/Simple/js/providers/terminfo.js"></script>
     <script src="/client/Simple/js/providers/time-table-cell.js"></script>
     <script src="/client/Simple/js/providers/time-table-subject.js"></script>
     <script src="/client/Simple/js/providers/time-table.js"></script>
@@ -427,13 +427,15 @@
     <script src="js/main.js"></script>
     <script src="js/info.js"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
+      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', 'UA-172508830-2', 'auto');
       ga('send', 'pageview');
+      
     </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
 </html>
