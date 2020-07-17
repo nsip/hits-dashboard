@@ -13,17 +13,14 @@ module.exports = {
   },
 
 "auth": {
-    "scott": { "password": "NoneShallNSIP", "email": "scottp@dd.com.au" },
-    "peter": { "password": "NoneShallNSIP", "email": "peter.haydon@nsip.edu.au" },
-    "matt": { "password": "NoneShallNSIP", "email": "matt.farmer@nsip.edu.au" },
-    "nick": { "password": "NoneShallNSIP", "email": "nick.nicholas@nsip.edu.au" },
-    "linda": { "password": "NoneShallNSIP", "email": "linda.marshall@nsip.edu.au" },
-    "raf": { "password": "NoneShallNSIP", "email": "rafidzal.rafiq@systemic.com.au" },
-    "joerg": { "password": "NoneShallNSIP", "email": "joerg.huber@gmail.com" },
-    "georgina": { "password": "NoneShallNSIP", "email": "Georgina.Johnston@nsip.edu.au" },
-    "amanda": { "password": "NoneShallNSIP", "email": "amanda@dd.com.au" },
-    "lyn": { "password": "NoneShallNSIP", "email": "Lynette.Pecchiar@nsip.edu.au"},
-    "david": { "password": "NoneShallNSIP", "email": "david.fernee@nsip.edu.au"},
+    "scott": { "password": "chasm retake monster", "email": "scottp@dd.com.au" },
+    "peter": { "password": "recurse hutch castoff", "email": "peter.haydon@nsip.edu.au" },
+    "matt": { "password": "neutrino invert peroxide", "email": "matt.farmer@nsip.edu.au" },
+    "nick": { "password": "buzz chile sheepish", "email": "nick.nicholas@nsip.edu.au" },
+    "linda": { "password": "may virgo showmen", "email": "linda.marshall@nsip.edu.au" },
+    "raf": { "password": "chastity native repeal", "email": "rafidzal.rafiq@systemic.com.au" },
+    "joerg": { "password": "saw nair icicle", "email": "joerg.huber@gmail.com" },
+    "georgina": { "password": "destiny samoan magnate", "email": "Georgina.Johnston@nsip.edu.au" },
   },
 
   /*
