@@ -1,6 +1,16 @@
 ### Changelog
 All notable changes to this project will be documented in this file.
 
+#### [v2.11.2](https://github.com/nsip/hits-dashboard/compare/v2.10.0...v2.11.2)
+> 22 July 2020
+    * New usecase "Teacher Judgement"
+    * SIF Endpoints added: StudentScoreJudgementAgainstStandard and TermInfo
+    * HTTPS: Prepare for SSL only (not enabled for 2.11 to allow communications)
+    * SIF AU Version 3.4.6
+    * Update year in copyright
+    * Privacy popup for SIF version changes now automatic
+    * Update contact mailout to support multiple accounts and report errors to end users
+
 #### [v2.10.0](https://github.com/nsip/hits-dashboard/compare/v2.9.0...v2.10.0)
 > 27 May 2020
     * Updated to support Release SIF 3.4.6
@@ -71,5 +81,3 @@ Dependencies:
 > 14 March 2018
 
 #### v2.0.2
-
-
