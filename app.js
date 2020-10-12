@@ -32,9 +32,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'right/dist')));
-app.use("/usecases", express.static(path.join(__dirname, '../usecases/raw')));
 
-// TODO Separate entry, location, files etc
+// XXX Docker - Move these to a static proxy site
+app.use("/usecases", express.static(path.join(__dirname, '../usecases/raw')));
 app.use("/usecasedev", express.static("../usecases/raw"));
 app.use('/usecasedev', serveIndex("../usecases/raw", {'icons': true}));
 

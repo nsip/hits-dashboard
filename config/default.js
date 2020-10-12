@@ -5,13 +5,18 @@ var path = require('path');
 module.exports = {
   baseurl: "http://hitstest.dev.nsip.edu.au",
     // baseurl: "https://hits.nsip.edu.au",
+
+    // XXX This is in package.json and hits.json?
   "version": "2.0.2",  // See CHANGELOG.md
+
+  // XXX Isn't this hits.json
     project_versions: {
       sif_data: 1,
       // Deprecated - see package.json hits_dashboard: "2.0.2",
       sif_server: 1
   },
 
+  // XXX Add a single dummy login and move these out of there
 "auth": {
     "scott": { "password": "chasm retake monster", "email": "scottp@dd.com.au" },
     "peter": { "password": "recurse hutch castoff", "email": "peter.haydon@nsip.edu.au" },
@@ -39,7 +44,7 @@ module.exports = {
   },
   */
 
-  // Test DB
+  // XXX Docker - move this to a local host (backend only), no auth
   "database": {
     driver: 'mysql',
     host: 'testdb.dev.nsip.edu.au',
@@ -47,7 +52,8 @@ module.exports = {
     user: 'hitstest',
     password: 'foxcrowbaker'
   },
-  // Test Create
+
+  // XXX Docker - How to know what real base URL is?
   "create": {
     base: "http://hitstest.dev.nsip.edu.au/dbcreate",
   },
