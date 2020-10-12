@@ -18,14 +18,8 @@ module.exports = {
 
   // XXX Add a single dummy login and move these out of there
 "auth": {
-    "scott": { "password": "chasm retake monster", "email": "scottp@dd.com.au" },
-    "peter": { "password": "recurse hutch castoff", "email": "peter.haydon@nsip.edu.au" },
-    "matt": { "password": "neutrino invert peroxide", "email": "matt.farmer@nsip.edu.au" },
-    "nick": { "password": "buzz chile sheepish", "email": "nick.nicholas@nsip.edu.au" },
-    "linda": { "password": "may virgo showmen", "email": "linda.marshall@nsip.edu.au" },
-    "raf": { "password": "chastity native repeal", "email": "rafidzal.rafiq@systemic.com.au" },
-    "joerg": { "password": "saw nair icicle", "email": "joerg.huber@gmail.com" },
-    "georgina": { "password": "destiny samoan magnate", "email": "Georgina.Johnston@nsip.edu.au" },
+    "scott": { "password": "testpw", "email": "scottp@dd.com.au" },
+    "peter": { "password": "testpw", "email": "peter.haydon@nsip.edu.au" },
   },
 
   /*
