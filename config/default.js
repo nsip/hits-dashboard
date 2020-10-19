@@ -53,10 +53,10 @@ module.exports = {
     base: "http://sif-data.local/dbcreate",
   },
 
-  // XXX Docker - base for usecases
+  // Docker - base for usecases
   usecases: {
-    // base: "http://usecases.local:3000/",
-    base: "http://localhost:3001/",
+    base: "http://usecases.local:3000/",
+    // (local testing) base: "http://localhost:3001/",
   },
 
   // XXX Docker - SSL?
