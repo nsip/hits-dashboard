@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var serveIndex = require('serve-index');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+var config = require('config');
 
 
 // XXX Add Winston logging including express winston
