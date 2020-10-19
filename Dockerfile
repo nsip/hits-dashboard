@@ -1,4 +1,4 @@
-# docker build -t nsip/hist-dashboard:latest -t nsip/hits-dashboard:v0.1.0 .
+# docker build -t nsip/hits-dashboard:latest -t nsip/hits-dashboard:v0.1.0 .
 # docker push nsip/hits-dashboard:v0.1.0
 # docker push nsip/hits-dashboard:latest
 FROM node
