@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var serveIndex = require('serve-index');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 
 // XXX Add Winston logging including express winston
 // XXX Add basic login function
@@ -67,6 +69,10 @@ app.use('/api/audit', require('./routes/audit'));
 app.use('/api/report', require('./routes/report'));
 app.use('/api/about', require('./routes/about'));
 app.use('/api/xsp', require('./routes/xsp'));
+
+// Proxy to other services...
+app.use('/usecases', createProxyMiddleware({ target: 'http://www.example.org', changeOrigin: true }));
+
 
 // NODEAdmin - Access to MySQL - needs security
 // var nodeadmin = require('nodeadmin');

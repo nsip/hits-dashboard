@@ -48,14 +48,15 @@ module.exports = {
   },
 
   // XXX Docker - How to know what real base URL is?
-  "create": {
+  create: {
     // base: "http://hitstest.dev.nsip.edu.au/dbcreate",
-    base: "http://sif-data.local/dbcreate"
+    base: "http://sif-data.local/dbcreate",
   },
 
   // XXX Docker - base for usecases
-  //    - /route/proxy/usecase
-  //    - OR should we go direct to NGINX
+  usecases: {
+    base: "http://usecases.local:3000/",
+  },
 
   // XXX Docker - SSL?
 
