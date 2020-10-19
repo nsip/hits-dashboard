@@ -41,16 +41,23 @@ module.exports = {
   // XXX Docker - move this to a local host (backend only), no auth
   "database": {
     driver: 'mysql',
-    host: 'testdb.dev.nsip.edu.au',
+    host: 'db',
     database: 'hits',
-    user: 'hitstest',
-    password: 'foxcrowbaker'
+    user: 'hits',
+    password: 'hits4nias'
   },
 
   // XXX Docker - How to know what real base URL is?
   "create": {
-    base: "http://hitstest.dev.nsip.edu.au/dbcreate",
+    // base: "http://hitstest.dev.nsip.edu.au/dbcreate",
+    base: "http://sif-data.local/dbcreate"
   },
+
+  // XXX Docker - base for usecases
+  //    - /route/proxy/usecase
+  //    - OR should we go direct to NGINX
+
+  // XXX Docker - SSL?
 
   mailgun: {
     apiKey: 'key-df32edce350d1ce87c630dfe40f39d2f',

@@ -14,4 +14,4 @@ Docker(ize)
   - Things will change other than just versions
   - e.g. way logging is done, restart: always
   - Mahybe this is an example of two docker-compose?
-* 
+*
