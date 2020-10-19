@@ -71,7 +71,7 @@ app.use('/api/about', require('./routes/about'));
 app.use('/api/xsp', require('./routes/xsp'));
 
 // Proxy to other services...
-app.use('/usecases', createProxyMiddleware({ target: 'http://www.example.org', changeOrigin: true }));
+app.use('/usecases', createProxyMiddleware({ target: config.usecases.base, changeOrigin: true }));
 
 
 // NODEAdmin - Access to MySQL - needs security
