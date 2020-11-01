@@ -1,4 +1,4 @@
-// var uuid = require('node-uuid');
+// var uuid = require('uuid');
 var db = require('../database');
 var async = require('async');
 var fs = require('fs')

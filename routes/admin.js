@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 var config = require('config');
 var Mailgun = require('mailgun-js');
 var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
@@ -122,38 +122,38 @@ router.get('/contact', function(req, res) {
 		function(err, rows, fields) {
 			if (err)
 				return res.error(err);
-			
+
 			res.contacts = rows;
 			var connection2 = db.connect();
-			
+
 			connection2.query(
-		        "SELECT * FROM account WHERE deleted_at IS NULL", 
+		        "SELECT * FROM account WHERE deleted_at IS NULL",
 		        function(err2, rows2, fields2) {
 		            if (err2)
 		                return res.error(err2);
-		            
+
 		            var newRows = [];
-		            
+
 		            for(var i=0; i<res.contacts.length; i++){
-		                
+
 		                var contact = res.contacts[i];
 		                var data = contact.data;
-		                
+
 		                for(var j=0; j<rows2.length; j++){
-		                    
+
 		                    // see if there is an account for this email if there is
 		                    // then set the account_id
 		                    var email = rows2[j].email;
-		                    
+
 		                    if(data.indexOf(email) != -1) {
 		                        contact.account_id = rows2[j].id;
 		                        break;
 		                    }
 		                }
-		                
+
 		                newRows.push(contact);
 		            }
-		            
+
 		            return res.json({
                         success: 1,
                         data: newRows
@@ -171,20 +171,20 @@ router.get('/contact/:id', function(req, res) {
         function(err, rows, fields) {
             if (err)
                 return res.error(err);
-            
+
                 var contactRow = rows[0];
                 var raw = JSON.parse(contactRow.data);
-            
+
                 var secondConnection = db.connect();
                 secondConnection.query(
                     "SELECT * FROM account WHERE email='" + raw['email'] + "' AND deleted_at IS NULL",
                     function(err2, rows2, fields2) {
                         if (err2)
                             return res.error(err2);
-                        
+
                             var accountRow;
                             if(rows2.length > 0) accountRow = rows2[0]
-                        
+
                             return res.json({
                                 success: 1,
                                 contact: contactRow,
@@ -268,7 +268,7 @@ router.delete('/:id', function(req, res) {
 
 router.put('/:id/deactivate', function(req, res) {
     // Update record
-    
+
     console.log("Entering deactivate");
 
     var sql;
@@ -277,7 +277,7 @@ router.put('/:id/deactivate', function(req, res) {
     } else {
         sql = 'UPDATE account SET deactivated_at = null WHERE id = ?'
     }
-    
+
     var connection = db.connect();
     connection.query(
         sql,
@@ -300,7 +300,7 @@ router.put('/:id/deactivate', function(req, res) {
 // PUT - update existing entry
 router.put('/:id', function(req, res) {
 	// Update record
-    
+
     console.log("Entering update");
 
     var connection = db.connect();
@@ -315,7 +315,7 @@ router.put('/:id', function(req, res) {
             return res.json({
                 success: 1,
                 title: "Record Updated",
-                id: req.params.id, 
+                id: req.params.id,
                 name: req.body.name,
                 email: req.body.email
             });

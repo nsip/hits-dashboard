@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 var config = require('config');
 var Mailgun = require('mailgun-js');
 var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
@@ -49,17 +49,17 @@ router.post('/', function(req, res) {
   } else if(req.body.checkbox_school_authority && req.body.checkbox_school_authority == 'on'){
       representation = "School Authority";
   }
-  
+
   var familiarSif = "No";
   if(req.body.checkbox_sif && req.body.checkbox_sif == 'on'){
       familiarSif = "Yes";
   }
-  
+
   var nsipProject = "None";
   if(req.body.nsip_project && req.body.nsip_project.trim() != ''){
       nsipProject = req.body.nsip_project;
   }
-  
+
   var emailText = "Contact notification from: " + req.body.email
       + "\nName: " + req.body.name
       + "\nOrganisation: " + req.body.organisation
@@ -68,8 +68,8 @@ router.post('/', function(req, res) {
       + "\nI represent (vendor/school authority): " + representation
       + "\nI am familar with SIF: " + familiarSif
       + "\nI am involved in NSIP project: " + nsipProject;
-  
-  
+
+
   var connection = db.connect();
   connection.query(
     "INSERT INTO contact (id, status, created_at, data) VALUES (?,'waiting', NOW(),?)",

@@ -43,19 +43,6 @@ app.use('/usecasedev', serveIndex("../usecases/raw", {'icons': true}));
 
 app.use(require('./utils'));
 
-var mailer = require('express-mailer');
-mailer.extend(app, {
-  from: 'nsiphits@gmail.com',
-  host: 'smtp.gmail.com', // hostname
-  secureConnection: true, // use SSL
-  port: 465, // port for secure SMTP
-  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-  auth: {
-    user: 'nsiphits@gmail.com',
-    pass: 'NoneShallNSIP',
-  }
-});
-
 // Routes all at /api
 app.use('/api/naplanresults', require('./routes/naplanresults'));
 app.use('/api/admin', require('./routes/admin'));

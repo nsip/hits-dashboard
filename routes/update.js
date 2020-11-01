@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 var logger = require('../logger');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 var exec = require('child_process').exec;
 
 // AUTHENTICATION - All routes here require authentication as admin
