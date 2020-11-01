@@ -1,12 +1,21 @@
 /* NSIP hits dashboard
  */
 
-var winston = require('winston');
 var config = require('config');
 var fs = require('fs');
 
 if (!fs.existsSync(config.log.output)) fs.mkdirSync(config.log.output);
 
+const winston = require('winston');
+const logger = winston.createLogger({
+    transports: [
+        new winston.transports.Console()
+    ]
+});
+
+module.exports = logger;
+
+/*
 module.exports = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)({ 
@@ -33,3 +42,4 @@ module.exports = new (winston.Logger)({
 	exitOnError: config.log.exitOnError
 });
 
+*/
