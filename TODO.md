@@ -1,3 +1,11 @@
+Final stages of hand over to Peter:
+* Database - Probably abort moving it and use existing
+* sif-data - Just check it still works
+* That should then be complete.
+* HITS-Report
+* HITS-Client
+* Nginx config & short and long term URL
+
 Notes and stuff TODO
 
 * Copy front page
