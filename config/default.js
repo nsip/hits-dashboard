@@ -55,7 +55,7 @@ module.exports = {
 
   // Docker - base for usecases
   usecases: {
-    base: "http://usecases.local:3000/",
+    base: "http://usecases:3000/",
     // (local testing) base: "http://localhost:3001/",
   },
 

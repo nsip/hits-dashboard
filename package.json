@@ -22,12 +22,12 @@
     "moment": "",
     "morgan": "",
     "mysql": "",
-    "uuid": "",
     "pkginfo": "",
     "request": "",
     "requestify": "",
     "serve-favicon": "",
     "serve-index": "",
+    "uuid": "",
     "winston": ""
   }
 }
