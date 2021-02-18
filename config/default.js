@@ -19,7 +19,6 @@ module.exports = {
   // XXX Add a single dummy login and move these out of there
 "auth": {
     "scott": { "password": "testpw", "email": "scottp@dd.com.au" },
-    "peter": { "password": "testpw", "email": "peter.haydon@nsip.edu.au" },
   },
 
   /*
