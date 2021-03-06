@@ -102,3 +102,4 @@ Access single database details, including view of tables. Requires database id
 ## Older Ubuntu Work arounds
 
 * https://wellingguzman.com/notes/upgrading-nodejs-npm-on-ubuntu-14-04
+* sudo npm install -g npm
